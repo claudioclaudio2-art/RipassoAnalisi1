@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Analisi 1 · Ripasso</title>
+<meta name="description" content="Definizioni, teoremi e dimostrazioni di Analisi 1, lezione per lezione, con modalità ripasso.">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161c" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="vendor/katex.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script>try{var t=localStorage.getItem('a1-tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <button class="icon-btn only-mobile" id="btn-menu" aria-label="Apri indice">
+    <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <a class="brand" href="#">
+    <span class="brand-mark">∫</span>
+    <span class="brand-text">Analisi 1 <em>ripasso</em></span>
+  </a>
+  <div class="search">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+    <input id="q" type="search" placeholder="Cerca (es. carabinieri, sup)…" autocomplete="off">
+  </div>
+  <button class="icon-btn only-mobile" id="btn-cerca" aria-label="Cerca">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+  </button>
+  <button class="btn btn-primary" id="btn-ripasso">
+    <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><span>Inizia ripasso</span>
+  </button>
+  <button class="icon-btn" id="btn-tema" aria-label="Cambia tema">
+    <svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>
+  </button>
+  <button class="icon-btn" id="btn-impostazioni" aria-label="Backup progressi">
+    <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>
+  </button>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar" aria-label="Lezioni">
+    <div class="side-head">
+      <h2>Lezioni</h2>
+      <button class="icon-btn only-mobile" id="btn-chiudi-menu" aria-label="Chiudi indice">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <ol id="lista-lezioni"></ol>
+  </nav>
+  <div class="scrim" id="scrim"></div>
+
+  <main id="main">
+    <section class="panel" id="riepilogo"></section>
+
+    <section class="filters" aria-label="Filtri">
+      <div class="filter-row">
+        <span class="filter-label">Tipo</span>
+        <div class="chips" id="chips-tipo"></div>
+      </div>
+      <div class="filter-row">
+        <span class="filter-label">Come la so</span>
+        <div class="chips" id="chips-stato"></div>
+      </div>
+      <div class="filter-row filter-actions">
+        <button class="btn btn-ghost" id="btn-apri">Apri tutto</button>
+        <button class="btn btn-ghost" id="btn-chiudi">Chiudi tutto</button>
+        <span class="risultati" id="n-risultati"></span>
+      </div>
+    </section>
+
+    <div id="contenuto"></div>
+    <p class="vuoto" id="vuoto" hidden>Nessuna voce corrisponde ai filtri.</p>
+  </main>
+</div>
+
+<!-- Ripasso -->
+<div class="overlay" id="ripasso" hidden>
+  <div class="rip-shell">
+    <div class="rip-top">
+      <button class="btn btn-ghost" id="rip-esci">
+        <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg> Esci
+      </button>
+      <div class="rip-progress"><div class="rip-bar" id="rip-bar"></div></div>
+      <span class="rip-count" id="rip-count"></span>
+    </div>
+    <div class="rip-body" id="rip-body"></div>
+  </div>
+</div>
+
+<!-- Backup -->
+<dialog id="dlg-backup">
+  <form method="dialog" class="dlg">
+    <h3>Backup dei progressi</h3>
+    <p>I progressi sono salvati solo in questo browser. Scarica (o copia) un backup per non perderli o per passarli su un altro dispositivo. Per ripristinarlo usa "Carica backup" oppure incolla il testo copiato qui sotto.</p>
+    <textarea id="txt-import" rows="3" placeholder="Incolla qui un backup copiato…"></textarea>
+    <div class="dlg-actions" style="margin:8px 0 14px"><button type="button" class="btn" id="btn-incolla">Ripristina dal testo</button></div>
+    <div class="dlg-actions">
+      <button type="button" class="btn" id="btn-export">Scarica backup</button>
+      <button type="button" class="btn" id="btn-copia">Copia backup</button>
+      <label class="btn">Carica backup<input type="file" id="file-import" accept="application/json" hidden></label>
+      <button type="button" class="btn btn-danger" id="btn-reset">Azzera tutto</button>
+    </div>
+    <div class="dlg-foot"><button class="btn btn-ghost" value="chiudi">Chiudi</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-conferma">
+  <div class="dlg">
+    <h3 id="conf-tit"></h3>
+    <p id="conf-msg"></p>
+    <div class="dlg-actions" id="conf-azioni"></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="vendor/katex.min.js" defer></script>
+<script src="contenuti.js" defer></script>
+<script src="js/figure.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>

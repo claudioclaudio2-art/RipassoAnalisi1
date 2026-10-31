@@ -1,0 +1,15 @@
+{
+  "name": "Analisi 1 · Ripasso",
+  "short_name": "Analisi 1",
+  "description": "Definizioni, teoremi e dimostrazioni di Analisi 1 con modalità ripasso",
+  "lang": "it",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#1d1c1a",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
