@@ -20,9 +20,10 @@ Pubblicato con GitHub Pages dalla cartella `docs/`.
 ## Formato di una voce
 
 ```js
-{ t: "teo", s: "dim", titolo: R`Unicità del limite`, testo: R`...`, dim: R`...`, fig: "unicita" }
+{ t: "teo", s: "dim", titolo: R`Unicità del limite`, testo: R`...`, dim: R`...`, diff: 2, fig: "unicita" }
 ```
 
 - `t`: `def`, `teo`, `prop`, `cor`, `lemma`, `es`, `att`, `oss` (un `es` con `s: "casa"` diventa Esercizio).
 - `s`: `dim` (dimostrato a lezione), `omessa` (solo enunciato; `dim` diventa extra), `casa` (per esercizio).
+- `diff`: difficoltà della dimostrazione da 1 a 3 stelline (obbligatoria se c'è `dim`).
 - Formule tra `$...$` o `$$...$$`; liste con `- ` o `1. `; grassetto con `**...**`.

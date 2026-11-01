@@ -45,7 +45,7 @@ cioè si nega la tesi e si dimostra la negazione dell'ipotesi.
 
 Esempio di vita: "se piove prendo l'ombrello" equivale a "se non ho l'ombrello allora non piove".` },
 
-{ t: "prop", s: "dim", titolo: "Se $n$ è multiplo di 10 allora è pari (dim. diretta e per assurdo)", testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: "Se $n$ è multiplo di 10 allora è pari (dim. diretta e per assurdo)", testo: R`
 Sia $n \in \mathbb{N}$. Se $n$ è multiplo di $10$, allora $n$ è multiplo di $2$, cioè è pari.`, dim: R`
 **Diretta.** $n$ multiplo di $10$ $\Rightarrow$ $n = 10k$ per qualche $k\in\mathbb N$ $\Rightarrow$ $n = 2\cdot(5k)$ $\Rightarrow$ $n$ è multiplo di $2$, cioè pari.
 
@@ -102,7 +102,7 @@ $n \in \mathbb N$ è **primo** se è divisibile solo per $1$ e per se stesso. Pe
 
 $a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Es. $\mathrm{MCD}(3,5)=1$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Teorema di Euclide`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Teorema di Euclide`, testo: R`
 I numeri primi sono **infiniti**.`, dim: R`
 Per assurdo, siano $p_1, \dots, p_k$ tutti i primi. Considero $N = p_1 p_2 \cdots p_k + 1$. $N > 1$, quindi ha almeno un divisore primo $p$, che deve essere uno dei $p_i$. Ma allora $p$ divide sia $N$ che $p_1\cdots p_k$, quindi divide la differenza $N - p_1\cdots p_k = 1$: assurdo. $\blacksquare$` },
 
@@ -118,7 +118,7 @@ Dati $n\in\mathbb N$ e $a_1,\dots,a_n \in\mathbb R$:
 $$\sum_{i=1}^n a_i = a_1 + a_2 + \dots + a_n.$$
 Esempio: la media dei 10 voti di Barabba è $\dfrac{1}{10}\displaystyle\sum_{i=1}^{10} v_i$.` },
 
-{ t: "prop", s: "dim", titolo: R`Proprietà delle sommatorie`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Proprietà delle sommatorie`, testo: R`
 1. **Distributiva**: $\displaystyle\sum_{k=1}^n c\, a_k = c\sum_{k=1}^n a_k$.
 2. **Additiva**: $\displaystyle\sum_{k=1}^n (a_k + b_k) = \sum_{k=1}^n a_k + \sum_{k=1}^n b_k$.
 3. **Scomposizione dell'indice**: $\displaystyle\sum_{k=1}^n a_k = \sum_{k=1}^m a_k + \sum_{k=m+1}^n a_k$ per $1\le m < n$.
@@ -148,7 +148,7 @@ Intuizione: le tessere del domino. Cade la prima, e ognuna fa cadere la successi
 /* ---- 2026-10-01.js ---- */
 L({ data: "2026-10-01", n: 3, titolo: "Induzione: applicazioni, binomio di Newton", voci: [
 
-{ t: "prop", s: "dim", titolo: R`$2^n \ge n$ per ogni $n\in\mathbb N$`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`$2^n \ge n$ per ogni $n\in\mathbb N$`, testo: R`
 $$2^n \ge n \qquad \forall n \in\mathbb N.$$`, dim: R`
 Per induzione, con $P(n)$: "$2^n \ge n$".
 
@@ -158,7 +158,7 @@ Per induzione, con $P(n)$: "$2^n \ge n$".
 $$2^{n+1} = 2\cdot 2^n \ge 2n \quad\text{(per ip. induttiva)}.$$
 Basta allora verificare che $2n \ge n+1$, cioè $n \ge 1$, che è vero. Quindi $2^{n+1} \ge n+1$ e $P(n+1)$ è vera. $\blacksquare$` },
 
-{ t: "prop", s: "dim", titolo: R`Somma di Gauss: $\sum_{k=1}^n k = \frac{n(n+1)}{2}$`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Somma di Gauss: $\sum_{k=1}^n k = \frac{n(n+1)}{2}$`, testo: R`
 $$\sum_{k=1}^n k = 1 + 2 + \dots + n = \frac{n(n+1)}{2}\qquad\forall n\in\mathbb N.$$
 Idea di Gauss: sommando $1+\dots+100$ con $100+\dots+1$ si ottengono 100 coppie che valgono $101$, quindi la somma è $\frac{100\cdot 101}{2}=5050$.`, dim: R`
 Per induzione.
@@ -169,19 +169,19 @@ Per induzione.
 $$\sum_{k=1}^{n+1} k = \sum_{k=1}^n k + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2},$$
 che è $P(n+1)$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$3^n \ge n^2$ per ogni $n\in\mathbb N$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`$3^n \ge n^2$ per ogni $n\in\mathbb N$`, testo: R`
 Dimostrare per induzione che $3^n \ge n^2$ per ogni $n\in\mathbb N$.`, dim: R`
 **Base**: $n=1$: $3\ge 1$. Verifico anche $n=2$: $9 \ge 4$.
 
 **Passo** (per $n \ge 2$): se $3^n \ge n^2$ allora $3^{n+1} = 3\cdot 3^n \ge 3n^2$. Basta che $3n^2 \ge (n+1)^2 = n^2+2n+1$, cioè $2n^2 - 2n - 1 \ge 0$, vero per $n\ge 2$ ($8-4-1 = 3 \ge 0$ e il polinomio cresce per $n \ge 1$). Quindi $3^{n+1}\ge(n+1)^2$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$3^n \ge n^3$ per ogni $n\in\mathbb N$ (foglio settimana 2)`, testo: R`
+{ t: "es", s: "casa", diff: 3, titolo: R`$3^n \ge n^3$ per ogni $n\in\mathbb N$ (foglio settimana 2)`, testo: R`
 Dimostrare che $3^n \ge n^3$ per ogni $n \in\mathbb N$.`, dim: R`
 Verifico a mano $n=1,2,3$: $3\ge1$, $9\ge8$, $27\ge27$.
 
 **Passo** (per $n\ge 3$): $3^{n+1} = 3\cdot 3^n \ge 3n^3$. Basta che $3n^3 \ge (n+1)^3$, cioè $\left(1+\frac1n\right)^3 \le 3$. Per $n \ge 3$: $\left(\frac43\right)^3 = \frac{64}{27} \approx 2{,}37 \le 3$, e $\left(1+\frac1n\right)^3$ decresce in $n$. $\blacksquare$` },
 
-{ t: "prop", s: "dim", titolo: R`Cardinalità del prodotto cartesiano: $|A\times B| = |A|\cdot|B|$`, testo: R`
+{ t: "prop", s: "dim", diff: 2, titolo: R`Cardinalità del prodotto cartesiano: $|A\times B| = |A|\cdot|B|$`, testo: R`
 Se $A$ ha $m$ elementi e $B$ ha $n$ elementi, allora $A \times B$ (e $B\times A$) hanno $m\cdot n$ elementi.`, dim: R`
 Se $m=0$ o $n=0$ il prodotto è vuoto e la formula vale. Basta considerare $A\times B$.
 
@@ -193,7 +193,7 @@ ha $m + 1$ elementi (unione disgiunta).
 $$A\times B = (A \times B') \cup (A\times\lbrace b_{n+1}\rbrace),$$
 unione disgiunta di insiemi con $mn$ e $m$ elementi. Totale $m(n+1)$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$(A\cup B)\times C = (A\times C)\cup(B\times C)$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$(A\cup B)\times C = (A\times C)\cup(B\times C)$`, testo: R`
 Dimostrare che per ogni terna di insiemi $(A\cup B)\times C = (A\times C)\cup(B\times C)$.`, dim: R`
 Si dimostrano le due inclusioni.
 
@@ -201,7 +201,7 @@ $\subseteq$: se $(x,c)\in(A\cup B)\times C$, allora $c\in C$ e $x\in A$ oppure $
 
 $\supseteq$: se $(x,c) \in A\times C$ allora $x \in A \subseteq A\cup B$ e $c\in C$, quindi $(x,c) \in (A\cup B)\times C$. Idem se $(x,c)\in B\times C$. $\blacksquare$` },
 
-{ t: "prop", s: "dim", titolo: R`Progressione geometrica`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Progressione geometrica`, testo: R`
 Sia $r \in\mathbb R$, $r \neq 1$ (la **ragione**). Allora
 $$\sum_{k=0}^n r^k = 1 + r + r^2 + \dots + r^n = \frac{r^{n+1}-1}{r-1}\qquad\forall n\in\mathbb N_0.$$`, dim: R`
 Per induzione.
@@ -221,7 +221,7 @@ Dati $n,k\in\mathbb N_0$ con $k\le n$:
 $$\binom nk = \frac{n!}{k!\,(n-k)!}\qquad\text{("$n$ su $k$")}.$$
 Esempi: $\binom 00 = 1$, $\binom 10 = \binom11 = 1$, $\binom21 = 2$, $\binom 42 = 6$.` },
 
-{ t: "prop", s: "casa", titolo: R`Proprietà del coefficiente binomiale (identità di Pascal)`, testo: R`
+{ t: "prop", s: "casa", diff: 2, titolo: R`Proprietà del coefficiente binomiale (identità di Pascal)`, testo: R`
 1. $\binom n0 = \binom nn = 1$.
 2. **Simmetria**: $\binom nk = \binom n{n-k}$.
 3. **Identità di Pascal**: per $1 \le k \le n$,
@@ -236,7 +236,7 @@ Disponendo i $\binom nk$ in righe ($n = 0,1,2,\dots$), ogni numero è la somma d
 $$\begin{array}{c} 1\\ 1\quad 1\\ 1\quad 2\quad 1\\ 1\quad 3\quad 3\quad 1\\ 1\quad 4\quad 6\quad 4\quad 1\\ 1\quad 5\quad 10\quad 10\quad 5\quad 1\end{array}$$
 Sono i coefficienti di $(a+b)^n$: ad es. $(a+b)^3 = a^3+3a^2b+3ab^2+b^3$.` },
 
-{ t: "teo", s: "dim", titolo: R`Binomio di Newton`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Binomio di Newton`, testo: R`
 Siano $a,b\in\mathbb R\setminus\lbrace 0\rbrace$. Allora per ogni $n\in\mathbb N_0$:
 $$(a+b)^n = \sum_{k=0}^n \binom nk a^{n-k} b^k.$$`, dim: R`
 Per induzione su $n$.
@@ -253,7 +253,7 @@ Per l'identità di Pascal la parentesi è $\binom{n+1}k$, e $a^{n+1} = \binom{n+
 $$(a+b)^{n+1} = \sum_{k=0}^{n+1}\binom{n+1}k a^{n+1-k}b^k,$$
 cioè $P(n+1)$. $\blacksquare$` },
 
-{ t: "cor", s: "casa", titolo: R`$\sum_{k=0}^n \binom nk = 2^n$`, testo: R`
+{ t: "cor", s: "casa", diff: 1, titolo: R`$\sum_{k=0}^n \binom nk = 2^n$`, testo: R`
 $$\sum_{k=0}^n\binom nk = 2^n\qquad\forall n\in\mathbb N_0.$$`, dim: R`
 Basta applicare il binomio di Newton con $a = b = 1$: $2^n = (1+1)^n = \sum_{k=0}^n\binom nk 1^{n-k}1^k$. $\blacksquare$` },
 
@@ -282,11 +282,11 @@ $(\mathbb Q, +, \cdot)$ è un **campo commutativo**, cioè valgono:
 - $a\le b \Rightarrow a + c\le b + c$;
 - $a\le b,\ c\ge 0 \Rightarrow ac\le bc$.` },
 
-{ t: "teo", s: "dim", titolo: R`Densità di $\mathbb Q$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Densità di $\mathbb Q$`, testo: R`
 Per ogni $x,y\in\mathbb Q$ con $x<y$ esiste $z\in\mathbb Q$ con $x<z<y$.`, dim: R`
 Basta prendere il punto medio $z = \dfrac{x+y}{2}$, che è razionale. Da $x<y$: $2x < x+y < 2y$, cioè $x < z< y$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`$\sqrt 2 \notin \mathbb Q$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`$\sqrt 2 \notin \mathbb Q$`, testo: R`
 Non esiste $x\in\mathbb Q$ tale che $x^2 = 2$.`, dim: R`
 Per assurdo: sia $x = \frac pq\in\mathbb Q$ con $x^2 = 2$. A meno di cambiare segni posso supporre $p,q > 0$, e a meno di semplificare posso supporre la frazione **ridotta ai minimi termini**: $\mathrm{MCD}(p,q) = 1$.
 
@@ -346,7 +346,7 @@ Es. $A = [2,5)$: maggioranti $5, 6, 99{,}7,\dots$; minoranti $2, 1, -17,\dots$` 
 
 Un intervallo aperto $(a,b)$ non ha né massimo né minimo.` },
 
-{ t: "prop", s: "dim", titolo: R`Unicità di massimo e minimo`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Unicità di massimo e minimo`, testo: R`
 Sia $\emptyset\neq A\subseteq\mathbb R$. Se $\min A$ (o $\max A$) esiste, allora è unico.`, dim: R`
 Siano $m_1, m_2$ due minimi di $A$.
 - $m_1$ è minorante e $m_2\in A$ $\Rightarrow$ $m_1\le m_2$;
@@ -361,11 +361,11 @@ Se $A$ è inferiormente limitato, il suo **estremo inferiore** è il **massimo d
 $$\inf A = \max\lbrace m\in\mathbb R : a\ge m\ \forall a\in A\rbrace.$$
 Es. $\inf(a,b) = a$ ma $\min(a,b)$ non esiste; $\sup(a,b] = \max(a,b] = b$.`, fig: "sup" },
 
-{ t: "es", s: "casa", titolo: R`Se esiste $\max A$ allora $\max A = \sup A$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Se esiste $\max A$ allora $\max A = \sup A$`, testo: R`
 Dimostrare: se $A$ ammette massimo allora $\max A = \sup A$ (e se ammette minimo, $\min A = \inf A$).`, dim: R`
 Sia $M = \max A$. $M$ è un maggiorante. Se $M'$ è un altro maggiorante, siccome $M\in A$ vale $M\le M'$. Quindi $M$ è il più piccolo dei maggioranti: $M = \sup A$. Per il minimo è analogo. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Completezza di $\mathbb R$ (2ª forma: esistenza del sup)`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Completezza di $\mathbb R$ (2ª forma: esistenza del sup)`, testo: R`
 1. Ogni $\emptyset\neq A\subseteq\mathbb R$ superiormente limitato ammette estremo superiore.
 2. Ogni $\emptyset\neq A\subseteq\mathbb R$ inferiormente limitato ammette estremo inferiore.`, dim: R`
 Facciamo (1); (2) è analoga. Sia $B = \lbrace$maggioranti di $A\rbrace$: dobbiamo mostrare che $B$ ha minimo.
@@ -385,7 +385,7 @@ Analogamente $\inf A = -\infty$ se $\forall m\in\mathbb R\ \exists a\in A: a < m
 
 Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Caratterizzazione di sup e inf`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Caratterizzazione di sup e inf`, testo: R`
 Sia $A$ superiormente limitato. Allora $s = \sup A$ se e solo se
 1. $s$ è un maggiorante di $A$: $a\le s\ \forall a\in A$;
 2. $\forall\varepsilon > 0\ \exists a\in A : a > s - \varepsilon$.
@@ -401,7 +401,7 @@ Sia $A$ inferiormente limitato. Allora $i = \inf A$ se e solo se
 Per $a\in\mathbb R$:
 $$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0.\end{cases}$$` },
 
-{ t: "prop", s: "casa", titolo: R`Proprietà del modulo`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`Proprietà del modulo`, testo: R`
 Per ogni $a,b\in\mathbb R$:
 1. $-|a|\le a\le |a|$;
 2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$;
@@ -420,7 +420,7 @@ perché $ab\le|ab| = |a||b|$. $\blacksquare$` },
 /* ---- 2026-10-06.js ---- */
 L({ data: "2026-10-06", n: 6, titolo: "Potenze, radici, logaritmi, funzioni", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Disuguaglianza triangolare inversa`, testo: R`
+{ t: "teo", s: "dim", diff: 1, titolo: R`Disuguaglianza triangolare inversa`, testo: R`
 $$\big||a|-|b|\big|\le|a-b|\qquad\forall a,b\in\mathbb R.$$`, dim: R`
 Per la disuguaglianza triangolare: $|a| = |(a-b)+b|\le|a-b|+|b|$, da cui $|a|-|b|\le|a-b|$.
 
@@ -435,7 +435,7 @@ $$a^n = \begin{cases}\underbrace{a\cdot a\cdots a}_{n \text{ volte}} & n>0\\ 1 &
 { t: "att", titolo: R`$0^0$ non ha senso`, testo: R`
 $0^0$ **non è definito** (in alcuni testi o situazioni si pone $0^0=1$, ma per noi no).` },
 
-{ t: "teo", s: "dim", titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
 Siano $y\in\mathbb R$, $y\ge0$, $n\in\mathbb N$. Allora esiste un unico $r\in\mathbb R$, $r\ge 0$, tale che $r^n = y$. Si scrive $r = y^{1/n} = \sqrt[n]y$, ed è
 $$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$`, dim: R`
 L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r$, e si verifica che $r^n = y$ (se fosse $r^n<y$ o $r^n>y$ si troverebbe un elemento di $A$ più grande di $r$, o un maggiorante più piccolo). L'unicità segue dal fatto che $x\mapsto x^n$ è strettamente crescente su $[0,+\infty)$. $\blacksquare$` },
@@ -456,7 +456,7 @@ Se $r < 0$: $a^r = \dfrac1{a^{-r}}$.
 
 Riassunto della costruzione: $a^n \to \sqrt[n]a\to a^{p/q}\to a^r\ (r\ge0)\to a^r\ (r<0)\to \log_a y$.` },
 
-{ t: "teo", s: "dim", titolo: R`Esistenza del logaritmo`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
 Siano $a>0$, $a\neq1$, $y>0$. Allora esiste un unico $x\in\mathbb R$ tale che $a^x = y$; si indica $x = \log_a y$ ed è
 - se $a > 1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\le y\rbrace$;
 - se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.`, dim: R`
@@ -529,7 +529,7 @@ Definite tramite la circonferenza goniometrica, con l'angolo $x$ in **radianti**
 $$\sinh x = \frac{e^x - e^{-x}}{2}\ \text{(dispari)}, \qquad \cosh x = \frac{e^x+e^{-x}}{2}\ \text{(pari)},$$
 $$\tanh x = \frac{\sinh x}{\cosh x},\qquad \coth x = \frac{\cosh x}{\sinh x}\ (x\neq0).$$` },
 
-{ t: "es", s: "casa", titolo: R`$\cosh^2 x - \sinh^2 x = 1$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$\cosh^2 x - \sinh^2 x = 1$`, testo: R`
 Dimostrare che $\cosh^2x-\sinh^2x = 1$ per ogni $x\in\mathbb R$.`, dim: R`
 $$\cosh^2x-\sinh^2x = \frac{e^{2x}+2+e^{-2x}}{4}-\frac{e^{2x}-2+e^{-2x}}{4} = \frac44 = 1.\ \blacksquare$$` },
 
@@ -594,7 +594,7 @@ dove $\mathrm{Id}_A : A\to A$, $\mathrm{Id}_A(x) = x$ è la **funzione identità
 { t: "att", titolo: R`Per noi invertibile = iniettiva`, testo: R`
 In alcuni testi sono invertibili solo le funzioni biunivoche. Per noi basta l'iniettività: l'inversa è definita sull'immagine.` },
 
-{ t: "es", s: "casa", titolo: R`Ogni funzione è suriettiva sull'immagine`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Ogni funzione è suriettiva sull'immagine`, testo: R`
 Dimostrare che $f : A\to\mathrm{Im}(f)$ è sempre suriettiva.`, dim: R`
 Se $y\in\mathrm{Im}(f) = \lbrace f(x):x\in A\rbrace$, per definizione esiste $x\in A$ con $y = f(x)$. $\blacksquare$` },
 
@@ -615,11 +615,11 @@ Sia $f:A\to\mathbb R$ con $A$ **simmetrico rispetto all'origine** ($x\in A\Right
 
 Esempi: $x^2$, $x^4$, $\cos x$, $\cosh x$ sono pari; $x^3$, $\sin x$, $\sinh x$ sono dispari.` },
 
-{ t: "prop", s: "casa", titolo: R`$x^n$ è pari se $n$ è pari, dispari se $n$ è dispari`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`$x^n$ è pari se $n$ è pari, dispari se $n$ è dispari`, testo: R`
 Sia $n\in\mathbb N_0$. $f(x) = x^n$ su $\mathbb R$ è pari se $n$ è pari, dispari se $n$ è dispari.`, dim: R`
 $(-x)^n = (-1)^n x^n$, e $(-1)^n = 1$ se $n$ è pari, $-1$ se $n$ è dispari. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`Somme, prodotti e quozienti di funzioni pari/dispari`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Somme, prodotti e quozienti di funzioni pari/dispari`, testo: R`
 Se $f, g$ sono pari, cosa sono $f+g$, $f\cdot g$, $f/g$? E se sono dispari? Ogni funzione è pari o dispari?`, dim: R`
 - $f,g$ **pari**: $f+g$, $fg$, $f/g$ sono tutte **pari**.
 - $f,g$ **dispari**: $f+g$ è **dispari** ($-f(x)-g(x)$); $fg$ e $f/g$ sono **pari** ($(-f)(-g) = fg$).
@@ -661,7 +661,7 @@ Se esistono, $\max f$ e $\min f$ sono i **valori estremi**; i punti $x\in D(f)$ 
 - Esistono funzioni limitate senza max né min: $\arctan$ è limitata, strettamente crescente, ha $\sup = \frac\pi2$ e $\inf = -\frac\pi2$ ma non li raggiunge.
 - Esempio "selvaggio": il **seno del topologo** $f(x) = \sin\frac1x$ su $(0,+\infty)$.` },
 
-{ t: "es", s: "casa", titolo: R`$f$ costante $\iff \min f = \max f$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$f$ costante $\iff \min f = \max f$`, testo: R`
 Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \max f$.`, dim: R`
 ($\Rightarrow$) se $f\equiv c$, $\mathrm{Im} f = \lbrace c\rbrace$, quindi $\min f = \max f = c$.
 
@@ -674,7 +674,7 @@ Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \ma
 
 Es. $(5{,}9;\ 6{,}1)$ è un intorno di $6$; $(4,7)$ non è un intorno sferico di $6$ (raggi diversi).`, fig: "intorni" },
 
-{ t: "prop", s: "dim", titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
+{ t: "prop", s: "dim", diff: 2, titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
 1. **Intersezione**: se $I_1,I_2$ sono intorni di $r\in\overline{\mathbb R}$, allora $I_1\cap I_2$ è ancora un intorno di $r$.
 2. **Separazione**: se $r_1\neq r_2$ in $\overline{\mathbb R}$, esistono un intorno $I_1$ di $r_1$ e un intorno $I_2$ di $r_2$ tali che $I_1\cap I_2 = \emptyset$.`, dim: R`
 1. Per $r\in\mathbb R$: l'intersezione di due intorni centrati in $r$ è quello di raggio più piccolo. Per $r = +\infty$: $(M_1,+\infty)\cap(M_2,+\infty) = (\max\lbrace M_1,M_2\rbrace,+\infty)$. Analogo per $-\infty$.
@@ -702,7 +702,7 @@ $$\exists I\subseteq\mathbb R \text{ intorno di } r : (I\setminus\lbrace r\rbrac
 - $A = \lbrace\frac1n : n\in\mathbb N\rbrace$: $0$ è di accumulazione (pur non stando in $A$). Fissato $\varepsilon>0$, per Archimede trovo $n > \frac1\varepsilon$, e allora $\frac1n\in(-\varepsilon,\varepsilon)\cap A$.
 - $A = \mathbb Z$: $\pm\infty$ sono di accumulazione. Dato $M\in\mathbb R$ scelgo $n = \lfloor M\rfloor+1\in\mathbb Z$, e $n\in(M,+\infty)$. Ogni intero è isolato.` },
 
-{ t: "es", s: "casa", titolo: R`Ogni reale è di accumulazione per $\mathbb Q$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Ogni reale è di accumulazione per $\mathbb Q$`, testo: R`
 Dimostrare che ogni $r\in\mathbb R$ è di accumulazione per $\mathbb Q$ (quindi $\mathbb Q$ non ha punti isolati).
 
 Dimostrare inoltre che $+\infty$ è di accumulazione per $A$ se e solo se $A$ è superiormente illimitato.`, dim: R`
@@ -735,7 +735,7 @@ $$\forall\varepsilon>0\ \exists\delta>0 : |f(x)-\ell|<\varepsilon\quad\forall x\
 
 **2.** $f(x) = 2x$. Allora $\lim_{x\to0}f(x) = 0$: fissato $\varepsilon>0$, $|2x|<\varepsilon\iff|x|<\frac\varepsilon2$. Basta $\delta = \frac\varepsilon2$.` },
 
-{ t: "teo", s: "dim", titolo: R`Unicità del limite`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Unicità del limite`, testo: R`
 Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$, $f:A\to\mathbb R$. Se il limite di $f$ per $x\to x_0$ esiste, allora è **unico**.`, dim: R`
 Per assurdo siano $\ell_1\neq\ell_2$ due limiti. Per la **separazione** degli intorni esistono $U_1$ intorno di $\ell_1$ e $U_2$ intorno di $\ell_2$ con $U_1\cap U_2 = \emptyset$.
 
@@ -748,11 +748,11 @@ Per l'**intersezione** degli intorni, $I = I_1\cap I_2$ è un intorno di $x_0$. 
 /* ---- 2026-10-19.js ---- */
 L({ data: "2026-10-19", n: 13, titolo: "Limite dell'esponenziale, limitatezza locale, limiti destro e sinistro", voci: [
 
-{ t: "prop", s: "casa", titolo: R`Limite di una funzione costante`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`Limite di una funzione costante`, testo: R`
 Sia $f: A\to\mathbb R$ con $f(x) = c$ per ogni $x\in A$. Allora $\displaystyle\lim_{x\to x_0}f(x) = c$ per ogni $x_0$ di accumulazione per $A$ (anche $\pm\infty$).`, dim: R`
 Per ogni intorno $U$ di $c$ si ha $f(x) = c\in U$ per **ogni** $x\in A$, quindi qualunque intorno $I$ di $x_0$ va bene. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Disuguaglianza di Bernoulli`, testo: R`
+{ t: "teo", s: "dim", diff: 1, titolo: R`Disuguaglianza di Bernoulli`, testo: R`
 $$(1+t)^n\ge1+nt\qquad\forall n\in\mathbb N_0,\ \forall t\ge0.$$
 (Vale in realtà per ogni $t\ge-1$.)`, dim: R`
 Induzione su $n$ con $t$ fissato. **Base** $n=0$: $1\ge1$.
@@ -760,7 +760,7 @@ Induzione su $n$ con $t$ fissato. **Base** $n=0$: $1\ge1$.
 **Passo**: se $(1+t)^n\ge1+nt$, allora, siccome $1+t>0$,
 $$(1+t)^{n+1} = (1+t)^n(1+t)\ge(1+nt)(1+t) = 1+(n+1)t+nt^2\ge1+(n+1)t.\ \blacksquare$$` },
 
-{ t: "teo", s: "dim", titolo: R`$\lim_{x\to0}a^x = 1$ (con $a>1$)`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`$\lim_{x\to0}a^x = 1$ (con $a>1$)`, testo: R`
 Sia $a > 1$. Allora $\displaystyle\lim_{x\to 0}a^x = a^0 = 1$.`, dim: R`
 Fissato $\varepsilon>0$ cerco $\delta>0$ tale che $1-\varepsilon<a^x<1+\varepsilon$ per $|x|<\delta$. Posso supporre $\varepsilon\in(0,1)$.
 
@@ -770,21 +770,21 @@ Fissato $\varepsilon>0$ cerco $\delta>0$ tale che $1-\varepsilon<a^x<1+\varepsil
 
 Quindi con $\delta = \frac1n$ vale $|a^x-1|<\varepsilon$ per $|x|<\delta$. Il caso $a=1$ è banale (funzione costante). $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$\lim_{x\to0}a^x = 1$ per $a\in(0,1)$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`$\lim_{x\to0}a^x = 1$ per $a\in(0,1)$`, testo: R`
 Dimostrare il caso $0<a<1$. Consiglio: "fare i furbi e non fare fatica".`, dim: R`
 Posto $b = \frac1a>1$, si ha $a^x = b^{-x}$ e $|a^x-1| = |b^{-x}-1|$. Dato $\varepsilon$, il $\delta$ trovato per $b$ funziona: se $|x|<\delta$ allora anche $|-x|<\delta$, quindi $|b^{-x}-1|<\varepsilon$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$\lim_{x\to x_0}x^n = x_0^n$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`$\lim_{x\to x_0}x^n = x_0^n$`, testo: R`
 Dimostrare con la definizione che $\lim_{x\to x_0}x^n = x_0^n$ per ogni $n\in\mathbb N_0$, $x_0\in\mathbb R$. (Il 26/10 lo ritroveremo con l'algebra dei limiti.)`, dim: R`
 Per $n = 0$ è la costante. Per $n\ge1$, usando $x^n - x_0^n = (x-x_0)\sum_{k=0}^{n-1}x^kx_0^{n-1-k}$: se $|x-x_0|<1$ allora $|x|\le|x_0|+1 =: R$ e
 $$|x^n-x_0^n|\le|x-x_0|\cdot nR^{n-1}.$$
 Basta prendere $\delta = \min\left\lbrace1,\ \frac{\varepsilon}{nR^{n-1}}\right\rbrace$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`Limiti di funzioni pari e dispari`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Limiti di funzioni pari e dispari`, testo: R`
 Sia $f:\mathbb R\to\mathbb R$ pari e $\ell\in\overline{\mathbb R}$. Dimostrare che $\lim_{x\to x_0}f(x) = \ell\iff\lim_{x\to-x_0}f(x) = \ell$. Se $f$ è dispari: $\lim_{x\to x_0}f(x) = \ell\iff\lim_{x\to-x_0}f(x) = -\ell$.`, dim: R`
 Se $I$ è un intorno di $x_0$, allora $-I$ è un intorno di $-x_0$. Per $x\in -I$, $-x\in I$ e $f(x) = f(-x)\in U$. Per la dispari, $f(x) = -f(-x)\in -U$, e $-U$ è un intorno di $-\ell$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$\lim\sin x = \sin x_0$, $\lim\cos x = \cos x_0$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`$\lim\sin x = \sin x_0$, $\lim\cos x = \cos x_0$`, testo: R`
 Dimostrare che per ogni $x_0\in\mathbb R$: $\lim_{x\to x_0}\sin x = \sin x_0$ e $\lim_{x\to x_0}\cos x = \cos x_0$.
 
 Suggerimento: usare $|\sin x|\le|x|$, $|\cos x|\le1$ e le formule di prostaferesi.`, dim: R`
@@ -792,11 +792,11 @@ Per prostaferesi $\sin x-\sin x_0 = 2\cos\frac{x+x_0}2\sin\frac{x-x_0}2$, quindi
 $$|\sin x-\sin x_0|\le2\cdot1\cdot\left|\frac{x-x_0}2\right| = |x-x_0|.$$
 Basta $\delta = \varepsilon$. Analogamente $\cos x-\cos x_0 = -2\sin\frac{x+x_0}2\sin\frac{x-x_0}2$ dà $|\cos x-\cos x_0|\le|x-x_0|$. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`$\lim_{x\to+\infty}\sin x$ non esiste`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`$\lim_{x\to+\infty}\sin x$ non esiste`, testo: R`
 Dimostrare che $\lim_{x\to+\infty}\sin x$ e $\lim_{x\to-\infty}\cos x$ **non esistono**.`, dim: R`
 Se fosse $\lim_{x\to+\infty}\sin x = \ell$, in ogni intorno $(M,+\infty)$ ci sono sia punti $\frac\pi2+2k\pi$ (dove $\sin = 1$) sia punti $-\frac\pi2+2k\pi$ (dove $\sin = -1$). Prendendo $U$ intorno di $\ell$ di raggio $\frac12$, $U$ non può contenere sia $1$ che $-1$: assurdo. Stesso ragionamento per $\cos$. $\blacksquare$` },
 
-{ t: "prop", s: "dim", titolo: R`Se il limite è finito, $f$ è localmente limitata`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Se il limite è finito, $f$ è localmente limitata`, testo: R`
 Sia $f:A\to\mathbb R$, $x_0$ di accumulazione per $A$. Se $\lim_{x\to x_0}f(x) = \ell\in\mathbb R$, allora $f$ è **localmente limitata** in $x_0$:
 $$\exists I \text{ intorno di } x_0,\ \exists C>0 :\ |f(x)|\le C\quad\forall x\in A\cap I\setminus\lbrace x_0\rbrace.$$`, dim: R`
 Prendo $\varepsilon = 1$ nella definizione di limite: esiste un intorno $I$ di $x_0$ con $|f(x)-\ell|<1$ per $x\in A\cap I\setminus\lbrace x_0\rbrace$. Per la disuguaglianza triangolare
@@ -817,7 +817,7 @@ Il **limite sinistro** $\lim_{x\to x_0^-}$ è uguale con $A\cap I\cap(-\infty,x_
 
 Motivazione: $\lim_{x\to0}\frac1x$ non esiste, ma da destra va a $+\infty$ e da sinistra a $-\infty$.` },
 
-{ t: "es", s: "casa", titolo: R`$\lim_{x\to 0^\pm}\frac1x = \pm\infty$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to 0^\pm}\frac1x = \pm\infty$`, testo: R`
 Dimostrare che $\displaystyle\lim_{x\to0^+}\frac1x = +\infty$ e $\displaystyle\lim_{x\to0^-}\frac1x = -\infty$.`, dim: R`
 Fissato $M>0$, per $0<x<\frac1M$ si ha $\frac1x>M$: l'intorno $I = \left(-\frac1M,\frac1M\right)$ funziona. A sinistra, per $-\frac1M<x<0$ vale $\frac1x<-M$. $\blacksquare$` },
 
@@ -829,7 +829,7 @@ In $\lim_{x\to x_0^+}$, i simboli $x_0^+$ e $x_0^-$ indicano il **modo** di avvi
 /* ---- 2026-10-20.js ---- */
 L({ data: "2026-10-20", n: 14, titolo: "Limite e limiti laterali, modulo, permanenza del segno", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Limite $\iff$ limite destro = limite sinistro`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limite $\iff$ limite destro = limite sinistro`, testo: R`
 Siano $f:A\to\mathbb R$, $\ell\in\overline{\mathbb R}$, e $x_0\in\mathbb R$ punto di accumulazione **sia destro sia sinistro** per $A$. Allora
 $$\lim_{x\to x_0}f(x) = \ell\iff\lim_{x\to x_0^+}f(x) = \ell\ \text{ e }\ \lim_{x\to x_0^-}f(x) = \ell.$$`, dim: R`
 ($\Rightarrow$) Fisso $U$ intorno di $\ell$. Per ipotesi esiste $I$ intorno di $x_0$ con $f(x)\in U$ per ogni $x\in A\cap I\setminus\lbrace x_0\rbrace$. In particolare vale per ogni $x\in A\cap I\cap(x_0,+\infty)$ e per ogni $x\in A\cap I\cap(-\infty,x_0)$: questi sono i due limiti laterali (gli insiemi sono non vuoti perché $x_0$ è di accumulazione destro e sinistro).
@@ -846,7 +846,7 @@ perché ogni tale $x$ sta a destra o a sinistra di $x_0$. $\blacksquare$` },
 - $\lim_{x\to0^+}\frac1x = +\infty\neq-\infty = \lim_{x\to0^-}\frac1x$, quindi $\nexists\lim_{x\to0}\frac1x$.
 - $\lim_{x\to0^\pm}\frac1{x^2} = +\infty$, quindi $\lim_{x\to0}\frac1{x^2} = +\infty$.` },
 
-{ t: "prop", s: "dim", titolo: R`Limite del modulo: $\lim f = \ell\Rightarrow\lim|f| = |\ell|$`, testo: R`
+{ t: "prop", s: "dim", diff: 2, titolo: R`Limite del modulo: $\lim f = \ell\Rightarrow\lim|f| = |\ell|$`, testo: R`
 Siano $f:A\to\mathbb R$, $x_0$ di accumulazione, $\ell\in\overline{\mathbb R}$ (con la convenzione $|\pm\infty| = +\infty$). Allora
 1. $\displaystyle\lim_{x\to x_0}f(x) = \ell\ \Rightarrow\ \lim_{x\to x_0}|f(x)| = |\ell|$;
 2. $\displaystyle\lim_{x\to x_0}f(x) = 0\ \iff\ \lim_{x\to x_0}|f(x)| = 0$.`, dim: R`
@@ -863,7 +863,7 @@ Con $f(x) = 1$ per $x\ge0$ e $f(x)=-1$ per $x<0$: $|f(x)| = 1$ per ogni $x$, qui
 
 Il risultato vale anche per limiti destri e sinistri.` },
 
-{ t: "teo", s: "dim", titolo: R`Permanenza del segno`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Permanenza del segno`, testo: R`
 Sia $\displaystyle\lim_{x\to x_0}f(x) = \ell\in\overline{\mathbb R}$. Allora
 - se $\ell>0$, allora $f(x)>0$ definitivamente per $x\to x_0$;
 - se $\ell<0$, allora $f(x)<0$ definitivamente per $x\to x_0$.`, dim: R`
@@ -873,7 +873,7 @@ Se $\ell\in(0,+\infty)$: scelgo $\varepsilon = \frac\ell2$ e trovo un intorno $I
 
 Se $\ell = +\infty$: scelgo l'intorno $U = (M,+\infty)$ con $M>0$ e trovo $I$ con $f(x)>M>0$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Limiti diversi $\Rightarrow$ funzioni ordinate definitivamente`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Limiti diversi $\Rightarrow$ funzioni ordinate definitivamente`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, con
 $$\lim_{x\to x_0}f(x) = \ell_1,\qquad\lim_{x\to x_0}g(x) = \ell_2,\qquad \ell_1,\ell_2\in\overline{\mathbb R}.$$
 Se $\ell_1<\ell_2$, allora $f(x)<g(x)$ definitivamente per $x\to x_0$.`, dim: R`
@@ -892,7 +892,7 @@ Scelta degli intorni:
 /* ---- 2026-10-22.js ---- */
 L({ data: "2026-10-22", n: 15, titolo: "Confronto, carabinieri, algebra dei limiti finiti", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Teorema del confronto (per i limiti)`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Teorema del confronto (per i limiti)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, e $f(x)\le g(x)$ definitivamente per $x\to x_0$. **Se esistono** i limiti
 $$\lim_{x\to x_0}f(x) = \ell_1,\qquad\lim_{x\to x_0}g(x) = \ell_2\qquad(\ell_1,\ell_2\in\overline{\mathbb R}),$$
 allora $\ell_1\le\ell_2$.`, dim: R`
@@ -905,7 +905,7 @@ Se $f(x)<g(x)$ definitivamente, si può concludere solo $\ell_1\le\ell_2$, **non
 
 Es. $f(x) = 0$, $g(x) = x^2$: $f(x)<g(x)$ per ogni $x\neq0$, ma $\lim_{x\to0}f = \lim_{x\to 0} g = 0$.` },
 
-{ t: "teo", s: "dim", titolo: R`Teorema dei due carabinieri`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Teorema dei due carabinieri`, testo: R`
 Siano $f,g,h:A\to\mathbb R$, $x_0$ di accumulazione per $A$, tali che
 $$f(x)\le g(x)\le h(x)\quad\text{definitivamente per }x\to x_0.$$
 Se esistono e sono uguali i limiti
@@ -921,7 +921,7 @@ e un intorno $I_3$ in cui vale $f\le g\le h$. Sia $I = I_1\cap I_2\cap I_3$, int
 
 Quindi $g(x)\in U$ definitivamente: $\lim_{x\to x_0}g(x) = \ell$. $\blacksquare$`, fig: "carabinieri" },
 
-{ t: "cor", s: "dim", titolo: R`Teorema "per un carabiniere"`, testo: R`
+{ t: "cor", s: "dim", diff: 1, titolo: R`Teorema "per un carabiniere"`, testo: R`
 Siano $f,g:A\to\mathbb R$ con $f(x)\le g(x)$ definitivamente per $x\to x_0$. Allora
 1. $\displaystyle\lim_{x\to x_0}f(x) = +\infty\ \Rightarrow\ \lim_{x\to x_0}g(x) = +\infty$;
 2. $\displaystyle\lim_{x\to x_0}g(x) = -\infty\ \Rightarrow\ \lim_{x\to x_0}f(x) = -\infty$.`, dim: R`
@@ -932,7 +932,7 @@ Per $x\neq0$ vale $\left|x\sin\frac1x\right|\le|x|$, cioè
 $$-|x|\le x\sin\frac1x\le|x|.$$
 Siccome $\lim_{x\to0}\pm|x| = 0$, per i carabinieri $\lim_{x\to0}x\sin\frac1x = 0$.` },
 
-{ t: "es", s: "dim", titolo: R`$\lim_{x\to0}\frac{\sin x}x = 1$ (con i carabinieri)`, testo: R`
+{ t: "es", s: "dim", diff: 3, titolo: R`$\lim_{x\to0}\frac{\sin x}x = 1$ (con i carabinieri)`, testo: R`
 Dimostrare che $\displaystyle\lim_{x\to0}\frac{\sin x}{x} = 1$.`, dim: R`
 Dalla definizione geometrica (confrontando le aree di triangoli e settore circolare) per $0<x<\frac\pi2$:
 $$\sin x<x<\tan x.$$
@@ -940,7 +940,7 @@ Dividendo per $\sin x>0$: $1<\frac{x}{\sin x}<\frac1{\cos x}$, cioè
 $$\cos x<\frac{\sin x}x<1.$$
 La funzione $\frac{\sin x}x$ è pari, quindi la disuguaglianza vale anche per $-\frac\pi2<x<0$, cioè definitivamente per $x\to0$. Siccome $\lim_{x\to 0}\cos x = 1$, per i carabinieri $\lim_{x\to0}\frac{\sin x}x = 1$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Algebra dei limiti finiti`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Algebra dei limiti finiti`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, e
 $$\lim_{x\to x_0}f(x) = \ell_f\in\mathbb R,\qquad\lim_{x\to x_0}g(x) = \ell_g\in\mathbb R.$$
 Allora:
@@ -965,7 +965,7 @@ che è $<\varepsilon$ se $|g(x)-\ell_g|<\frac{\varepsilon\ell_g^2}2$, arbitraria
 /* ---- 2026-10-26.js ---- */
 L({ data: "2026-10-26", n: 17, titolo: "Limiti di polinomi, algebra dei limiti infiniti, cambio di variabile", voci: [
 
-{ t: "cor", s: "dim", titolo: R`Limiti di polinomi e funzioni razionali`, testo: R`
+{ t: "cor", s: "dim", diff: 2, titolo: R`Limiti di polinomi e funzioni razionali`, testo: R`
 Siano $P(x)$ e $Q(x)$ due polinomi. Allora
 1. $\displaystyle\lim_{x\to x_0}P(x) = P(x_0)$ per ogni $x_0\in\mathbb R$;
 2. $\displaystyle\lim_{x\to x_0}\frac{P(x)}{Q(x)} = \frac{P(x_0)}{Q(x_0)}$ per ogni $x_0\in\mathbb R$ con $Q(x_0)\neq0$.`, dim: R`
@@ -975,7 +975,7 @@ Per (S), $\lim_{x\to x_0}a_kx^k = a_kx_0^k$, e applicando (S) $n$ volte alla som
 $$\lim_{x\to x_0}\sum_{k=0}^na_kx^k = \sum_{k=0}^na_kx_0^k = P(x_0).$$
 Il punto 2 segue da (Q). $\blacksquare$` },
 
-{ t: "teo", s: "omessa", titolo: R`Algebra dei limiti infiniti (6 regole)`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Algebra dei limiti infiniti (6 regole)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$.
 1. Se $\lim f = +\infty$ e $g$ è **limitata inferiormente** definitivamente, allora $\lim(f+g) = +\infty$. $\quad[+\infty+(\text{non }-\infty)]$
 2. Se $\lim f = 0$ e $g$ è **limitata** definitivamente, allora $\lim(f\cdot g) = 0$. $\quad[0\cdot\text{limitata}]$
@@ -994,7 +994,7 @@ Per la 2: $|g(x)|\le C$ definitivamente. Dato $\varepsilon$, definitivamente $|f
 - Se $\lim f = +\infty$ e $g$ è limitata **superiormente**, allora $\lim(f-g) = +\infty$: pongo $G = -g$, limitata inferiormente, e applico la 1.
 - $\displaystyle\lim_{x\to0}x\sin\frac1x = 0$ per la regola 2 ($x\to0$ infinitesima, $\sin\frac1x$ limitata). Lo avevamo già visto con i carabinieri.` },
 
-{ t: "es", s: "casa", titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`
 Dimostrare la regola "$0\cdot$limitata $= 0$" usando il teorema dei due carabinieri.`, dim: R`
 Se $|g(x)|\le C$ definitivamente, allora $0\le|f(x)g(x)|\le C|f(x)|$. Siccome $\lim|f| = 0$, per (S) $\lim C|f| = 0$ e per i carabinieri $\lim|fg| = 0$, quindi $\lim fg = 0$ (limite del modulo). $\blacksquare$` },
 
@@ -1010,7 +1010,7 @@ Il risultato dipende dalle funzioni specifiche:
 $$\sqrt{x+1}-\sqrt x = \frac{(x+1)-x}{\sqrt{x+1}+\sqrt x} = \frac1{\sqrt{x+1}+\sqrt x}.$$
 Il denominatore tende a $+\infty$, quindi per la regola 5 il limite è $0$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Cambio di variabile nei limiti (limite di funzione composta)`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Cambio di variabile nei limiti (limite di funzione composta)`, testo: R`
 Siano $f:A\to\mathbb R$, $g:B\to\mathbb R$ ($A,B\subseteq\mathbb R$ non vuoti), $\tilde A = \lbrace x\in A: f(x)\in B\rbrace$ e $x_0\in\overline{\mathbb R}$ di accumulazione per $\tilde A$. Supponiamo:
 1. $\displaystyle\lim_{x\to x_0}f(x) = y_0\in\overline{\mathbb R}$, con $y_0$ di accumulazione per $B$;
 2. $\displaystyle\lim_{y\to y_0}g(y) = \ell\in\overline{\mathbb R}$;
@@ -1043,7 +1043,7 @@ Per $x\to0$: $\lim f(x) = 5 =: y_0$ e $\lim_{y\to5}g(y) = 1$. Ma $g(f(x)) = g(5)
 
 Infatti entrambe le opzioni sono false: (3a) $f(x)\neq5$ è falsa ovunque; (3b) $\lim_{y\to5}g(y) = 1\neq2 = g(5)$.` },
 
-{ t: "teo", s: "dim", titolo: R`Limiti di funzioni monotone (caso reale)`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Limiti di funzioni monotone (caso reale)`, testo: R`
 Siano $f:A\to\mathbb R$, $x_0\in\mathbb R$, e sia $I$ un intorno di $x_0$ in cui $f$ è monotona.
 
 **(i)** Se $x_0$ è di accumulazione **sinistro** per $A$ e $f$ è monotona su $A\cap I\cap(-\infty,x_0)$, allora
@@ -1070,7 +1070,7 @@ Con il teorema (e i limiti laterali che coincidono) si ottiene:
 - $\displaystyle\lim_{x\to x_0}x^\alpha = x_0^\alpha$ per $x_0>0$, e $\displaystyle\lim_{x\to0^+}x^\alpha = 0$ se $\alpha>0$, $+\infty$ se $\alpha<0$;
 - $\displaystyle\lim_{x\to x_0}\sin x = \sin x_0$, $\displaystyle\lim_{x\to x_0}\cos x = \cos x_0$ (sono monotone a tratti).` },
 
-{ t: "teo", s: "omessa", titolo: R`Limiti di funzioni monotone (caso infinito)`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Limiti di funzioni monotone (caso infinito)`, testo: R`
 **(i)** Sia $+\infty$ di accumulazione per $A$ e $f$ monotona definitivamente per $x\to+\infty$ (su $A\cap I$, $I$ intorno di $+\infty$). Allora
 $$\exists\lim_{x\to+\infty}f(x) = \begin{cases}\sup f|_{A\cap I} & f\text{ crescente}\\ \inf f|_{A\cap I} & f\text{ decrescente.}\end{cases}$$
 **(ii)** Sia $-\infty$ di accumulazione per $A$ e $f$ monotona definitivamente per $x\to-\infty$. Allora
@@ -1096,7 +1096,7 @@ Esempio: $\lim_{x\to+\infty}\left(2+\frac1x\right)^x$: $x\log\left(2+\frac1x\rig
 /* ---- 2026-10-29.js ---- */
 L({ data: "2026-10-29", n: 19, titolo: "Limiti notevoli, gerarchia degli infiniti, asintotici, o-piccolo", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Limiti notevoli trigonometrici`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limiti notevoli trigonometrici`, testo: R`
 $$\lim_{x\to0}\frac{\sin x}x = 1,\qquad\lim_{x\to0}\frac{1-\cos x}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tan x}x = 1,\qquad\lim_{x\to0}\frac{\arcsin x}x = 1.$$
 Tutti tranne il primo sono forme $\left[\frac00\right]$ ricondotte al primo.`, dim: R`
 Il primo è stato fatto con i carabinieri (22/10).
@@ -1107,7 +1107,7 @@ $$\frac{1-\cos x}{x^2} = \frac{1-\cos^2x}{x^2(1+\cos x)} = \left(\frac{\sin x}x\
 
 **Arcoseno:** cambio di variabile $y = \arcsin x$ ($y\to0$ e $y\neq0$ per $x\neq0$): $\dfrac{\arcsin x}x = \dfrac y{\sin y}\to1$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Numero di Nepero: $\lim(1+\frac1x)^x$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Numero di Nepero: $\lim(1+\frac1x)^x$`, testo: R`
 I due limiti
 $$\lim_{x\to+\infty}\left(1+\frac1x\right)^x\qquad\text{e}\qquad\lim_{x\to-\infty}\left(1+\frac1x\right)^x$$
 esistono, sono finiti e coincidono. Il loro valore comune è il **numero di Nepero** $e\approx2{,}718$.`, dim: R`
@@ -1116,7 +1116,7 @@ $$\left(1+\frac1x\right)^x = \left(1-\frac1y\right)^{-y} = \left(\frac{y}{y-1}\r
 Poi con $t = y-1\to+\infty$:
 $$\left(\frac{t+1}{t}\right)^{t+1} = \left(1+\frac1t\right)^t\cdot\left(1+\frac1t\right)\ \longrightarrow\ e\cdot 1.\ \blacksquare$$` },
 
-{ t: "teo", s: "dim", titolo: R`Limiti notevoli esponenziali e logaritmici`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limiti notevoli esponenziali e logaritmici`, testo: R`
 $$\lim_{x\to\pm\infty}\left(1+\frac\alpha x\right)^x = e^\alpha\ (\alpha\in\mathbb R),\qquad\lim_{x\to0}(1+x)^{1/x} = e,$$
 $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim: R`
 **$e^\alpha$** (per $\alpha>0$; $\alpha<0$ esercizio): con $y = \frac x\alpha\to\pm\infty$, $\left(1+\frac\alpha x\right)^x = \left[\left(1+\frac1y\right)^y\right]^\alpha\to e^\alpha$ (limite di funzione composta con $z\mapsto z^\alpha$).
@@ -1127,7 +1127,7 @@ $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim
 
 **Esponenziale:** con $y = e^x-1$ ($y\to0$, $x = \log(1+y)$): $\dfrac{e^x-1}x = \dfrac{y}{\log(1+y)}\to1$. $\blacksquare$` },
 
-{ t: "prop", s: "casa", titolo: R`Limiti notevoli iperbolici`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
 $$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tanh x}x = 1.$$`, dim: R`
 **Seno iperbolico:** $\dfrac{\sinh x}x = \dfrac{e^x-e^{-x}}{2x} = e^{-x}\cdot\dfrac{e^{2x}-1}{2x}\to1\cdot1$ (con $y = 2x$ nel limite notevole dell'esponenziale).
 
@@ -1156,7 +1156,7 @@ Siano $f,g:A\to\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$
 
 Esempi per $x\to0$: $\sin x\sim x$, $1-\cos x\sim\frac{x^2}2$, $\tan x\sim x$, $\log(1+x)\sim x$, $e^x-1\sim x$.` },
 
-{ t: "teo", s: "casa", titolo: R`Proprietà delle funzioni asintotiche`, testo: R`
+{ t: "teo", s: "casa", diff: 2, titolo: R`Proprietà delle funzioni asintotiche`, testo: R`
 Per $x\to x_0$:
 1. se $f\sim g$, allora $f$ e $g$ hanno lo **stesso comportamento al limite**: o hanno entrambe lo stesso limite, o entrambe non hanno limite;
 2. **transitività**: $f\sim g$ e $g\sim h\Rightarrow f\sim h$;
@@ -1174,7 +1174,7 @@ Si sostituisce $\sin x\sim x$, $\tan x\sim x$, $1-\cos x\sim\frac{x^2}2$.` },
 { t: "att", titolo: R`Non si sostituiscono asintotici nelle somme`, testo: R`
 La proprietà 3 vale per **prodotti e quozienti**, non per somme e differenze. Es. per $x\to0$, $\tan x\sim x$ e $\sin x\sim x$, ma $\tan x-\sin x\not\sim x-x = 0$ (in realtà $\tan x-\sin x\sim\frac{x^3}{2}$).` },
 
-{ t: "prop", s: "casa", titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
+{ t: "prop", s: "casa", diff: 2, titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
 Sia $g(x)\neq0$ definitivamente per $x\to x_0$ e $\ell\in\mathbb R\setminus\lbrace0\rbrace$. Allora
 $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = \ell\iff f(x)\sim\ell\,g(x).$$
 Es. $\lim_{x\to 0}\frac{1-\cos x}{x^2} = \frac12\iff 1-\cos x\sim\frac{x^2}2$.`, dim: R`

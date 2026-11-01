@@ -20,11 +20,11 @@ $(\mathbb Q, +, \cdot)$ è un **campo commutativo**, cioè valgono:
 - $a\le b \Rightarrow a + c\le b + c$;
 - $a\le b,\ c\ge 0 \Rightarrow ac\le bc$.` },
 
-{ t: "teo", s: "dim", titolo: R`Densità di $\mathbb Q$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Densità di $\mathbb Q$`, testo: R`
 Per ogni $x,y\in\mathbb Q$ con $x<y$ esiste $z\in\mathbb Q$ con $x<z<y$.`, dim: R`
 Basta prendere il punto medio $z = \dfrac{x+y}{2}$, che è razionale. Da $x<y$: $2x < x+y < 2y$, cioè $x < z< y$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`$\sqrt 2 \notin \mathbb Q$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`$\sqrt 2 \notin \mathbb Q$`, testo: R`
 Non esiste $x\in\mathbb Q$ tale che $x^2 = 2$.`, dim: R`
 Per assurdo: sia $x = \frac pq\in\mathbb Q$ con $x^2 = 2$. A meno di cambiare segni posso supporre $p,q > 0$, e a meno di semplificare posso supporre la frazione **ridotta ai minimi termini**: $\mathrm{MCD}(p,q) = 1$.
 

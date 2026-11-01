@@ -145,6 +145,13 @@ function etichettaStato(v) {
   if (v.s === 'casa') return '<span class="badge b-casa">Lasciato per esercizio</span>';
   return '';
 }
+function stelle(n) { n = n || 1; return '<span class="stelle" aria-label="difficoltà ' + n + ' su 3">' + '★'.repeat(n) + '<i>' + '★'.repeat(3 - n) + '</i></span>'; }
+const DIFF_LAB = ['', 'facile', 'media', 'difficile'];
+function chipDim(v) {
+  if (!v.dim) return '';
+  const lab = v.g === 'ex' ? 'Da dimostrare' : v.s === 'omessa' ? 'Dim. extra' : 'Con dimostrazione';
+  return `<span class="dimchip${v.s === 'omessa' ? ' extra' : ''}" title="Dimostrazione ${DIFF_LAB[v.diff || 1]}">${lab} ${stelle(v.diff)}</span>`;
+}
 function etichettaDim(v) {
   if (v.g === 'ex') return 'Soluzione';
   if (v.s === 'omessa') return 'Dimostrazione (extra, non fatta a lezione)';
@@ -154,7 +161,7 @@ function etichettaDim(v) {
 function costruisciVoce(v) {
   const d = h('details', { class: 'voce', id: v.id, 'data-t': v.t === 'ex' ? 'ex' : v.t });
   const s = h('summary');
-  s.innerHTML = `<span class="v-head"><span class="tag">${TIPI[v.t].lab}</span><span class="v-tit">${titoloHTML(v)}</span></span>` +
+  s.innerHTML = `<span class="v-head"><span class="v-tags"><span class="tag">${TIPI[v.t].lab}</span>${chipDim(v)}</span><span class="v-tit">${titoloHTML(v)}</span></span>` +
     (VALUTABILI.has(v.g) ? `<span class="k-pill" data-k="${statoDi(v.id)}" title="${KLAB[statoDi(v.id)]}"></span>` : '<span></span>') + CHEV;
   d.appendChild(s);
   d.addEventListener('toggle', () => { if (d.open && !d.dataset.pronto) riempiVoce(v, d); });
@@ -261,10 +268,15 @@ function costruisciChipTipo() {
     b.addEventListener('click', () => { toggleSet(filtri.gruppi, g.g); b.setAttribute('aria-pressed', filtri.gruppi.has(g.g)); applicaFiltri(); });
     ct.appendChild(b);
   }
+  const nd = VOCI.filter(v => v.dim && v.s === 'dim' && v.g !== 'ex').length;
+  const bd = h('button', { class: 'chip', 'aria-pressed': 'false', style: '--chip-c:var(--c-dim)' }, `Con dimostrazione<span class="n">${nd}</span>`);
+  bd.addEventListener('click', () => { filtri.dim = !filtri.dim; bd.setAttribute('aria-pressed', filtri.dim); applicaFiltri(); });
+  ct.appendChild(bd);
 }
 
 function passaFiltri(v) {
   if (filtri.gruppi.size && !filtri.gruppi.has(v.g)) return false;
+  if (filtri.dim && !(v.dim && v.s === 'dim' && v.g !== 'ex')) return false;
   if (filtri.stati.size) {
     if (!VALUTABILI.has(v.g)) return false;
     const k = String(statoDi(v.id));
@@ -287,7 +299,7 @@ function applicaFiltri() {
     $('#' + l.id).hidden = !vis;
   }
   qPrec = filtri.q;
-  const attivi = filtri.gruppi.size || filtri.stati.size || filtri.q;
+  const attivi = filtri.gruppi.size || filtri.stati.size || filtri.q || filtri.dim;
   $('#n-risultati').textContent = attivi ? `${n} ${n === 1 ? 'voce' : 'voci'}` : `${VOCI.length} voci`;
   $('#vuoto').hidden = n > 0;
 }
@@ -392,9 +404,9 @@ function avvia() {
 }
 function consegna(v) {
   if (v.g === 'def') return 'Enuncia la definizione con precisione.';
-  if (v.g === 'ex') return 'Risolvi l’esercizio, poi confronta con la soluzione.';
+  if (v.g === 'ex') return `Risolvi l’esercizio, poi confronta con la soluzione — difficoltà ${stelle(v.diff)} ${DIFF_LAB[v.diff || 1]}.`;
   if (v.g === 'es') return 'Ricostruisci l’esempio.';
-  if (v.dim && v.s === 'dim') return 'Enuncia (ipotesi e tesi) e dimostra.';
+  if (v.dim && v.s === 'dim') return `Enuncia (ipotesi e tesi) e <b>scrivi subito la dimostrazione</b> — difficoltà ${stelle(v.diff)} ${DIFF_LAB[v.diff || 1]}.`;
   if (v.dim) return 'Enuncia. La dimostrazione non è stata fatta a lezione, ma c’è come extra.';
   return 'Enuncia con ipotesi e tesi.';
 }
@@ -409,7 +421,7 @@ function mostraCarta() {
   $('#rip-body').innerHTML = `
     <article class="carta" style="--c:${col}">
       <div class="c-meta"><span class="tag" style="--c:${col};--cb:color-mix(in srgb,${col} 14%,var(--card))">${TIPI[v.t].lab}</span>
-        <span>Lezione del ${fmtData(v.lez.data, true)}</span>
+        ${chipDim(v)}<span>Lezione del ${fmtData(v.lez.data, true)}</span>
         <span class="prima"><i class="dot ${K.find(x => x.k === k).cls}"></i> ${KLAB[k]}</span></div>
       <h2>${titoloHTML(v)}</h2>
       <div class="consegna">${consegna(v)}</div>

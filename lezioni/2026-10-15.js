@@ -9,7 +9,7 @@ $$\exists I\subseteq\mathbb R \text{ intorno di } r : (I\setminus\lbrace r\rbrac
 - $A = \lbrace\frac1n : n\in\mathbb N\rbrace$: $0$ è di accumulazione (pur non stando in $A$). Fissato $\varepsilon>0$, per Archimede trovo $n > \frac1\varepsilon$, e allora $\frac1n\in(-\varepsilon,\varepsilon)\cap A$.
 - $A = \mathbb Z$: $\pm\infty$ sono di accumulazione. Dato $M\in\mathbb R$ scelgo $n = \lfloor M\rfloor+1\in\mathbb Z$, e $n\in(M,+\infty)$. Ogni intero è isolato.` },
 
-{ t: "es", s: "casa", titolo: R`Ogni reale è di accumulazione per $\mathbb Q$`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Ogni reale è di accumulazione per $\mathbb Q$`, testo: R`
 Dimostrare che ogni $r\in\mathbb R$ è di accumulazione per $\mathbb Q$ (quindi $\mathbb Q$ non ha punti isolati).
 
 Dimostrare inoltre che $+\infty$ è di accumulazione per $A$ se e solo se $A$ è superiormente illimitato.`, dim: R`
@@ -42,7 +42,7 @@ $$\forall\varepsilon>0\ \exists\delta>0 : |f(x)-\ell|<\varepsilon\quad\forall x\
 
 **2.** $f(x) = 2x$. Allora $\lim_{x\to0}f(x) = 0$: fissato $\varepsilon>0$, $|2x|<\varepsilon\iff|x|<\frac\varepsilon2$. Basta $\delta = \frac\varepsilon2$.` },
 
-{ t: "teo", s: "dim", titolo: R`Unicità del limite`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Unicità del limite`, testo: R`
 Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$, $f:A\to\mathbb R$. Se il limite di $f$ per $x\to x_0$ esiste, allora è **unico**.`, dim: R`
 Per assurdo siano $\ell_1\neq\ell_2$ due limiti. Per la **separazione** degli intorni esistono $U_1$ intorno di $\ell_1$ e $U_2$ intorno di $\ell_2$ con $U_1\cap U_2 = \emptyset$.
 

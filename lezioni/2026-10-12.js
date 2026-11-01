@@ -44,7 +44,7 @@ dove $\mathrm{Id}_A : A\to A$, $\mathrm{Id}_A(x) = x$ è la **funzione identità
 { t: "att", titolo: R`Per noi invertibile = iniettiva`, testo: R`
 In alcuni testi sono invertibili solo le funzioni biunivoche. Per noi basta l'iniettività: l'inversa è definita sull'immagine.` },
 
-{ t: "es", s: "casa", titolo: R`Ogni funzione è suriettiva sull'immagine`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Ogni funzione è suriettiva sull'immagine`, testo: R`
 Dimostrare che $f : A\to\mathrm{Im}(f)$ è sempre suriettiva.`, dim: R`
 Se $y\in\mathrm{Im}(f) = \lbrace f(x):x\in A\rbrace$, per definizione esiste $x\in A$ con $y = f(x)$. $\blacksquare$` },
 

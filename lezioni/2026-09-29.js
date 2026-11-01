@@ -35,7 +35,7 @@ $n \in \mathbb N$ è **primo** se è divisibile solo per $1$ e per se stesso. Pe
 
 $a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Es. $\mathrm{MCD}(3,5)=1$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Teorema di Euclide`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Teorema di Euclide`, testo: R`
 I numeri primi sono **infiniti**.`, dim: R`
 Per assurdo, siano $p_1, \dots, p_k$ tutti i primi. Considero $N = p_1 p_2 \cdots p_k + 1$. $N > 1$, quindi ha almeno un divisore primo $p$, che deve essere uno dei $p_i$. Ma allora $p$ divide sia $N$ che $p_1\cdots p_k$, quindi divide la differenza $N - p_1\cdots p_k = 1$: assurdo. $\blacksquare$` },
 
@@ -51,7 +51,7 @@ Dati $n\in\mathbb N$ e $a_1,\dots,a_n \in\mathbb R$:
 $$\sum_{i=1}^n a_i = a_1 + a_2 + \dots + a_n.$$
 Esempio: la media dei 10 voti di Barabba è $\dfrac{1}{10}\displaystyle\sum_{i=1}^{10} v_i$.` },
 
-{ t: "prop", s: "dim", titolo: R`Proprietà delle sommatorie`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Proprietà delle sommatorie`, testo: R`
 1. **Distributiva**: $\displaystyle\sum_{k=1}^n c\, a_k = c\sum_{k=1}^n a_k$.
 2. **Additiva**: $\displaystyle\sum_{k=1}^n (a_k + b_k) = \sum_{k=1}^n a_k + \sum_{k=1}^n b_k$.
 3. **Scomposizione dell'indice**: $\displaystyle\sum_{k=1}^n a_k = \sum_{k=1}^m a_k + \sum_{k=m+1}^n a_k$ per $1\le m < n$.

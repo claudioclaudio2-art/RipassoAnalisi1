@@ -39,7 +39,7 @@ cioè si nega la tesi e si dimostra la negazione dell'ipotesi.
 
 Esempio di vita: "se piove prendo l'ombrello" equivale a "se non ho l'ombrello allora non piove".` },
 
-{ t: "prop", s: "dim", titolo: "Se $n$ è multiplo di 10 allora è pari (dim. diretta e per assurdo)", testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: "Se $n$ è multiplo di 10 allora è pari (dim. diretta e per assurdo)", testo: R`
 Sia $n \in \mathbb{N}$. Se $n$ è multiplo di $10$, allora $n$ è multiplo di $2$, cioè è pari.`, dim: R`
 **Diretta.** $n$ multiplo di $10$ $\Rightarrow$ $n = 10k$ per qualche $k\in\mathbb N$ $\Rightarrow$ $n = 2\cdot(5k)$ $\Rightarrow$ $n$ è multiplo di $2$, cioè pari.
 

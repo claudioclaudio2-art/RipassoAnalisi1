@@ -1,6 +1,6 @@
 L({ data: "2026-10-06", n: 6, titolo: "Potenze, radici, logaritmi, funzioni", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Disuguaglianza triangolare inversa`, testo: R`
+{ t: "teo", s: "dim", diff: 1, titolo: R`Disuguaglianza triangolare inversa`, testo: R`
 $$\big||a|-|b|\big|\le|a-b|\qquad\forall a,b\in\mathbb R.$$`, dim: R`
 Per la disuguaglianza triangolare: $|a| = |(a-b)+b|\le|a-b|+|b|$, da cui $|a|-|b|\le|a-b|$.
 
@@ -15,7 +15,7 @@ $$a^n = \begin{cases}\underbrace{a\cdot a\cdots a}_{n \text{ volte}} & n>0\\ 1 &
 { t: "att", titolo: R`$0^0$ non ha senso`, testo: R`
 $0^0$ **non è definito** (in alcuni testi o situazioni si pone $0^0=1$, ma per noi no).` },
 
-{ t: "teo", s: "dim", titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
 Siano $y\in\mathbb R$, $y\ge0$, $n\in\mathbb N$. Allora esiste un unico $r\in\mathbb R$, $r\ge 0$, tale che $r^n = y$. Si scrive $r = y^{1/n} = \sqrt[n]y$, ed è
 $$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$`, dim: R`
 L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r$, e si verifica che $r^n = y$ (se fosse $r^n<y$ o $r^n>y$ si troverebbe un elemento di $A$ più grande di $r$, o un maggiorante più piccolo). L'unicità segue dal fatto che $x\mapsto x^n$ è strettamente crescente su $[0,+\infty)$. $\blacksquare$` },
@@ -36,7 +36,7 @@ Se $r < 0$: $a^r = \dfrac1{a^{-r}}$.
 
 Riassunto della costruzione: $a^n \to \sqrt[n]a\to a^{p/q}\to a^r\ (r\ge0)\to a^r\ (r<0)\to \log_a y$.` },
 
-{ t: "teo", s: "dim", titolo: R`Esistenza del logaritmo`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
 Siano $a>0$, $a\neq1$, $y>0$. Allora esiste un unico $x\in\mathbb R$ tale che $a^x = y$; si indica $x = \log_a y$ ed è
 - se $a > 1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\le y\rbrace$;
 - se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.`, dim: R`

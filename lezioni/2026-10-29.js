@@ -1,6 +1,6 @@
 L({ data: "2026-10-29", n: 19, titolo: "Limiti notevoli, gerarchia degli infiniti, asintotici, o-piccolo", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Limiti notevoli trigonometrici`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limiti notevoli trigonometrici`, testo: R`
 $$\lim_{x\to0}\frac{\sin x}x = 1,\qquad\lim_{x\to0}\frac{1-\cos x}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tan x}x = 1,\qquad\lim_{x\to0}\frac{\arcsin x}x = 1.$$
 Tutti tranne il primo sono forme $\left[\frac00\right]$ ricondotte al primo.`, dim: R`
 Il primo è stato fatto con i carabinieri (22/10).
@@ -11,7 +11,7 @@ $$\frac{1-\cos x}{x^2} = \frac{1-\cos^2x}{x^2(1+\cos x)} = \left(\frac{\sin x}x\
 
 **Arcoseno:** cambio di variabile $y = \arcsin x$ ($y\to0$ e $y\neq0$ per $x\neq0$): $\dfrac{\arcsin x}x = \dfrac y{\sin y}\to1$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Numero di Nepero: $\lim(1+\frac1x)^x$`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Numero di Nepero: $\lim(1+\frac1x)^x$`, testo: R`
 I due limiti
 $$\lim_{x\to+\infty}\left(1+\frac1x\right)^x\qquad\text{e}\qquad\lim_{x\to-\infty}\left(1+\frac1x\right)^x$$
 esistono, sono finiti e coincidono. Il loro valore comune è il **numero di Nepero** $e\approx2{,}718$.`, dim: R`
@@ -20,7 +20,7 @@ $$\left(1+\frac1x\right)^x = \left(1-\frac1y\right)^{-y} = \left(\frac{y}{y-1}\r
 Poi con $t = y-1\to+\infty$:
 $$\left(\frac{t+1}{t}\right)^{t+1} = \left(1+\frac1t\right)^t\cdot\left(1+\frac1t\right)\ \longrightarrow\ e\cdot 1.\ \blacksquare$$` },
 
-{ t: "teo", s: "dim", titolo: R`Limiti notevoli esponenziali e logaritmici`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limiti notevoli esponenziali e logaritmici`, testo: R`
 $$\lim_{x\to\pm\infty}\left(1+\frac\alpha x\right)^x = e^\alpha\ (\alpha\in\mathbb R),\qquad\lim_{x\to0}(1+x)^{1/x} = e,$$
 $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim: R`
 **$e^\alpha$** (per $\alpha>0$; $\alpha<0$ esercizio): con $y = \frac x\alpha\to\pm\infty$, $\left(1+\frac\alpha x\right)^x = \left[\left(1+\frac1y\right)^y\right]^\alpha\to e^\alpha$ (limite di funzione composta con $z\mapsto z^\alpha$).
@@ -31,7 +31,7 @@ $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim
 
 **Esponenziale:** con $y = e^x-1$ ($y\to0$, $x = \log(1+y)$): $\dfrac{e^x-1}x = \dfrac{y}{\log(1+y)}\to1$. $\blacksquare$` },
 
-{ t: "prop", s: "casa", titolo: R`Limiti notevoli iperbolici`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
 $$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tanh x}x = 1.$$`, dim: R`
 **Seno iperbolico:** $\dfrac{\sinh x}x = \dfrac{e^x-e^{-x}}{2x} = e^{-x}\cdot\dfrac{e^{2x}-1}{2x}\to1\cdot1$ (con $y = 2x$ nel limite notevole dell'esponenziale).
 
@@ -60,7 +60,7 @@ Siano $f,g:A\to\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$
 
 Esempi per $x\to0$: $\sin x\sim x$, $1-\cos x\sim\frac{x^2}2$, $\tan x\sim x$, $\log(1+x)\sim x$, $e^x-1\sim x$.` },
 
-{ t: "teo", s: "casa", titolo: R`Proprietà delle funzioni asintotiche`, testo: R`
+{ t: "teo", s: "casa", diff: 2, titolo: R`Proprietà delle funzioni asintotiche`, testo: R`
 Per $x\to x_0$:
 1. se $f\sim g$, allora $f$ e $g$ hanno lo **stesso comportamento al limite**: o hanno entrambe lo stesso limite, o entrambe non hanno limite;
 2. **transitività**: $f\sim g$ e $g\sim h\Rightarrow f\sim h$;
@@ -78,7 +78,7 @@ Si sostituisce $\sin x\sim x$, $\tan x\sim x$, $1-\cos x\sim\frac{x^2}2$.` },
 { t: "att", titolo: R`Non si sostituiscono asintotici nelle somme`, testo: R`
 La proprietà 3 vale per **prodotti e quozienti**, non per somme e differenze. Es. per $x\to0$, $\tan x\sim x$ e $\sin x\sim x$, ma $\tan x-\sin x\not\sim x-x = 0$ (in realtà $\tan x-\sin x\sim\frac{x^3}{2}$).` },
 
-{ t: "prop", s: "casa", titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
+{ t: "prop", s: "casa", diff: 2, titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
 Sia $g(x)\neq0$ definitivamente per $x\to x_0$ e $\ell\in\mathbb R\setminus\lbrace0\rbrace$. Allora
 $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = \ell\iff f(x)\sim\ell\,g(x).$$
 Es. $\lim_{x\to 0}\frac{1-\cos x}{x^2} = \frac12\iff 1-\cos x\sim\frac{x^2}2$.`, dim: R`

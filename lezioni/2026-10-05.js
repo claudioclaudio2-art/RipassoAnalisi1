@@ -25,7 +25,7 @@ Es. $A = [2,5)$: maggioranti $5, 6, 99{,}7,\dots$; minoranti $2, 1, -17,\dots$` 
 
 Un intervallo aperto $(a,b)$ non ha né massimo né minimo.` },
 
-{ t: "prop", s: "dim", titolo: R`Unicità di massimo e minimo`, testo: R`
+{ t: "prop", s: "dim", diff: 1, titolo: R`Unicità di massimo e minimo`, testo: R`
 Sia $\emptyset\neq A\subseteq\mathbb R$. Se $\min A$ (o $\max A$) esiste, allora è unico.`, dim: R`
 Siano $m_1, m_2$ due minimi di $A$.
 - $m_1$ è minorante e $m_2\in A$ $\Rightarrow$ $m_1\le m_2$;
@@ -40,11 +40,11 @@ Se $A$ è inferiormente limitato, il suo **estremo inferiore** è il **massimo d
 $$\inf A = \max\lbrace m\in\mathbb R : a\ge m\ \forall a\in A\rbrace.$$
 Es. $\inf(a,b) = a$ ma $\min(a,b)$ non esiste; $\sup(a,b] = \max(a,b] = b$.`, fig: "sup" },
 
-{ t: "es", s: "casa", titolo: R`Se esiste $\max A$ allora $\max A = \sup A$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Se esiste $\max A$ allora $\max A = \sup A$`, testo: R`
 Dimostrare: se $A$ ammette massimo allora $\max A = \sup A$ (e se ammette minimo, $\min A = \inf A$).`, dim: R`
 Sia $M = \max A$. $M$ è un maggiorante. Se $M'$ è un altro maggiorante, siccome $M\in A$ vale $M\le M'$. Quindi $M$ è il più piccolo dei maggioranti: $M = \sup A$. Per il minimo è analogo. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Completezza di $\mathbb R$ (2ª forma: esistenza del sup)`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Completezza di $\mathbb R$ (2ª forma: esistenza del sup)`, testo: R`
 1. Ogni $\emptyset\neq A\subseteq\mathbb R$ superiormente limitato ammette estremo superiore.
 2. Ogni $\emptyset\neq A\subseteq\mathbb R$ inferiormente limitato ammette estremo inferiore.`, dim: R`
 Facciamo (1); (2) è analoga. Sia $B = \lbrace$maggioranti di $A\rbrace$: dobbiamo mostrare che $B$ ha minimo.
@@ -64,7 +64,7 @@ Analogamente $\inf A = -\infty$ se $\forall m\in\mathbb R\ \exists a\in A: a < m
 
 Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Caratterizzazione di sup e inf`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Caratterizzazione di sup e inf`, testo: R`
 Sia $A$ superiormente limitato. Allora $s = \sup A$ se e solo se
 1. $s$ è un maggiorante di $A$: $a\le s\ \forall a\in A$;
 2. $\forall\varepsilon > 0\ \exists a\in A : a > s - \varepsilon$.
@@ -80,7 +80,7 @@ Sia $A$ inferiormente limitato. Allora $i = \inf A$ se e solo se
 Per $a\in\mathbb R$:
 $$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0.\end{cases}$$` },
 
-{ t: "prop", s: "casa", titolo: R`Proprietà del modulo`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`Proprietà del modulo`, testo: R`
 Per ogni $a,b\in\mathbb R$:
 1. $-|a|\le a\le |a|$;
 2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$;

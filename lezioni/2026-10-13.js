@@ -7,11 +7,11 @@ Sia $f:A\to\mathbb R$ con $A$ **simmetrico rispetto all'origine** ($x\in A\Right
 
 Esempi: $x^2$, $x^4$, $\cos x$, $\cosh x$ sono pari; $x^3$, $\sin x$, $\sinh x$ sono dispari.` },
 
-{ t: "prop", s: "casa", titolo: R`$x^n$ è pari se $n$ è pari, dispari se $n$ è dispari`, testo: R`
+{ t: "prop", s: "casa", diff: 1, titolo: R`$x^n$ è pari se $n$ è pari, dispari se $n$ è dispari`, testo: R`
 Sia $n\in\mathbb N_0$. $f(x) = x^n$ su $\mathbb R$ è pari se $n$ è pari, dispari se $n$ è dispari.`, dim: R`
 $(-x)^n = (-1)^n x^n$, e $(-1)^n = 1$ se $n$ è pari, $-1$ se $n$ è dispari. $\blacksquare$` },
 
-{ t: "es", s: "casa", titolo: R`Somme, prodotti e quozienti di funzioni pari/dispari`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Somme, prodotti e quozienti di funzioni pari/dispari`, testo: R`
 Se $f, g$ sono pari, cosa sono $f+g$, $f\cdot g$, $f/g$? E se sono dispari? Ogni funzione è pari o dispari?`, dim: R`
 - $f,g$ **pari**: $f+g$, $fg$, $f/g$ sono tutte **pari**.
 - $f,g$ **dispari**: $f+g$ è **dispari** ($-f(x)-g(x)$); $fg$ e $f/g$ sono **pari** ($(-f)(-g) = fg$).
@@ -53,7 +53,7 @@ Se esistono, $\max f$ e $\min f$ sono i **valori estremi**; i punti $x\in D(f)$ 
 - Esistono funzioni limitate senza max né min: $\arctan$ è limitata, strettamente crescente, ha $\sup = \frac\pi2$ e $\inf = -\frac\pi2$ ma non li raggiunge.
 - Esempio "selvaggio": il **seno del topologo** $f(x) = \sin\frac1x$ su $(0,+\infty)$.` },
 
-{ t: "es", s: "casa", titolo: R`$f$ costante $\iff \min f = \max f$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$f$ costante $\iff \min f = \max f$`, testo: R`
 Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \max f$.`, dim: R`
 ($\Rightarrow$) se $f\equiv c$, $\mathrm{Im} f = \lbrace c\rbrace$, quindi $\min f = \max f = c$.
 
@@ -66,7 +66,7 @@ Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \ma
 
 Es. $(5{,}9;\ 6{,}1)$ è un intorno di $6$; $(4,7)$ non è un intorno sferico di $6$ (raggi diversi).`, fig: "intorni" },
 
-{ t: "prop", s: "dim", titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
+{ t: "prop", s: "dim", diff: 2, titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
 1. **Intersezione**: se $I_1,I_2$ sono intorni di $r\in\overline{\mathbb R}$, allora $I_1\cap I_2$ è ancora un intorno di $r$.
 2. **Separazione**: se $r_1\neq r_2$ in $\overline{\mathbb R}$, esistono un intorno $I_1$ di $r_1$ e un intorno $I_2$ di $r_2$ tali che $I_1\cap I_2 = \emptyset$.`, dim: R`
 1. Per $r\in\mathbb R$: l'intersezione di due intorni centrati in $r$ è quello di raggio più piccolo. Per $r = +\infty$: $(M_1,+\infty)\cap(M_2,+\infty) = (\max\lbrace M_1,M_2\rbrace,+\infty)$. Analogo per $-\infty$.

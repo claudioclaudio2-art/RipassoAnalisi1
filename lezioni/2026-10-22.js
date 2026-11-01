@@ -1,6 +1,6 @@
 L({ data: "2026-10-22", n: 15, titolo: "Confronto, carabinieri, algebra dei limiti finiti", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Teorema del confronto (per i limiti)`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Teorema del confronto (per i limiti)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, e $f(x)\le g(x)$ definitivamente per $x\to x_0$. **Se esistono** i limiti
 $$\lim_{x\to x_0}f(x) = \ell_1,\qquad\lim_{x\to x_0}g(x) = \ell_2\qquad(\ell_1,\ell_2\in\overline{\mathbb R}),$$
 allora $\ell_1\le\ell_2$.`, dim: R`
@@ -13,7 +13,7 @@ Se $f(x)<g(x)$ definitivamente, si può concludere solo $\ell_1\le\ell_2$, **non
 
 Es. $f(x) = 0$, $g(x) = x^2$: $f(x)<g(x)$ per ogni $x\neq0$, ma $\lim_{x\to0}f = \lim_{x\to 0} g = 0$.` },
 
-{ t: "teo", s: "dim", titolo: R`Teorema dei due carabinieri`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Teorema dei due carabinieri`, testo: R`
 Siano $f,g,h:A\to\mathbb R$, $x_0$ di accumulazione per $A$, tali che
 $$f(x)\le g(x)\le h(x)\quad\text{definitivamente per }x\to x_0.$$
 Se esistono e sono uguali i limiti
@@ -29,7 +29,7 @@ e un intorno $I_3$ in cui vale $f\le g\le h$. Sia $I = I_1\cap I_2\cap I_3$, int
 
 Quindi $g(x)\in U$ definitivamente: $\lim_{x\to x_0}g(x) = \ell$. $\blacksquare$`, fig: "carabinieri" },
 
-{ t: "cor", s: "dim", titolo: R`Teorema "per un carabiniere"`, testo: R`
+{ t: "cor", s: "dim", diff: 1, titolo: R`Teorema "per un carabiniere"`, testo: R`
 Siano $f,g:A\to\mathbb R$ con $f(x)\le g(x)$ definitivamente per $x\to x_0$. Allora
 1. $\displaystyle\lim_{x\to x_0}f(x) = +\infty\ \Rightarrow\ \lim_{x\to x_0}g(x) = +\infty$;
 2. $\displaystyle\lim_{x\to x_0}g(x) = -\infty\ \Rightarrow\ \lim_{x\to x_0}f(x) = -\infty$.`, dim: R`
@@ -40,7 +40,7 @@ Per $x\neq0$ vale $\left|x\sin\frac1x\right|\le|x|$, cioè
 $$-|x|\le x\sin\frac1x\le|x|.$$
 Siccome $\lim_{x\to0}\pm|x| = 0$, per i carabinieri $\lim_{x\to0}x\sin\frac1x = 0$.` },
 
-{ t: "es", s: "dim", titolo: R`$\lim_{x\to0}\frac{\sin x}x = 1$ (con i carabinieri)`, testo: R`
+{ t: "es", s: "dim", diff: 3, titolo: R`$\lim_{x\to0}\frac{\sin x}x = 1$ (con i carabinieri)`, testo: R`
 Dimostrare che $\displaystyle\lim_{x\to0}\frac{\sin x}{x} = 1$.`, dim: R`
 Dalla definizione geometrica (confrontando le aree di triangoli e settore circolare) per $0<x<\frac\pi2$:
 $$\sin x<x<\tan x.$$
@@ -48,7 +48,7 @@ Dividendo per $\sin x>0$: $1<\frac{x}{\sin x}<\frac1{\cos x}$, cioè
 $$\cos x<\frac{\sin x}x<1.$$
 La funzione $\frac{\sin x}x$ è pari, quindi la disuguaglianza vale anche per $-\frac\pi2<x<0$, cioè definitivamente per $x\to0$. Siccome $\lim_{x\to 0}\cos x = 1$, per i carabinieri $\lim_{x\to0}\frac{\sin x}x = 1$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Algebra dei limiti finiti`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Algebra dei limiti finiti`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, e
 $$\lim_{x\to x_0}f(x) = \ell_f\in\mathbb R,\qquad\lim_{x\to x_0}g(x) = \ell_g\in\mathbb R.$$
 Allora:

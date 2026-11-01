@@ -1,6 +1,6 @@
 L({ data: "2026-10-26", n: 17, titolo: "Limiti di polinomi, algebra dei limiti infiniti, cambio di variabile", voci: [
 
-{ t: "cor", s: "dim", titolo: R`Limiti di polinomi e funzioni razionali`, testo: R`
+{ t: "cor", s: "dim", diff: 2, titolo: R`Limiti di polinomi e funzioni razionali`, testo: R`
 Siano $P(x)$ e $Q(x)$ due polinomi. Allora
 1. $\displaystyle\lim_{x\to x_0}P(x) = P(x_0)$ per ogni $x_0\in\mathbb R$;
 2. $\displaystyle\lim_{x\to x_0}\frac{P(x)}{Q(x)} = \frac{P(x_0)}{Q(x_0)}$ per ogni $x_0\in\mathbb R$ con $Q(x_0)\neq0$.`, dim: R`
@@ -10,7 +10,7 @@ Per (S), $\lim_{x\to x_0}a_kx^k = a_kx_0^k$, e applicando (S) $n$ volte alla som
 $$\lim_{x\to x_0}\sum_{k=0}^na_kx^k = \sum_{k=0}^na_kx_0^k = P(x_0).$$
 Il punto 2 segue da (Q). $\blacksquare$` },
 
-{ t: "teo", s: "omessa", titolo: R`Algebra dei limiti infiniti (6 regole)`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Algebra dei limiti infiniti (6 regole)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$.
 1. Se $\lim f = +\infty$ e $g$ è **limitata inferiormente** definitivamente, allora $\lim(f+g) = +\infty$. $\quad[+\infty+(\text{non }-\infty)]$
 2. Se $\lim f = 0$ e $g$ è **limitata** definitivamente, allora $\lim(f\cdot g) = 0$. $\quad[0\cdot\text{limitata}]$
@@ -29,7 +29,7 @@ Per la 2: $|g(x)|\le C$ definitivamente. Dato $\varepsilon$, definitivamente $|f
 - Se $\lim f = +\infty$ e $g$ è limitata **superiormente**, allora $\lim(f-g) = +\infty$: pongo $G = -g$, limitata inferiormente, e applico la 1.
 - $\displaystyle\lim_{x\to0}x\sin\frac1x = 0$ per la regola 2 ($x\to0$ infinitesima, $\sin\frac1x$ limitata). Lo avevamo già visto con i carabinieri.` },
 
-{ t: "es", s: "casa", titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`
 Dimostrare la regola "$0\cdot$limitata $= 0$" usando il teorema dei due carabinieri.`, dim: R`
 Se $|g(x)|\le C$ definitivamente, allora $0\le|f(x)g(x)|\le C|f(x)|$. Siccome $\lim|f| = 0$, per (S) $\lim C|f| = 0$ e per i carabinieri $\lim|fg| = 0$, quindi $\lim fg = 0$ (limite del modulo). $\blacksquare$` },
 
@@ -45,7 +45,7 @@ Il risultato dipende dalle funzioni specifiche:
 $$\sqrt{x+1}-\sqrt x = \frac{(x+1)-x}{\sqrt{x+1}+\sqrt x} = \frac1{\sqrt{x+1}+\sqrt x}.$$
 Il denominatore tende a $+\infty$, quindi per la regola 5 il limite è $0$.` },
 
-{ t: "teo", s: "omessa", titolo: R`Cambio di variabile nei limiti (limite di funzione composta)`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Cambio di variabile nei limiti (limite di funzione composta)`, testo: R`
 Siano $f:A\to\mathbb R$, $g:B\to\mathbb R$ ($A,B\subseteq\mathbb R$ non vuoti), $\tilde A = \lbrace x\in A: f(x)\in B\rbrace$ e $x_0\in\overline{\mathbb R}$ di accumulazione per $\tilde A$. Supponiamo:
 1. $\displaystyle\lim_{x\to x_0}f(x) = y_0\in\overline{\mathbb R}$, con $y_0$ di accumulazione per $B$;
 2. $\displaystyle\lim_{y\to y_0}g(y) = \ell\in\overline{\mathbb R}$;

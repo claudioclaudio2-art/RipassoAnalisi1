@@ -1,6 +1,6 @@
 L({ data: "2026-10-20", n: 14, titolo: "Limite e limiti laterali, modulo, permanenza del segno", voci: [
 
-{ t: "teo", s: "dim", titolo: R`Limite $\iff$ limite destro = limite sinistro`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Limite $\iff$ limite destro = limite sinistro`, testo: R`
 Siano $f:A\to\mathbb R$, $\ell\in\overline{\mathbb R}$, e $x_0\in\mathbb R$ punto di accumulazione **sia destro sia sinistro** per $A$. Allora
 $$\lim_{x\to x_0}f(x) = \ell\iff\lim_{x\to x_0^+}f(x) = \ell\ \text{ e }\ \lim_{x\to x_0^-}f(x) = \ell.$$`, dim: R`
 ($\Rightarrow$) Fisso $U$ intorno di $\ell$. Per ipotesi esiste $I$ intorno di $x_0$ con $f(x)\in U$ per ogni $x\in A\cap I\setminus\lbrace x_0\rbrace$. In particolare vale per ogni $x\in A\cap I\cap(x_0,+\infty)$ e per ogni $x\in A\cap I\cap(-\infty,x_0)$: questi sono i due limiti laterali (gli insiemi sono non vuoti perché $x_0$ è di accumulazione destro e sinistro).
@@ -17,7 +17,7 @@ perché ogni tale $x$ sta a destra o a sinistra di $x_0$. $\blacksquare$` },
 - $\lim_{x\to0^+}\frac1x = +\infty\neq-\infty = \lim_{x\to0^-}\frac1x$, quindi $\nexists\lim_{x\to0}\frac1x$.
 - $\lim_{x\to0^\pm}\frac1{x^2} = +\infty$, quindi $\lim_{x\to0}\frac1{x^2} = +\infty$.` },
 
-{ t: "prop", s: "dim", titolo: R`Limite del modulo: $\lim f = \ell\Rightarrow\lim|f| = |\ell|$`, testo: R`
+{ t: "prop", s: "dim", diff: 2, titolo: R`Limite del modulo: $\lim f = \ell\Rightarrow\lim|f| = |\ell|$`, testo: R`
 Siano $f:A\to\mathbb R$, $x_0$ di accumulazione, $\ell\in\overline{\mathbb R}$ (con la convenzione $|\pm\infty| = +\infty$). Allora
 1. $\displaystyle\lim_{x\to x_0}f(x) = \ell\ \Rightarrow\ \lim_{x\to x_0}|f(x)| = |\ell|$;
 2. $\displaystyle\lim_{x\to x_0}f(x) = 0\ \iff\ \lim_{x\to x_0}|f(x)| = 0$.`, dim: R`
@@ -34,7 +34,7 @@ Con $f(x) = 1$ per $x\ge0$ e $f(x)=-1$ per $x<0$: $|f(x)| = 1$ per ogni $x$, qui
 
 Il risultato vale anche per limiti destri e sinistri.` },
 
-{ t: "teo", s: "dim", titolo: R`Permanenza del segno`, testo: R`
+{ t: "teo", s: "dim", diff: 2, titolo: R`Permanenza del segno`, testo: R`
 Sia $\displaystyle\lim_{x\to x_0}f(x) = \ell\in\overline{\mathbb R}$. Allora
 - se $\ell>0$, allora $f(x)>0$ definitivamente per $x\to x_0$;
 - se $\ell<0$, allora $f(x)<0$ definitivamente per $x\to x_0$.`, dim: R`
@@ -44,7 +44,7 @@ Se $\ell\in(0,+\infty)$: scelgo $\varepsilon = \frac\ell2$ e trovo un intorno $I
 
 Se $\ell = +\infty$: scelgo l'intorno $U = (M,+\infty)$ con $M>0$ e trovo $I$ con $f(x)>M>0$. $\blacksquare$` },
 
-{ t: "teo", s: "dim", titolo: R`Limiti diversi $\Rightarrow$ funzioni ordinate definitivamente`, testo: R`
+{ t: "teo", s: "dim", diff: 3, titolo: R`Limiti diversi $\Rightarrow$ funzioni ordinate definitivamente`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, con
 $$\lim_{x\to x_0}f(x) = \ell_1,\qquad\lim_{x\to x_0}g(x) = \ell_2,\qquad \ell_1,\ell_2\in\overline{\mathbb R}.$$
 Se $\ell_1<\ell_2$, allora $f(x)<g(x)$ definitivamente per $x\to x_0$.`, dim: R`

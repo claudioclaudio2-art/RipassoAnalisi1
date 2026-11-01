@@ -37,7 +37,7 @@ Definite tramite la circonferenza goniometrica, con l'angolo $x$ in **radianti**
 $$\sinh x = \frac{e^x - e^{-x}}{2}\ \text{(dispari)}, \qquad \cosh x = \frac{e^x+e^{-x}}{2}\ \text{(pari)},$$
 $$\tanh x = \frac{\sinh x}{\cosh x},\qquad \coth x = \frac{\cosh x}{\sinh x}\ (x\neq0).$$` },
 
-{ t: "es", s: "casa", titolo: R`$\cosh^2 x - \sinh^2 x = 1$`, testo: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`$\cosh^2 x - \sinh^2 x = 1$`, testo: R`
 Dimostrare che $\cosh^2x-\sinh^2x = 1$ per ogni $x\in\mathbb R$.`, dim: R`
 $$\cosh^2x-\sinh^2x = \frac{e^{2x}+2+e^{-2x}}{4}-\frac{e^{2x}-2+e^{-2x}}{4} = \frac44 = 1.\ \blacksquare$$` },
 
