@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build del sito: unisce le lezioni (lezioni/*.js) in docs/contenuti.js
+"""Build del sito: unisce le lezioni (lezioni/*.js) in contenuti.js
 e rigenera il service worker con una versione nuova (così il sito si aggiorna).
 
 Per aggiungere una lezione: creare lezioni/AAAA-MM-GG.js e rilanciare questo script.
@@ -7,7 +7,7 @@ Per aggiungere una lezione: creare lezioni/AAAA-MM-GG.js e rilanciare questo scr
 import hashlib, json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITE = ROOT / "docs"
+SITE = ROOT
 files = sorted(p for p in (ROOT / "lezioni").glob("*.js") if re.fullmatch(r"\d{4}-\d\d-\d\d\.js", p.name))
 
 parts = ["/* Generato da tools/build.py: non modificare a mano */\n"

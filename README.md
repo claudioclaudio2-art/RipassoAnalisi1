@@ -2,13 +2,13 @@
 
 Sito personale per ripassare Analisi 1: definizioni, teoremi e dimostrazioni divisi per lezione, con modalità ripasso e progressi salvati nel browser.
 
-Pubblicato con GitHub Pages dalla cartella `docs/`.
+Sito: https://claudioclaudio2-art.github.io/RipassoAnalisi1/ (GitHub Pages dalla radice del branch `main`).
 
 ## Struttura
 
 - `lezioni/AAAA-MM-GG.js`: una lezione per file (contenuti in Markdown + LaTeX).
-- `docs/`: il sito pubblicato (HTML, CSS, JS, KaTeX incluso per l'uso offline).
-- `tools/build.py`: unisce le lezioni in `docs/contenuti.js` e aggiorna il service worker.
+- `index.html`, `css/`, `js/`, `vendor/`: il sito pubblicato (KaTeX incluso per l'uso offline).
+- `tools/build.py`: unisce le lezioni in `contenuti.js` e aggiorna il service worker.
 - `tools/check.js`: controlla la struttura delle lezioni e rende ogni formula con KaTeX.
 
 ## Aggiungere una lezione
