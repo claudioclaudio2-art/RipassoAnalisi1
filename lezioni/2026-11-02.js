@@ -21,25 +21,25 @@ $$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$`, },
 { t: "prop", s: "casa", diff: 1, titolo: R`Proprietà degli o-piccoli`, testo: R`
 Per $x\to x_0$ valgono:
 1. $o(g)\pm o(g) = o(g)$;
-2. $c\cdot o(g) = o(g)$ e $o(c\,g) = o(g)$ per ogni costante $c\neq0$;
-3. $h\cdot o(g) = o(h\,g)$;
-4. se $h$ è **limitata** definitivamente per $x\to x_0$, allora $h\cdot o(g) = o(g)$;
-5. $\dfrac{o(g)}{h} = o\!\left(\dfrac gh\right)$ se $h(x)\neq0$ definitivamente per $x\to x_0$;
+2. $o(g_1)\cdot o(g_2) = o(g_1\,g_2)$;
+3. $o(g)\cdot h = o(g)$ se $h$ è **limitata** definitivamente per $x\to x_0$;
+4. $|o(g)|^\alpha = o(|g|^\alpha)$ per ogni $\alpha>0$ (l'esponente si porta dentro, ma fuori resta il modulo);
+5. $o(g)\cdot h = o(g\,h)$ se $h(x)\neq0$ definitivamente per $x\to x_0$;
 6. $o(o(g)) = o(g)$.
 
 (Dimostrazione lasciata per esercizio: vedere il foglio settimanale.)`, dim: R`
 In ogni punto basta scrivere il rapporto con la funzione "di riferimento" e verificare che tende a $0$. Siano $f_1 = o(g)$, $f_2 = o(g)$, cioè $\frac{f_1}g\to0$, $\frac{f_2}g\to0$.
 1. $\dfrac{f_1\pm f_2}{g} = \dfrac{f_1}g\pm\dfrac{f_2}g\to0\pm0 = 0$.
-2. $\dfrac{c f_1}{g} = c\cdot\dfrac{f_1}g\to0$; se $f = o(cg)$: $\dfrac fg = c\cdot\dfrac{f}{cg}\to c\cdot 0 = 0$.
-3. $\dfrac{h f_1}{hg} = \dfrac{f_1}g\to0$ (dove $h\neq0$).
-4. $\left|\dfrac{hf_1}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: è il teorema "per un carabiniere" (limitata per infinitesima).
-5. $\dfrac{f_1/h}{g/h} = \dfrac{f_1}g\to0$.
+2. Se $f_1 = o(g_1)$ e $f_2 = o(g_2)$: $\dfrac{f_1f_2}{g_1g_2} = \dfrac{f_1}{g_1}\cdot\dfrac{f_2}{g_2}\to0\cdot0 = 0$.
+3. $\left|\dfrac{f_1h}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: è il teorema "per un carabiniere" (limitata per infinitesima).
+4. $\dfrac{|f_1|^\alpha}{|g|^\alpha} = \left|\dfrac{f_1}g\right|^\alpha\to0$ perché $\alpha>0$ (continuità di $t\mapsto t^\alpha$ in $0$).
+5. $\dfrac{f_1h}{gh} = \dfrac{f_1}g\to0$ (si semplifica perché $h\neq0$).
 6. Se $f = o(f_1)$ con $f_1 = o(g)$: $\dfrac fg = \dfrac f{f_1}\cdot\dfrac{f_1}g\to0\cdot0 = 0$ (dove $f_1\neq0$). $\blacksquare$` },
 
 { t: "es", titolo: R`Uso delle proprietà: $x^2\cdot o(x^3) = o(x^5)$`, testo: R`
 Per $x\to0$: se $f(x) = o(x^3)$, allora
 $$\lim_{x\to0}\frac{x^2f(x)}{x^5} = \lim_{x\to0}\frac{f(x)}{x^3} = 0,$$
-quindi $x^2\cdot o(x^3) = o(x^5)$ (proprietà 3). Analogamente $x^3\cdot o(x^3) = o(x^6)$ per qualsiasi $x_0$.` },
+quindi $x^2\cdot o(x^3) = o(x^5)$ (proprietà 5). Analogamente $x^3\cdot o(x^3) = o(x^6)$ per qualsiasi $x_0$.` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Relazione tra o-piccoli e asintoticità`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$, $g(x)\neq0$ definitivamente per $x\to x_0$, e $\ell\in\mathbb R\setminus\lbrace0\rbrace$. Allora
@@ -81,7 +81,7 @@ Raccogliendo:
 $$\frac{f(x)}{g(x)} = \frac{\hat f(x)+o(\hat f(x))}{\hat g(x)+o(\hat g(x))} = \frac{\hat f(x)}{\hat g(x)}\cdot\frac{1+\dfrac{o(\hat f(x))}{\hat f(x)}}{1+\dfrac{o(\hat g(x))}{\hat g(x)}} = \frac{\hat f(x)}{\hat g(x)}\cdot\frac{1+o(1)}{1+o(1)}.$$
 Il secondo fattore tende a $\frac{1+0}{1+0} = 1$, quindi per l'algebra dei limiti i due limiti coincidono. $\blacksquare$
 
-**Oss.** Si è usata la proprietà 5 degli o-piccoli con $h = \hat g$: $\dfrac{o(\hat g)}{\hat g} = o\!\left(\dfrac{\hat g}{\hat g}\right) = o(1)$.` },
+**Oss.** Si è usata la proprietà 5 degli o-piccoli con $h = \dfrac1{\hat g}$: $o(\hat g)\cdot\dfrac1{\hat g} = o\!\left(\hat g\cdot\dfrac1{\hat g}\right) = o(1)$.` },
 
 { t: "es", titolo: R`Principio di sostituzione in pratica`, testo: R`
 $$\lim_{x\to0}\frac{\sin x+x^2}{e^x-1+x^3} = \lim_{x\to0}\frac{x+o(x)}{x+o(x)} = \lim_{x\to0}\frac xx = 1,$$
