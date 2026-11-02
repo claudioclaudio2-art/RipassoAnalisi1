@@ -1222,7 +1222,7 @@ $$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$`, },
 Per $x\to x_0$ valgono:
 1. $o(g)\pm o(g) = o(g)$;
 2. $o(g_1)\cdot o(g_2) = o(g_1\,g_2)$;
-3. $o(g)\cdot h = o(g)$ se $h$ è **limitata** definitivamente per $x\to x_0$;
+3. $o(g)\cdot h = o(g)$ se $h$ è **limitata** e $h(x)\neq0$ definitivamente per $x\to x_0$;
 4. $|o(g)|^\alpha = o(|g|^\alpha)$ per ogni $\alpha>0$ (l'esponente si porta dentro, ma fuori resta il modulo);
 5. $o(g)\cdot h = o(g\,h)$ se $h(x)\neq0$ definitivamente per $x\to x_0$;
 6. $o(o(g)) = o(g)$.
