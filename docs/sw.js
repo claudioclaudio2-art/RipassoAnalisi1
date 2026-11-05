@@ -1,5 +1,5 @@
-// Service worker generato da tools/build.py (versione 3b663703b0)
-const CACHE = 'analisi1-3b663703b0';
+// Service worker generato da tools/build.py (versione 63d23fb488)
+const CACHE = 'analisi1-63d23fb488';
 const ASSET = ["./", "index.html", "contenuti.js", "css/style.css", "js/app.js", "js/figure.js", "vendor/katex.min.js", "vendor/katex.min.css", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png", "vendor/fonts/KaTeX_AMS-Regular.woff2", "vendor/fonts/KaTeX_Caligraphic-Bold.woff2", "vendor/fonts/KaTeX_Caligraphic-Regular.woff2", "vendor/fonts/KaTeX_Fraktur-Bold.woff2", "vendor/fonts/KaTeX_Fraktur-Regular.woff2", "vendor/fonts/KaTeX_Main-Bold.woff2", "vendor/fonts/KaTeX_Main-BoldItalic.woff2", "vendor/fonts/KaTeX_Main-Italic.woff2", "vendor/fonts/KaTeX_Main-Regular.woff2", "vendor/fonts/KaTeX_Math-BoldItalic.woff2", "vendor/fonts/KaTeX_Math-Italic.woff2", "vendor/fonts/KaTeX_SansSerif-Bold.woff2", "vendor/fonts/KaTeX_SansSerif-Italic.woff2", "vendor/fonts/KaTeX_SansSerif-Regular.woff2", "vendor/fonts/KaTeX_Script-Regular.woff2", "vendor/fonts/KaTeX_Size1-Regular.woff2", "vendor/fonts/KaTeX_Size2-Regular.woff2", "vendor/fonts/KaTeX_Size3-Regular.woff2", "vendor/fonts/KaTeX_Size4-Regular.woff2", "vendor/fonts/KaTeX_Typewriter-Regular.woff2"];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSET)).then(() => self.skipWaiting()));
