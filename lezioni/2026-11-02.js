@@ -31,7 +31,7 @@ Per $x\to x_0$ valgono:
 In ogni punto basta scrivere il rapporto con la funzione "di riferimento" e verificare che tende a $0$. Siano $f_1 = o(g)$, $f_2 = o(g)$, cioè $\frac{f_1}g\to0$, $\frac{f_2}g\to0$.
 1. $\dfrac{f_1\pm f_2}{g} = \dfrac{f_1}g\pm\dfrac{f_2}g\to0\pm0 = 0$.
 2. Se $f_1 = o(g_1)$ e $f_2 = o(g_2)$: $\dfrac{f_1f_2}{g_1g_2} = \dfrac{f_1}{g_1}\cdot\dfrac{f_2}{g_2}\to0\cdot0 = 0$.
-3. $\left|\dfrac{f_1h}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: è il teorema "per un carabiniere" (limitata per infinitesima).
+3. $\left|\dfrac{f_1h}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: quindi tende a $0$ per i due carabinieri ("limitata per infinitesima fa infinitesima").
 4. $\dfrac{|f_1|^\alpha}{|g|^\alpha} = \left|\dfrac{f_1}g\right|^\alpha\to0$ perché $\alpha>0$ (continuità di $t\mapsto t^\alpha$ in $0$).
 5. $\dfrac{f_1h}{gh} = \dfrac{f_1}g\to0$ (si semplifica perché $h\neq0$).
 6. Se $f = o(f_1)$ con $f_1 = o(g)$: $\dfrac fg = \dfrac f{f_1}\cdot\dfrac{f_1}g\to0\cdot0 = 0$ (dove $f_1\neq0$). $\blacksquare$` },

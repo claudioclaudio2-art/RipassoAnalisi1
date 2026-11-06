@@ -21,6 +21,13 @@ Per induzione.
 $$\sum_{k=1}^{n+1} k = \sum_{k=1}^n k + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2},$$
 che è $P(n+1)$. $\blacksquare$` },
 
+{ t: "es", s: "casa", diff: 1, titolo: R`$\sum_{k=1}^n 1 = n$ e $3^n\ge n$ per ogni $n\in\mathbb N$`, testo: R`
+Dimostrare per induzione che per ogni $n\in\mathbb N$:
+1. $\displaystyle\sum_{k=1}^n 1 = n$;
+2. $3^n\ge n$.`, dim: R`
+1. **Base** $n=1$: $\sum_{k=1}^1 1 = 1$. **Passo**: $\sum_{k=1}^{n+1}1 = \sum_{k=1}^n 1+1 = n+1$.
+2. **Base** $n=1$: $3\ge1$. **Passo**: se $3^n\ge n$, allora $3^{n+1} = 3\cdot3^n\ge3n\ge n+1$, perché $2n\ge1$ per $n\ge1$. $\blacksquare$` },
+
 { t: "es", s: "casa", diff: 2, titolo: R`$3^n \ge n^2$ per ogni $n\in\mathbb N$`, testo: R`
 Dimostrare per induzione che $3^n \ge n^2$ per ogni $n\in\mathbb N$.`, dim: R`
 **Base**: $n=1$: $3\ge 1$. Verifico anche $n=2$: $9 \ge 4$.
@@ -45,16 +52,22 @@ ha $m + 1$ elementi (unione disgiunta).
 $$A\times B = (A \times B') \cup (A\times\lbrace b_{n+1}\rbrace),$$
 unione disgiunta di insiemi con $mn$ e $m$ elementi. Totale $m(n+1)$. $\blacksquare$` },
 
-{ t: "es", s: "casa", diff: 1, titolo: R`$(A\cup B)\times C = (A\times C)\cup(B\times C)$`, testo: R`
-Dimostrare che per ogni terna di insiemi $(A\cup B)\times C = (A\times C)\cup(B\times C)$.`, dim: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Prodotto cartesiano e unione`, testo: R`
+Siano $A,B,C$ tre insiemi. Dimostrare che
+- $(A\cup B)\times C = (A\times C)\cup(B\times C)$;
+- $A\times(B\cup C) = (A\times B)\cup(A\times C)$.
+
+Suggerimento: nel primo caso dimostrare le due inclusioni.`, dim: R`
 Si dimostrano le due inclusioni.
 
 $\subseteq$: se $(x,c)\in(A\cup B)\times C$, allora $c\in C$ e $x\in A$ oppure $x\in B$. Nel primo caso $(x,c)\in A\times C$, nel secondo $(x,c)\in B\times C$. In ogni caso sta nell'unione.
 
-$\supseteq$: se $(x,c) \in A\times C$ allora $x \in A \subseteq A\cup B$ e $c\in C$, quindi $(x,c) \in (A\cup B)\times C$. Idem se $(x,c)\in B\times C$. $\blacksquare$` },
+$\supseteq$: se $(x,c) \in A\times C$ allora $x \in A \subseteq A\cup B$ e $c\in C$, quindi $(x,c) \in (A\cup B)\times C$. Idem se $(x,c)\in B\times C$.
+
+**Seconda uguaglianza**, identica scambiando i ruoli: $(a,y)\in A\times(B\cup C)\iff a\in A$ e ($y\in B$ oppure $y\in C$) $\iff(a,y)\in A\times B$ oppure $(a,y)\in A\times C$. $\blacksquare$` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Progressione geometrica`, testo: R`
-Sia $r \in\mathbb R$, $r \neq 1$ (la **ragione**). Allora
+Sia $r \in\mathbb R$, $r \neq 0,1$ (la **ragione**; $r\neq0$ perché $r^0 = 0^0$ non è definito). Allora
 $$\sum_{k=0}^n r^k = 1 + r + r^2 + \dots + r^n = \frac{r^{n+1}-1}{r-1}\qquad\forall n\in\mathbb N_0.$$`, dim: R`
 Per induzione.
 
@@ -89,7 +102,7 @@ $$\begin{array}{c} 1\\ 1\quad 1\\ 1\quad 2\quad 1\\ 1\quad 3\quad 3\quad 1\\ 1\q
 Sono i coefficienti di $(a+b)^n$: ad es. $(a+b)^3 = a^3+3a^2b+3ab^2+b^3$.` },
 
 { t: "teo", s: "dim", diff: 3, titolo: R`Binomio di Newton`, testo: R`
-Siano $a,b\in\mathbb R\setminus\lbrace 0\rbrace$. Allora per ogni $n\in\mathbb N_0$:
+Siano $a,b\in\mathbb R\setminus\lbrace 0\rbrace$ (per $n = 0$ serve anche $a+b\neq0$, perché $0^0$ non è definito). Allora per ogni $n\in\mathbb N_0$:
 $$(a+b)^n = \sum_{k=0}^n \binom nk a^{n-k} b^k.$$`, dim: R`
 Per induzione su $n$.
 

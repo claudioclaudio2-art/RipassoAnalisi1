@@ -61,8 +61,10 @@ Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \ma
 
 { t: "def", titolo: R`Intorno (sferico) di un punto di $\overline{\mathbb R}$`, testo: R`
 - Se $r\in\mathbb R$: un **intorno sferico** di $r$ è ogni intervallo aperto $(r-\varepsilon, r+\varepsilon)$ con $\varepsilon>0$ (centrato in $r$, raggio $\varepsilon$).
-- Se $r = +\infty$: un intorno è ogni $(M,+\infty)$ con $M\in\mathbb R$.
-- Se $r = -\infty$: un intorno è ogni $(-\infty, M)$ con $M\in\mathbb R$.
+- Se $r = +\infty$: un intorno è ogni intervallo aperto $(M,+\infty)$ con $M\in\mathbb R\cup\lbrace-\infty\rbrace$.
+- Se $r = -\infty$: un intorno è ogni intervallo aperto $(-\infty, M)$ con $M\in\mathbb R\cup\lbrace+\infty\rbrace$.
+
+(Con $M = \mp\infty$ anche tutto $\mathbb R$ è un intorno di $\pm\infty$; per i limiti non cambia nulla, perché conta solo che si possa prendere $M$ grande quanto si vuole.)
 
 Es. $(5{,}9;\ 6{,}1)$ è un intorno di $6$; $(4,7)$ non è un intorno sferico di $6$ (raggi diversi).`, fig: "intorni" },
 

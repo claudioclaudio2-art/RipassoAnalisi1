@@ -169,6 +169,13 @@ Per induzione.
 $$\sum_{k=1}^{n+1} k = \sum_{k=1}^n k + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2},$$
 che è $P(n+1)$. $\blacksquare$` },
 
+{ t: "es", s: "casa", diff: 1, titolo: R`$\sum_{k=1}^n 1 = n$ e $3^n\ge n$ per ogni $n\in\mathbb N$`, testo: R`
+Dimostrare per induzione che per ogni $n\in\mathbb N$:
+1. $\displaystyle\sum_{k=1}^n 1 = n$;
+2. $3^n\ge n$.`, dim: R`
+1. **Base** $n=1$: $\sum_{k=1}^1 1 = 1$. **Passo**: $\sum_{k=1}^{n+1}1 = \sum_{k=1}^n 1+1 = n+1$.
+2. **Base** $n=1$: $3\ge1$. **Passo**: se $3^n\ge n$, allora $3^{n+1} = 3\cdot3^n\ge3n\ge n+1$, perché $2n\ge1$ per $n\ge1$. $\blacksquare$` },
+
 { t: "es", s: "casa", diff: 2, titolo: R`$3^n \ge n^2$ per ogni $n\in\mathbb N$`, testo: R`
 Dimostrare per induzione che $3^n \ge n^2$ per ogni $n\in\mathbb N$.`, dim: R`
 **Base**: $n=1$: $3\ge 1$. Verifico anche $n=2$: $9 \ge 4$.
@@ -193,16 +200,22 @@ ha $m + 1$ elementi (unione disgiunta).
 $$A\times B = (A \times B') \cup (A\times\lbrace b_{n+1}\rbrace),$$
 unione disgiunta di insiemi con $mn$ e $m$ elementi. Totale $m(n+1)$. $\blacksquare$` },
 
-{ t: "es", s: "casa", diff: 1, titolo: R`$(A\cup B)\times C = (A\times C)\cup(B\times C)$`, testo: R`
-Dimostrare che per ogni terna di insiemi $(A\cup B)\times C = (A\times C)\cup(B\times C)$.`, dim: R`
+{ t: "es", s: "casa", diff: 1, titolo: R`Prodotto cartesiano e unione`, testo: R`
+Siano $A,B,C$ tre insiemi. Dimostrare che
+- $(A\cup B)\times C = (A\times C)\cup(B\times C)$;
+- $A\times(B\cup C) = (A\times B)\cup(A\times C)$.
+
+Suggerimento: nel primo caso dimostrare le due inclusioni.`, dim: R`
 Si dimostrano le due inclusioni.
 
 $\subseteq$: se $(x,c)\in(A\cup B)\times C$, allora $c\in C$ e $x\in A$ oppure $x\in B$. Nel primo caso $(x,c)\in A\times C$, nel secondo $(x,c)\in B\times C$. In ogni caso sta nell'unione.
 
-$\supseteq$: se $(x,c) \in A\times C$ allora $x \in A \subseteq A\cup B$ e $c\in C$, quindi $(x,c) \in (A\cup B)\times C$. Idem se $(x,c)\in B\times C$. $\blacksquare$` },
+$\supseteq$: se $(x,c) \in A\times C$ allora $x \in A \subseteq A\cup B$ e $c\in C$, quindi $(x,c) \in (A\cup B)\times C$. Idem se $(x,c)\in B\times C$.
+
+**Seconda uguaglianza**, identica scambiando i ruoli: $(a,y)\in A\times(B\cup C)\iff a\in A$ e ($y\in B$ oppure $y\in C$) $\iff(a,y)\in A\times B$ oppure $(a,y)\in A\times C$. $\blacksquare$` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Progressione geometrica`, testo: R`
-Sia $r \in\mathbb R$, $r \neq 1$ (la **ragione**). Allora
+Sia $r \in\mathbb R$, $r \neq 0,1$ (la **ragione**; $r\neq0$ perché $r^0 = 0^0$ non è definito). Allora
 $$\sum_{k=0}^n r^k = 1 + r + r^2 + \dots + r^n = \frac{r^{n+1}-1}{r-1}\qquad\forall n\in\mathbb N_0.$$`, dim: R`
 Per induzione.
 
@@ -237,7 +250,7 @@ $$\begin{array}{c} 1\\ 1\quad 1\\ 1\quad 2\quad 1\\ 1\quad 3\quad 3\quad 1\\ 1\q
 Sono i coefficienti di $(a+b)^n$: ad es. $(a+b)^3 = a^3+3a^2b+3ab^2+b^3$.` },
 
 { t: "teo", s: "dim", diff: 3, titolo: R`Binomio di Newton`, testo: R`
-Siano $a,b\in\mathbb R\setminus\lbrace 0\rbrace$. Allora per ogni $n\in\mathbb N_0$:
+Siano $a,b\in\mathbb R\setminus\lbrace 0\rbrace$ (per $n = 0$ serve anche $a+b\neq0$, perché $0^0$ non è definito). Allora per ogni $n\in\mathbb N_0$:
 $$(a+b)^n = \sum_{k=0}^n \binom nk a^{n-k} b^k.$$`, dim: R`
 Per induzione su $n$.
 
@@ -438,7 +451,20 @@ $0^0$ **non è definito** (in alcuni testi o situazioni si pone $0^0=1$, ma per 
 { t: "teo", s: "dim", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
 Siano $y\in\mathbb R$, $y\ge0$, $n\in\mathbb N$. Allora esiste un unico $r\in\mathbb R$, $r\ge 0$, tale che $r^n = y$. Si scrive $r = y^{1/n} = \sqrt[n]y$, ed è
 $$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$`, dim: R`
-L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r$, e si verifica che $r^n = y$ (se fosse $r^n<y$ o $r^n>y$ si troverebbe un elemento di $A$ più grande di $r$, o un maggiorante più piccolo). L'unicità segue dal fatto che $x\mapsto x^n$ è strettamente crescente su $[0,+\infty)$. $\blacksquare$` },
+L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r\ge0$. Resta da vedere che $r^n = y$ (a lezione questo passo è solo accennato; ecco i conti).
+
+**Stima utile.** Per $0\le a<b$:
+$$b^n-a^n = (b-a)\left(b^{n-1}+b^{n-2}a+\dots+a^{n-1}\right)\le(b-a)\cdot n\,b^{n-1}.$$
+
+**Se fosse $r^n<y$:** scelgo $h$ con $0<h<1$ e $h<\dfrac{y-r^n}{n(r+1)^{n-1}}$. Allora
+$$(r+h)^n-r^n\le h\cdot n(r+h)^{n-1}\le h\cdot n(r+1)^{n-1}<y-r^n,$$
+quindi $(r+h)^n<y$, cioè $r+h\in A$: un elemento di $A$ più grande di $r = \sup A$, assurdo.
+
+**Se fosse $r^n>y$:** allora $r>0$. Scelgo $h$ con $0<h<r$ e $h<\dfrac{r^n-y}{n\,r^{n-1}}$. Allora
+$$r^n-(r-h)^n\le h\cdot n\,r^{n-1}<r^n-y,$$
+quindi $(r-h)^n>y$. Per ogni $x\in A$: $x^n\le y<(r-h)^n$, quindi $x<r-h$ (monotonia di $x\mapsto x^n$). Dunque $r-h$ è un maggiorante di $A$ più piccolo di $r$, assurdo.
+
+Quindi $r^n = y$. L'unicità segue dal fatto che $x\mapsto x^n$ è strettamente crescente su $[0,+\infty)$. $\blacksquare$` },
 
 { t: "att", titolo: R`Niente radici di numeri negativi`, testo: R`
 Abbiamo definito $\sqrt[n]y$ **solo per $y\ge0$**: $\sqrt{-4}$ o $\sqrt[3]{-8}$ per noi non hanno senso. (Alcuni testi definiscono le radici dispari di numeri negativi, noi no.)
@@ -460,7 +486,17 @@ Riassunto della costruzione: $a^n \to \sqrt[n]a\to a^{p/q}\to a^r\ (r\ge0)\to a^
 Siano $a>0$, $a\neq1$, $y>0$. Allora esiste un unico $x\in\mathbb R$ tale che $a^x = y$; si indica $x = \log_a y$ ed è
 - se $a > 1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\le y\rbrace$;
 - se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.`, dim: R`
-Segue dalla completezza di $\mathbb R$ (2ª forma): l'insieme indicato è non vuoto e superiormente limitato, quindi ha un sup $x$, e si verifica che $a^x = y$ usando la stretta monotonia di $r\mapsto a^r$. $\blacksquare$` },
+Segue dalla completezza di $\mathbb R$ (2ª forma). Faccio il caso $a>1$ (per $0<a<1$ si applica il caso precedente a $\frac1a>1$: $\log_ay = -\log_{1/a}y$). Sia $B = \lbrace r\in\mathbb R: a^r\le y\rbrace$ e $t = a-1>0$.
+
+**Strumento.** Dal binomio di Newton $(1+t)^n\ge1+nt$, quindi $a^n\ge1+n(a-1)\to+\infty$; e $\left(1+\frac tn\right)^n\ge1+t = a$, cioè $a^{1/n}\le1+\frac{a-1}n$.
+
+**$B$ non vuoto e limitato superiormente:** scelto $n$ con $1+n(a-1)>\max\lbrace y,\frac1y\rbrace$, si ha $a^{-n}<y$ (quindi $-n\in B$) e $a^r\le y<a^n$ per ogni $r\in B$ (quindi $n$ è un maggiorante). Sia $x = \sup B$.
+
+**Se fosse $a^x<y$:** per $n$ grande $a^x\left(1+\frac{a-1}n\right)<y$, quindi $a^{x+1/n} = a^x\cdot a^{1/n}<y$, cioè $x+\frac1n\in B$, assurdo.
+
+**Se fosse $a^x>y$:** per $n$ grande $\dfrac{a^x}{1+\frac{a-1}n}>y$, quindi $a^{x-1/n}>y$. Ogni $r\in B$ ha $a^r\le y<a^{x-1/n}$, quindi $r<x-\frac1n$: $x-\frac1n$ è un maggiorante più piccolo di $x$, assurdo.
+
+Quindi $a^x = y$; l'unicità segue dalla stretta monotonia di $r\mapsto a^r$. $\blacksquare$` },
 
 { t: "def", titolo: R`Logaritmo e proprietà`, testo: R`
 $\log_a y$ ("logaritmo in base $a$ di $y$") è l'esponente da dare ad $a$ per ottenere $y$. Notazioni: $\log = \ln = \log_e$ (logaritmo naturale, $e \approx 2{,}718$ numero di Nepero); $\mathrm{Log} = \log_{10}$.
@@ -669,8 +705,10 @@ Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \ma
 
 { t: "def", titolo: R`Intorno (sferico) di un punto di $\overline{\mathbb R}$`, testo: R`
 - Se $r\in\mathbb R$: un **intorno sferico** di $r$ è ogni intervallo aperto $(r-\varepsilon, r+\varepsilon)$ con $\varepsilon>0$ (centrato in $r$, raggio $\varepsilon$).
-- Se $r = +\infty$: un intorno è ogni $(M,+\infty)$ con $M\in\mathbb R$.
-- Se $r = -\infty$: un intorno è ogni $(-\infty, M)$ con $M\in\mathbb R$.
+- Se $r = +\infty$: un intorno è ogni intervallo aperto $(M,+\infty)$ con $M\in\mathbb R\cup\lbrace-\infty\rbrace$.
+- Se $r = -\infty$: un intorno è ogni intervallo aperto $(-\infty, M)$ con $M\in\mathbb R\cup\lbrace+\infty\rbrace$.
+
+(Con $M = \mp\infty$ anche tutto $\mathbb R$ è un intorno di $\pm\infty$; per i limiti non cambia nulla, perché conta solo che si possa prendere $M$ grande quanto si vuole.)
 
 Es. $(5{,}9;\ 6{,}1)$ è un intorno di $6$; $(4,7)$ non è un intorno sferico di $6$ (raggi diversi).`, fig: "intorni" },
 
@@ -706,7 +744,11 @@ $$\exists I\subseteq\mathbb R \text{ intorno di } r : (I\setminus\lbrace r\rbrac
 Dimostrare che ogni $r\in\mathbb R$ è di accumulazione per $\mathbb Q$ (quindi $\mathbb Q$ non ha punti isolati).
 
 Dimostrare inoltre che $+\infty$ è di accumulazione per $A$ se e solo se $A$ è superiormente illimitato.`, dim: R`
-**Prima parte.** Dato $\varepsilon>0$, per la densità di $\mathbb Q$ in $\mathbb R$ esiste $q\in\mathbb Q$ con $r<q<r+\varepsilon$. Quindi $q\in(r-\varepsilon,r+\varepsilon)\setminus\lbrace r\rbrace$.
+**Prima parte.** Attenzione: a lezione è stata dimostrata solo la densità **tra due razionali**, quindi qui serve un argomento diretto. Dato $\varepsilon>0$:
+- per la **proprietà di Archimede** ($\mathbb N$ non è superiormente limitato) esiste $n\in\mathbb N$ con $n>\frac1\varepsilon$, cioè $\frac1n<\varepsilon$;
+- sia $m = \lfloor nr\rfloor+1\in\mathbb Z$, così $m-1\le nr<m$, cioè $r<\dfrac mn\le r+\dfrac1n$.
+
+Allora $q = \frac mn\in\mathbb Q$ e $r<q\le r+\frac1n<r+\varepsilon$, quindi $q\in(r-\varepsilon,r+\varepsilon)\setminus\lbrace r\rbrace$.
 
 **Seconda parte.** $+\infty$ di accumulazione $\iff$ $\forall M\ (M,+\infty)\cap A\neq\emptyset$ $\iff$ $\forall M\ \exists a\in A : a>M$ $\iff$ $\sup A = +\infty$. $\blacksquare$` },
 
@@ -794,7 +836,11 @@ Basta $\delta = \varepsilon$. Analogamente $\cos x-\cos x_0 = -2\sin\frac{x+x_0}
 
 { t: "es", s: "casa", diff: 2, titolo: R`$\lim_{x\to+\infty}\sin x$ non esiste`, testo: R`
 Dimostrare che $\lim_{x\to+\infty}\sin x$ e $\lim_{x\to-\infty}\cos x$ **non esistono**.`, dim: R`
-Se fosse $\lim_{x\to+\infty}\sin x = \ell$, in ogni intorno $(M,+\infty)$ ci sono sia punti $\frac\pi2+2k\pi$ (dove $\sin = 1$) sia punti $-\frac\pi2+2k\pi$ (dove $\sin = -1$). Prendendo $U$ intorno di $\ell$ di raggio $\frac12$, $U$ non può contenere sia $1$ che $-1$: assurdo. Stesso ragionamento per $\cos$. $\blacksquare$` },
+Se fosse $\lim_{x\to+\infty}\sin x = \ell$, in ogni intorno $(M,+\infty)$ ci sono sia punti $\frac\pi2+2k\pi$ (dove $\sin = 1$) sia punti $-\frac\pi2+2k\pi$ (dove $\sin = -1$). 
+- Se $\ell\in\mathbb R$: prendo $U$ intorno di $\ell$ di raggio $\frac12$. Definitivamente $\sin x\in U$, ma $U$ non può contenere sia $1$ che $-1$ (distano $2>1$): assurdo.
+- Se $\ell = +\infty$: prendo $U = (1,+\infty)$; dovrebbe essere $\sin x>1$ definitivamente, impossibile perché $\sin x\le1$. Se $\ell = -\infty$: idem con $U = (-\infty,-1)$.
+
+Stesso ragionamento per $\cos$ (con i punti $2k\pi$ e $\pi+2k\pi$). $\blacksquare$` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Se il limite è finito, $f$ è localmente limitata`, testo: R`
 Sia $f:A\to\mathbb R$, $x_0$ di accumulazione per $A$. Se $\lim_{x\to x_0}f(x) = \ell\in\mathbb R$, allora $f$ è **localmente limitata** in $x_0$:
@@ -949,14 +995,14 @@ Allora:
 - **(Q) quoziente**: se $\ell_g\neq0$, $\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = \frac{\ell_f}{\ell_g}$.`, dim: R`
 Fisso $\varepsilon>0$.
 
-**(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
+**(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Il caso $a = 0$, $b\neq0$ è simmetrico (con $g$ al posto di $f$). Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
 $$|af+bg-(a\ell_f+b\ell_g)|\le|a||f-\ell_f|+|b||g-\ell_g|<\frac\varepsilon2+\frac\varepsilon2 = \varepsilon.$$
 
 **(P)** $f$ è localmente limitata: $|f(x)|\le C$ vicino a $x_0$. Allora
 $$|fg-\ell_f\ell_g| = |f(g-\ell_g)+\ell_g(f-\ell_f)|\le C|g-\ell_g|+|\ell_g||f-\ell_f|,$$
 e scegliendo $|g-\ell_g|<\frac{\varepsilon}{2C}$, $|f-\ell_f|<\frac{\varepsilon}{2(|\ell_g|+1)}$ si ottiene $<\varepsilon$.
 
-**(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, per la permanenza del segno $|g(x)|>\frac{|\ell_g|}2$ definitivamente; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
+**(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, applico la definizione di limite con $\varepsilon = \frac{|\ell_g|}2$ (è lo stesso argomento della dimostrazione della permanenza del segno, il cui enunciato dà solo $|g|>0$): definitivamente $\big||g(x)|-|\ell_g|\big|<\frac{|\ell_g|}2$, quindi $|g(x)|>\frac{|\ell_g|}2$; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
 $$\left|\frac1{g(x)}-\frac1{\ell_g}\right| = \frac{|\ell_g-g(x)|}{|g(x)||\ell_g|}<\frac{2}{\ell_g^2}|g(x)-\ell_g|,$$
 che è $<\varepsilon$ se $|g(x)-\ell_g|<\frac{\varepsilon\ell_g^2}2$, arbitrariamente piccolo. $\blacksquare$` },
 
@@ -970,7 +1016,8 @@ Siano $P(x)$ e $Q(x)$ due polinomi. Allora
 1. $\displaystyle\lim_{x\to x_0}P(x) = P(x_0)$ per ogni $x_0\in\mathbb R$;
 2. $\displaystyle\lim_{x\to x_0}\frac{P(x)}{Q(x)} = \frac{P(x_0)}{Q(x_0)}$ per ogni $x_0\in\mathbb R$ con $Q(x_0)\neq0$.`, dim: R`
 Sappiamo $\lim_{x\to x_0}x = x_0$. Applicando (P) $n-1$ volte:
-$$\lim_{x\to x_0}x^n = \lim_{x\to x_0}\underbrace{x\cdots x}_{n} = x_0^n.$$
+$$\lim_{x\to x_0}x^n = \lim_{x\to x_0}\underbrace{x\cdots x}_{n} = x_0^n\qquad(n\ge1).$$
+Il termine costante $a_0x^0$ va letto come la costante $a_0$ (con $x_0 = 0$ si avrebbe $0^0$, non definito), e il limite di una costante è la costante stessa.
 Per (S), $\lim_{x\to x_0}a_kx^k = a_kx_0^k$, e applicando (S) $n$ volte alla somma di $n+1$ termini:
 $$\lim_{x\to x_0}\sum_{k=0}^na_kx^k = \sum_{k=0}^na_kx_0^k = P(x_0).$$
 Il punto 2 segue da (Q). $\blacksquare$` },
@@ -1023,13 +1070,23 @@ Allora $\displaystyle\lim_{x\to x_0}g(f(x)) = \ell$.
 (Argomento che "c'è all'esame".)`, dim: R`
 Non fatta a lezione. Idea: fisso $U$ intorno di $\ell$. Per 2 esiste $J$ intorno di $y_0$ con $g(y)\in U$ per $y\in B\cap J\setminus\lbrace y_0\rbrace$. Per 1 esiste $I$ intorno di $x_0$ con $f(x)\in J$ per $x\in A\cap I\setminus\lbrace x_0\rbrace$. Allora per $x\in\tilde A\cap I\setminus\lbrace x_0\rbrace$, $y = f(x)\in B\cap J$. Se $f(x)\neq y_0$ (3a) allora $g(f(x))\in U$. Se invece $f(x) = y_0$ può succedere, serve (3b): $g(y_0) = \ell\in U$. $\blacksquare$` },
 
-{ t: "es", titolo: R`$\lim_{x\to+\infty}\sqrt{2x+1} = +\infty$ con il cambio di variabile`, testo: R`
-Pongo $f(x) = 2x+1$, $g(y) = \sqrt y$, con $B = [0,+\infty)$, $\tilde A = [-\frac12,+\infty)$; $x_0 = +\infty$ è di accumulazione per $\tilde A$.
-1. $\lim_{x\to+\infty}(2x+1) = +\infty =: y_0$ (algebra dei limiti infiniti), di accumulazione per $B$.
-2. $\lim_{y\to+\infty}\sqrt y = +\infty$ (verifica con la definizione: $\sqrt y>M\iff y>M^2$).
-3. (3a) vale: $2x+1\neq+\infty$ sempre (è un numero reale).
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\sqrt{x^2-1} = +\infty$ con il cambio di variabile`, testo: R`
+Pongo $f(x) = x^2-1$, $g(y) = \sqrt y$. Si ha $\mathrm{dom}(f) = \mathbb R$, $\mathrm{Im}(f) = [-1,+\infty)$, $\mathrm{dom}(g) = [0,+\infty)$, $\mathrm{Im}(g) = [0,+\infty)$, quindi
+$$\tilde A = \lbrace x\in\mathrm{dom}(f): f(x)\in\mathrm{dom}(g)\rbrace = \lbrace x\in\mathbb R: x^2-1\ge0\rbrace = (-\infty,-1]\cup[1,+\infty).$$
+$x_0 = +\infty$ è di accumulazione per $\tilde A$. Allora:
+1. $\lim_{x\to+\infty}(x^2-1) = +\infty =: y_0$ (algebra dei limiti infiniti), e $y_0 = +\infty$ è di accumulazione per $\mathrm{dom}(g) = [0,+\infty)$;
+2. $\lim_{y\to+\infty}\sqrt y = +\infty =: \ell$ (verifica con la definizione: $\sqrt y>M\iff y>M^2$);
+3. controllo almeno una delle opzioni: (3a) $x^2-1\neq+\infty$ definitivamente è vera, perché $x^2-1<+\infty$ per ogni $x\in\mathbb R$. Non serve controllare (3b).
 
-Quindi $\lim_{x\to+\infty}\sqrt{2x+1} = +\infty$. (Esercizio: verificarlo anche con la definizione.)` },
+Dal teorema di cambio di variabile segue $\lim_{x\to+\infty}\sqrt{x^2-1} = \ell = +\infty$. (Esercizio: verificare questo limite anche con la definizione.)` },
+
+{ t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to-\infty}\sin\left(\frac{x^3-x}{x^3-7}\right)$`, testo: R`
+Calcolare $\displaystyle\lim_{x\to-\infty}\sin\left(\frac{x^3-x}{x^3-7}\right)$.
+
+Suggerimento: applicare il teorema di cambio di variabile. Ma prima studiare la funzione razionale $\displaystyle\lim_{x\to-\infty}\frac{x^3-x}{x^3-7}$.`, dim: R`
+Funzione razionale con numeratore e denominatore dello stesso grado: raccogliendo $x^3$,
+$$\frac{x^3-x}{x^3-7} = \frac{1-\frac1{x^2}}{1-\frac7{x^3}}\to\frac{1-0}{1-0} = 1 =: y_0.$$
+Con $g(y) = \sin y$: $\lim_{y\to1}\sin y = \sin1$ (continuità del seno), e vale l'opzione (3b) perché $g(y_0) = \sin1 = \ell$. Quindi il limite è $\sin1$. $\blacksquare$` },
 
 ]});
 
@@ -1064,11 +1121,17 @@ Quindi con $\delta = x_0-x_\varepsilon>0$: $|f(x)-S|<\varepsilon$ per ogni $x\in
 Il teorema dice in particolare che i limiti laterali di una funzione monotona **esistono sempre** (finiti o infiniti).` },
 
 { t: "es", titolo: R`Applicazioni: continuità delle funzioni elementari`, testo: R`
-Con il teorema (e i limiti laterali che coincidono) si ottiene:
+Usando il teorema (insieme ad altri argomenti, vedi sotto) si ottiene:
 - $\displaystyle\lim_{x\to x_0}a^x = a^{x_0}$ per ogni $x_0\in\mathbb R$, $a>0$ ($a^x$ è crescente per $a>1$, costante per $a=1$, decrescente per $0<a<1$);
 - $\displaystyle\lim_{x\to x_0}\log_ax = \log_ax_0$ per ogni $x_0>0$, e $\displaystyle\lim_{x\to0^+}\log_ax = -\infty$ se $a>1$, $+\infty$ se $0<a<1$;
 - $\displaystyle\lim_{x\to x_0}x^\alpha = x_0^\alpha$ per $x_0>0$, e $\displaystyle\lim_{x\to0^+}x^\alpha = 0$ se $\alpha>0$, $+\infty$ se $\alpha<0$;
-- $\displaystyle\lim_{x\to x_0}\sin x = \sin x_0$, $\displaystyle\lim_{x\to x_0}\cos x = \cos x_0$ (sono monotone a tratti).` },
+- $\displaystyle\lim_{x\to x_0}\sin x = \sin x_0$, $\displaystyle\lim_{x\to x_0}\cos x = \cos x_0$ (sono monotone a tratti).
+
+**Attenzione, passaggio delicato.** Il teorema sulle monotone garantisce solo che i limiti **laterali esistono** (e valgono $\sup$/$\inf$), **non** che siano uguali a $f(x_0)$: la funzione segno è monotona ma salta in $0$. Gli appunti fanno lo stesso salto; per chiuderlo:
+- **$a^x$:** $a^x = a^{x_0}\cdot a^{x-x_0}$ e, con $h = x-x_0\to0$, $\lim_{h\to0}a^h = 1$ (lezione del 19/10), quindi $a^x\to a^{x_0}$.
+- **$\log_a x$:** è monotona e la sua immagine è tutto $\mathbb R$. Se ci fosse un salto in $x_0$ (es. $a>1$: $\lim_{x\to x_0^-}\log_ax<\log_ax_0$), i valori strettamente compresi tra il limite sinistro e $\log_ax_0$ non sarebbero assunti da nessun $x$, contro la suriettività. Quindi i limiti laterali valgono $\log_a x_0$.
+- **$x^\alpha$ per $x_0>0$:** $x^\alpha = e^{\alpha\log x}$, composizione dei due casi precedenti (cambio di variabile).
+- **$\sin$ e $\cos$:** già dimostrato con la prostaferesi (esercizio del 19/10).` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Limiti di funzioni monotone (caso infinito)`, testo: R`
 **(i)** Sia $+\infty$ di accumulazione per $A$ e $f$ monotona definitivamente per $x\to+\infty$ (su $A\cap I$, $I$ intorno di $+\infty$). Allora
@@ -1090,6 +1153,12 @@ Con $f>0$, si usa $f(x)^{g(x)} = e^{g(x)\log f(x)}$: la funzione è la composizi
 Quindi basta studiare $\lim_{x\to x_0}g(x)\log f(x) = y_0$ e poi usare il cambio di variabile (l'esponenziale è monotona crescente, con limiti noti):
 $$\lim_{x\to x_0} f(x)^{g(x)} = \begin{cases} e^{y_0} & y_0\in\mathbb R\\ +\infty & y_0 = +\infty\\ 0 & y_0 = -\infty.\end{cases}$$
 Esempio: $\lim_{x\to+\infty}\left(2+\frac1x\right)^x$: $x\log\left(2+\frac1x\right)\to+\infty\cdot\log2 = +\infty$ (regola 3), quindi il limite è $+\infty$.` },
+
+{ t: "es", titolo: R`Esempio dagli appunti: $\lim_{x\to+\infty}x^{1/\log(1+x)} = e$`, testo: R`
+Qui $f(x) = x$ e $g(x) = \dfrac1{\log(1+x)}$. Calcolo il limite dell'esponente:
+$$g(x)\log f(x) = \frac{\log x}{\log(1+x)} = \frac{\log x}{\log\big(x(1+\frac1x)\big)} = \frac{\log x}{\log x+\log(1+\frac1x)} = \frac1{1+\dfrac{\log(1+\frac1x)}{\log x}}.$$
+Ora $\log(1+\frac1x)\to\log1 = 0$ (cambio di variabile $y = 1+\frac1x\to1$) e $\log x\to+\infty$ (funzione crescente), quindi $\dfrac{\log(1+\frac1x)}{\log x}\to0$ per l'algebra dei limiti infiniti. Pertanto
+$$\lim_{x\to+\infty}g(x)\log f(x) = \frac1{1+0} = 1,\qquad\text{da cui}\qquad\lim_{x\to+\infty}x^{1/\log(1+x)} = \lim_{y\to1}e^y = e.$$` },
 
 ]});
 
@@ -1127,13 +1196,25 @@ $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim
 
 **Esponenziale:** con $y = e^x-1$ ($y\to0$, $x = \log(1+y)$): $\dfrac{e^x-1}x = \dfrac{y}{\log(1+y)}\to1$. $\blacksquare$` },
 
-{ t: "prop", s: "casa", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
-$$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tanh x}x = 1.$$`, dim: R`
-**Seno iperbolico:** $\dfrac{\sinh x}x = \dfrac{e^x-e^{-x}}{2x} = e^{-x}\cdot\dfrac{e^{2x}-1}{2x}\to1\cdot1$ (con $y = 2x$ nel limite notevole dell'esponenziale).
+{ t: "es", titolo: R`$\lim_{x\to0}\frac{1-e^{-x}}x = 1$`, testo: R`
+Con il cambio di variabile $y = -x\to0$:
+$$\lim_{x\to0}\frac{1-e^{-x}}x = \lim_{y\to0}\frac{1-e^y}{-y} = \lim_{y\to0}\frac{e^y-1}y = 1.$$` },
 
-**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$.
+{ t: "teo", s: "dim", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
+$$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12.$$`, dim: R`
+**Seno iperbolico** (fatto a lezione): spezzando,
+$$\frac{\sinh x}x = \frac{e^x-e^{-x}}{2x} = \frac{e^x-1}{2x}+\frac{1-e^{-x}}{2x}\to\frac12\cdot1+\frac12\cdot1 = 1,$$
+usando $\frac{e^x-1}x\to1$ e l'esempio $\frac{1-e^{-x}}x\to1$.
 
-**Tangente iperbolica:** $\dfrac{\tanh x}{x} = \dfrac{\sinh x}x\cdot\dfrac1{\cosh x}\to1$. $\blacksquare$` },
+**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
+
+{ t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to0}\frac{\tanh x}x = 1$ e $\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1$`, testo: R`
+Dimostrare che
+$$\lim_{x\to0}\frac{\tanh x}x = 1\qquad\text{e}\qquad\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1.$$`, dim: R`
+**Tangente iperbolica:** $\dfrac{\tanh x}{x} = \dfrac{\sinh x}x\cdot\dfrac1{\cosh x}\to1\cdot\dfrac11 = 1$.
+
+**Settore seno iperbolico:** cambio di variabile $y = \operatorname{arcsinh}x$, cioè $x = \sinh y$; per $x\to0$ si ha $y\to0$ e $y\neq0$ per $x\neq0$ (è iniettiva con $\operatorname{arcsinh}0 = 0$). Quindi
+$$\frac{\operatorname{arcsinh}x}x = \frac y{\sinh y}\to1. \ \blacksquare$$` },
 
 { t: "teo", s: "omessa", titolo: R`Gerarchia degli infiniti`, testo: R`
 Siano $a>1$, $\alpha,\beta>0$. Valgono:
@@ -1147,7 +1228,12 @@ Per altri valori di $a, \alpha,\beta$ ci si riconduce a 1 o 2, oppure non si tra
 { t: "es", titolo: R`$\lim_{x\to0^+}x\log x = 0$ (gerarchia + cambio di variabile)`, testo: R`
 È $[0\cdot\infty]$. Con $y = \frac1x\to+\infty$:
 $$x\log x = \frac{\log(1/y)}{y} = -\frac{\log y}{y}\to0$$
-per la gerarchia (1) con $\alpha = \beta = 1$. Allo stesso modo, $\lim_{x\to 0} x^2\log|x| = 0$ (per parità basta $x\to0^+$).` },
+per la gerarchia (1) con $\alpha = \beta = 1$.` },
+
+{ t: "es", titolo: R`$\lim_{x\to0}|x|^{|x|} = 1$`, testo: R`
+Per parità basta $x\to0^+$:
+$$\lim_{x\to0^+}x^x = \lim_{x\to0^+}e^{x\log x} = \lim_{y\to0}e^y = e^0 = 1,$$
+perché $x\log x\to0$ (esempio precedente) e $y\mapsto e^y$ è continua.` },
 
 { t: "def", titolo: R`Funzioni asintotiche ($f\sim g$)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$. $f$ e $g$ sono **asintotiche** per $x\to x_0$, e si scrive $f(x)\sim g(x)$, se
@@ -1231,7 +1317,7 @@ Per $x\to x_0$ valgono:
 In ogni punto basta scrivere il rapporto con la funzione "di riferimento" e verificare che tende a $0$. Siano $f_1 = o(g)$, $f_2 = o(g)$, cioè $\frac{f_1}g\to0$, $\frac{f_2}g\to0$.
 1. $\dfrac{f_1\pm f_2}{g} = \dfrac{f_1}g\pm\dfrac{f_2}g\to0\pm0 = 0$.
 2. Se $f_1 = o(g_1)$ e $f_2 = o(g_2)$: $\dfrac{f_1f_2}{g_1g_2} = \dfrac{f_1}{g_1}\cdot\dfrac{f_2}{g_2}\to0\cdot0 = 0$.
-3. $\left|\dfrac{f_1h}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: è il teorema "per un carabiniere" (limitata per infinitesima).
+3. $\left|\dfrac{f_1h}{g}\right|\le M\left|\dfrac{f_1}g\right|\to0$: quindi tende a $0$ per i due carabinieri ("limitata per infinitesima fa infinitesima").
 4. $\dfrac{|f_1|^\alpha}{|g|^\alpha} = \left|\dfrac{f_1}g\right|^\alpha\to0$ perché $\alpha>0$ (continuità di $t\mapsto t^\alpha$ in $0$).
 5. $\dfrac{f_1h}{gh} = \dfrac{f_1}g\to0$ (si semplifica perché $h\neq0$).
 6. Se $f = o(f_1)$ con $f_1 = o(g)$: $\dfrac fg = \dfrac f{f_1}\cdot\dfrac{f_1}g\to0\cdot0 = 0$ (dove $f_1\neq0$). $\blacksquare$` },
@@ -1333,7 +1419,7 @@ $$\lim_{x\to x_0}f(x) = \pm\infty,\qquad\lim_{x\to x_0}g(x) = \pm\infty$$
 ($f$ e $g$ sono **infinite**). Diciamo che:
 - $f$ e $g$ sono **infinite dello stesso ordine** se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)}\in\mathbb R\setminus\lbrace0\rbrace$;
 - $g$ è **infinita di ordine superiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = 0$;
-- $g$ è **infinita di ordine inferiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = \pm\infty$;
+- $g$ è **infinita di ordine inferiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{g(x)}{f(x)} = 0$ (cioè $f$ è di ordine superiore a $g$);
 - $f$ e $g$ sono **infinite di ordini non confrontabili** se $\nexists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)}$.` },
 
 { t: "es", titolo: R`Potenze: $x^n$ contro $x^m$ per $x\to+\infty$`, testo: R`
@@ -1343,7 +1429,7 @@ si ha: $f$ è infinita di **ordine superiore** a $g$ $\iff n>m$; $f$ e $g$ sono 
 
 { t: "es", titolo: R`Infiniti non confrontabili: $x(2+\sin x)$ e $x$`, testo: R`
 Siano $f(x) = x(2+\sin x)$ e $g(x) = x$ per $x\to+\infty$.
-- $\lim_{x\to+\infty}f(x) = +\infty$, perché $2+\sin x\ge1$ per ogni $x$, quindi $f(x)\ge x$ per $x>0$ (confronto);
+- $\lim_{x\to+\infty}f(x) = +\infty$, perché $2+\sin x\ge1$ per ogni $x$, quindi $f(x)\ge x$ per $x>0$, e $x\to+\infty$ (teorema del **singolo carabiniere**; il confronto non basta, perché presuppone che il limite di $f$ esista);
 - $\lim_{x\to+\infty}g(x) = +\infty$.
 
 Ma $\dfrac{f(x)}{g(x)} = 2+\sin x$ e $\lim_{x\to+\infty}\sin x$ **non esiste**, quindi non esiste nemmeno $\lim\frac fg$: $f$ e $g$ sono infinite di **ordini non confrontabili**.` },
@@ -1404,19 +1490,20 @@ Sono già definite (come per le funzioni):
 - $(a_n)$ verifica una proprietà $P$ **definitivamente** per $n\to+\infty$ se
 $$\exists N\in\mathbb N\ \text{tale che}\ P(a_n)\ \text{è vera}\ \forall n\ge N.$$` },
 
-{ t: "es", titolo: R`Tre successioni tipo: $\frac1n$, $(-1)^n$, $n$`, testo: R`
+{ t: "es", titolo: R`Tre successioni tipo: $\frac1n$, $(-1)^n$, $n!$`, testo: R`
 - $a_n = \frac1n$ ($n\ge1$): limitata, positiva, strettamente decrescente e **infinitesima**: $\lim_{n\to+\infty}\frac1n = 0$. Infatti $\forall\varepsilon>0$ $\exists N\in\mathbb N$ (Archimede: $N>\frac1\varepsilon$) tale che $\frac1n\le\frac1N<\varepsilon$ per ogni $n\ge N$.
 - $a_n = (-1)^n$: $1,-1,1,-1,\dots$ è limitata, **non** è positiva, **non** è monotona, e $\nexists\lim_{n\to+\infty}(-1)^n$.
-- $a_n = n$: positiva, illimitata, strettamente crescente, $\lim_{n\to+\infty}n = +\infty$. Osservo che $a_{n+1} = a_n+1$ per ogni $n$: è una successione **ricorsiva**.` },
+- $a_n = n!$: positiva, illimitata, strettamente crescente (definitivamente), $\lim_{n\to+\infty}n! = +\infty$. Osservo che $a_{n+1} = (n+1)\cdot a_n$ per ogni $n$: ogni termine si ottiene dal precedente, è una successione **ricorsiva**.` },
 
 { t: "def", titolo: R`Successione ricorsiva e successione periodica`, testo: R`
-- $(a_n)$ si dice **ricorsiva** se esiste una funzione $f:\mathbb R\to\mathbb R$ tale che
-$$a_{n+1} = f(a_n)\qquad\forall n.$$
+- $(a_n)$ si dice **ricorsiva** se ogni termine si ottiene dal precedente tramite una funzione $f$:
+$$a_{n+1} = f(n, a_n)\qquad\forall n$$
+(nel caso più semplice $f$ non dipende da $n$: $a_{n+1} = f(a_n)$ con $f:\mathbb R\to\mathbb R$).
 - $(a_n)_{n\in\mathbb N}$ si dice **periodica** se esiste $k\in\mathbb N$, $k\ge1$, tale che
 $$a_{n+k} = a_n\qquad\forall n\in\mathbb N,$$
 e $k$ si chiama **periodo**.
 
-Es. $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
+Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)a_n$), $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
 
 { t: "def", titolo: R`Limite di una successione`, testo: R`
 Diciamo che $(a_n)$ ha **limite** $\ell\in\mathbb R\cup\lbrace\pm\infty\rbrace$ per $n\to+\infty$, o che $a_n$ **tende a** $\ell$, se
@@ -1430,19 +1517,19 @@ Esplicitamente: per ogni intorno $U$ di $\ell$ esiste $N\in\mathbb N$ tale che $
 - se $\ell = \pm\infty$, $(a_n)$ è **divergente** (a $\pm\infty$);
 - se il limite **non esiste**, $(a_n)$ è **irregolare** (o oscillante).
 
-Esempi: $\frac1n$ è convergente a $0$; $n$ è divergente a $+\infty$; $(-1)^n$ è irregolare.` },
+Esempi: $\frac1n$ è convergente a $0$; $n!$ è divergente a $+\infty$; $(-1)^n$ è irregolare.` },
 
-{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare che $(-1)^n$ è irregolare`, testo: R`
-Dimostrare che la successione $a_n = (-1)^n$ non ha limite per $n\to+\infty$.`, dim: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare che $(-2)^n$ è irregolare`, testo: R`
+Dimostrare che la successione $a_n = (-2)^n$ non ha limite per $n\to+\infty$.`, dim: R`
 Per assurdo sia $a_n\to\ell\in\overline{\mathbb R}$.
 
-**$\ell = \pm\infty$ è impossibile:** $|a_n| = 1$, quindi $a_n\in[-1,1]$ per ogni $n$ e non entra mai definitivamente in un intorno $(2,+\infty)$ di $+\infty$ (o $(-\infty,-2)$ di $-\infty$).
+**$\ell\in\mathbb R$ è impossibile:** con $\varepsilon = 1$ si avrebbe $|a_n-\ell|<1$, quindi $|a_n|<|\ell|+1$, per ogni $n\ge N$. Ma $|a_n| = 2^n\ge n$ (induzione), e basta prendere $n\ge\max\lbrace N,|\ell|+1\rbrace$ per avere $|a_n|\ge|\ell|+1$: assurdo.
 
-**$\ell\in\mathbb R$:** prendo $\varepsilon = \frac12$. Esiste $N$ tale che $|a_n-\ell|<\frac12$ per ogni $n\ge N$. Scelgo $n\ge N$ pari: allora $n+1\ge N$ è dispari, e
-$$2 = |a_n-a_{n+1}| = |a_n-\ell+\ell-a_{n+1}|\le|a_n-\ell|+|a_{n+1}-\ell|<\frac12+\frac12 = 1,$$
-assurdo.
+**$\ell = +\infty$ è impossibile:** prendo l'intorno $U = (0,+\infty)$. Dovrebbe essere $a_n>0$ per ogni $n\ge N$, ma per $n\ge N$ dispari $a_n = -2^n<0$.
 
-(Equivalentemente: la sottosuccessione dei termini pari vale sempre $1$, quella dei dispari sempre $-1$; se ci fosse il limite, dovrebbe essere sia $1$ sia $-1$.) $\blacksquare$` },
+**$\ell = -\infty$ è impossibile:** idem con $U = (-\infty,0)$ e $n$ pari, dove $a_n = 2^n>0$.
+
+Quindi il limite non esiste. (Per $(-1)^n$ si ragiona allo stesso modo per $\pm\infty$; per $\ell\in\mathbb R$ si usa $\varepsilon = \frac12$: due termini consecutivi distano $2$, quindi non possono stare entrambi a distanza $<\frac12$ da $\ell$.) $\blacksquare$` },
 
 ]});
 
@@ -1452,7 +1539,7 @@ L({ data: "2026-11-05", n: 23, titolo: "Teoremi sui limiti di successioni, progr
 { t: "teo", titolo: R`Teoremi sui limiti di successioni`, testo: R`
 Siccome le successioni sono funzioni, valgono (con $n\to+\infty$) tutti i teoremi già visti per i limiti di funzioni:
 1. **Unicità:** se $\exists\lim_{n\to+\infty}a_n$, allora è unico.
-2. **Permanenza del segno:** se $a_n\to\ell>0$, allora $a_n>0$ definitivamente.
+2. **Confronto tra limiti diversi:** se $a_n\to\ell$, $b_n\to\hat\ell$ e $\ell<\hat\ell$, allora $a_n<b_n$ definitivamente (con $b_n = 0$ è la permanenza del segno).
 3. **Confronto:** se $a_n\le b_n$ definitivamente, $a_n\to\ell$ e $b_n\to\hat\ell$, allora $\ell\le\hat\ell$.
 4. **Due carabinieri:** se $a_n\le b_n\le c_n$ definitivamente e $a_n\to\ell$, $c_n\to\ell$, allora anche $b_n\to\ell$. Analogo il teorema del **singolo carabiniere** ($a_n\le b_n$ e $a_n\to+\infty\Rightarrow b_n\to+\infty$).
 5. **Algebra dei limiti finiti:** se $a_n\to\ell$ e $b_n\to\hat\ell$ con $\ell,\hat\ell\in\mathbb R$, allora
@@ -1463,8 +1550,8 @@ Analogo il teorema per l'**algebra dei limiti infiniti**.` },
 Se $a_n\to\ell\in\mathbb R$, allora $(a_n)$ è limitata.`, dim: R`
 Per definizione di limite con $\varepsilon = 1$: esiste $N\in\mathbb N$ tale che $|a_n-\ell|<1$ per ogni $n\ge N$, quindi
 $$|a_n| = |a_n-\ell+\ell|\le|a_n-\ell|+|\ell|<1+|\ell|\qquad\forall n\ge N.$$
-Restano i termini "scartati" $a_0,a_1,\dots,a_{N-1}$, che sono un numero **finito**. Definisco
-$$M = \max\lbrace|a_0|,|a_1|,\dots,|a_{N-1}|,\ 1+|\ell|\rbrace.$$
+Restano i termini "scartati" $a_1,a_2,\dots,a_{N-1}$ (nel corso $\mathbb N = \lbrace1,2,3,\dots\rbrace$), che sono un numero **finito**. Definisco
+$$M = \max\lbrace|a_1|,|a_2|,\dots,|a_{N-1}|,\ 1+|\ell|\rbrace.$$
 Allora $|a_n|\le M$ per ogni $n\in\mathbb N$: se $n\le N-1$ perché $|a_n|$ è uno dei termini del massimo, se $n\ge N$ perché $|a_n|<1+|\ell|\le M$. Quindi $(a_n)$ è limitata. $\blacksquare$
 
 **Oss.** Per le funzioni si otteneva solo "limitata **definitivamente**" (limitatezza locale); per le successioni si riesce a togliere il "definitivamente" perché i termini prima di $N$ sono finiti.` },
@@ -1482,11 +1569,11 @@ Con $\alpha = \log r$: se $r>1$ allora $\log r>0$ e $f(x)\to+\infty$; se $0<r<1$
 
 **$-1<r<0$:** $|a_n| = |r|^n$ con $|r|\in(0,1)$, quindi $|a_n|\to0$ per il caso precedente, e dunque $a_n\to0$.
 
-**$r = -1$:** $a_n = (-1)^n$ è irregolare (esercizio del 3/11).
+**$r = -1$:** $a_n = (-1)^n$ è irregolare: non può tendere a $\pm\infty$ perché $|a_n| = 1$, e non a $\ell\in\mathbb R$ perché con $\varepsilon = \frac12$ due termini consecutivi (che distano $2$) dovrebbero stare entrambi in $(\ell-\frac12,\ell+\frac12)$.
 
 **$r<-1$:** $|a_n| = |r|^n\to+\infty$ per il caso $|r|>1$.
 - Se $\lim a_n = \ell\in\mathbb R$, la successione sarebbe limitata (teorema precedente), contraddizione con $|a_n|\to+\infty$. Quindi se il limite esiste è $\ell = \pm\infty$.
-- Però $r^n>0$ per $n$ pari e $r^n<0$ per $n$ dispari. Ragionando come per $r = -1$ si vede che la definizione di limite non è verificata né per $+\infty$ (i termini dispari sono negativi) né per $-\infty$ (i pari sono positivi).
+- Però $r^n>0$ per $n$ pari e $r^n<0$ per $n$ dispari. Quindi la definizione di limite non è verificata né per $+\infty$ (con l'intorno $(0,+\infty)$: i termini dispari ne restano fuori) né per $-\infty$ (con $(-\infty,0)$: i pari ne restano fuori). È l'esercizio su $(-2)^n$ del 3/11.
 
 Il limite quindi non può esistere. $\blacksquare$` },
 
@@ -1510,7 +1597,7 @@ Una successione $(a_n)_{n\in\mathbb N}$ ha limite $\ell\in\mathbb R\cup\lbrace\p
 (Dimostrazione omessa: vedere il foglio settimanale.)`, dim: R`
 **$\Leftarrow$** è immediato: $(a_n)$ è sottosuccessione di se stessa con $\varphi(k) = k$.
 
-**$\Rightarrow$** Prima osservo che $\varphi(k)\ge k$ per ogni $k$ (induzione: $\varphi(0)\ge0$; se $\varphi(k)\ge k$ allora $\varphi(k+1)>\varphi(k)\ge k$, quindi $\varphi(k+1)\ge k+1$).
+**$\Rightarrow$** Prima osservo che $\varphi(k)\ge k$ per ogni $k\in\mathbb N$ (induzione: $\varphi(1)\ge1$ perché $\varphi(1)\in\mathbb N$; se $\varphi(k)\ge k$ allora $\varphi(k+1)>\varphi(k)\ge k$, quindi $\varphi(k+1)\ge k+1$).
 
 Sia $U$ un intorno di $\ell$. Esiste $N$ tale che $a_n\in U$ per ogni $n\ge N$. Allora per ogni $k\ge N$ si ha $\varphi(k)\ge k\ge N$, quindi $a_{\varphi(k)}\in U$. Cioè $a_{\varphi(k)}\to\ell$. $\blacksquare$` },
 
@@ -1550,9 +1637,9 @@ $$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right
 Siccome i due limiti sono diversi, la caratterizzazione sequenziale implica che $\nexists\lim_{x\to+\infty}\sin x$.` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`Esercizi: limiti che non esistono`, testo: R`
-1. Provare che $\nexists\lim_{x\to+\infty}\sin(x^2)$.
+1. Provare che $\nexists\lim_{x\to+\infty}x^2\sin x$.
 2. Provare che $\nexists\lim_{x\to0}\frac1x$ (ad esempio con $a_n = \frac1n$, $b_n = -\frac1n$).`, dim: R`
-1. Prendo $a_n = \sqrt{\frac\pi2+2n\pi}$ e $b_n = \sqrt{n\pi}$: entrambe tendono a $+\infty$, e $\sin(a_n^2) = 1$, $\sin(b_n^2) = \sin(n\pi) = 0$. I limiti $1\neq0$ sono diversi, quindi il limite non esiste.
+1. Prendo $a_n = \frac\pi2+2n\pi$ e $b_n = -\frac\pi2+2n\pi$: entrambe tendono a $+\infty$. Allora $f(a_n) = a_n^2\cdot1 = a_n^2\to+\infty$, mentre $f(b_n) = b_n^2\cdot(-1) = -b_n^2\to-\infty$. I due limiti sono diversi, quindi il limite non esiste. (Va bene anche $b_n = n\pi$, con $f(b_n) = 0\to0$.)
 2. $a_n = \frac1n\to0$, $b_n = -\frac1n\to0$, entrambe $\neq0$. Ma $f(a_n) = n\to+\infty$ e $f(b_n) = -n\to-\infty$: limiti diversi, quindi $\nexists\lim_{x\to0}\frac1x$. $\blacksquare$` },
 
 { t: "es", titolo: R`Ordini di grandezza: $n!\to+\infty$ e $n^n\to+\infty$`, testo: R`

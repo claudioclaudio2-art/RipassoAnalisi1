@@ -28,11 +28,17 @@ Quindi con $\delta = x_0-x_\varepsilon>0$: $|f(x)-S|<\varepsilon$ per ogni $x\in
 Il teorema dice in particolare che i limiti laterali di una funzione monotona **esistono sempre** (finiti o infiniti).` },
 
 { t: "es", titolo: R`Applicazioni: continuità delle funzioni elementari`, testo: R`
-Con il teorema (e i limiti laterali che coincidono) si ottiene:
+Usando il teorema (insieme ad altri argomenti, vedi sotto) si ottiene:
 - $\displaystyle\lim_{x\to x_0}a^x = a^{x_0}$ per ogni $x_0\in\mathbb R$, $a>0$ ($a^x$ è crescente per $a>1$, costante per $a=1$, decrescente per $0<a<1$);
 - $\displaystyle\lim_{x\to x_0}\log_ax = \log_ax_0$ per ogni $x_0>0$, e $\displaystyle\lim_{x\to0^+}\log_ax = -\infty$ se $a>1$, $+\infty$ se $0<a<1$;
 - $\displaystyle\lim_{x\to x_0}x^\alpha = x_0^\alpha$ per $x_0>0$, e $\displaystyle\lim_{x\to0^+}x^\alpha = 0$ se $\alpha>0$, $+\infty$ se $\alpha<0$;
-- $\displaystyle\lim_{x\to x_0}\sin x = \sin x_0$, $\displaystyle\lim_{x\to x_0}\cos x = \cos x_0$ (sono monotone a tratti).` },
+- $\displaystyle\lim_{x\to x_0}\sin x = \sin x_0$, $\displaystyle\lim_{x\to x_0}\cos x = \cos x_0$ (sono monotone a tratti).
+
+**Attenzione, passaggio delicato.** Il teorema sulle monotone garantisce solo che i limiti **laterali esistono** (e valgono $\sup$/$\inf$), **non** che siano uguali a $f(x_0)$: la funzione segno è monotona ma salta in $0$. Gli appunti fanno lo stesso salto; per chiuderlo:
+- **$a^x$:** $a^x = a^{x_0}\cdot a^{x-x_0}$ e, con $h = x-x_0\to0$, $\lim_{h\to0}a^h = 1$ (lezione del 19/10), quindi $a^x\to a^{x_0}$.
+- **$\log_a x$:** è monotona e la sua immagine è tutto $\mathbb R$. Se ci fosse un salto in $x_0$ (es. $a>1$: $\lim_{x\to x_0^-}\log_ax<\log_ax_0$), i valori strettamente compresi tra il limite sinistro e $\log_ax_0$ non sarebbero assunti da nessun $x$, contro la suriettività. Quindi i limiti laterali valgono $\log_a x_0$.
+- **$x^\alpha$ per $x_0>0$:** $x^\alpha = e^{\alpha\log x}$, composizione dei due casi precedenti (cambio di variabile).
+- **$\sin$ e $\cos$:** già dimostrato con la prostaferesi (esercizio del 19/10).` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Limiti di funzioni monotone (caso infinito)`, testo: R`
 **(i)** Sia $+\infty$ di accumulazione per $A$ e $f$ monotona definitivamente per $x\to+\infty$ (su $A\cap I$, $I$ intorno di $+\infty$). Allora
@@ -54,5 +60,11 @@ Con $f>0$, si usa $f(x)^{g(x)} = e^{g(x)\log f(x)}$: la funzione è la composizi
 Quindi basta studiare $\lim_{x\to x_0}g(x)\log f(x) = y_0$ e poi usare il cambio di variabile (l'esponenziale è monotona crescente, con limiti noti):
 $$\lim_{x\to x_0} f(x)^{g(x)} = \begin{cases} e^{y_0} & y_0\in\mathbb R\\ +\infty & y_0 = +\infty\\ 0 & y_0 = -\infty.\end{cases}$$
 Esempio: $\lim_{x\to+\infty}\left(2+\frac1x\right)^x$: $x\log\left(2+\frac1x\right)\to+\infty\cdot\log2 = +\infty$ (regola 3), quindi il limite è $+\infty$.` },
+
+{ t: "es", titolo: R`Esempio dagli appunti: $\lim_{x\to+\infty}x^{1/\log(1+x)} = e$`, testo: R`
+Qui $f(x) = x$ e $g(x) = \dfrac1{\log(1+x)}$. Calcolo il limite dell'esponente:
+$$g(x)\log f(x) = \frac{\log x}{\log(1+x)} = \frac{\log x}{\log\big(x(1+\frac1x)\big)} = \frac{\log x}{\log x+\log(1+\frac1x)} = \frac1{1+\dfrac{\log(1+\frac1x)}{\log x}}.$$
+Ora $\log(1+\frac1x)\to\log1 = 0$ (cambio di variabile $y = 1+\frac1x\to1$) e $\log x\to+\infty$ (funzione crescente), quindi $\dfrac{\log(1+\frac1x)}{\log x}\to0$ per l'algebra dei limiti infiniti. Pertanto
+$$\lim_{x\to+\infty}g(x)\log f(x) = \frac1{1+0} = 1,\qquad\text{da cui}\qquad\lim_{x\to+\infty}x^{1/\log(1+x)} = \lim_{y\to1}e^y = e.$$` },
 
 ]});

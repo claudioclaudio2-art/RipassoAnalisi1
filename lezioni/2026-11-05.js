@@ -3,7 +3,7 @@ L({ data: "2026-11-05", n: 23, titolo: "Teoremi sui limiti di successioni, progr
 { t: "teo", titolo: R`Teoremi sui limiti di successioni`, testo: R`
 Siccome le successioni sono funzioni, valgono (con $n\to+\infty$) tutti i teoremi già visti per i limiti di funzioni:
 1. **Unicità:** se $\exists\lim_{n\to+\infty}a_n$, allora è unico.
-2. **Permanenza del segno:** se $a_n\to\ell>0$, allora $a_n>0$ definitivamente.
+2. **Confronto tra limiti diversi:** se $a_n\to\ell$, $b_n\to\hat\ell$ e $\ell<\hat\ell$, allora $a_n<b_n$ definitivamente (con $b_n = 0$ è la permanenza del segno).
 3. **Confronto:** se $a_n\le b_n$ definitivamente, $a_n\to\ell$ e $b_n\to\hat\ell$, allora $\ell\le\hat\ell$.
 4. **Due carabinieri:** se $a_n\le b_n\le c_n$ definitivamente e $a_n\to\ell$, $c_n\to\ell$, allora anche $b_n\to\ell$. Analogo il teorema del **singolo carabiniere** ($a_n\le b_n$ e $a_n\to+\infty\Rightarrow b_n\to+\infty$).
 5. **Algebra dei limiti finiti:** se $a_n\to\ell$ e $b_n\to\hat\ell$ con $\ell,\hat\ell\in\mathbb R$, allora
@@ -14,8 +14,8 @@ Analogo il teorema per l'**algebra dei limiti infiniti**.` },
 Se $a_n\to\ell\in\mathbb R$, allora $(a_n)$ è limitata.`, dim: R`
 Per definizione di limite con $\varepsilon = 1$: esiste $N\in\mathbb N$ tale che $|a_n-\ell|<1$ per ogni $n\ge N$, quindi
 $$|a_n| = |a_n-\ell+\ell|\le|a_n-\ell|+|\ell|<1+|\ell|\qquad\forall n\ge N.$$
-Restano i termini "scartati" $a_0,a_1,\dots,a_{N-1}$, che sono un numero **finito**. Definisco
-$$M = \max\lbrace|a_0|,|a_1|,\dots,|a_{N-1}|,\ 1+|\ell|\rbrace.$$
+Restano i termini "scartati" $a_1,a_2,\dots,a_{N-1}$ (nel corso $\mathbb N = \lbrace1,2,3,\dots\rbrace$), che sono un numero **finito**. Definisco
+$$M = \max\lbrace|a_1|,|a_2|,\dots,|a_{N-1}|,\ 1+|\ell|\rbrace.$$
 Allora $|a_n|\le M$ per ogni $n\in\mathbb N$: se $n\le N-1$ perché $|a_n|$ è uno dei termini del massimo, se $n\ge N$ perché $|a_n|<1+|\ell|\le M$. Quindi $(a_n)$ è limitata. $\blacksquare$
 
 **Oss.** Per le funzioni si otteneva solo "limitata **definitivamente**" (limitatezza locale); per le successioni si riesce a togliere il "definitivamente" perché i termini prima di $N$ sono finiti.` },
@@ -33,11 +33,11 @@ Con $\alpha = \log r$: se $r>1$ allora $\log r>0$ e $f(x)\to+\infty$; se $0<r<1$
 
 **$-1<r<0$:** $|a_n| = |r|^n$ con $|r|\in(0,1)$, quindi $|a_n|\to0$ per il caso precedente, e dunque $a_n\to0$.
 
-**$r = -1$:** $a_n = (-1)^n$ è irregolare (esercizio del 3/11).
+**$r = -1$:** $a_n = (-1)^n$ è irregolare: non può tendere a $\pm\infty$ perché $|a_n| = 1$, e non a $\ell\in\mathbb R$ perché con $\varepsilon = \frac12$ due termini consecutivi (che distano $2$) dovrebbero stare entrambi in $(\ell-\frac12,\ell+\frac12)$.
 
 **$r<-1$:** $|a_n| = |r|^n\to+\infty$ per il caso $|r|>1$.
 - Se $\lim a_n = \ell\in\mathbb R$, la successione sarebbe limitata (teorema precedente), contraddizione con $|a_n|\to+\infty$. Quindi se il limite esiste è $\ell = \pm\infty$.
-- Però $r^n>0$ per $n$ pari e $r^n<0$ per $n$ dispari. Ragionando come per $r = -1$ si vede che la definizione di limite non è verificata né per $+\infty$ (i termini dispari sono negativi) né per $-\infty$ (i pari sono positivi).
+- Però $r^n>0$ per $n$ pari e $r^n<0$ per $n$ dispari. Quindi la definizione di limite non è verificata né per $+\infty$ (con l'intorno $(0,+\infty)$: i termini dispari ne restano fuori) né per $-\infty$ (con $(-\infty,0)$: i pari ne restano fuori). È l'esercizio su $(-2)^n$ del 3/11.
 
 Il limite quindi non può esistere. $\blacksquare$` },
 
@@ -61,7 +61,7 @@ Una successione $(a_n)_{n\in\mathbb N}$ ha limite $\ell\in\mathbb R\cup\lbrace\p
 (Dimostrazione omessa: vedere il foglio settimanale.)`, dim: R`
 **$\Leftarrow$** è immediato: $(a_n)$ è sottosuccessione di se stessa con $\varphi(k) = k$.
 
-**$\Rightarrow$** Prima osservo che $\varphi(k)\ge k$ per ogni $k$ (induzione: $\varphi(0)\ge0$; se $\varphi(k)\ge k$ allora $\varphi(k+1)>\varphi(k)\ge k$, quindi $\varphi(k+1)\ge k+1$).
+**$\Rightarrow$** Prima osservo che $\varphi(k)\ge k$ per ogni $k\in\mathbb N$ (induzione: $\varphi(1)\ge1$ perché $\varphi(1)\in\mathbb N$; se $\varphi(k)\ge k$ allora $\varphi(k+1)>\varphi(k)\ge k$, quindi $\varphi(k+1)\ge k+1$).
 
 Sia $U$ un intorno di $\ell$. Esiste $N$ tale che $a_n\in U$ per ogni $n\ge N$. Allora per ogni $k\ge N$ si ha $\varphi(k)\ge k\ge N$, quindi $a_{\varphi(k)}\in U$. Cioè $a_{\varphi(k)}\to\ell$. $\blacksquare$` },
 
@@ -101,9 +101,9 @@ $$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right
 Siccome i due limiti sono diversi, la caratterizzazione sequenziale implica che $\nexists\lim_{x\to+\infty}\sin x$.` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`Esercizi: limiti che non esistono`, testo: R`
-1. Provare che $\nexists\lim_{x\to+\infty}\sin(x^2)$.
+1. Provare che $\nexists\lim_{x\to+\infty}x^2\sin x$.
 2. Provare che $\nexists\lim_{x\to0}\frac1x$ (ad esempio con $a_n = \frac1n$, $b_n = -\frac1n$).`, dim: R`
-1. Prendo $a_n = \sqrt{\frac\pi2+2n\pi}$ e $b_n = \sqrt{n\pi}$: entrambe tendono a $+\infty$, e $\sin(a_n^2) = 1$, $\sin(b_n^2) = \sin(n\pi) = 0$. I limiti $1\neq0$ sono diversi, quindi il limite non esiste.
+1. Prendo $a_n = \frac\pi2+2n\pi$ e $b_n = -\frac\pi2+2n\pi$: entrambe tendono a $+\infty$. Allora $f(a_n) = a_n^2\cdot1 = a_n^2\to+\infty$, mentre $f(b_n) = b_n^2\cdot(-1) = -b_n^2\to-\infty$. I due limiti sono diversi, quindi il limite non esiste. (Va bene anche $b_n = n\pi$, con $f(b_n) = 0\to0$.)
 2. $a_n = \frac1n\to0$, $b_n = -\frac1n\to0$, entrambe $\neq0$. Ma $f(a_n) = n\to+\infty$ e $f(b_n) = -n\to-\infty$: limiti diversi, quindi $\nexists\lim_{x\to0}\frac1x$. $\blacksquare$` },
 
 { t: "es", titolo: R`Ordini di grandezza: $n!\to+\infty$ e $n^n\to+\infty$`, testo: R`

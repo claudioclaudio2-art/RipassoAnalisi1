@@ -46,7 +46,11 @@ Basta $\delta = \varepsilon$. Analogamente $\cos x-\cos x_0 = -2\sin\frac{x+x_0}
 
 { t: "es", s: "casa", diff: 2, titolo: R`$\lim_{x\to+\infty}\sin x$ non esiste`, testo: R`
 Dimostrare che $\lim_{x\to+\infty}\sin x$ e $\lim_{x\to-\infty}\cos x$ **non esistono**.`, dim: R`
-Se fosse $\lim_{x\to+\infty}\sin x = \ell$, in ogni intorno $(M,+\infty)$ ci sono sia punti $\frac\pi2+2k\pi$ (dove $\sin = 1$) sia punti $-\frac\pi2+2k\pi$ (dove $\sin = -1$). Prendendo $U$ intorno di $\ell$ di raggio $\frac12$, $U$ non può contenere sia $1$ che $-1$: assurdo. Stesso ragionamento per $\cos$. $\blacksquare$` },
+Se fosse $\lim_{x\to+\infty}\sin x = \ell$, in ogni intorno $(M,+\infty)$ ci sono sia punti $\frac\pi2+2k\pi$ (dove $\sin = 1$) sia punti $-\frac\pi2+2k\pi$ (dove $\sin = -1$). 
+- Se $\ell\in\mathbb R$: prendo $U$ intorno di $\ell$ di raggio $\frac12$. Definitivamente $\sin x\in U$, ma $U$ non può contenere sia $1$ che $-1$ (distano $2>1$): assurdo.
+- Se $\ell = +\infty$: prendo $U = (1,+\infty)$; dovrebbe essere $\sin x>1$ definitivamente, impossibile perché $\sin x\le1$. Se $\ell = -\infty$: idem con $U = (-\infty,-1)$.
+
+Stesso ragionamento per $\cos$ (con i punti $2k\pi$ e $\pi+2k\pi$). $\blacksquare$` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Se il limite è finito, $f$ è localmente limitata`, testo: R`
 Sia $f:A\to\mathbb R$, $x_0$ di accumulazione per $A$. Se $\lim_{x\to x_0}f(x) = \ell\in\mathbb R$, allora $f$ è **localmente limitata** in $x_0$:

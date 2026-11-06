@@ -5,7 +5,8 @@ Siano $P(x)$ e $Q(x)$ due polinomi. Allora
 1. $\displaystyle\lim_{x\to x_0}P(x) = P(x_0)$ per ogni $x_0\in\mathbb R$;
 2. $\displaystyle\lim_{x\to x_0}\frac{P(x)}{Q(x)} = \frac{P(x_0)}{Q(x_0)}$ per ogni $x_0\in\mathbb R$ con $Q(x_0)\neq0$.`, dim: R`
 Sappiamo $\lim_{x\to x_0}x = x_0$. Applicando (P) $n-1$ volte:
-$$\lim_{x\to x_0}x^n = \lim_{x\to x_0}\underbrace{x\cdots x}_{n} = x_0^n.$$
+$$\lim_{x\to x_0}x^n = \lim_{x\to x_0}\underbrace{x\cdots x}_{n} = x_0^n\qquad(n\ge1).$$
+Il termine costante $a_0x^0$ va letto come la costante $a_0$ (con $x_0 = 0$ si avrebbe $0^0$, non definito), e il limite di una costante è la costante stessa.
 Per (S), $\lim_{x\to x_0}a_kx^k = a_kx_0^k$, e applicando (S) $n$ volte alla somma di $n+1$ termini:
 $$\lim_{x\to x_0}\sum_{k=0}^na_kx^k = \sum_{k=0}^na_kx_0^k = P(x_0).$$
 Il punto 2 segue da (Q). $\blacksquare$` },
@@ -58,12 +59,22 @@ Allora $\displaystyle\lim_{x\to x_0}g(f(x)) = \ell$.
 (Argomento che "c'è all'esame".)`, dim: R`
 Non fatta a lezione. Idea: fisso $U$ intorno di $\ell$. Per 2 esiste $J$ intorno di $y_0$ con $g(y)\in U$ per $y\in B\cap J\setminus\lbrace y_0\rbrace$. Per 1 esiste $I$ intorno di $x_0$ con $f(x)\in J$ per $x\in A\cap I\setminus\lbrace x_0\rbrace$. Allora per $x\in\tilde A\cap I\setminus\lbrace x_0\rbrace$, $y = f(x)\in B\cap J$. Se $f(x)\neq y_0$ (3a) allora $g(f(x))\in U$. Se invece $f(x) = y_0$ può succedere, serve (3b): $g(y_0) = \ell\in U$. $\blacksquare$` },
 
-{ t: "es", titolo: R`$\lim_{x\to+\infty}\sqrt{2x+1} = +\infty$ con il cambio di variabile`, testo: R`
-Pongo $f(x) = 2x+1$, $g(y) = \sqrt y$, con $B = [0,+\infty)$, $\tilde A = [-\frac12,+\infty)$; $x_0 = +\infty$ è di accumulazione per $\tilde A$.
-1. $\lim_{x\to+\infty}(2x+1) = +\infty =: y_0$ (algebra dei limiti infiniti), di accumulazione per $B$.
-2. $\lim_{y\to+\infty}\sqrt y = +\infty$ (verifica con la definizione: $\sqrt y>M\iff y>M^2$).
-3. (3a) vale: $2x+1\neq+\infty$ sempre (è un numero reale).
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\sqrt{x^2-1} = +\infty$ con il cambio di variabile`, testo: R`
+Pongo $f(x) = x^2-1$, $g(y) = \sqrt y$. Si ha $\mathrm{dom}(f) = \mathbb R$, $\mathrm{Im}(f) = [-1,+\infty)$, $\mathrm{dom}(g) = [0,+\infty)$, $\mathrm{Im}(g) = [0,+\infty)$, quindi
+$$\tilde A = \lbrace x\in\mathrm{dom}(f): f(x)\in\mathrm{dom}(g)\rbrace = \lbrace x\in\mathbb R: x^2-1\ge0\rbrace = (-\infty,-1]\cup[1,+\infty).$$
+$x_0 = +\infty$ è di accumulazione per $\tilde A$. Allora:
+1. $\lim_{x\to+\infty}(x^2-1) = +\infty =: y_0$ (algebra dei limiti infiniti), e $y_0 = +\infty$ è di accumulazione per $\mathrm{dom}(g) = [0,+\infty)$;
+2. $\lim_{y\to+\infty}\sqrt y = +\infty =: \ell$ (verifica con la definizione: $\sqrt y>M\iff y>M^2$);
+3. controllo almeno una delle opzioni: (3a) $x^2-1\neq+\infty$ definitivamente è vera, perché $x^2-1<+\infty$ per ogni $x\in\mathbb R$. Non serve controllare (3b).
 
-Quindi $\lim_{x\to+\infty}\sqrt{2x+1} = +\infty$. (Esercizio: verificarlo anche con la definizione.)` },
+Dal teorema di cambio di variabile segue $\lim_{x\to+\infty}\sqrt{x^2-1} = \ell = +\infty$. (Esercizio: verificare questo limite anche con la definizione.)` },
+
+{ t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to-\infty}\sin\left(\frac{x^3-x}{x^3-7}\right)$`, testo: R`
+Calcolare $\displaystyle\lim_{x\to-\infty}\sin\left(\frac{x^3-x}{x^3-7}\right)$.
+
+Suggerimento: applicare il teorema di cambio di variabile. Ma prima studiare la funzione razionale $\displaystyle\lim_{x\to-\infty}\frac{x^3-x}{x^3-7}$.`, dim: R`
+Funzione razionale con numeratore e denominatore dello stesso grado: raccogliendo $x^3$,
+$$\frac{x^3-x}{x^3-7} = \frac{1-\frac1{x^2}}{1-\frac7{x^3}}\to\frac{1-0}{1-0} = 1 =: y_0.$$
+Con $g(y) = \sin y$: $\lim_{y\to1}\sin y = \sin1$ (continuità del seno), e vale l'opzione (3b) perché $g(y_0) = \sin1 = \ell$. Quindi il limite è $\sin1$. $\blacksquare$` },
 
 ]});

@@ -57,14 +57,14 @@ Allora:
 - **(Q) quoziente**: se $\ell_g\neq0$, $\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = \frac{\ell_f}{\ell_g}$.`, dim: R`
 Fisso $\varepsilon>0$.
 
-**(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
+**(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Il caso $a = 0$, $b\neq0$ è simmetrico (con $g$ al posto di $f$). Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
 $$|af+bg-(a\ell_f+b\ell_g)|\le|a||f-\ell_f|+|b||g-\ell_g|<\frac\varepsilon2+\frac\varepsilon2 = \varepsilon.$$
 
 **(P)** $f$ è localmente limitata: $|f(x)|\le C$ vicino a $x_0$. Allora
 $$|fg-\ell_f\ell_g| = |f(g-\ell_g)+\ell_g(f-\ell_f)|\le C|g-\ell_g|+|\ell_g||f-\ell_f|,$$
 e scegliendo $|g-\ell_g|<\frac{\varepsilon}{2C}$, $|f-\ell_f|<\frac{\varepsilon}{2(|\ell_g|+1)}$ si ottiene $<\varepsilon$.
 
-**(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, per la permanenza del segno $|g(x)|>\frac{|\ell_g|}2$ definitivamente; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
+**(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, applico la definizione di limite con $\varepsilon = \frac{|\ell_g|}2$ (è lo stesso argomento della dimostrazione della permanenza del segno, il cui enunciato dà solo $|g|>0$): definitivamente $\big||g(x)|-|\ell_g|\big|<\frac{|\ell_g|}2$, quindi $|g(x)|>\frac{|\ell_g|}2$; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
 $$\left|\frac1{g(x)}-\frac1{\ell_g}\right| = \frac{|\ell_g-g(x)|}{|g(x)||\ell_g|}<\frac{2}{\ell_g^2}|g(x)-\ell_g|,$$
 che è $<\varepsilon$ se $|g(x)-\ell_g|<\frac{\varepsilon\ell_g^2}2$, arbitrariamente piccolo. $\blacksquare$` },
 

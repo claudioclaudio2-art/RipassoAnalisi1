@@ -21,7 +21,7 @@ $$\lim_{x\to x_0}f(x) = \pm\infty,\qquad\lim_{x\to x_0}g(x) = \pm\infty$$
 ($f$ e $g$ sono **infinite**). Diciamo che:
 - $f$ e $g$ sono **infinite dello stesso ordine** se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)}\in\mathbb R\setminus\lbrace0\rbrace$;
 - $g$ è **infinita di ordine superiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = 0$;
-- $g$ è **infinita di ordine inferiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)} = \pm\infty$;
+- $g$ è **infinita di ordine inferiore** a $f$ se $\exists\displaystyle\lim_{x\to x_0}\frac{g(x)}{f(x)} = 0$ (cioè $f$ è di ordine superiore a $g$);
 - $f$ e $g$ sono **infinite di ordini non confrontabili** se $\nexists\displaystyle\lim_{x\to x_0}\frac{f(x)}{g(x)}$.` },
 
 { t: "es", titolo: R`Potenze: $x^n$ contro $x^m$ per $x\to+\infty$`, testo: R`
@@ -31,7 +31,7 @@ si ha: $f$ è infinita di **ordine superiore** a $g$ $\iff n>m$; $f$ e $g$ sono 
 
 { t: "es", titolo: R`Infiniti non confrontabili: $x(2+\sin x)$ e $x$`, testo: R`
 Siano $f(x) = x(2+\sin x)$ e $g(x) = x$ per $x\to+\infty$.
-- $\lim_{x\to+\infty}f(x) = +\infty$, perché $2+\sin x\ge1$ per ogni $x$, quindi $f(x)\ge x$ per $x>0$ (confronto);
+- $\lim_{x\to+\infty}f(x) = +\infty$, perché $2+\sin x\ge1$ per ogni $x$, quindi $f(x)\ge x$ per $x>0$, e $x\to+\infty$ (teorema del **singolo carabiniere**; il confronto non basta, perché presuppone che il limite di $f$ esista);
 - $\lim_{x\to+\infty}g(x) = +\infty$.
 
 Ma $\dfrac{f(x)}{g(x)} = 2+\sin x$ e $\lim_{x\to+\infty}\sin x$ **non esiste**, quindi non esiste nemmeno $\lim\frac fg$: $f$ e $g$ sono infinite di **ordini non confrontabili**.` },
@@ -92,19 +92,20 @@ Sono già definite (come per le funzioni):
 - $(a_n)$ verifica una proprietà $P$ **definitivamente** per $n\to+\infty$ se
 $$\exists N\in\mathbb N\ \text{tale che}\ P(a_n)\ \text{è vera}\ \forall n\ge N.$$` },
 
-{ t: "es", titolo: R`Tre successioni tipo: $\frac1n$, $(-1)^n$, $n$`, testo: R`
+{ t: "es", titolo: R`Tre successioni tipo: $\frac1n$, $(-1)^n$, $n!$`, testo: R`
 - $a_n = \frac1n$ ($n\ge1$): limitata, positiva, strettamente decrescente e **infinitesima**: $\lim_{n\to+\infty}\frac1n = 0$. Infatti $\forall\varepsilon>0$ $\exists N\in\mathbb N$ (Archimede: $N>\frac1\varepsilon$) tale che $\frac1n\le\frac1N<\varepsilon$ per ogni $n\ge N$.
 - $a_n = (-1)^n$: $1,-1,1,-1,\dots$ è limitata, **non** è positiva, **non** è monotona, e $\nexists\lim_{n\to+\infty}(-1)^n$.
-- $a_n = n$: positiva, illimitata, strettamente crescente, $\lim_{n\to+\infty}n = +\infty$. Osservo che $a_{n+1} = a_n+1$ per ogni $n$: è una successione **ricorsiva**.` },
+- $a_n = n!$: positiva, illimitata, strettamente crescente (definitivamente), $\lim_{n\to+\infty}n! = +\infty$. Osservo che $a_{n+1} = (n+1)\cdot a_n$ per ogni $n$: ogni termine si ottiene dal precedente, è una successione **ricorsiva**.` },
 
 { t: "def", titolo: R`Successione ricorsiva e successione periodica`, testo: R`
-- $(a_n)$ si dice **ricorsiva** se esiste una funzione $f:\mathbb R\to\mathbb R$ tale che
-$$a_{n+1} = f(a_n)\qquad\forall n.$$
+- $(a_n)$ si dice **ricorsiva** se ogni termine si ottiene dal precedente tramite una funzione $f$:
+$$a_{n+1} = f(n, a_n)\qquad\forall n$$
+(nel caso più semplice $f$ non dipende da $n$: $a_{n+1} = f(a_n)$ con $f:\mathbb R\to\mathbb R$).
 - $(a_n)_{n\in\mathbb N}$ si dice **periodica** se esiste $k\in\mathbb N$, $k\ge1$, tale che
 $$a_{n+k} = a_n\qquad\forall n\in\mathbb N,$$
 e $k$ si chiama **periodo**.
 
-Es. $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
+Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)a_n$), $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
 
 { t: "def", titolo: R`Limite di una successione`, testo: R`
 Diciamo che $(a_n)$ ha **limite** $\ell\in\mathbb R\cup\lbrace\pm\infty\rbrace$ per $n\to+\infty$, o che $a_n$ **tende a** $\ell$, se
@@ -118,18 +119,18 @@ Esplicitamente: per ogni intorno $U$ di $\ell$ esiste $N\in\mathbb N$ tale che $
 - se $\ell = \pm\infty$, $(a_n)$ è **divergente** (a $\pm\infty$);
 - se il limite **non esiste**, $(a_n)$ è **irregolare** (o oscillante).
 
-Esempi: $\frac1n$ è convergente a $0$; $n$ è divergente a $+\infty$; $(-1)^n$ è irregolare.` },
+Esempi: $\frac1n$ è convergente a $0$; $n!$ è divergente a $+\infty$; $(-1)^n$ è irregolare.` },
 
-{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare che $(-1)^n$ è irregolare`, testo: R`
-Dimostrare che la successione $a_n = (-1)^n$ non ha limite per $n\to+\infty$.`, dim: R`
+{ t: "es", s: "casa", diff: 2, titolo: R`Dimostrare che $(-2)^n$ è irregolare`, testo: R`
+Dimostrare che la successione $a_n = (-2)^n$ non ha limite per $n\to+\infty$.`, dim: R`
 Per assurdo sia $a_n\to\ell\in\overline{\mathbb R}$.
 
-**$\ell = \pm\infty$ è impossibile:** $|a_n| = 1$, quindi $a_n\in[-1,1]$ per ogni $n$ e non entra mai definitivamente in un intorno $(2,+\infty)$ di $+\infty$ (o $(-\infty,-2)$ di $-\infty$).
+**$\ell\in\mathbb R$ è impossibile:** con $\varepsilon = 1$ si avrebbe $|a_n-\ell|<1$, quindi $|a_n|<|\ell|+1$, per ogni $n\ge N$. Ma $|a_n| = 2^n\ge n$ (induzione), e basta prendere $n\ge\max\lbrace N,|\ell|+1\rbrace$ per avere $|a_n|\ge|\ell|+1$: assurdo.
 
-**$\ell\in\mathbb R$:** prendo $\varepsilon = \frac12$. Esiste $N$ tale che $|a_n-\ell|<\frac12$ per ogni $n\ge N$. Scelgo $n\ge N$ pari: allora $n+1\ge N$ è dispari, e
-$$2 = |a_n-a_{n+1}| = |a_n-\ell+\ell-a_{n+1}|\le|a_n-\ell|+|a_{n+1}-\ell|<\frac12+\frac12 = 1,$$
-assurdo.
+**$\ell = +\infty$ è impossibile:** prendo l'intorno $U = (0,+\infty)$. Dovrebbe essere $a_n>0$ per ogni $n\ge N$, ma per $n\ge N$ dispari $a_n = -2^n<0$.
 
-(Equivalentemente: la sottosuccessione dei termini pari vale sempre $1$, quella dei dispari sempre $-1$; se ci fosse il limite, dovrebbe essere sia $1$ sia $-1$.) $\blacksquare$` },
+**$\ell = -\infty$ è impossibile:** idem con $U = (-\infty,0)$ e $n$ pari, dove $a_n = 2^n>0$.
+
+Quindi il limite non esiste. (Per $(-1)^n$ si ragiona allo stesso modo per $\pm\infty$; per $\ell\in\mathbb R$ si usa $\varepsilon = \frac12$: due termini consecutivi distano $2$, quindi non possono stare entrambi a distanza $<\frac12$ da $\ell$.) $\blacksquare$` },
 
 ]});

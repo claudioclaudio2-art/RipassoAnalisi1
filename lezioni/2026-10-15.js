@@ -13,7 +13,11 @@ $$\exists I\subseteq\mathbb R \text{ intorno di } r : (I\setminus\lbrace r\rbrac
 Dimostrare che ogni $r\in\mathbb R$ è di accumulazione per $\mathbb Q$ (quindi $\mathbb Q$ non ha punti isolati).
 
 Dimostrare inoltre che $+\infty$ è di accumulazione per $A$ se e solo se $A$ è superiormente illimitato.`, dim: R`
-**Prima parte.** Dato $\varepsilon>0$, per la densità di $\mathbb Q$ in $\mathbb R$ esiste $q\in\mathbb Q$ con $r<q<r+\varepsilon$. Quindi $q\in(r-\varepsilon,r+\varepsilon)\setminus\lbrace r\rbrace$.
+**Prima parte.** Attenzione: a lezione è stata dimostrata solo la densità **tra due razionali**, quindi qui serve un argomento diretto. Dato $\varepsilon>0$:
+- per la **proprietà di Archimede** ($\mathbb N$ non è superiormente limitato) esiste $n\in\mathbb N$ con $n>\frac1\varepsilon$, cioè $\frac1n<\varepsilon$;
+- sia $m = \lfloor nr\rfloor+1\in\mathbb Z$, così $m-1\le nr<m$, cioè $r<\dfrac mn\le r+\dfrac1n$.
+
+Allora $q = \frac mn\in\mathbb Q$ e $r<q\le r+\frac1n<r+\varepsilon$, quindi $q\in(r-\varepsilon,r+\varepsilon)\setminus\lbrace r\rbrace$.
 
 **Seconda parte.** $+\infty$ di accumulazione $\iff$ $\forall M\ (M,+\infty)\cap A\neq\emptyset$ $\iff$ $\forall M\ \exists a\in A : a>M$ $\iff$ $\sup A = +\infty$. $\blacksquare$` },
 

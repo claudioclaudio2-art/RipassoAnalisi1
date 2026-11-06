@@ -31,13 +31,25 @@ $$\lim_{x\to0}\frac{\log(1+x)}x = 1,\qquad\lim_{x\to0}\frac{e^x-1}x = 1.$$`, dim
 
 **Esponenziale:** con $y = e^x-1$ ($y\to0$, $x = \log(1+y)$): $\dfrac{e^x-1}x = \dfrac{y}{\log(1+y)}\to1$. $\blacksquare$` },
 
-{ t: "prop", s: "casa", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
-$$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12,\qquad\lim_{x\to0}\frac{\tanh x}x = 1.$$`, dim: R`
-**Seno iperbolico:** $\dfrac{\sinh x}x = \dfrac{e^x-e^{-x}}{2x} = e^{-x}\cdot\dfrac{e^{2x}-1}{2x}\to1\cdot1$ (con $y = 2x$ nel limite notevole dell'esponenziale).
+{ t: "es", titolo: R`$\lim_{x\to0}\frac{1-e^{-x}}x = 1$`, testo: R`
+Con il cambio di variabile $y = -x\to0$:
+$$\lim_{x\to0}\frac{1-e^{-x}}x = \lim_{y\to0}\frac{1-e^y}{-y} = \lim_{y\to0}\frac{e^y-1}y = 1.$$` },
 
-**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$.
+{ t: "teo", s: "dim", diff: 1, titolo: R`Limiti notevoli iperbolici`, testo: R`
+$$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \frac12.$$`, dim: R`
+**Seno iperbolico** (fatto a lezione): spezzando,
+$$\frac{\sinh x}x = \frac{e^x-e^{-x}}{2x} = \frac{e^x-1}{2x}+\frac{1-e^{-x}}{2x}\to\frac12\cdot1+\frac12\cdot1 = 1,$$
+usando $\frac{e^x-1}x\to1$ e l'esempio $\frac{1-e^{-x}}x\to1$.
 
-**Tangente iperbolica:** $\dfrac{\tanh x}{x} = \dfrac{\sinh x}x\cdot\dfrac1{\cosh x}\to1$. $\blacksquare$` },
+**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
+
+{ t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to0}\frac{\tanh x}x = 1$ e $\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1$`, testo: R`
+Dimostrare che
+$$\lim_{x\to0}\frac{\tanh x}x = 1\qquad\text{e}\qquad\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1.$$`, dim: R`
+**Tangente iperbolica:** $\dfrac{\tanh x}{x} = \dfrac{\sinh x}x\cdot\dfrac1{\cosh x}\to1\cdot\dfrac11 = 1$.
+
+**Settore seno iperbolico:** cambio di variabile $y = \operatorname{arcsinh}x$, cioè $x = \sinh y$; per $x\to0$ si ha $y\to0$ e $y\neq0$ per $x\neq0$ (è iniettiva con $\operatorname{arcsinh}0 = 0$). Quindi
+$$\frac{\operatorname{arcsinh}x}x = \frac y{\sinh y}\to1. \ \blacksquare$$` },
 
 { t: "teo", s: "omessa", titolo: R`Gerarchia degli infiniti`, testo: R`
 Siano $a>1$, $\alpha,\beta>0$. Valgono:
@@ -51,7 +63,12 @@ Per altri valori di $a, \alpha,\beta$ ci si riconduce a 1 o 2, oppure non si tra
 { t: "es", titolo: R`$\lim_{x\to0^+}x\log x = 0$ (gerarchia + cambio di variabile)`, testo: R`
 È $[0\cdot\infty]$. Con $y = \frac1x\to+\infty$:
 $$x\log x = \frac{\log(1/y)}{y} = -\frac{\log y}{y}\to0$$
-per la gerarchia (1) con $\alpha = \beta = 1$. Allo stesso modo, $\lim_{x\to 0} x^2\log|x| = 0$ (per parità basta $x\to0^+$).` },
+per la gerarchia (1) con $\alpha = \beta = 1$.` },
+
+{ t: "es", titolo: R`$\lim_{x\to0}|x|^{|x|} = 1$`, testo: R`
+Per parità basta $x\to0^+$:
+$$\lim_{x\to0^+}x^x = \lim_{x\to0^+}e^{x\log x} = \lim_{y\to0}e^y = e^0 = 1,$$
+perché $x\log x\to0$ (esempio precedente) e $y\mapsto e^y$ è continua.` },
 
 { t: "def", titolo: R`Funzioni asintotiche ($f\sim g$)`, testo: R`
 Siano $f,g:A\to\mathbb R$, $x_0\in\overline{\mathbb R}$ di accumulazione per $A$. $f$ e $g$ sono **asintotiche** per $x\to x_0$, e si scrive $f(x)\sim g(x)$, se
