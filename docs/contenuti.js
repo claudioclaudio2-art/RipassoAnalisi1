@@ -25,7 +25,7 @@ Esempio: "ogni elefante ha un'unica proboscide" si scrive $\forall$ elefante $\e
 Simbolo "tale che": $:$ oppure $|$ (in inglese *such that*).` },
 
 { t: "def", titolo: "Proposizione e tavole di verità", testo: R`
-Una **proposizione** è una frase/proprietà matematica che è o **vera (V)** o **falsa (F)**. Può dipendere da una variabile: $P(n)$ = "$n$ è un numero pari" è vera per $n=2$, falsa per $n=3$.
+Una **proposizione** è una frase/proprietà matematica che è o **vera (V)** o **falsa (F)**. Può dipendere da una variabile: $P(n)$ = "$n$ è un numero pari" è vera per $n=2$, falsa per $n=3$. Esempio del prof: $P(x)$ = "$x$ è razionale": $P(\frac12)$ è vera, $P(\sqrt2)$ è falsa.
 
 Tavole di verità:
 - $P \land Q$ è V solo se entrambe sono V.
@@ -38,7 +38,7 @@ $$\text{IPOTESI} \Rightarrow \text{TESI}.$$` },
 
 { t: "def", titolo: "Dimostrazione diretta, per assurdo, per contrapposizione", testo: R`
 - **Diretta**: si parte dall'ipotesi e con una catena di implicazioni si arriva alla tesi.
-- **Per contrapposizione (inversa)**: si usa l'equivalenza
+- **Per contrapposizione (inversa)** — il prof la chiama "**dimostrazione inversa o per assurdo**", come un'unica tecnica: si usa l'equivalenza
 $$(P \Rightarrow Q) \iff (\neg Q \Rightarrow \neg P),$$
 cioè si nega la tesi e si dimostra la negazione dell'ipotesi.
 - **Per assurdo**: si suppone vera l'ipotesi e falsa la tesi e si arriva a una contraddizione.
@@ -95,12 +95,12 @@ $\mathbb N = \lbrace 1,2,3,\dots\rbrace$, $\mathbb N_0 = \mathbb N \cup \lbrace 
 
 - Somma e prodotto di naturali sono naturali.
 - $0$ è l'**elemento neutro** della somma ($n+0=n$) e l'**elemento assorbente** del prodotto ($n\cdot 0 = 0$); $1$ è l'elemento neutro del prodotto.
-- $\le$ è un **ordinamento totale**: $\forall a,b$ vale $a\le b$ oppure $b \le a$. Esiste anche l'ordinamento stretto $<$.` },
+- $\le$ è un **ordinamento totale**: $\forall a,b$ vale $a\le b$ oppure $b \le a$. Il prof chiama $<$ ordinamento **parziale (stretto)**: "non tutte le coppie sono confrontabili: $2<3$, $3\not<2$, ma anche $2\not<2$".` },
 
 { t: "def", titolo: R`Numero primo e numeri coprimi`, testo: R`
 $n \in \mathbb N$ è **primo** se è divisibile solo per $1$ e per se stesso. Per convenzione $1$ **non** è primo: $\mathbb P = \lbrace 2,3,5,7,11,\dots\rbrace$.
 
-$a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Es. $\mathrm{MCD}(3,5)=1$.` },
+$a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Esempi: $\mathrm{MCD}(2,5) = 1$ (coprimi), $\mathrm{MCD}(3,9) = 3$, $\mathrm{MCD}(12,30) = 6$.` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Teorema di Euclide`, testo: R`
 I numeri primi sono **infiniti**.`, dim: R`
@@ -351,7 +351,9 @@ Sia $\emptyset\neq A\subseteq\mathbb R$.
 - $A$ è **superiormente limitato** se $\exists M\in\mathbb R$ con $a\le M$ $\forall a\in A$. $M$ si dice **maggiorante** ($\iff A\subseteq(-\infty,M]$).
 - $A$ è **inferiormente limitato** se $\exists m\in\mathbb R$ con $a\ge m$ $\forall a \in A$. $m$ si dice **minorante**.
 
-Es. $A = [2,5)$: maggioranti $5, 6, 99{,}7,\dots$; minoranti $2, 1, -17,\dots$` },
+Es. $A = [2,3]\cup\lbrace5\rbrace$: maggioranti $5, 6, 99{,}7,\dots$ (ma **non** $4$, perché $5\in A$); minoranti $2, 1, -17,\dots$ (ma **non** $3{,}5$).
+
+Es. $A = \lbrace x\in\mathbb Q: x\ge0,\ x^2<2\rbrace$: maggioranti $200$, $3$, $\sqrt2$; minoranti $0$, $-\frac57$.` },
 
 { t: "def", titolo: R`Massimo e minimo di un insieme`, testo: R`
 - $M = \max A$ se $M$ è un maggiorante di $A$ **e** $M\in A$.
@@ -396,7 +398,7 @@ $A$ è **superiormente illimitato** (non sup. limitato), e si scrive $\sup A = +
 $$\forall M\in\mathbb R\ \exists a\in A : a > M.$$
 Analogamente $\inf A = -\infty$ se $\forall m\in\mathbb R\ \exists a\in A: a < m$.
 
-Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
+Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \mathbb R$: $\sup\mathbb R = +\infty$, $\inf\mathbb R = -\infty$, e $\mathbb R$ non ha né massimo né minimo. Attenzione: in $\overline{\mathbb R}$ il prof **barra** le scritture "$\sup\overline{\mathbb R} = +\infty$" e "$\max\overline{\mathbb R} = +\infty$" (sup e max sono definiti per sottoinsiemi di $\mathbb R$). Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Caratterizzazione di sup e inf`, testo: R`
 Sia $A$ superiormente limitato. Allora $s = \sup A$ se e solo se
@@ -412,12 +414,12 @@ Sia $A$ inferiormente limitato. Allora $i = \inf A$ se e solo se
 
 { t: "def", titolo: R`Modulo (valore assoluto)`, testo: R`
 Per $a\in\mathbb R$:
-$$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0.\end{cases}$$` },
+$$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0\end{cases}\qquad\text{equivalentemente}\qquad|a| = \max\lbrace a,-a\rbrace.$$` },
 
 { t: "prop", s: "casa", diff: 1, titolo: R`Proprietà del modulo`, testo: R`
 Per ogni $a,b\in\mathbb R$:
 1. $-|a|\le a\le |a|$;
-2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$;
+2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$ (negli appunti è scritta solo l'implicazione $\Rightarrow$);
 3. $|a| = 0\iff a = 0$;
 4. $|ab| = |a|\,|b|$;
 5. **disuguaglianza triangolare**: $|a+b|\le|a|+|b|$;
@@ -448,9 +450,10 @@ $$a^n = \begin{cases}\underbrace{a\cdot a\cdots a}_{n \text{ volte}} & n>0\\ 1 &
 { t: "att", titolo: R`$0^0$ non ha senso`, testo: R`
 $0^0$ **non è definito** (in alcuni testi o situazioni si pone $0^0=1$, ma per noi no).` },
 
-{ t: "teo", s: "dim", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
 Siano $y\in\mathbb R$, $y\ge0$, $n\in\mathbb N$. Allora esiste un unico $r\in\mathbb R$, $r\ge 0$, tale che $r^n = y$. Si scrive $r = y^{1/n} = \sqrt[n]y$, ed è
-$$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$`, dim: R`
+$$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$
+In classe il prof ha detto solo: segue dal **teorema di completezza (2ª forma)**: $A = \lbrace x\ge0: x^n\le y\rbrace$ è superiormente limitato, quindi ha un unico sup $r$, e $r^n = y$. La dimostrazione completa qui sotto è un'aggiunta.`, dim: R`
 L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r\ge0$. Resta da vedere che $r^n = y$ (a lezione questo passo è solo accennato; ecco i conti).
 
 **Stima utile.** Per $0\le a<b$:
@@ -482,10 +485,12 @@ Se $r < 0$: $a^r = \dfrac1{a^{-r}}$.
 
 Riassunto della costruzione: $a^n \to \sqrt[n]a\to a^{p/q}\to a^r\ (r\ge0)\to a^r\ (r<0)\to \log_a y$.` },
 
-{ t: "teo", s: "dim", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
 Siano $a>0$, $a\neq1$, $y>0$. Allora esiste un unico $x\in\mathbb R$ tale che $a^x = y$; si indica $x = \log_a y$ ed è
 - se $a > 1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\le y\rbrace$;
-- se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.`, dim: R`
+- se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.
+
+In classe: segue dal teorema di completezza (2ª forma), in modo analogo alla radice $n$-esima. La dimostrazione completa qui sotto è un'aggiunta.`, dim: R`
 Segue dalla completezza di $\mathbb R$ (2ª forma). Faccio il caso $a>1$ (per $0<a<1$ si applica il caso precedente a $\frac1a>1$: $\log_ay = -\log_{1/a}y$). Sia $B = \lbrace r\in\mathbb R: a^r\le y\rbrace$ e $t = a-1>0$.
 
 **Strumento.** Dal binomio di Newton $(1+t)^n\ge1+nt$, quindi $a^n\ge1+n(a-1)\to+\infty$; e $\left(1+\frac tn\right)^n\ge1+t = a$, cioè $a^{1/n}\le1+\frac{a-1}n$.
@@ -499,7 +504,7 @@ Segue dalla completezza di $\mathbb R$ (2ª forma). Faccio il caso $a>1$ (per $0
 Quindi $a^x = y$; l'unicità segue dalla stretta monotonia di $r\mapsto a^r$. $\blacksquare$` },
 
 { t: "def", titolo: R`Logaritmo e proprietà`, testo: R`
-$\log_a y$ ("logaritmo in base $a$ di $y$") è l'esponente da dare ad $a$ per ottenere $y$. Notazioni: $\log = \ln = \log_e$ (logaritmo naturale, $e \approx 2{,}718$ numero di Nepero); $\mathrm{Log} = \log_{10}$.
+$\log_a y$ ("logaritmo in base $a$ di $y$") è l'esponente da dare ad $a$ per ottenere $y$. Notazioni: $\log = \ln = \log_e$ (logaritmo naturale, $e \approx 2{,}718$ numero di Nepero); attenzione: $\log_{10}\neq\log$.
 
 Per $a, b > 0$, $a,c\neq1$, $x,y>0$:
 1. $\log_a 1 = 0$, $\log_a a = 1$;
@@ -540,7 +545,11 @@ Es. una circonferenza non è un grafico; $f(x) = 1$ per $x\ge0$ e $0$ per $x<0$ 
 Spesso (anche all'esame) dominio e codominio non sono indicati: bisogna capire dove la legge **ha senso**.
 - $f(x) = \sqrt x$: serve $x\ge 0$, quindi $D(f) = [0,+\infty)$ (idem per $\sqrt[3]x$ con le nostre convenzioni).
 - $f(x) = \sqrt{x^2+1}$: $x^2+1\ge0$ sempre, quindi $D(f) = \mathbb R$.
-- $f(x) = \dfrac{1}{\sqrt{x^2-1}}$: serve $x^2-1 > 0$ (sotto radice e al denominatore), quindi $D(f) = (-\infty,-1)\cup(1,+\infty)$.` },
+- Esempio del prof: $f(x) = \dfrac{x+2}{\sqrt{x^2+2x+1}}$. Condizioni:
+  1. $\sqrt{x^2+2x+1}\neq0$ (denominatore);
+  2. $x^2+2x+1\ge0$ (radice).
+
+  Ma $x^2+2x+1 = (x+1)^2$, quindi la (2) è sempre vera e la (1) diventa $\sqrt{(x+1)^2} = |x+1|\neq0$, cioè $x\neq-1$. Risultato: $D(f) = \mathbb R\setminus\lbrace-1\rbrace$.` },
 
 { t: "def", titolo: R`Funzioni elementari: costanti, lineari, affini, quadratiche, polinomiali`, testo: R`
 - **Costante**: $f(x) = c$ per ogni $x$.
@@ -570,7 +579,7 @@ Dimostrare che $\cosh^2x-\sinh^2x = 1$ per ogni $x\in\mathbb R$.`, dim: R`
 $$\cosh^2x-\sinh^2x = \frac{e^{2x}+2+e^{-2x}}{4}-\frac{e^{2x}-2+e^{-2x}}{4} = \frac44 = 1.\ \blacksquare$$` },
 
 { t: "def", titolo: R`Parte intera, funzione di Dirichlet`, testo: R`
-- **Parte intera inferiore** (floor): $\lfloor x\rfloor = \max\lbrace k\in\mathbb Z : k\le x\rbrace$. Es. $\lfloor 1{,}75\rfloor = 1$, $\lfloor -1{,}3\rfloor = -2$.
+- **Parte intera inferiore** (floor): $\lfloor x\rfloor = \max\lbrace k\in\mathbb Z : k\le x\rbrace$. Es. $\lfloor 1{,}5\rfloor = 1$, $\lfloor 0{,}7\rfloor = 0$, $\lfloor -3{,}1\rfloor = -4$.
 - **Parte intera superiore** (ceiling): $\lceil x\rceil = \min\lbrace k\in\mathbb Z : k\ge x\rbrace$.
 - **Dirichlet**: $D(x) = 1$ se $x\in\mathbb Q$, $D(x) = 0$ se $x\notin\mathbb Q$ (grafico a "nuvole di punti").` },
 
@@ -579,15 +588,17 @@ Sia $f : A\to B$ e $E\subseteq A$. L'**immagine di $E$** tramite $f$ è
 $$f(E) = \lbrace f(x) : x\in E\rbrace = \lbrace y\in B : \exists x\in E,\ y = f(x)\rbrace\subseteq B.$$
 L'**immagine di $f$** è $\mathrm{Im}(f) = f(A)$.
 
-Esempio: per $f:\mathbb N\to\mathbb N$, $f(x)=2x$, $\mathrm{Im}(f)$ = numeri pari.` },
+Esempio: per $f:\mathbb N\to\mathbb N$, $f(x)=2x$, $\mathrm{Im}(f)$ = numeri pari.
+
+**Attenzione:** l'immagine di un insieme è un **insieme**, il valore in un punto è un **elemento**. Se $f(c) = 2$, allora $f(\lbrace c\rbrace) = \lbrace2\rbrace$ ma $f(c) = 2$ (non $\lbrace2\rbrace$).` },
 
 ]});
 
 /* ---- 2026-10-12.js ---- */
 L({ data: "2026-10-12", n: 9, titolo: "Controimmagine, composizione, iniettività, inversa", voci: [
 
-{ t: "es", titolo: R`Calcolo dell'immagine: $2x+1$ e $x^2$`, testo: R`
-**$f(x) = 2x+1$ su $\mathbb R$.** Cerco $y$ tali che $y = 2x+1$ per qualche $x$: basta $x = \frac{y-1}2$. Quindi $\mathrm{Im}(f) = \mathbb R$.
+{ t: "es", titolo: R`Calcolo dell'immagine: $2x-1$ e $x^2$`, testo: R`
+**$f(x) = 2x-1$ su $\mathbb R$.** Cerco $y$ tali che $y = 2x-1$ per qualche $x$: basta $x = \frac{y+1}2$, infatti $f\!\left(\frac{y+1}2\right) = y$. Quindi $\mathrm{Im}(f) = \mathbb R$.
 
 **$f(x) = x^2$ su $\mathbb R$.** Se $y = x^2$ allora $y\ge0$, quindi $\mathrm{Im}(f)\subseteq[0,+\infty)$. Viceversa per $y\ge0$ vale $y = (\sqrt y)^2$. Quindi $\mathrm{Im}(f) = [0,+\infty)$.` },
 
@@ -601,14 +612,14 @@ Siano $f : A\to B$, $g : C\to D$ con $f(A)\cap C\neq\emptyset$ (dove arriva $f$ 
 $$E = f^{\leftarrow}\big(f(A)\cap C\big) = \lbrace x\in A: f(x)\in C\rbrace\subseteq A,$$
 la **funzione composta** "$g$ dopo $f$" è $g\circ f : E\to D$, $(g\circ f)(x) = g(f(x))$.
 
-Es. $f(x) = x^2+1$, $g(y) = \sqrt y$: $\mathrm{Im} f = [1,+\infty)\subseteq D(g)$, quindi $(g\circ f)(x) = \sqrt{x^2+1}$ è definita su tutto $\mathbb R$.
+Es. $f(x) = x^2$, $g(x) = 2x+1$: $\mathrm{Im} f = [0,+\infty)$, $\mathrm{Im} f\cap D(g) = [0,+\infty)\neq\emptyset$, $D(g\circ f) = f^{\leftarrow}([0,+\infty)) = \mathbb R$ e $(g\circ f)(x) = 2x^2+1$.
 
 (In alcuni testi si chiede $f(A)\subseteq C$; noi usiamo la richiesta più debole $f(A)\cap C\neq\emptyset$.)` },
 
 { t: "att", titolo: R`In generale $g\circ f\neq f\circ g$`, testo: R`
 Prima le mutande e poi i pantaloni è diverso da prima i pantaloni e poi le mutande.
 
-Con $f(x) = x^2$, $g(x) = \sin x$: $(g\circ f)(x) = \sin(x^2)$, $(f\circ g)(x) = \sin^2 x$. In $x = \frac{\sqrt\pi}{2}$: $\sin\frac\pi4 = \frac{\sqrt2}2$, mentre $\sin^2\frac{\sqrt\pi}2 \ne \frac{\sqrt 2}2$.` },
+Con $f(x) = x^2$, $g(x) = \sin x$: $(g\circ f)(x) = \sin(x^2)$, $(f\circ g)(x) = \sin^2 x$. In $x = 45° = \frac\pi4$: $(g\circ f)\!\left(\frac\pi4\right) = \sin\frac{\pi^2}{16}$, mentre $(f\circ g)\!\left(\frac\pi4\right) = \left(\sin\frac\pi4\right)^2 = \frac12$, e $\sin\frac{\pi^2}{16}\neq\frac12$.` },
 
 { t: "def", titolo: R`Funzione iniettiva, suriettiva, biiettiva`, testo: R`
 Sia $f : A\to B$.
@@ -712,7 +723,9 @@ Sia $f:A\to\mathbb R$. Dimostrare che $f$ è costante se e solo se $\min f = \ma
 
 Es. $(5{,}9;\ 6{,}1)$ è un intorno di $6$; $(4,7)$ non è un intorno sferico di $6$ (raggi diversi).`, fig: "intorni" },
 
-{ t: "prop", s: "dim", diff: 2, titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
+{ t: "prop", s: "omessa", diff: 2, titolo: R`Proprietà degli intorni: intersezione e separazione`, testo: R`
+(Negli appunti sono solo enunciate, con i disegni; la dimostrazione è un'aggiunta.)
+
 1. **Intersezione**: se $I_1,I_2$ sono intorni di $r\in\overline{\mathbb R}$, allora $I_1\cap I_2$ è ancora un intorno di $r$.
 2. **Separazione**: se $r_1\neq r_2$ in $\overline{\mathbb R}$, esistono un intorno $I_1$ di $r_1$ e un intorno $I_2$ di $r_2$ tali che $I_1\cap I_2 = \emptyset$.`, dim: R`
 1. Per $r\in\mathbb R$: l'intersezione di due intorni centrati in $r$ è quello di raggio più piccolo. Per $r = +\infty$: $(M_1,+\infty)\cap(M_2,+\infty) = (\max\lbrace M_1,M_2\rbrace,+\infty)$. Analogo per $-\infty$.
@@ -757,7 +770,7 @@ Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\overline{\mathbb R}$ di accum
 $$\exists I \text{ intorno di } x_0 : f(x) \text{ soddisfa } P\quad\forall x\in A\cap I\setminus\lbrace x_0\rbrace$$
 (il punto $x_0$ si toglie solo se $x_0\in\mathbb R$).
 
-Esempio: $\sin x > 0$ definitivamente per $x\to\frac\pi4$ (basta l'intorno $(0,\frac\pi2)$).
+Esempio del prof: $x_0 = 0$, $f = \sin$, $P$ = "$f$ è positiva per $x>0$". Basta l'intorno $I = \left(-\frac\pi2,\frac\pi2\right)$: per ogni $x\in I$ con $x>0$ si ha $\sin x>0$.
 
 Notazioni: $x\to x_0^+$ ($x$ tende a $x_0$ da destra, $x>x_0$); $x\to x_0^-$ (da sinistra, $x<x_0$).` },
 
@@ -772,8 +785,14 @@ $$\forall\varepsilon>0\ \exists\delta>0 : |f(x)-\ell|<\varepsilon\quad\forall x\
 - **Non** interessa cosa fa $f$ in $x_0$ (che può anche non appartenere al dominio).
 - $x_0$ deve essere di accumulazione per $A$: **non si fanno limiti nei punti isolati** del dominio.` },
 
+{ t: "oss", titolo: R`Significato operativo del limite`, testo: R`
+Per verificare un limite con la definizione:
+- $x_0\in\mathbb R$, $\ell\in\mathbb R$: fisso $\varepsilon>0$ e cerco $\delta>0$ tale che $|f(x)-\ell|<\varepsilon$ per $0<|x-x_0|<\delta$;
+- $x_0\in\mathbb R$, $\ell = +\infty$: fisso $M$ (grande) e cerco $\delta>0$ tale che $f(x)>M$ per $0<|x-x_0|<\delta$;
+- $x_0 = +\infty$, $\ell\in\mathbb R$: fisso $\varepsilon>0$ e cerco $M$ tale che $|f(x)-\ell|<\varepsilon$ per $x>M$.` },
+
 { t: "es", titolo: R`Verifiche di limiti con la definizione`, testo: R`
-**1.** $f(x) = 1$ per $x\neq0$, $f(0) = 0$. Allora $\lim_{x\to0}f(x) = 1$: fissato $U = (1-\varepsilon,1+\varepsilon)$, per $x\neq0$ si ha $f(x) = 1\in U$, quindi qualsiasi $\delta$ va bene (es. $\delta = 57$). Il valore $f(0)=0$ non conta.
+**1.** $f(x) = 1$ per $x\neq0$, $f(0) = 0$. Allora $\lim_{x\to0}f(x) = 1$: fissato $U = (1-\varepsilon,1+\varepsilon)$, per $x\neq0$ si ha $f(x) = 1\in U$, quindi qualsiasi $\delta$ va bene (es. $\delta = 157$). Il valore $f(0)=0$ non conta.
 
 **2.** $f(x) = 2x$. Allora $\lim_{x\to0}f(x) = 0$: fissato $\varepsilon>0$, $|2x|<\varepsilon\iff|x|<\frac\varepsilon2$. Basta $\delta = \frac\varepsilon2$.` },
 
@@ -794,9 +813,9 @@ L({ data: "2026-10-19", n: 13, titolo: "Limite dell'esponenziale, limitatezza lo
 Sia $f: A\to\mathbb R$ con $f(x) = c$ per ogni $x\in A$. Allora $\displaystyle\lim_{x\to x_0}f(x) = c$ per ogni $x_0$ di accumulazione per $A$ (anche $\pm\infty$).`, dim: R`
 Per ogni intorno $U$ di $c$ si ha $f(x) = c\in U$ per **ogni** $x\in A$, quindi qualunque intorno $I$ di $x_0$ va bene. $\blacksquare$` },
 
-{ t: "teo", s: "dim", diff: 1, titolo: R`Disuguaglianza di Bernoulli`, testo: R`
+{ t: "teo", s: "omessa", diff: 1, titolo: R`Disuguaglianza di Bernoulli`, testo: R`
 $$(1+t)^n\ge1+nt\qquad\forall n\in\mathbb N_0,\ \forall t\ge0.$$
-(Vale in realtà per ogni $t\ge-1$.)`, dim: R`
+(Vale in realtà per ogni $t\ge-1$.) Negli appunti c'è solo: "si dimostra per induzione su $n$ a $t$ fissato"; i passaggi qui sotto sono un'aggiunta.`, dim: R`
 Induzione su $n$ con $t$ fissato. **Base** $n=0$: $1\ge1$.
 
 **Passo**: se $(1+t)^n\ge1+nt$, allora, siccome $1+t>0$,
@@ -852,7 +871,7 @@ Basta prendere $C = 1+|\ell|$. $\blacksquare$` },
 { t: "def", titolo: R`Punto di accumulazione destro / sinistro`, testo: R`
 Sia $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\mathbb R$. $x_0$ è punto di accumulazione **destro** per $A$ se è di accumulazione per $A\cap(x_0,+\infty)$; **sinistro** se lo è per $A\cap(-\infty,x_0)$.
 
-Es. $A = (1,2)\cup(2,3)$: $1$ è di accumulazione solo destro, $3$ solo sinistro, $2$ (che non sta in $A$) sia destro che sinistro.
+Es. $A = [1,2]\cup\lbrace3\rbrace$: ogni $x_0\in(1,2)$ è di accumulazione sia destro che sinistro; $1$ è solo **destro**; $2$ è solo **sinistro**; $3$ è isolato.
 
 Un punto di accumulazione destro o sinistro è anche di accumulazione (esercizio).` },
 
@@ -887,8 +906,9 @@ perché ogni tale $x$ sta a destra o a sinistra di $x_0$. $\blacksquare$` },
 { t: "att", titolo: R`Questa non è la definizione di limite`, testo: R`
 È un teorema, utile soprattutto per dimostrare che un limite **non esiste**: basta trovare due limiti laterali diversi.` },
 
-{ t: "es", titolo: R`Esempi: funzione segno e $1/x$`, testo: R`
-- $f(x) = 1$ per $x\ge0$, $f(x)=-1$ per $x<0$: $\lim_{x\to0^+}f = 1\neq-1 = \lim_{x\to0^-}f$, quindi $\nexists\lim_{x\to0}f(x)$.
+{ t: "es", titolo: R`Esempi: funzione a gradino e $1/x$`, testo: R`
+- $f(x) = 1$ per $x\ge0$, $f(x) = 0$ per $x<0$: $\lim_{x\to0^+}f = 1\neq0 = \lim_{x\to0^-}f$, quindi $\nexists\lim_{x\to0}f(x)$.
+- $f(x) = 1$ per $x\neq0$, $f(0) = 18$: $\lim_{x\to0^\pm}f = 1$, quindi $\lim_{x\to0}f(x) = 1$. Il valore $f(0) = 18$ **non conta**.
 - $\lim_{x\to0^+}\frac1x = +\infty\neq-\infty = \lim_{x\to0^-}\frac1x$, quindi $\nexists\lim_{x\to0}\frac1x$.
 - $\lim_{x\to0^\pm}\frac1{x^2} = +\infty$, quindi $\lim_{x\to0}\frac1{x^2} = +\infty$.` },
 
@@ -998,9 +1018,13 @@ Fisso $\varepsilon>0$.
 **(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Il caso $a = 0$, $b\neq0$ è simmetrico (con $g$ al posto di $f$). Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
 $$|af+bg-(a\ell_f+b\ell_g)|\le|a||f-\ell_f|+|b||g-\ell_g|<\frac\varepsilon2+\frac\varepsilon2 = \varepsilon.$$
 
-**(P)** $f$ è localmente limitata: $|f(x)|\le C$ vicino a $x_0$. Allora
-$$|fg-\ell_f\ell_g| = |f(g-\ell_g)+\ell_g(f-\ell_f)|\le C|g-\ell_g|+|\ell_g||f-\ell_f|,$$
-e scegliendo $|g-\ell_g|<\frac{\varepsilon}{2C}$, $|f-\ell_f|<\frac{\varepsilon}{2(|\ell_g|+1)}$ si ottiene $<\varepsilon$.
+**(P)** Fisso $\varepsilon\in(0,1)$ e pongo $C = 1+|\ell_f|+|\ell_g|\ge1$. Per definizione di limite esiste un intorno $I$ di $x_0$ tale che, per $x\in A\cap I\setminus\lbrace x_0\rbrace$,
+$$f(x)\in\left(\ell_f-\tfrac\varepsilon C,\ \ell_f+\tfrac\varepsilon C\right),\qquad g(x)\in\left(\ell_g-\tfrac\varepsilon C,\ \ell_g+\tfrac\varepsilon C\right).$$
+Aggiungo e tolgo $\ell_f\,g(x)$:
+$$|f(x)g(x)-\ell_f\ell_g| = |g(x)(f(x)-\ell_f)+\ell_f(g(x)-\ell_g)|\le|g(x)||f(x)-\ell_f|+|\ell_f||g(x)-\ell_g|<|g(x)|\frac\varepsilon C+|\ell_f|\frac\varepsilon C.$$
+Inoltre $|g(x)|\le|g(x)-\ell_g|+|\ell_g|<\frac\varepsilon C+|\ell_g|$. Quindi
+$$|f(x)g(x)-\ell_f\ell_g|<\frac\varepsilon C\left(\frac\varepsilon C+|\ell_g|+|\ell_f|\right)<\frac\varepsilon C\big(1+|\ell_f|+|\ell_g|\big) = \varepsilon,$$
+dove si è usato $\frac\varepsilon C<1$ (perché $\varepsilon<1\le C$).
 
 **(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, applico la definizione di limite con $\varepsilon = \frac{|\ell_g|}2$ (è lo stesso argomento della dimostrazione della permanenza del segno, il cui enunciato dà solo $|g|>0$): definitivamente $\big||g(x)|-|\ell_g|\big|<\frac{|\ell_g|}2$, quindi $|g(x)|>\frac{|\ell_g|}2$; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
 $$\left|\frac1{g(x)}-\frac1{\ell_g}\right| = \frac{|\ell_g-g(x)|}{|g(x)||\ell_g|}<\frac{2}{\ell_g^2}|g(x)-\ell_g|,$$
@@ -1028,7 +1052,7 @@ Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$.
 2. Se $\lim f = 0$ e $g$ è **limitata** definitivamente, allora $\lim(f\cdot g) = 0$. $\quad[0\cdot\text{limitata}]$
 3. Se $\lim f = +\infty$ (risp. $-\infty$) ed esiste $C>0$ con $g(x)>C$ definitivamente, allora $\lim(f\cdot g) = +\infty$ (risp. $-\infty$).
 4. Se $\lim f = +\infty$ (risp. $-\infty$) ed esiste $C>0$ con $0<g(x)<C$ definitivamente, allora $\lim\frac fg = +\infty$ (risp. $-\infty$).
-5. Se $\lim f = \pm\infty$ e $g$ è limitata definitivamente, allora $\lim\frac gf = 0$.
+5. Se $\lim f = +\infty$ e $g$ è limitata definitivamente, allora $\lim\frac gf = 0$. (Il prof la enuncia solo per $+\infty$; per $-\infty$ è analoga.)
 6. Se $\lim f = 0$ con $f(x)>0$ (risp. $<0$) definitivamente ed esiste $C>0$ con $g(x)>C$ definitivamente, allora $\lim\frac gf = +\infty$ (risp. $-\infty$). $\quad\left[\frac{C}{0^+} = +\infty\right]$
 
 N.B. In 1, 2, 5 **non** si chiede nulla al limite di $g$: basta che sia limitata.`, dim: R`
@@ -1038,7 +1062,7 @@ Per la 2: $|g(x)|\le C$ definitivamente. Dato $\varepsilon$, definitivamente $|f
 
 { t: "es", titolo: R`Esempi di algebra dei limiti infiniti`, testo: R`
 - $\displaystyle\lim_{x\to+\infty}(x+\sin x) = +\infty$ per la regola 1: $x\to+\infty$ e $\sin x\ge-1$.
-- Se $\lim f = +\infty$ e $g$ è limitata **superiormente**, allora $\lim(f-g) = +\infty$: pongo $G = -g$, limitata inferiormente, e applico la 1.
+- Se $\lim f = -\infty$ e $g$ è limitata **superiormente**, allora $\lim(f+g) = -\infty$: pongo $F = -f\to+\infty$ e $G = -g$, limitata inferiormente; per la 1 $F+G\to+\infty$, quindi $f+g = -(F+G)\to-\infty$.
 - $\displaystyle\lim_{x\to0}x\sin\frac1x = 0$ per la regola 2 ($x\to0$ infinitesima, $\sin\frac1x$ limitata). Lo avevamo già visto con i carabinieri.` },
 
 { t: "es", s: "casa", diff: 2, titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`
@@ -1143,7 +1167,7 @@ Non fatta a lezione, ma analoga al caso reale: per (i) con $f$ crescente e $S = 
 { t: "es", titolo: R`Applicazioni: limiti agli estremi delle funzioni elementari`, testo: R`
 - $\displaystyle\lim_{x\to+\infty}a^x = +\infty$ se $a>1$, $0$ se $0<a<1$; $\displaystyle\lim_{x\to-\infty}a^x = 0$ se $a>1$, $+\infty$ se $0<a<1$.
 - $\displaystyle\lim_{x\to+\infty}\log_ax = +\infty$ se $a>1$, $-\infty$ se $0<a<1$.
-- $\displaystyle\lim_{x\to+\infty}x^\alpha = +\infty$ se $\alpha>0$, $0$ se $\alpha<0$.
+- $\displaystyle\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 1 & \alpha=0\\ 0 & \alpha<0.\end{cases}$
 
 Domanda per dopo: sappiamo che $a^x$, $\log_ax$, $x^\alpha\to+\infty$ (con $a>1$, $\alpha>0$), ma **con quali velocità**? (Vedi gerarchia degli infiniti, 29/10.)` },
 
@@ -1206,7 +1230,7 @@ $$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \fra
 $$\frac{\sinh x}x = \frac{e^x-e^{-x}}{2x} = \frac{e^x-1}{2x}+\frac{1-e^{-x}}{2x}\to\frac12\cdot1+\frac12\cdot1 = 1,$$
 usando $\frac{e^x-1}x\to1$ e l'esempio $\frac{1-e^{-x}}x\to1$.
 
-**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
+**Coseno iperbolico** (il prof lo enuncia senza dimostrazione; questa è un'aggiunta): $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to0}\frac{\tanh x}x = 1$ e $\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1$`, testo: R`
 Dimostrare che
@@ -1253,11 +1277,15 @@ Le proprietà 1 e 3 sono **molto utili per calcolare i limiti**: in prodotti e q
 2. $\frac fh = \frac fg\cdot\frac gh\to1$.
 3. $\frac{fg}{FG} = \frac fF\cdot\frac gG\to1$, e $\frac{f/g}{F/G} = \frac fF\cdot\frac Gg\to1$. $\blacksquare$` },
 
-{ t: "es", titolo: R`Uso degli asintotici nei limiti`, testo: R`
-$$\lim_{x\to0}\frac{\sin x\cdot\tan x}{1-\cos x} = \lim_{x\to0}\frac{x\cdot x}{x^2/2} = 2.$$
-Si sostituisce $\sin x\sim x$, $\tan x\sim x$, $1-\cos x\sim\frac{x^2}2$.` },
+{ t: "es", titolo: R`$\lim_{x\to0}\frac{\sin x}{\tan x} = 1$ in tre modi`, testo: R`
+**(a)** Con la definizione di tangente:
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac{\sin x}{\sin x}\cdot\cos x = 1.$$
+**(b)** Con gli asintotici: $\sin x\sim x$ e $\tan x\sim x$ per $x\to0$, quindi
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac xx = 1.$$
+**(c)** Con i limiti notevoli:
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac{\sin x}x\cdot\frac1{\frac{\tan x}x} = 1\cdot1 = 1.$$` },
 
-{ t: "att", titolo: R`Non si sostituiscono asintotici nelle somme`, testo: R`
+{ t: "att", titolo: R`Non si sostituiscono asintotici nelle somme (aggiunta, non negli appunti)`, testo: R`
 La proprietà 3 vale per **prodotti e quozienti**, non per somme e differenze. Es. per $x\to0$, $\tan x\sim x$ e $\sin x\sim x$, ma $\tan x-\sin x\not\sim x-x = 0$ (in realtà $\tan x-\sin x\sim\frac{x^3}{2}$).` },
 
 { t: "prop", s: "casa", diff: 2, titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
@@ -1281,6 +1309,11 @@ $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = 0.$$
 - $x = o(x^2)$ per $x\to+\infty$; $\quad x^2 = o(x)$ per $x\to0$;
 - $1 = o(x)$ per $x\to+\infty$; $\quad x = o(1)$ per $x\to0$.` },
 
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = 1$`, testo: R`
+Raccolgo $x^2$ a numeratore e denominatore:
+$$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = \lim_{x\to+\infty}\frac{x^2\left(1+\frac7x+\frac5{x^2}\right)}{x^2\left(1+\frac{11}x\right)} = \lim_{x\to+\infty}\frac{1+\frac7x+\frac5{x^2}}{1+\frac{11}x} = \frac{1+0+0}{1+0} = 1.$$
+(Lo stesso limite si rifà con gli o-piccoli nella lezione del 2/11.)` },
+
 ]});
 
 /* ---- 2026-11-02.js ---- */
@@ -1293,16 +1326,23 @@ cioè $f$ è **infinitesima** per $x\to x_0$.
 
 Esempi per $x\to+\infty$: $\dfrac1{x^5} = o(1)$, $\dfrac1x = o(1)$. Per $x\to0$: $\sin x = o(1)$, $\cos x-1 = o(1)$.` },
 
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = 1$ con gli o-piccoli`, testo: R`
+È lo stesso limite della lezione del 29/10. Per $x\to+\infty$ si ha $\frac7x+\frac5{x^2} = o(1)$ e $\frac{11}x = o(1)$, quindi
+$$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = \lim_{x\to+\infty}\frac{1+\frac7x+\frac5{x^2}}{1+\frac{11}x} = \lim_{x\to+\infty}\frac{1+o(1)}{1+o(1)} = 1.$$` },
+
 { t: "att", titolo: R`$o(g)$ è una notazione, non una funzione`, testo: R`
 Per $x\to0$ vale sia $\sin x = o(1)$ sia $\cos x-1 = o(1)$, **ma** $\sin x\neq\cos x-1$ in un intorno di $0$.
 
 Quindi l'uguale in "$f = o(g)$" **non** è un'uguaglianza vera e propria: $o(g)$ indica una **qualsiasi** funzione trascurabile rispetto a $g$. La notazione dice solo come $f$ si comporta **relativamente a $g$** per $x\to x_0$: serve a **stimare l'errore** che si commette.` },
 
 { t: "att", titolo: R`Gli o-piccoli NON si cancellano`, testo: R`
-Per $x\to+\infty$: $\dfrac1{x^3} = o\!\left(\dfrac1x\right)$ e $\dfrac1{x^2} = o\!\left(\dfrac1x\right)$, ma
-$$\frac1{x^3}-\frac1{x^2}\neq0.$$
-Quindi $o(g)-o(g)$ **non** fa $0$. Vale invece
-$$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$`, },
+Esempio:
+$$\lim_{x\to+\infty}\frac{x^2+7x-3}{x^2-5x+2} = \lim_{x\to+\infty}\frac{1+\frac7x-\frac3{x^2}}{1-\frac5x+\frac2{x^2}} = \lim_{x\to+\infty}\frac{1+o(1)-o(1)}{1-o(1)+o(1)}.$$
+Qui gli $o(1)$ **NON si cancellano**: $o(1)-o(1)$ non fa $0$ (sono funzioni diverse, es. $\frac7x$ e $\frac3{x^2}$). Si ha però $o(1)\pm o(1) = o(1)$, quindi il limite è
+$$\lim_{x\to+\infty}\frac{1+o(1)}{1+o(1)} = 1.$$
+In generale vale
+$$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$
+Infatti se $f_1 = o(g)$ e $f_2 = o(g)$ per $x\to x_0$, allora $\displaystyle\lim_{x\to x_0}\frac{f_1(x)\pm f_2(x)}{g(x)} = 0\pm0 = 0$, e dunque $f_1\pm f_2 = o(g)$.`, },
 
 { t: "prop", s: "casa", diff: 1, titolo: R`Proprietà degli o-piccoli`, testo: R`
 Per $x\to x_0$ valgono:
@@ -1341,18 +1381,18 @@ Per $x\to0$, dalla proposizione precedente:
 - $\log(1+x)\sim x\iff\log(1+x) = x+o(x)$.` },
 
 { t: "teo", s: "omessa", titolo: R`Cambio di variabile negli o-piccoli`, testo: R`
-Siano $f, h, g$ a valori reali, con $h\circ f$ e $g\circ f$ definite su $A$, e $x_0$ di accumulazione per $A$. Supponiamo che
+Siano $f, h_1, h_2$ a valori reali, con $h_1\circ f$ e $h_2\circ f$ definite su $A$, e $x_0$ di accumulazione per $A$. Supponiamo che
 1. $\displaystyle\lim_{x\to x_0}f(x) = y_0\in\overline{\mathbb R}$;
-2. $h(y) = o(g(y))$ per $y\to y_0$ (lo **sviluppo** di $h$);
+2. $h_1(y) = h_2(y)+o(h_2(y))$ per $y\to y_0$ (lo **sviluppo** di $h_1$);
 3. $f(x)\neq y_0$ definitivamente per $x\to x_0$.
 
 Allora
-$$h(f(x)) = o\big(g(f(x))\big)\qquad\text{per } x\to x_0.$$
+$$h_1(f(x)) = h_2(f(x))+o\big(h_2(f(x))\big)\qquad\text{per } x\to x_0.$$
 Dimostrazione omessa: è una conseguenza della definizione di o-piccolo e del teorema di cambio di variabile nei limiti.` },
 
-{ t: "es", titolo: R`Sviluppi composti: $\sin(2x)$ ed $e^{\sin x}$`, testo: R`
-- $\sin y = y+o(y)$ per $y\to0$; con $f(x) = 2x\to0$, $2x\neq0$ per $x\neq0$:
-$$\sin(2x) = 2x+o(2x) = 2x+o(x)\quad\text{per } x\to0.$$
+{ t: "es", titolo: R`Sviluppi composti: $\sin(x^2)$ ed $e^{\sin x}$`, testo: R`
+- $\sin y = y+o(y)$ per $y\to0$; con $f(x) = x^2$: $\lim_{x\to0}x^2 = 0$ e $x^2\neq0$ definitivamente per $x\to0$, quindi per il cambio di variabile
+$$\sin(x^2) = x^2+o(x^2)\quad\text{per } x\to0.$$
 - $e^y = 1+y+o(y)$ per $y\to0$; con $f(x) = \sin x\to0$, $\sin x\neq0$ definitivamente:
 $$e^{\sin x} = 1+\sin x+o(\sin x) = 1+x+o(x)\quad\text{per } x\to0,$$
 usando $\sin x = x+o(x)$ e $o(\sin x) = o(x)$ (perché $\sin x\sim x$).` },
@@ -1369,9 +1409,9 @@ Il secondo fattore tende a $\frac{1+0}{1+0} = 1$, quindi per l'algebra dei limit
 
 **Oss.** Si è usata la proprietà 5 degli o-piccoli con $h = \dfrac1{\hat g}$: $o(\hat g)\cdot\dfrac1{\hat g} = o\!\left(\hat g\cdot\dfrac1{\hat g}\right) = o(1)$.` },
 
-{ t: "es", titolo: R`Principio di sostituzione in pratica`, testo: R`
-$$\lim_{x\to0}\frac{\sin x+x^2}{e^x-1+x^3} = \lim_{x\to0}\frac{x+o(x)}{x+o(x)} = \lim_{x\to0}\frac xx = 1,$$
-perché $\sin x+x^2 = x+o(x)+o(x) = x+o(x)$ ed $e^x-1+x^3 = x+o(x)$.` },
+{ t: "es", titolo: R`$\sin x+o(\sin x) = x+o(x)$`, testo: R`
+Per $x\to0$, usando $\sin x = x+o(x)$ e le proprietà degli o-piccoli (in particolare la 6, $o(o(g)) = o(g)$):
+$$\sin x+o(\sin x) = \big(x+o(x)\big)+o\big(x+o(x)\big) = x+o(x)+o(x)+o(o(x)) = x+o(x).$$` },
 
 { t: "att", titolo: R`$o(x^2)$ e $o(x)$ dipendono dal punto`, testo: R`
 - Per $x\to0$: $o(x^2) = o(x)$, perché $\dfrac{o(x^2)}x = \dfrac{o(x^2)}{x^2}\cdot x\to0\cdot0$. **Non** vale il viceversa: $x^{3/2} = o(x)$ ma non è $o(x^2)$.
@@ -1434,20 +1474,20 @@ Siano $f(x) = x(2+\sin x)$ e $g(x) = x$ per $x\to+\infty$.
 
 Ma $\dfrac{f(x)}{g(x)} = 2+\sin x$ e $\lim_{x\to+\infty}\sin x$ **non esiste**, quindi non esiste nemmeno $\lim\frac fg$: $f$ e $g$ sono infinite di **ordini non confrontabili**.` },
 
-{ t: "es", titolo: R`$\frac1x$ contro $\frac1{x^2}$ per $x\to0^+$`, testo: R`
-Siano $f(x) = \frac1x$ e $g(x) = \frac1{x^2}$, entrambe infinite per $x\to0^+$. Allora
-$$\lim_{x\to0^+}\frac{f(x)}{g(x)} = \lim_{x\to0^+}\frac{x^2}x = \lim_{x\to0^+}x = 0,$$
+{ t: "es", titolo: R`$\frac1{|x|}$ contro $\frac1{x^2}$ per $x\to0$`, testo: R`
+Siano $f(x) = \frac1{|x|}$ e $g(x) = \frac1{x^2}$ per $x\neq0$, entrambe infinite per $x\to0$. Allora
+$$\lim_{x\to0}\frac{f(x)}{g(x)} = \lim_{x\to0}\frac{x^2}{|x|} = \lim_{x\to0}|x| = 0,$$
 quindi $g$ è infinita di **ordine superiore** a $f$.` },
 
 { t: "oss", titolo: R`Le potenze come "unità di misura"`, testo: R`
 Fissato $x_0\in\mathbb R$, con il cambio di variabile $y = |x-x_0|\to0^+$:
-$$\lim_{x\to x_0}|x-x_0|^\alpha = \begin{cases}0 & \alpha>0\\ +\infty & \alpha<0.\end{cases}$$
+$$\lim_{x\to x_0}|x-x_0|^\alpha = \begin{cases}0 & \alpha>0\\ 1 & \alpha=0\\ +\infty & \alpha<0.\end{cases}$$
 Per $x_0 = \pm\infty$ invece
-$$\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 0 & \alpha<0.\end{cases}$$
+$$\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 1 & \alpha=0\\ 0 & \alpha<0.\end{cases}$$
 Le potenze servono quindi da termine di paragone per misurare "quanto velocemente" una funzione tende a $0$ o a $\infty$.` },
 
 { t: "def", titolo: R`Ordine di infinitesimo e di infinito ($x_0\in\mathbb R$)`, testo: R`
-Sia $f:A\to\mathbb R$, $x_0\in\mathbb R$ di accumulazione per $A$, e $\alpha>0$. Diciamo che
+Sia $f:A\to\mathbb R$, $x_0\in\mathbb R$ di accumulazione per $A$, e $\alpha\in\mathbb R$. Diciamo che
 - $f$ è **infinitesima di ordine $\alpha$** per $x\to x_0$ se
 $$\exists\lim_{x\to x_0}\frac{f(x)}{|x-x_0|^\alpha} = \ell\in\mathbb R\setminus\lbrace0\rbrace;$$
 - $f$ è **infinita di ordine $\alpha$** per $x\to x_0$ se
@@ -1456,7 +1496,7 @@ $$\exists\lim_{x\to x_0}f(x)\,|x-x_0|^\alpha = \ell\in\mathbb R\setminus\lbrace0
 Es. $1-\cos x$ è infinitesima di ordine $2$ per $x\to0$ ($\ell = \frac12$); $\frac1{x^2}$ è infinita di ordine $2$ per $x\to0$.` },
 
 { t: "def", titolo: R`Ordine di infinitesimo e di infinito ($x_0 = \pm\infty$)`, testo: R`
-Sia $f:A\to\mathbb R$, $x_0 = \pm\infty$ di accumulazione per $A$, e $\alpha>0$. Diciamo che
+Sia $f:A\to\mathbb R$, $x_0 = \pm\infty$ di accumulazione per $A$, e $\alpha\in\mathbb R$. Diciamo che
 - $f$ è **infinitesima di ordine $\alpha$** per $x\to x_0$ se
 $$\exists\lim_{x\to x_0}f(x)\,|x|^\alpha = \ell\in\mathbb R\setminus\lbrace0\rbrace;$$
 - $f$ è **infinita di ordine $\alpha$** per $x\to x_0$ se
@@ -1473,10 +1513,12 @@ $a_n$ si chiama **termine generale** e la successione si indica con $(a_n)_{n\in
 Come dominio si può avere un qualsiasi $A\subseteq\mathbb N$ con l'ordine indotto; in particolare spesso $A = \lbrace n\in\mathbb N: n\ge n_0\rbrace$ con $n_0\in\mathbb N$ fissato. Possono anche mancare termini intermedi.
 
 Esempi:
-- $a_n = 1$ per ogni $n\in\mathbb N$: $1,1,1,1,\dots$
-- $a_n = \frac1n$ per $n\ge1$: $1,\frac12,\frac13,\frac14,\dots$
-- $a_n = \sqrt{n-3}$ per $n\ge3$: $0,1,\sqrt2,\sqrt3,\dots$
-- una **successione finita** (ha solo un numero finito di termini) non interessa per i limiti.` },
+- $a_n = n$ per $n\in\mathbb N_0$: $0,1,2,3,\dots$
+- $a_n = \frac1n$ per $n\in\mathbb N$: $1,\frac12,\frac13,\frac14,\dots$
+- $a_n = \frac1{\sqrt{5-n}}$, definita solo per $n = 0,1,2,3,4$: è una **successione finita**;
+- $a_n = n!$: $1,1,2,6,24,\dots$
+- $a_n = (n-3)!$, definita da $n = 3$ in poi: $1,1,2,6,\dots$
+- $a_n = \frac1{|n-3|}$: manca il termine $n = 3$ (termine intermedio mancante).` },
 
 { t: "att", titolo: R`Per le successioni si studia solo $n\to+\infty$`, testo: R`
 L'**unico** punto di accumulazione di un insieme $A\subseteq\mathbb N$ con infiniti elementi è $+\infty$. Quindi l'unico limite che ha senso studiare è
@@ -1496,14 +1538,13 @@ $$\exists N\in\mathbb N\ \text{tale che}\ P(a_n)\ \text{è vera}\ \forall n\ge N
 - $a_n = n!$: positiva, illimitata, strettamente crescente (definitivamente), $\lim_{n\to+\infty}n! = +\infty$. Osservo che $a_{n+1} = (n+1)\cdot a_n$ per ogni $n$: ogni termine si ottiene dal precedente, è una successione **ricorsiva**.` },
 
 { t: "def", titolo: R`Successione ricorsiva e successione periodica`, testo: R`
-- $(a_n)$ si dice **ricorsiva** se ogni termine si ottiene dal precedente tramite una funzione $f$:
-$$a_{n+1} = f(n, a_n)\qquad\forall n$$
-(nel caso più semplice $f$ non dipende da $n$: $a_{n+1} = f(a_n)$ con $f:\mathbb R\to\mathbb R$).
+- $(a_n)$ si dice **ricorsiva** se esiste una funzione $f:\mathbb R\to\mathbb R$ tale che
+$$a_{n+1} = f(a_n)\qquad\forall n.$$
 - $(a_n)_{n\in\mathbb N}$ si dice **periodica** se esiste $k\in\mathbb N$, $k\ge1$, tale che
 $$a_{n+k} = a_n\qquad\forall n\in\mathbb N,$$
 e $k$ si chiama **periodo**.
 
-Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)a_n$), $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
+Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)\cdot a_n$); $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
 
 { t: "def", titolo: R`Limite di una successione`, testo: R`
 Diciamo che $(a_n)$ ha **limite** $\ell\in\mathbb R\cup\lbrace\pm\infty\rbrace$ per $n\to+\infty$, o che $a_n$ **tende a** $\ell$, se
@@ -1585,7 +1626,7 @@ $$\big(a_{\varphi(k)}\big)_{k\in\mathbb N}.$$
 { t: "es", titolo: R`Le estratte pari e dispari di $(-1)^n$`, testo: R`
 Sia $a_n = (-1)^n$.
 - Con $\varphi(k) = 2k$: $a_{\varphi(k)} = (-1)^{2k} = 1$ per ogni $k\in\mathbb N$;
-- con $\psi(k) = 2k+1$: $a_{\psi(k)} = (-1)^{2k+1} = -1$ per ogni $k\in\mathbb N$.
+- con $\psi(k) = 2k-1$: $a_{\psi(k)} = (-1)^{2k-1} = -1$ per ogni $k\in\mathbb N$.
 
 Ho trovato le due sottosuccessioni sui **pari** e sui **dispari**.
 
@@ -1631,9 +1672,9 @@ Se il limite di $f$ esistesse, per (B) i due limiti dovrebbero coincidere.` },
 
 { t: "es", titolo: R`$\nexists\lim_{x\to+\infty}\sin x$`, testo: R`
 Sia $f(x) = \sin x$, $x_0 = +\infty$. Considero
-$$a_n = \frac\pi2+2n\pi\to+\infty,\qquad b_n = n\pi\to+\infty.$$
+$$a_n = \frac\pi2+2n\pi\to+\infty,\qquad b_n = -\frac\pi2+2n\pi\to+\infty.$$
 Allora
-$$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right) = 1,\qquad\lim_{n\to+\infty}f(b_n) = \lim_{n\to+\infty}\sin(n\pi) = 0.$$
+$$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right) = 1,\qquad\lim_{n\to+\infty}f(b_n) = \lim_{n\to+\infty}\sin\!\left(-\frac\pi2+2n\pi\right) = -1.$$
 Siccome i due limiti sono diversi, la caratterizzazione sequenziale implica che $\nexists\lim_{x\to+\infty}\sin x$.` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`Esercizi: limiti che non esistono`, testo: R`

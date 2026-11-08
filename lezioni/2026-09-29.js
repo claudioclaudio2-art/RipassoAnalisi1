@@ -28,12 +28,12 @@ $\mathbb N = \lbrace 1,2,3,\dots\rbrace$, $\mathbb N_0 = \mathbb N \cup \lbrace 
 
 - Somma e prodotto di naturali sono naturali.
 - $0$ è l'**elemento neutro** della somma ($n+0=n$) e l'**elemento assorbente** del prodotto ($n\cdot 0 = 0$); $1$ è l'elemento neutro del prodotto.
-- $\le$ è un **ordinamento totale**: $\forall a,b$ vale $a\le b$ oppure $b \le a$. Esiste anche l'ordinamento stretto $<$.` },
+- $\le$ è un **ordinamento totale**: $\forall a,b$ vale $a\le b$ oppure $b \le a$. Il prof chiama $<$ ordinamento **parziale (stretto)**: "non tutte le coppie sono confrontabili: $2<3$, $3\not<2$, ma anche $2\not<2$".` },
 
 { t: "def", titolo: R`Numero primo e numeri coprimi`, testo: R`
 $n \in \mathbb N$ è **primo** se è divisibile solo per $1$ e per se stesso. Per convenzione $1$ **non** è primo: $\mathbb P = \lbrace 2,3,5,7,11,\dots\rbrace$.
 
-$a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Es. $\mathrm{MCD}(3,5)=1$.` },
+$a, b\in\mathbb N$ sono **coprimi** se non hanno divisori comuni diversi da $1$, cioè $\mathrm{MCD}(a,b)=1$. Esempi: $\mathrm{MCD}(2,5) = 1$ (coprimi), $\mathrm{MCD}(3,9) = 3$, $\mathrm{MCD}(12,30) = 6$.` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Teorema di Euclide`, testo: R`
 I numeri primi sono **infiniti**.`, dim: R`

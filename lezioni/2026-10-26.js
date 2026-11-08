@@ -17,7 +17,7 @@ Siano $f,g:A\to\mathbb R$, $x_0$ di accumulazione per $A$.
 2. Se $\lim f = 0$ e $g$ è **limitata** definitivamente, allora $\lim(f\cdot g) = 0$. $\quad[0\cdot\text{limitata}]$
 3. Se $\lim f = +\infty$ (risp. $-\infty$) ed esiste $C>0$ con $g(x)>C$ definitivamente, allora $\lim(f\cdot g) = +\infty$ (risp. $-\infty$).
 4. Se $\lim f = +\infty$ (risp. $-\infty$) ed esiste $C>0$ con $0<g(x)<C$ definitivamente, allora $\lim\frac fg = +\infty$ (risp. $-\infty$).
-5. Se $\lim f = \pm\infty$ e $g$ è limitata definitivamente, allora $\lim\frac gf = 0$.
+5. Se $\lim f = +\infty$ e $g$ è limitata definitivamente, allora $\lim\frac gf = 0$. (Il prof la enuncia solo per $+\infty$; per $-\infty$ è analoga.)
 6. Se $\lim f = 0$ con $f(x)>0$ (risp. $<0$) definitivamente ed esiste $C>0$ con $g(x)>C$ definitivamente, allora $\lim\frac gf = +\infty$ (risp. $-\infty$). $\quad\left[\frac{C}{0^+} = +\infty\right]$
 
 N.B. In 1, 2, 5 **non** si chiede nulla al limite di $g$: basta che sia limitata.`, dim: R`
@@ -27,7 +27,7 @@ Per la 2: $|g(x)|\le C$ definitivamente. Dato $\varepsilon$, definitivamente $|f
 
 { t: "es", titolo: R`Esempi di algebra dei limiti infiniti`, testo: R`
 - $\displaystyle\lim_{x\to+\infty}(x+\sin x) = +\infty$ per la regola 1: $x\to+\infty$ e $\sin x\ge-1$.
-- Se $\lim f = +\infty$ e $g$ è limitata **superiormente**, allora $\lim(f-g) = +\infty$: pongo $G = -g$, limitata inferiormente, e applico la 1.
+- Se $\lim f = -\infty$ e $g$ è limitata **superiormente**, allora $\lim(f+g) = -\infty$: pongo $F = -f\to+\infty$ e $G = -g$, limitata inferiormente; per la 1 $F+G\to+\infty$, quindi $f+g = -(F+G)\to-\infty$.
 - $\displaystyle\lim_{x\to0}x\sin\frac1x = 0$ per la regola 2 ($x\to0$ infinitesima, $\sin\frac1x$ limitata). Lo avevamo già visto con i carabinieri.` },
 
 { t: "es", s: "casa", diff: 2, titolo: R`Dimostrare la regola 2 con i carabinieri`, testo: R`

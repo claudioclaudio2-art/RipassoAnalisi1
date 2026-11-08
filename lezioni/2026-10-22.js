@@ -60,9 +60,13 @@ Fisso $\varepsilon>0$.
 **(S)** Se $a = b = 0$ è la costante $0$. Se $b = 0$, $a\neq0$: esiste $I$ con $|f(x)-\ell_f|<\frac\varepsilon{|a|}$, quindi $|af(x)-a\ell_f|<\varepsilon$. Il caso $a = 0$, $b\neq0$ è simmetrico (con $g$ al posto di $f$). Se $a,b\neq0$: trovo $I_1, I_2$ con $|f(x)-\ell_f|<\frac{\varepsilon}{2|a|}$ e $|g(x)-\ell_g|<\frac\varepsilon{2|b|}$. Su $I = I_1\cap I_2$:
 $$|af+bg-(a\ell_f+b\ell_g)|\le|a||f-\ell_f|+|b||g-\ell_g|<\frac\varepsilon2+\frac\varepsilon2 = \varepsilon.$$
 
-**(P)** $f$ è localmente limitata: $|f(x)|\le C$ vicino a $x_0$. Allora
-$$|fg-\ell_f\ell_g| = |f(g-\ell_g)+\ell_g(f-\ell_f)|\le C|g-\ell_g|+|\ell_g||f-\ell_f|,$$
-e scegliendo $|g-\ell_g|<\frac{\varepsilon}{2C}$, $|f-\ell_f|<\frac{\varepsilon}{2(|\ell_g|+1)}$ si ottiene $<\varepsilon$.
+**(P)** Fisso $\varepsilon\in(0,1)$ e pongo $C = 1+|\ell_f|+|\ell_g|\ge1$. Per definizione di limite esiste un intorno $I$ di $x_0$ tale che, per $x\in A\cap I\setminus\lbrace x_0\rbrace$,
+$$f(x)\in\left(\ell_f-\tfrac\varepsilon C,\ \ell_f+\tfrac\varepsilon C\right),\qquad g(x)\in\left(\ell_g-\tfrac\varepsilon C,\ \ell_g+\tfrac\varepsilon C\right).$$
+Aggiungo e tolgo $\ell_f\,g(x)$:
+$$|f(x)g(x)-\ell_f\ell_g| = |g(x)(f(x)-\ell_f)+\ell_f(g(x)-\ell_g)|\le|g(x)||f(x)-\ell_f|+|\ell_f||g(x)-\ell_g|<|g(x)|\frac\varepsilon C+|\ell_f|\frac\varepsilon C.$$
+Inoltre $|g(x)|\le|g(x)-\ell_g|+|\ell_g|<\frac\varepsilon C+|\ell_g|$. Quindi
+$$|f(x)g(x)-\ell_f\ell_g|<\frac\varepsilon C\left(\frac\varepsilon C+|\ell_g|+|\ell_f|\right)<\frac\varepsilon C\big(1+|\ell_f|+|\ell_g|\big) = \varepsilon,$$
+dove si è usato $\frac\varepsilon C<1$ (perché $\varepsilon<1\le C$).
 
 **(Q)** (conclusa il 26/10) Basta mostrare $\lim\frac1{g(x)} = \frac1{\ell_g}$ e poi applicare (P). Siccome $\lim|g| = |\ell_g|>0$, applico la definizione di limite con $\varepsilon = \frac{|\ell_g|}2$ (è lo stesso argomento della dimostrazione della permanenza del segno, il cui enunciato dà solo $|g|>0$): definitivamente $\big||g(x)|-|\ell_g|\big|<\frac{|\ell_g|}2$, quindi $|g(x)|>\frac{|\ell_g|}2$; in particolare $g(x)\neq0$ e $\frac1g$ è definita vicino a $x_0$. Allora
 $$\left|\frac1{g(x)}-\frac1{\ell_g}\right| = \frac{|\ell_g-g(x)|}{|g(x)||\ell_g|}<\frac{2}{\ell_g^2}|g(x)-\ell_g|,$$

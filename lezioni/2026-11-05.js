@@ -49,7 +49,7 @@ $$\big(a_{\varphi(k)}\big)_{k\in\mathbb N}.$$
 { t: "es", titolo: R`Le estratte pari e dispari di $(-1)^n$`, testo: R`
 Sia $a_n = (-1)^n$.
 - Con $\varphi(k) = 2k$: $a_{\varphi(k)} = (-1)^{2k} = 1$ per ogni $k\in\mathbb N$;
-- con $\psi(k) = 2k+1$: $a_{\psi(k)} = (-1)^{2k+1} = -1$ per ogni $k\in\mathbb N$.
+- con $\psi(k) = 2k-1$: $a_{\psi(k)} = (-1)^{2k-1} = -1$ per ogni $k\in\mathbb N$.
 
 Ho trovato le due sottosuccessioni sui **pari** e sui **dispari**.
 
@@ -95,9 +95,9 @@ Se il limite di $f$ esistesse, per (B) i due limiti dovrebbero coincidere.` },
 
 { t: "es", titolo: R`$\nexists\lim_{x\to+\infty}\sin x$`, testo: R`
 Sia $f(x) = \sin x$, $x_0 = +\infty$. Considero
-$$a_n = \frac\pi2+2n\pi\to+\infty,\qquad b_n = n\pi\to+\infty.$$
+$$a_n = \frac\pi2+2n\pi\to+\infty,\qquad b_n = -\frac\pi2+2n\pi\to+\infty.$$
 Allora
-$$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right) = 1,\qquad\lim_{n\to+\infty}f(b_n) = \lim_{n\to+\infty}\sin(n\pi) = 0.$$
+$$\lim_{n\to+\infty}f(a_n) = \lim_{n\to+\infty}\sin\!\left(\frac\pi2+2n\pi\right) = 1,\qquad\lim_{n\to+\infty}f(b_n) = \lim_{n\to+\infty}\sin\!\left(-\frac\pi2+2n\pi\right) = -1.$$
 Siccome i due limiti sono diversi, la caratterizzazione sequenziale implica che $\nexists\lim_{x\to+\infty}\sin x$.` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`Esercizi: limiti che non esistono`, testo: R`

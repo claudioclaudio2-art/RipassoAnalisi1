@@ -17,7 +17,9 @@ Sia $\emptyset\neq A\subseteq\mathbb R$.
 - $A$ è **superiormente limitato** se $\exists M\in\mathbb R$ con $a\le M$ $\forall a\in A$. $M$ si dice **maggiorante** ($\iff A\subseteq(-\infty,M]$).
 - $A$ è **inferiormente limitato** se $\exists m\in\mathbb R$ con $a\ge m$ $\forall a \in A$. $m$ si dice **minorante**.
 
-Es. $A = [2,5)$: maggioranti $5, 6, 99{,}7,\dots$; minoranti $2, 1, -17,\dots$` },
+Es. $A = [2,3]\cup\lbrace5\rbrace$: maggioranti $5, 6, 99{,}7,\dots$ (ma **non** $4$, perché $5\in A$); minoranti $2, 1, -17,\dots$ (ma **non** $3{,}5$).
+
+Es. $A = \lbrace x\in\mathbb Q: x\ge0,\ x^2<2\rbrace$: maggioranti $200$, $3$, $\sqrt2$; minoranti $0$, $-\frac57$.` },
 
 { t: "def", titolo: R`Massimo e minimo di un insieme`, testo: R`
 - $M = \max A$ se $M$ è un maggiorante di $A$ **e** $M\in A$.
@@ -62,7 +64,7 @@ $A$ è **superiormente illimitato** (non sup. limitato), e si scrive $\sup A = +
 $$\forall M\in\mathbb R\ \exists a\in A : a > M.$$
 Analogamente $\inf A = -\infty$ se $\forall m\in\mathbb R\ \exists a\in A: a < m$.
 
-Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
+Esempi: $\sup\mathbb N = +\infty$, $\inf\mathbb N = \min\mathbb N = 1$. Per $A = \mathbb R$: $\sup\mathbb R = +\infty$, $\inf\mathbb R = -\infty$, e $\mathbb R$ non ha né massimo né minimo. Attenzione: in $\overline{\mathbb R}$ il prof **barra** le scritture "$\sup\overline{\mathbb R} = +\infty$" e "$\max\overline{\mathbb R} = +\infty$" (sup e max sono definiti per sottoinsiemi di $\mathbb R$). Per $A = \lbrace x\in\mathbb Q: x\ge0, x^2<3\rbrace$: $\sup A = \sqrt3$ (non è massimo), $\min A = 0$.` },
 
 { t: "teo", s: "omessa", diff: 2, titolo: R`Caratterizzazione di sup e inf`, testo: R`
 Sia $A$ superiormente limitato. Allora $s = \sup A$ se e solo se
@@ -78,12 +80,12 @@ Sia $A$ inferiormente limitato. Allora $i = \inf A$ se e solo se
 
 { t: "def", titolo: R`Modulo (valore assoluto)`, testo: R`
 Per $a\in\mathbb R$:
-$$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0.\end{cases}$$` },
+$$|a| = \begin{cases} a & a\ge 0\\ -a & a < 0\end{cases}\qquad\text{equivalentemente}\qquad|a| = \max\lbrace a,-a\rbrace.$$` },
 
 { t: "prop", s: "casa", diff: 1, titolo: R`Proprietà del modulo`, testo: R`
 Per ogni $a,b\in\mathbb R$:
 1. $-|a|\le a\le |a|$;
-2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$;
+2. se $M\in\mathbb R$: $|a|\le M \iff M\ge0 \text{ e } -M\le a\le M$ (negli appunti è scritta solo l'implicazione $\Rightarrow$);
 3. $|a| = 0\iff a = 0$;
 4. $|ab| = |a|\,|b|$;
 5. **disuguaglianza triangolare**: $|a+b|\le|a|+|b|$;

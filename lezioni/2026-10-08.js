@@ -12,7 +12,11 @@ Es. una circonferenza non è un grafico; $f(x) = 1$ per $x\ge0$ e $0$ per $x<0$ 
 Spesso (anche all'esame) dominio e codominio non sono indicati: bisogna capire dove la legge **ha senso**.
 - $f(x) = \sqrt x$: serve $x\ge 0$, quindi $D(f) = [0,+\infty)$ (idem per $\sqrt[3]x$ con le nostre convenzioni).
 - $f(x) = \sqrt{x^2+1}$: $x^2+1\ge0$ sempre, quindi $D(f) = \mathbb R$.
-- $f(x) = \dfrac{1}{\sqrt{x^2-1}}$: serve $x^2-1 > 0$ (sotto radice e al denominatore), quindi $D(f) = (-\infty,-1)\cup(1,+\infty)$.` },
+- Esempio del prof: $f(x) = \dfrac{x+2}{\sqrt{x^2+2x+1}}$. Condizioni:
+  1. $\sqrt{x^2+2x+1}\neq0$ (denominatore);
+  2. $x^2+2x+1\ge0$ (radice).
+
+  Ma $x^2+2x+1 = (x+1)^2$, quindi la (2) è sempre vera e la (1) diventa $\sqrt{(x+1)^2} = |x+1|\neq0$, cioè $x\neq-1$. Risultato: $D(f) = \mathbb R\setminus\lbrace-1\rbrace$.` },
 
 { t: "def", titolo: R`Funzioni elementari: costanti, lineari, affini, quadratiche, polinomiali`, testo: R`
 - **Costante**: $f(x) = c$ per ogni $x$.
@@ -42,7 +46,7 @@ Dimostrare che $\cosh^2x-\sinh^2x = 1$ per ogni $x\in\mathbb R$.`, dim: R`
 $$\cosh^2x-\sinh^2x = \frac{e^{2x}+2+e^{-2x}}{4}-\frac{e^{2x}-2+e^{-2x}}{4} = \frac44 = 1.\ \blacksquare$$` },
 
 { t: "def", titolo: R`Parte intera, funzione di Dirichlet`, testo: R`
-- **Parte intera inferiore** (floor): $\lfloor x\rfloor = \max\lbrace k\in\mathbb Z : k\le x\rbrace$. Es. $\lfloor 1{,}75\rfloor = 1$, $\lfloor -1{,}3\rfloor = -2$.
+- **Parte intera inferiore** (floor): $\lfloor x\rfloor = \max\lbrace k\in\mathbb Z : k\le x\rbrace$. Es. $\lfloor 1{,}5\rfloor = 1$, $\lfloor 0{,}7\rfloor = 0$, $\lfloor -3{,}1\rfloor = -4$.
 - **Parte intera superiore** (ceiling): $\lceil x\rceil = \min\lbrace k\in\mathbb Z : k\ge x\rbrace$.
 - **Dirichlet**: $D(x) = 1$ se $x\in\mathbb Q$, $D(x) = 0$ se $x\notin\mathbb Q$ (grafico a "nuvole di punti").` },
 
@@ -51,6 +55,8 @@ Sia $f : A\to B$ e $E\subseteq A$. L'**immagine di $E$** tramite $f$ è
 $$f(E) = \lbrace f(x) : x\in E\rbrace = \lbrace y\in B : \exists x\in E,\ y = f(x)\rbrace\subseteq B.$$
 L'**immagine di $f$** è $\mathrm{Im}(f) = f(A)$.
 
-Esempio: per $f:\mathbb N\to\mathbb N$, $f(x)=2x$, $\mathrm{Im}(f)$ = numeri pari.` },
+Esempio: per $f:\mathbb N\to\mathbb N$, $f(x)=2x$, $\mathrm{Im}(f)$ = numeri pari.
+
+**Attenzione:** l'immagine di un insieme è un **insieme**, il valore in un punto è un **elemento**. Se $f(c) = 2$, allora $f(\lbrace c\rbrace) = \lbrace2\rbrace$ ma $f(c) = 2$ (non $\lbrace2\rbrace$).` },
 
 ]});

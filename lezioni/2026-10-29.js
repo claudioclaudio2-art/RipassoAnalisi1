@@ -41,7 +41,7 @@ $$\lim_{x\to0}\frac{\sinh x}x = 1,\qquad\lim_{x\to0}\frac{\cosh x-1}{x^2} = \fra
 $$\frac{\sinh x}x = \frac{e^x-e^{-x}}{2x} = \frac{e^x-1}{2x}+\frac{1-e^{-x}}{2x}\to\frac12\cdot1+\frac12\cdot1 = 1,$$
 usando $\frac{e^x-1}x\to1$ e l'esempio $\frac{1-e^{-x}}x\to1$.
 
-**Coseno iperbolico:** $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
+**Coseno iperbolico** (il prof lo enuncia senza dimostrazione; questa è un'aggiunta): $\cosh x-1 = \frac{(e^{x/2}-e^{-x/2})^2}{2} = 2\sinh^2\frac x2$, quindi $\dfrac{\cosh x-1}{x^2} = \dfrac12\left(\dfrac{\sinh(x/2)}{x/2}\right)^2\to\frac12$. $\blacksquare$` },
 
 { t: "es", s: "casa", diff: 1, titolo: R`$\lim_{x\to0}\frac{\tanh x}x = 1$ e $\lim_{x\to0}\frac{\operatorname{arcsinh}x}x = 1$`, testo: R`
 Dimostrare che
@@ -88,11 +88,15 @@ Le proprietà 1 e 3 sono **molto utili per calcolare i limiti**: in prodotti e q
 2. $\frac fh = \frac fg\cdot\frac gh\to1$.
 3. $\frac{fg}{FG} = \frac fF\cdot\frac gG\to1$, e $\frac{f/g}{F/G} = \frac fF\cdot\frac Gg\to1$. $\blacksquare$` },
 
-{ t: "es", titolo: R`Uso degli asintotici nei limiti`, testo: R`
-$$\lim_{x\to0}\frac{\sin x\cdot\tan x}{1-\cos x} = \lim_{x\to0}\frac{x\cdot x}{x^2/2} = 2.$$
-Si sostituisce $\sin x\sim x$, $\tan x\sim x$, $1-\cos x\sim\frac{x^2}2$.` },
+{ t: "es", titolo: R`$\lim_{x\to0}\frac{\sin x}{\tan x} = 1$ in tre modi`, testo: R`
+**(a)** Con la definizione di tangente:
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac{\sin x}{\sin x}\cdot\cos x = 1.$$
+**(b)** Con gli asintotici: $\sin x\sim x$ e $\tan x\sim x$ per $x\to0$, quindi
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac xx = 1.$$
+**(c)** Con i limiti notevoli:
+$$\lim_{x\to0}\frac{\sin x}{\tan x} = \lim_{x\to0}\frac{\sin x}x\cdot\frac1{\frac{\tan x}x} = 1\cdot1 = 1.$$` },
 
-{ t: "att", titolo: R`Non si sostituiscono asintotici nelle somme`, testo: R`
+{ t: "att", titolo: R`Non si sostituiscono asintotici nelle somme (aggiunta, non negli appunti)`, testo: R`
 La proprietà 3 vale per **prodotti e quozienti**, non per somme e differenze. Es. per $x\to0$, $\tan x\sim x$ e $\sin x\sim x$, ma $\tan x-\sin x\not\sim x-x = 0$ (in realtà $\tan x-\sin x\sim\frac{x^3}{2}$).` },
 
 { t: "prop", s: "casa", diff: 2, titolo: R`Asintoticità e limiti diversi da 0`, testo: R`
@@ -115,5 +119,10 @@ $$\lim_{x\to x_0}\frac{f(x)}{g(x)} = 0.$$
 "$f$ è trascurabile rispetto a $g$." Esempi:
 - $x = o(x^2)$ per $x\to+\infty$; $\quad x^2 = o(x)$ per $x\to0$;
 - $1 = o(x)$ per $x\to+\infty$; $\quad x = o(1)$ per $x\to0$.` },
+
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = 1$`, testo: R`
+Raccolgo $x^2$ a numeratore e denominatore:
+$$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = \lim_{x\to+\infty}\frac{x^2\left(1+\frac7x+\frac5{x^2}\right)}{x^2\left(1+\frac{11}x\right)} = \lim_{x\to+\infty}\frac{1+\frac7x+\frac5{x^2}}{1+\frac{11}x} = \frac{1+0+0}{1+0} = 1.$$
+(Lo stesso limite si rifà con gli o-piccoli nella lezione del 2/11.)` },
 
 ]});

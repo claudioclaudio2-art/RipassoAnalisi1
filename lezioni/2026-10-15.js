@@ -26,7 +26,7 @@ Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\overline{\mathbb R}$ di accum
 $$\exists I \text{ intorno di } x_0 : f(x) \text{ soddisfa } P\quad\forall x\in A\cap I\setminus\lbrace x_0\rbrace$$
 (il punto $x_0$ si toglie solo se $x_0\in\mathbb R$).
 
-Esempio: $\sin x > 0$ definitivamente per $x\to\frac\pi4$ (basta l'intorno $(0,\frac\pi2)$).
+Esempio del prof: $x_0 = 0$, $f = \sin$, $P$ = "$f$ è positiva per $x>0$". Basta l'intorno $I = \left(-\frac\pi2,\frac\pi2\right)$: per ogni $x\in I$ con $x>0$ si ha $\sin x>0$.
 
 Notazioni: $x\to x_0^+$ ($x$ tende a $x_0$ da destra, $x>x_0$); $x\to x_0^-$ (da sinistra, $x<x_0$).` },
 
@@ -41,8 +41,14 @@ $$\forall\varepsilon>0\ \exists\delta>0 : |f(x)-\ell|<\varepsilon\quad\forall x\
 - **Non** interessa cosa fa $f$ in $x_0$ (che può anche non appartenere al dominio).
 - $x_0$ deve essere di accumulazione per $A$: **non si fanno limiti nei punti isolati** del dominio.` },
 
+{ t: "oss", titolo: R`Significato operativo del limite`, testo: R`
+Per verificare un limite con la definizione:
+- $x_0\in\mathbb R$, $\ell\in\mathbb R$: fisso $\varepsilon>0$ e cerco $\delta>0$ tale che $|f(x)-\ell|<\varepsilon$ per $0<|x-x_0|<\delta$;
+- $x_0\in\mathbb R$, $\ell = +\infty$: fisso $M$ (grande) e cerco $\delta>0$ tale che $f(x)>M$ per $0<|x-x_0|<\delta$;
+- $x_0 = +\infty$, $\ell\in\mathbb R$: fisso $\varepsilon>0$ e cerco $M$ tale che $|f(x)-\ell|<\varepsilon$ per $x>M$.` },
+
 { t: "es", titolo: R`Verifiche di limiti con la definizione`, testo: R`
-**1.** $f(x) = 1$ per $x\neq0$, $f(0) = 0$. Allora $\lim_{x\to0}f(x) = 1$: fissato $U = (1-\varepsilon,1+\varepsilon)$, per $x\neq0$ si ha $f(x) = 1\in U$, quindi qualsiasi $\delta$ va bene (es. $\delta = 57$). Il valore $f(0)=0$ non conta.
+**1.** $f(x) = 1$ per $x\neq0$, $f(0) = 0$. Allora $\lim_{x\to0}f(x) = 1$: fissato $U = (1-\varepsilon,1+\varepsilon)$, per $x\neq0$ si ha $f(x) = 1\in U$, quindi qualsiasi $\delta$ va bene (es. $\delta = 157$). Il valore $f(0)=0$ non conta.
 
 **2.** $f(x) = 2x$. Allora $\lim_{x\to0}f(x) = 0$: fissato $\varepsilon>0$, $|2x|<\varepsilon\iff|x|<\frac\varepsilon2$. Basta $\delta = \frac\varepsilon2$.` },
 

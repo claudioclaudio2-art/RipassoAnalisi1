@@ -1,7 +1,7 @@
 L({ data: "2026-10-12", n: 9, titolo: "Controimmagine, composizione, iniettività, inversa", voci: [
 
-{ t: "es", titolo: R`Calcolo dell'immagine: $2x+1$ e $x^2$`, testo: R`
-**$f(x) = 2x+1$ su $\mathbb R$.** Cerco $y$ tali che $y = 2x+1$ per qualche $x$: basta $x = \frac{y-1}2$. Quindi $\mathrm{Im}(f) = \mathbb R$.
+{ t: "es", titolo: R`Calcolo dell'immagine: $2x-1$ e $x^2$`, testo: R`
+**$f(x) = 2x-1$ su $\mathbb R$.** Cerco $y$ tali che $y = 2x-1$ per qualche $x$: basta $x = \frac{y+1}2$, infatti $f\!\left(\frac{y+1}2\right) = y$. Quindi $\mathrm{Im}(f) = \mathbb R$.
 
 **$f(x) = x^2$ su $\mathbb R$.** Se $y = x^2$ allora $y\ge0$, quindi $\mathrm{Im}(f)\subseteq[0,+\infty)$. Viceversa per $y\ge0$ vale $y = (\sqrt y)^2$. Quindi $\mathrm{Im}(f) = [0,+\infty)$.` },
 
@@ -15,14 +15,14 @@ Siano $f : A\to B$, $g : C\to D$ con $f(A)\cap C\neq\emptyset$ (dove arriva $f$ 
 $$E = f^{\leftarrow}\big(f(A)\cap C\big) = \lbrace x\in A: f(x)\in C\rbrace\subseteq A,$$
 la **funzione composta** "$g$ dopo $f$" è $g\circ f : E\to D$, $(g\circ f)(x) = g(f(x))$.
 
-Es. $f(x) = x^2+1$, $g(y) = \sqrt y$: $\mathrm{Im} f = [1,+\infty)\subseteq D(g)$, quindi $(g\circ f)(x) = \sqrt{x^2+1}$ è definita su tutto $\mathbb R$.
+Es. $f(x) = x^2$, $g(x) = 2x+1$: $\mathrm{Im} f = [0,+\infty)$, $\mathrm{Im} f\cap D(g) = [0,+\infty)\neq\emptyset$, $D(g\circ f) = f^{\leftarrow}([0,+\infty)) = \mathbb R$ e $(g\circ f)(x) = 2x^2+1$.
 
 (In alcuni testi si chiede $f(A)\subseteq C$; noi usiamo la richiesta più debole $f(A)\cap C\neq\emptyset$.)` },
 
 { t: "att", titolo: R`In generale $g\circ f\neq f\circ g$`, testo: R`
 Prima le mutande e poi i pantaloni è diverso da prima i pantaloni e poi le mutande.
 
-Con $f(x) = x^2$, $g(x) = \sin x$: $(g\circ f)(x) = \sin(x^2)$, $(f\circ g)(x) = \sin^2 x$. In $x = \frac{\sqrt\pi}{2}$: $\sin\frac\pi4 = \frac{\sqrt2}2$, mentre $\sin^2\frac{\sqrt\pi}2 \ne \frac{\sqrt 2}2$.` },
+Con $f(x) = x^2$, $g(x) = \sin x$: $(g\circ f)(x) = \sin(x^2)$, $(f\circ g)(x) = \sin^2 x$. In $x = 45° = \frac\pi4$: $(g\circ f)\!\left(\frac\pi4\right) = \sin\frac{\pi^2}{16}$, mentre $(f\circ g)\!\left(\frac\pi4\right) = \left(\sin\frac\pi4\right)^2 = \frac12$, e $\sin\frac{\pi^2}{16}\neq\frac12$.` },
 
 { t: "def", titolo: R`Funzione iniettiva, suriettiva, biiettiva`, testo: R`
 Sia $f : A\to B$.

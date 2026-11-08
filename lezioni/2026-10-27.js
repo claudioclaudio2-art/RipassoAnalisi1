@@ -50,7 +50,7 @@ Non fatta a lezione, ma analoga al caso reale: per (i) con $f$ crescente e $S = 
 { t: "es", titolo: R`Applicazioni: limiti agli estremi delle funzioni elementari`, testo: R`
 - $\displaystyle\lim_{x\to+\infty}a^x = +\infty$ se $a>1$, $0$ se $0<a<1$; $\displaystyle\lim_{x\to-\infty}a^x = 0$ se $a>1$, $+\infty$ se $0<a<1$.
 - $\displaystyle\lim_{x\to+\infty}\log_ax = +\infty$ se $a>1$, $-\infty$ se $0<a<1$.
-- $\displaystyle\lim_{x\to+\infty}x^\alpha = +\infty$ se $\alpha>0$, $0$ se $\alpha<0$.
+- $\displaystyle\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 1 & \alpha=0\\ 0 & \alpha<0.\end{cases}$
 
 Domanda per dopo: sappiamo che $a^x$, $\log_ax$, $x^\alpha\to+\infty$ (con $a>1$, $\alpha>0$), ma **con quali velocità**? (Vedi gerarchia degli infiniti, 29/10.)` },
 

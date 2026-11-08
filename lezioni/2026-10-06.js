@@ -15,9 +15,10 @@ $$a^n = \begin{cases}\underbrace{a\cdot a\cdots a}_{n \text{ volte}} & n>0\\ 1 &
 { t: "att", titolo: R`$0^0$ non ha senso`, testo: R`
 $0^0$ **non è definito** (in alcuni testi o situazioni si pone $0^0=1$, ma per noi no).` },
 
-{ t: "teo", s: "dim", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
+{ t: "teo", s: "omessa", diff: 3, titolo: R`Esistenza e unicità della radice $n$-esima`, testo: R`
 Siano $y\in\mathbb R$, $y\ge0$, $n\in\mathbb N$. Allora esiste un unico $r\in\mathbb R$, $r\ge 0$, tale che $r^n = y$. Si scrive $r = y^{1/n} = \sqrt[n]y$, ed è
-$$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$`, dim: R`
+$$r = \sup\lbrace x\in\mathbb R : x\ge0,\ x^n\le y\rbrace.$$
+In classe il prof ha detto solo: segue dal **teorema di completezza (2ª forma)**: $A = \lbrace x\ge0: x^n\le y\rbrace$ è superiormente limitato, quindi ha un unico sup $r$, e $r^n = y$. La dimostrazione completa qui sotto è un'aggiunta.`, dim: R`
 L'insieme $A = \lbrace x\ge 0 : x^n\le y\rbrace$ è non vuoto ($0\in A$) e superiormente limitato (ad esempio da $\max\lbrace1,y\rbrace$). Per la completezza (2ª forma) ammette un unico estremo superiore $r\ge0$. Resta da vedere che $r^n = y$ (a lezione questo passo è solo accennato; ecco i conti).
 
 **Stima utile.** Per $0\le a<b$:
@@ -49,10 +50,12 @@ Se $r < 0$: $a^r = \dfrac1{a^{-r}}$.
 
 Riassunto della costruzione: $a^n \to \sqrt[n]a\to a^{p/q}\to a^r\ (r\ge0)\to a^r\ (r<0)\to \log_a y$.` },
 
-{ t: "teo", s: "dim", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
+{ t: "teo", s: "omessa", diff: 2, titolo: R`Esistenza del logaritmo`, testo: R`
 Siano $a>0$, $a\neq1$, $y>0$. Allora esiste un unico $x\in\mathbb R$ tale che $a^x = y$; si indica $x = \log_a y$ ed è
 - se $a > 1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\le y\rbrace$;
-- se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.`, dim: R`
+- se $0<a<1$: $\ x = \sup\lbrace r\in\mathbb R : a^r\ge y\rbrace$.
+
+In classe: segue dal teorema di completezza (2ª forma), in modo analogo alla radice $n$-esima. La dimostrazione completa qui sotto è un'aggiunta.`, dim: R`
 Segue dalla completezza di $\mathbb R$ (2ª forma). Faccio il caso $a>1$ (per $0<a<1$ si applica il caso precedente a $\frac1a>1$: $\log_ay = -\log_{1/a}y$). Sia $B = \lbrace r\in\mathbb R: a^r\le y\rbrace$ e $t = a-1>0$.
 
 **Strumento.** Dal binomio di Newton $(1+t)^n\ge1+nt$, quindi $a^n\ge1+n(a-1)\to+\infty$; e $\left(1+\frac tn\right)^n\ge1+t = a$, cioè $a^{1/n}\le1+\frac{a-1}n$.
@@ -66,7 +69,7 @@ Segue dalla completezza di $\mathbb R$ (2ª forma). Faccio il caso $a>1$ (per $0
 Quindi $a^x = y$; l'unicità segue dalla stretta monotonia di $r\mapsto a^r$. $\blacksquare$` },
 
 { t: "def", titolo: R`Logaritmo e proprietà`, testo: R`
-$\log_a y$ ("logaritmo in base $a$ di $y$") è l'esponente da dare ad $a$ per ottenere $y$. Notazioni: $\log = \ln = \log_e$ (logaritmo naturale, $e \approx 2{,}718$ numero di Nepero); $\mathrm{Log} = \log_{10}$.
+$\log_a y$ ("logaritmo in base $a$ di $y$") è l'esponente da dare ad $a$ per ottenere $y$. Notazioni: $\log = \ln = \log_e$ (logaritmo naturale, $e \approx 2{,}718$ numero di Nepero); attenzione: $\log_{10}\neq\log$.
 
 Per $a, b > 0$, $a,c\neq1$, $x,y>0$:
 1. $\log_a 1 = 0$, $\log_a a = 1$;

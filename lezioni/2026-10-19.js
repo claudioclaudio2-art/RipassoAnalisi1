@@ -4,9 +4,9 @@ L({ data: "2026-10-19", n: 13, titolo: "Limite dell'esponenziale, limitatezza lo
 Sia $f: A\to\mathbb R$ con $f(x) = c$ per ogni $x\in A$. Allora $\displaystyle\lim_{x\to x_0}f(x) = c$ per ogni $x_0$ di accumulazione per $A$ (anche $\pm\infty$).`, dim: R`
 Per ogni intorno $U$ di $c$ si ha $f(x) = c\in U$ per **ogni** $x\in A$, quindi qualunque intorno $I$ di $x_0$ va bene. $\blacksquare$` },
 
-{ t: "teo", s: "dim", diff: 1, titolo: R`Disuguaglianza di Bernoulli`, testo: R`
+{ t: "teo", s: "omessa", diff: 1, titolo: R`Disuguaglianza di Bernoulli`, testo: R`
 $$(1+t)^n\ge1+nt\qquad\forall n\in\mathbb N_0,\ \forall t\ge0.$$
-(Vale in realtà per ogni $t\ge-1$.)`, dim: R`
+(Vale in realtà per ogni $t\ge-1$.) Negli appunti c'è solo: "si dimostra per induzione su $n$ a $t$ fissato"; i passaggi qui sotto sono un'aggiunta.`, dim: R`
 Induzione su $n$ con $t$ fissato. **Base** $n=0$: $1\ge1$.
 
 **Passo**: se $(1+t)^n\ge1+nt$, allora, siccome $1+t>0$,
@@ -62,7 +62,7 @@ Basta prendere $C = 1+|\ell|$. $\blacksquare$` },
 { t: "def", titolo: R`Punto di accumulazione destro / sinistro`, testo: R`
 Sia $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\mathbb R$. $x_0$ è punto di accumulazione **destro** per $A$ se è di accumulazione per $A\cap(x_0,+\infty)$; **sinistro** se lo è per $A\cap(-\infty,x_0)$.
 
-Es. $A = (1,2)\cup(2,3)$: $1$ è di accumulazione solo destro, $3$ solo sinistro, $2$ (che non sta in $A$) sia destro che sinistro.
+Es. $A = [1,2]\cup\lbrace3\rbrace$: ogni $x_0\in(1,2)$ è di accumulazione sia destro che sinistro; $1$ è solo **destro**; $2$ è solo **sinistro**; $3$ è isolato.
 
 Un punto di accumulazione destro o sinistro è anche di accumulazione (esercizio).` },
 

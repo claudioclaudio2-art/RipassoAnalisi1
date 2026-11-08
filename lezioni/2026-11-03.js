@@ -36,20 +36,20 @@ Siano $f(x) = x(2+\sin x)$ e $g(x) = x$ per $x\to+\infty$.
 
 Ma $\dfrac{f(x)}{g(x)} = 2+\sin x$ e $\lim_{x\to+\infty}\sin x$ **non esiste**, quindi non esiste nemmeno $\lim\frac fg$: $f$ e $g$ sono infinite di **ordini non confrontabili**.` },
 
-{ t: "es", titolo: R`$\frac1x$ contro $\frac1{x^2}$ per $x\to0^+$`, testo: R`
-Siano $f(x) = \frac1x$ e $g(x) = \frac1{x^2}$, entrambe infinite per $x\to0^+$. Allora
-$$\lim_{x\to0^+}\frac{f(x)}{g(x)} = \lim_{x\to0^+}\frac{x^2}x = \lim_{x\to0^+}x = 0,$$
+{ t: "es", titolo: R`$\frac1{|x|}$ contro $\frac1{x^2}$ per $x\to0$`, testo: R`
+Siano $f(x) = \frac1{|x|}$ e $g(x) = \frac1{x^2}$ per $x\neq0$, entrambe infinite per $x\to0$. Allora
+$$\lim_{x\to0}\frac{f(x)}{g(x)} = \lim_{x\to0}\frac{x^2}{|x|} = \lim_{x\to0}|x| = 0,$$
 quindi $g$ è infinita di **ordine superiore** a $f$.` },
 
 { t: "oss", titolo: R`Le potenze come "unità di misura"`, testo: R`
 Fissato $x_0\in\mathbb R$, con il cambio di variabile $y = |x-x_0|\to0^+$:
-$$\lim_{x\to x_0}|x-x_0|^\alpha = \begin{cases}0 & \alpha>0\\ +\infty & \alpha<0.\end{cases}$$
+$$\lim_{x\to x_0}|x-x_0|^\alpha = \begin{cases}0 & \alpha>0\\ 1 & \alpha=0\\ +\infty & \alpha<0.\end{cases}$$
 Per $x_0 = \pm\infty$ invece
-$$\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 0 & \alpha<0.\end{cases}$$
+$$\lim_{x\to\pm\infty}|x|^\alpha = \begin{cases}+\infty & \alpha>0\\ 1 & \alpha=0\\ 0 & \alpha<0.\end{cases}$$
 Le potenze servono quindi da termine di paragone per misurare "quanto velocemente" una funzione tende a $0$ o a $\infty$.` },
 
 { t: "def", titolo: R`Ordine di infinitesimo e di infinito ($x_0\in\mathbb R$)`, testo: R`
-Sia $f:A\to\mathbb R$, $x_0\in\mathbb R$ di accumulazione per $A$, e $\alpha>0$. Diciamo che
+Sia $f:A\to\mathbb R$, $x_0\in\mathbb R$ di accumulazione per $A$, e $\alpha\in\mathbb R$. Diciamo che
 - $f$ è **infinitesima di ordine $\alpha$** per $x\to x_0$ se
 $$\exists\lim_{x\to x_0}\frac{f(x)}{|x-x_0|^\alpha} = \ell\in\mathbb R\setminus\lbrace0\rbrace;$$
 - $f$ è **infinita di ordine $\alpha$** per $x\to x_0$ se
@@ -58,7 +58,7 @@ $$\exists\lim_{x\to x_0}f(x)\,|x-x_0|^\alpha = \ell\in\mathbb R\setminus\lbrace0
 Es. $1-\cos x$ è infinitesima di ordine $2$ per $x\to0$ ($\ell = \frac12$); $\frac1{x^2}$ è infinita di ordine $2$ per $x\to0$.` },
 
 { t: "def", titolo: R`Ordine di infinitesimo e di infinito ($x_0 = \pm\infty$)`, testo: R`
-Sia $f:A\to\mathbb R$, $x_0 = \pm\infty$ di accumulazione per $A$, e $\alpha>0$. Diciamo che
+Sia $f:A\to\mathbb R$, $x_0 = \pm\infty$ di accumulazione per $A$, e $\alpha\in\mathbb R$. Diciamo che
 - $f$ è **infinitesima di ordine $\alpha$** per $x\to x_0$ se
 $$\exists\lim_{x\to x_0}f(x)\,|x|^\alpha = \ell\in\mathbb R\setminus\lbrace0\rbrace;$$
 - $f$ è **infinita di ordine $\alpha$** per $x\to x_0$ se
@@ -75,10 +75,12 @@ $a_n$ si chiama **termine generale** e la successione si indica con $(a_n)_{n\in
 Come dominio si può avere un qualsiasi $A\subseteq\mathbb N$ con l'ordine indotto; in particolare spesso $A = \lbrace n\in\mathbb N: n\ge n_0\rbrace$ con $n_0\in\mathbb N$ fissato. Possono anche mancare termini intermedi.
 
 Esempi:
-- $a_n = 1$ per ogni $n\in\mathbb N$: $1,1,1,1,\dots$
-- $a_n = \frac1n$ per $n\ge1$: $1,\frac12,\frac13,\frac14,\dots$
-- $a_n = \sqrt{n-3}$ per $n\ge3$: $0,1,\sqrt2,\sqrt3,\dots$
-- una **successione finita** (ha solo un numero finito di termini) non interessa per i limiti.` },
+- $a_n = n$ per $n\in\mathbb N_0$: $0,1,2,3,\dots$
+- $a_n = \frac1n$ per $n\in\mathbb N$: $1,\frac12,\frac13,\frac14,\dots$
+- $a_n = \frac1{\sqrt{5-n}}$, definita solo per $n = 0,1,2,3,4$: è una **successione finita**;
+- $a_n = n!$: $1,1,2,6,24,\dots$
+- $a_n = (n-3)!$, definita da $n = 3$ in poi: $1,1,2,6,\dots$
+- $a_n = \frac1{|n-3|}$: manca il termine $n = 3$ (termine intermedio mancante).` },
 
 { t: "att", titolo: R`Per le successioni si studia solo $n\to+\infty$`, testo: R`
 L'**unico** punto di accumulazione di un insieme $A\subseteq\mathbb N$ con infiniti elementi è $+\infty$. Quindi l'unico limite che ha senso studiare è
@@ -98,14 +100,13 @@ $$\exists N\in\mathbb N\ \text{tale che}\ P(a_n)\ \text{è vera}\ \forall n\ge N
 - $a_n = n!$: positiva, illimitata, strettamente crescente (definitivamente), $\lim_{n\to+\infty}n! = +\infty$. Osservo che $a_{n+1} = (n+1)\cdot a_n$ per ogni $n$: ogni termine si ottiene dal precedente, è una successione **ricorsiva**.` },
 
 { t: "def", titolo: R`Successione ricorsiva e successione periodica`, testo: R`
-- $(a_n)$ si dice **ricorsiva** se ogni termine si ottiene dal precedente tramite una funzione $f$:
-$$a_{n+1} = f(n, a_n)\qquad\forall n$$
-(nel caso più semplice $f$ non dipende da $n$: $a_{n+1} = f(a_n)$ con $f:\mathbb R\to\mathbb R$).
+- $(a_n)$ si dice **ricorsiva** se esiste una funzione $f:\mathbb R\to\mathbb R$ tale che
+$$a_{n+1} = f(a_n)\qquad\forall n.$$
 - $(a_n)_{n\in\mathbb N}$ si dice **periodica** se esiste $k\in\mathbb N$, $k\ge1$, tale che
 $$a_{n+k} = a_n\qquad\forall n\in\mathbb N,$$
 e $k$ si chiama **periodo**.
 
-Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)a_n$), $a_n = n$ è ricorsiva con $f(x) = x+1$; $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
+Es. $a_n = n!$ è ricorsiva ($a_{n+1} = (n+1)\cdot a_n$); $a_n = (-1)^n$ è periodica di periodo $2$ (ed è anche ricorsiva con $f(x) = -x$).` },
 
 { t: "def", titolo: R`Limite di una successione`, testo: R`
 Diciamo che $(a_n)$ ha **limite** $\ell\in\mathbb R\cup\lbrace\pm\infty\rbrace$ per $n\to+\infty$, o che $a_n$ **tende a** $\ell$, se

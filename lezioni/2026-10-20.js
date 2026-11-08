@@ -12,8 +12,9 @@ perché ogni tale $x$ sta a destra o a sinistra di $x_0$. $\blacksquare$` },
 { t: "att", titolo: R`Questa non è la definizione di limite`, testo: R`
 È un teorema, utile soprattutto per dimostrare che un limite **non esiste**: basta trovare due limiti laterali diversi.` },
 
-{ t: "es", titolo: R`Esempi: funzione segno e $1/x$`, testo: R`
-- $f(x) = 1$ per $x\ge0$, $f(x)=-1$ per $x<0$: $\lim_{x\to0^+}f = 1\neq-1 = \lim_{x\to0^-}f$, quindi $\nexists\lim_{x\to0}f(x)$.
+{ t: "es", titolo: R`Esempi: funzione a gradino e $1/x$`, testo: R`
+- $f(x) = 1$ per $x\ge0$, $f(x) = 0$ per $x<0$: $\lim_{x\to0^+}f = 1\neq0 = \lim_{x\to0^-}f$, quindi $\nexists\lim_{x\to0}f(x)$.
+- $f(x) = 1$ per $x\neq0$, $f(0) = 18$: $\lim_{x\to0^\pm}f = 1$, quindi $\lim_{x\to0}f(x) = 1$. Il valore $f(0) = 18$ **non conta**.
 - $\lim_{x\to0^+}\frac1x = +\infty\neq-\infty = \lim_{x\to0^-}\frac1x$, quindi $\nexists\lim_{x\to0}\frac1x$.
 - $\lim_{x\to0^\pm}\frac1{x^2} = +\infty$, quindi $\lim_{x\to0}\frac1{x^2} = +\infty$.` },
 

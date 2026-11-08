@@ -19,7 +19,7 @@ Esempio: "ogni elefante ha un'unica proboscide" si scrive $\forall$ elefante $\e
 Simbolo "tale che": $:$ oppure $|$ (in inglese *such that*).` },
 
 { t: "def", titolo: "Proposizione e tavole di verità", testo: R`
-Una **proposizione** è una frase/proprietà matematica che è o **vera (V)** o **falsa (F)**. Può dipendere da una variabile: $P(n)$ = "$n$ è un numero pari" è vera per $n=2$, falsa per $n=3$.
+Una **proposizione** è una frase/proprietà matematica che è o **vera (V)** o **falsa (F)**. Può dipendere da una variabile: $P(n)$ = "$n$ è un numero pari" è vera per $n=2$, falsa per $n=3$. Esempio del prof: $P(x)$ = "$x$ è razionale": $P(\frac12)$ è vera, $P(\sqrt2)$ è falsa.
 
 Tavole di verità:
 - $P \land Q$ è V solo se entrambe sono V.
@@ -32,7 +32,7 @@ $$\text{IPOTESI} \Rightarrow \text{TESI}.$$` },
 
 { t: "def", titolo: "Dimostrazione diretta, per assurdo, per contrapposizione", testo: R`
 - **Diretta**: si parte dall'ipotesi e con una catena di implicazioni si arriva alla tesi.
-- **Per contrapposizione (inversa)**: si usa l'equivalenza
+- **Per contrapposizione (inversa)** — il prof la chiama "**dimostrazione inversa o per assurdo**", come un'unica tecnica: si usa l'equivalenza
 $$(P \Rightarrow Q) \iff (\neg Q \Rightarrow \neg P),$$
 cioè si nega la tesi e si dimostra la negazione dell'ipotesi.
 - **Per assurdo**: si suppone vera l'ipotesi e falsa la tesi e si arriva a una contraddizione.

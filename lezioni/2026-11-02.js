@@ -7,16 +7,23 @@ cioè $f$ è **infinitesima** per $x\to x_0$.
 
 Esempi per $x\to+\infty$: $\dfrac1{x^5} = o(1)$, $\dfrac1x = o(1)$. Per $x\to0$: $\sin x = o(1)$, $\cos x-1 = o(1)$.` },
 
+{ t: "es", titolo: R`$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = 1$ con gli o-piccoli`, testo: R`
+È lo stesso limite della lezione del 29/10. Per $x\to+\infty$ si ha $\frac7x+\frac5{x^2} = o(1)$ e $\frac{11}x = o(1)$, quindi
+$$\lim_{x\to+\infty}\frac{x^2+7x+5}{x^2+11x} = \lim_{x\to+\infty}\frac{1+\frac7x+\frac5{x^2}}{1+\frac{11}x} = \lim_{x\to+\infty}\frac{1+o(1)}{1+o(1)} = 1.$$` },
+
 { t: "att", titolo: R`$o(g)$ è una notazione, non una funzione`, testo: R`
 Per $x\to0$ vale sia $\sin x = o(1)$ sia $\cos x-1 = o(1)$, **ma** $\sin x\neq\cos x-1$ in un intorno di $0$.
 
 Quindi l'uguale in "$f = o(g)$" **non** è un'uguaglianza vera e propria: $o(g)$ indica una **qualsiasi** funzione trascurabile rispetto a $g$. La notazione dice solo come $f$ si comporta **relativamente a $g$** per $x\to x_0$: serve a **stimare l'errore** che si commette.` },
 
 { t: "att", titolo: R`Gli o-piccoli NON si cancellano`, testo: R`
-Per $x\to+\infty$: $\dfrac1{x^3} = o\!\left(\dfrac1x\right)$ e $\dfrac1{x^2} = o\!\left(\dfrac1x\right)$, ma
-$$\frac1{x^3}-\frac1{x^2}\neq0.$$
-Quindi $o(g)-o(g)$ **non** fa $0$. Vale invece
-$$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$`, },
+Esempio:
+$$\lim_{x\to+\infty}\frac{x^2+7x-3}{x^2-5x+2} = \lim_{x\to+\infty}\frac{1+\frac7x-\frac3{x^2}}{1-\frac5x+\frac2{x^2}} = \lim_{x\to+\infty}\frac{1+o(1)-o(1)}{1-o(1)+o(1)}.$$
+Qui gli $o(1)$ **NON si cancellano**: $o(1)-o(1)$ non fa $0$ (sono funzioni diverse, es. $\frac7x$ e $\frac3{x^2}$). Si ha però $o(1)\pm o(1) = o(1)$, quindi il limite è
+$$\lim_{x\to+\infty}\frac{1+o(1)}{1+o(1)} = 1.$$
+In generale vale
+$$o(g)\pm o(g) = o(g)\quad\text{per } x\to x_0.$$
+Infatti se $f_1 = o(g)$ e $f_2 = o(g)$ per $x\to x_0$, allora $\displaystyle\lim_{x\to x_0}\frac{f_1(x)\pm f_2(x)}{g(x)} = 0\pm0 = 0$, e dunque $f_1\pm f_2 = o(g)$.`, },
 
 { t: "prop", s: "casa", diff: 1, titolo: R`Proprietà degli o-piccoli`, testo: R`
 Per $x\to x_0$ valgono:
@@ -55,18 +62,18 @@ Per $x\to0$, dalla proposizione precedente:
 - $\log(1+x)\sim x\iff\log(1+x) = x+o(x)$.` },
 
 { t: "teo", s: "omessa", titolo: R`Cambio di variabile negli o-piccoli`, testo: R`
-Siano $f, h, g$ a valori reali, con $h\circ f$ e $g\circ f$ definite su $A$, e $x_0$ di accumulazione per $A$. Supponiamo che
+Siano $f, h_1, h_2$ a valori reali, con $h_1\circ f$ e $h_2\circ f$ definite su $A$, e $x_0$ di accumulazione per $A$. Supponiamo che
 1. $\displaystyle\lim_{x\to x_0}f(x) = y_0\in\overline{\mathbb R}$;
-2. $h(y) = o(g(y))$ per $y\to y_0$ (lo **sviluppo** di $h$);
+2. $h_1(y) = h_2(y)+o(h_2(y))$ per $y\to y_0$ (lo **sviluppo** di $h_1$);
 3. $f(x)\neq y_0$ definitivamente per $x\to x_0$.
 
 Allora
-$$h(f(x)) = o\big(g(f(x))\big)\qquad\text{per } x\to x_0.$$
+$$h_1(f(x)) = h_2(f(x))+o\big(h_2(f(x))\big)\qquad\text{per } x\to x_0.$$
 Dimostrazione omessa: è una conseguenza della definizione di o-piccolo e del teorema di cambio di variabile nei limiti.` },
 
-{ t: "es", titolo: R`Sviluppi composti: $\sin(2x)$ ed $e^{\sin x}$`, testo: R`
-- $\sin y = y+o(y)$ per $y\to0$; con $f(x) = 2x\to0$, $2x\neq0$ per $x\neq0$:
-$$\sin(2x) = 2x+o(2x) = 2x+o(x)\quad\text{per } x\to0.$$
+{ t: "es", titolo: R`Sviluppi composti: $\sin(x^2)$ ed $e^{\sin x}$`, testo: R`
+- $\sin y = y+o(y)$ per $y\to0$; con $f(x) = x^2$: $\lim_{x\to0}x^2 = 0$ e $x^2\neq0$ definitivamente per $x\to0$, quindi per il cambio di variabile
+$$\sin(x^2) = x^2+o(x^2)\quad\text{per } x\to0.$$
 - $e^y = 1+y+o(y)$ per $y\to0$; con $f(x) = \sin x\to0$, $\sin x\neq0$ definitivamente:
 $$e^{\sin x} = 1+\sin x+o(\sin x) = 1+x+o(x)\quad\text{per } x\to0,$$
 usando $\sin x = x+o(x)$ e $o(\sin x) = o(x)$ (perché $\sin x\sim x$).` },
@@ -83,9 +90,9 @@ Il secondo fattore tende a $\frac{1+0}{1+0} = 1$, quindi per l'algebra dei limit
 
 **Oss.** Si è usata la proprietà 5 degli o-piccoli con $h = \dfrac1{\hat g}$: $o(\hat g)\cdot\dfrac1{\hat g} = o\!\left(\hat g\cdot\dfrac1{\hat g}\right) = o(1)$.` },
 
-{ t: "es", titolo: R`Principio di sostituzione in pratica`, testo: R`
-$$\lim_{x\to0}\frac{\sin x+x^2}{e^x-1+x^3} = \lim_{x\to0}\frac{x+o(x)}{x+o(x)} = \lim_{x\to0}\frac xx = 1,$$
-perché $\sin x+x^2 = x+o(x)+o(x) = x+o(x)$ ed $e^x-1+x^3 = x+o(x)$.` },
+{ t: "es", titolo: R`$\sin x+o(\sin x) = x+o(x)$`, testo: R`
+Per $x\to0$, usando $\sin x = x+o(x)$ e le proprietà degli o-piccoli (in particolare la 6, $o(o(g)) = o(g)$):
+$$\sin x+o(\sin x) = \big(x+o(x)\big)+o\big(x+o(x)\big) = x+o(x)+o(x)+o(o(x)) = x+o(x).$$` },
 
 { t: "att", titolo: R`$o(x^2)$ e $o(x)$ dipendono dal punto`, testo: R`
 - Per $x\to0$: $o(x^2) = o(x)$, perché $\dfrac{o(x^2)}x = \dfrac{o(x^2)}{x^2}\cdot x\to0\cdot0$. **Non** vale il viceversa: $x^{3/2} = o(x)$ ma non è $o(x^2)$.
