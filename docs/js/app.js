@@ -238,7 +238,7 @@ function aggiornaConteggi() {
     </div>
     <div class="bigbar">${barra(c, tot)}</div>
     <div class="legenda">${[2, 1, 0, -1].map(k => { const x = K.find(z => z.k === k); return `<span><i class="dot ${x.cls}"></i>${x.lab}: <b>${c[k]}</b></span>`; }).join('')}</div>`;
-  $('#btn-consigliato').addEventListener('click', () => apriRipasso({ modo: 'consigliato', avvia: true }));
+  $('#btn-consigliato').addEventListener('click', () => apriRipasso({ modo: 'consigliato' }));
   LEZ.forEach(l => {
     const el = document.querySelector(`[data-mb="${l.data}"]`); if (!el) return;
     const cl = distribuzione(l.voci); const t = l.voci.filter(v => VALUTABILI.has(v.g)).length;
