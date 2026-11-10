@@ -121,6 +121,6 @@ Vogliamo dimostrare che $S = +\infty$. Supponiamo per assurdo che $S\in\mathbb R
 $$S_{2k}-S_k = \sum_{n=k+1}^{2k}\frac1n = \frac1{k+1}+\frac1{k+2}+\dots+\frac1{2k}\ge\underbrace{\frac1{2k}+\dots+\frac1{2k}}_{k\text{ volte}} = k\cdot\frac1{2k} = \frac12.$$
 Quindi $S_{2k}-S_k\ge\frac12$ per ogni $k\in\mathbb N$. Passo al limite per $k\to+\infty$ (anche $S_{2k}\to S$, è un'estratta) e trovo $S-S\ge\frac12$, cioè $0\ge\frac12$, che è assurdo. Dunque deve essere $S = +\infty$.
 
-**$\alpha>1$:** la prossima volta. $\blacksquare$` },
+**$\alpha>1$:** dimostrato nella lezione successiva (10/11). $\blacksquare$` },
 
 ]});
