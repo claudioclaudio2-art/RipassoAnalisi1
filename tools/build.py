@@ -14,6 +14,10 @@ parts = ["/* Generato da tools/build.py: non modificare a mano */\n"
          "window.LEZIONI = [];\nvar R = String.raw;\nfunction L(x) { window.LEZIONI.push(x); }\n"]
 for p in files:
     parts.append(f"\n/* ---- {p.name} ---- */\n" + p.read_text(encoding="utf-8"))
+# domande di teoria chieste agli esami
+esami = ROOT / "esami" / "domande.js"
+if esami.exists():
+    parts.append("\n/* ---- esami/domande.js ---- */\n" + esami.read_text(encoding="utf-8"))
 bundle = "".join(parts)
 (SITE / "contenuti.js").write_text(bundle, encoding="utf-8")
 

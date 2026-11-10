@@ -9,6 +9,7 @@
   --c-ex:#b8337a;   --c-ex-bg:#fbeaf3;
   --c-att:#c8322f;  --c-att-bg:#fcebea;
   --c-oss:#3b6b7a;  --c-oss-bg:#e8f1f3;
+  --c-esame:#8a5a00; --c-esame-bg:#fdeeb0; --c-esame-line:#e8c55a;
   --k-non:#d0453c; --k-male:#e0a21a; --k-ok:#2e9b62; --k-mai:#b9b3a5;
   --shadow:0 1px 2px rgba(40,30,10,.06),0 4px 14px rgba(40,30,10,.05);
   --r:12px;
@@ -27,6 +28,7 @@
     --c-ex:#f080bd;  --c-ex-bg:#36202d;
     --c-att:#ff7d76; --c-att-bg:#3a1f20;
     --c-oss:#7fc0d2; --c-oss-bg:#1c2e34;
+    --c-esame:#f5c84c; --c-esame-bg:#3a3014; --c-esame-line:#7a6220;
     --k-mai:#5b5e66;
     --shadow:0 1px 2px rgba(0,0,0,.3);
     color-scheme:dark;
@@ -42,6 +44,7 @@
   --c-ex:#f080bd;  --c-ex-bg:#36202d;
   --c-att:#ff7d76; --c-att-bg:#3a1f20;
   --c-oss:#7fc0d2; --c-oss-bg:#1c2e34;
+  --c-esame:#f5c84c; --c-esame-bg:#3a3014; --c-esame-line:#7a6220;
   --k-mai:#5b5e66;
   --shadow:0 1px 2px rgba(0,0,0,.3);
   color-scheme:dark;
@@ -250,6 +253,46 @@ dialog::backdrop{background:rgba(10,10,15,.45)}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 /* ===== Mobile ===== */
+/* ===== Domande d'esame ===== */
+.ico-es{width:1.05em;height:1.05em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.eschip{display:inline-flex;align-items:center;gap:4px;font:700 .7rem/1 var(--sans);color:var(--c-esame);background:var(--c-esame-bg);border:1px solid var(--c-esame-line);padding:.3em .55em;border-radius:999px;white-space:nowrap}
+.eschip.ex{background:none;font-weight:600}
+.voce.esame{box-shadow:var(--shadow),inset 0 0 0 1px var(--c-esame-line)}
+.chip .ico-es{color:var(--c-esame)}
+.chip-link{border-style:dashed;color:var(--c-esame)}
+.chip-link:hover{background:var(--c-esame-bg)}
+.esbox{margin-top:14px;border:1px solid var(--c-esame-line);border-radius:10px;background:color-mix(in srgb,var(--c-esame-bg) 55%,var(--card));padding:10px 14px 4px}
+.esbox-h{display:flex;align-items:center;gap:6px;font:700 .78rem/1.2 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--c-esame);margin-bottom:6px}
+.esdom{padding:6px 0 8px}
+.esdom+.esdom{border-top:1px dashed var(--c-esame-line)}
+.esq{font-family:var(--serif);font-size:1rem;line-height:1.5}
+.esk{font:700 .66rem/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-right:4px;vertical-align:.12em}
+.esocc{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:3px;font-size:.84rem;color:var(--ink2)}
+.esocc li{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px}
+.esocc b{font-weight:600;color:var(--ink)}
+.esocc small{color:var(--ink3);font-size:.76rem}
+.esami-panel{padding:0;overflow:hidden}
+.esami-panel>summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;padding:16px 22px}
+.esami-panel>summary::-webkit-details-marker{display:none}
+.esami-panel>summary .chev{order:3;margin-left:auto}
+.esami-panel[open]>summary .chev{transform:rotate(90deg)}
+.esami-panel[open]>summary{border-bottom:1px solid var(--line)}
+.ep-tit{display:inline-flex;align-items:center;gap:8px;font:600 1.15rem/1.2 var(--serif)}
+.ep-tit .ico-es{color:var(--c-esame)}
+.ep-sub{font-size:.86rem;color:var(--ink2)}
+.ep-body{padding:6px 22px 18px}
+.ep-nota{font-size:.88rem;color:var(--ink2);margin:.6em 0 0}
+.ep-body h3{font:700 .78rem/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin:20px 0 6px}
+.ep-lista{list-style:none;margin:0;padding:0}
+.ep-lista>li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.ep-n{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 .9rem/1 var(--sans);background:var(--c-esame-bg);color:var(--c-esame);border:1px solid var(--c-esame-line);font-variant-numeric:tabular-nums}
+.ep-lista>li.non-fatta .ep-n{background:none;color:var(--ink3);border-color:var(--line2)}
+.ep-lista>li.non-fatta .esq{color:var(--ink2)}
+.ep-links{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ep-voce{display:inline-flex;align-items:baseline;gap:4px;font-size:.84rem;color:var(--focus);text-decoration:none;border:1px solid var(--line2);border-radius:8px;padding:.25em .6em;background:var(--card)}
+.ep-voce:hover{border-color:var(--focus)}
+.ep-manca{font-size:.82rem;color:var(--ink3);font-style:italic}
+
 @media (max-width:900px){
   .layout{grid-template-columns:1fr}
   .only-mobile{display:inline-grid}
@@ -276,6 +319,10 @@ dialog::backdrop{background:rgba(10,10,15,.45)}
   .tag{font-size:.62rem}
   .v-body{padding:12px 14px 14px}
   .carta{padding:16px}
+  .esami-panel>summary{padding:14px 16px}
+  .ep-body{padding:4px 16px 14px}
+  .ep-lista>li{grid-template-columns:28px 1fr;gap:10px}
+  .ep-n{width:26px;height:26px;font-size:.8rem}
   .carta h2{font-size:1.25rem}
   .fine .stat3 b{font-size:1.6rem}
 }

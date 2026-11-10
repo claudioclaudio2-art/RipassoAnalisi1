@@ -23,4 +23,18 @@ for(const l of LEZIONI){ for(const [i,v] of l.voci.entries()){
   if(!v.titolo||!v.testo) console.log('MANCA',w);
   if(/\$/.test(v.titolo) && !/\\/.test(v.titolo) && /[a-z]{4,}/.test(v.titolo.replace(/\$[^$]*\$/g,''))===false) {}
   check(v.titolo,w+' [titolo]'); check(v.testo,w); check(v.dim,w+' [dim]'); }}
+// domande d'esame: appelli esistenti e collegamenti a voci esistenti
+const fEsami=path.join(dir,'..','esami','domande.js');
+if(fs.existsSync(fEsami)){
+  global.window={}; eval(fs.readFileSync(fEsami,'utf8')); const E=window.ESAMI;
+  const prove=new Set(E.prove.map(p=>p.id)); let nd=0;
+  for(const d of E.domande){ nd++; const w='ESAME '+d.q.slice(0,40);
+    if(!['def','teo','ex'].includes(d.tipo)) {console.log('TIPO?',w); err++;}
+    for(const c of d.chiesta){ const [id,tema,qs]=c.split(' ');
+      if(!prove.has(id)||!/^[A-D]$/.test(tema)||!/^(i|ii|iii)$/.test(qs)) {console.log('CHIESTA?',w,c); err++;} }
+    for(const [data,tit] of d.voci){ const l=LEZIONI.find(x=>x.data===data);
+      if(!l||!l.voci.some(v=>v.titolo===tit)) {console.log('VOCE NON TROVATA',w,'->',data,tit); err++;} }
+    check(d.q,w); }
+  console.log(nd,'domande d\'esame su',prove.size,'appelli');
+}
 console.log(files.length,'lezioni,',LEZIONI.reduce((a,l)=>a+l.voci.length,0),'voci,',n,'formule,',err,'errori');

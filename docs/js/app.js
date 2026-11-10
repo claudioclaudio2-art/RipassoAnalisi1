@@ -61,6 +61,23 @@ for (const l of LEZ) {
 }
 const PER_ID = new Map(VOCI.map(v => [v.id, v]));
 
+/* ---- Domande di teoria chieste agli esami (esami/domande.js) ---- */
+const ES = window.ESAMI || { prove: [], domande: [] };
+const PROVA = new Map(ES.prove.map(p => [p.id, p]));
+const fmtProva = id => { const d = parseData(id); return `${d.getDate()} ${MESI[d.getMonth()]} ${d.getFullYear()}`; };
+ES.domande.forEach(d => {
+  d.occ = d.chiesta.map(c => { const [id, tema, qs] = c.split(' '); return { id, tema, qs }; });
+  d.appelli = [...new Set(d.occ.map(o => o.id))].sort();
+  d.links = d.voci.map(([data, tit]) => VOCI.find(v => v.lez.data === data && v.titolo === tit)).filter(Boolean);
+  d.links.forEach(v => (v.esami = v.esami || []).push(d));
+});
+VOCI.forEach(v => {
+  if (!v.esami) return;
+  v.esDiretta = v.esami.some(d => d.tipo !== 'ex');
+  v.esEx = v.esami.some(d => d.tipo === 'ex');
+  v.nAppelli = new Set(v.esami.flatMap(d => d.appelli)).size;
+});
+
 /* ================= Progressi ================= */
 const SKEY = 'a1-progressi-v1';
 let P = {};
@@ -136,7 +153,7 @@ let toastT;
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2200); }
 
 /* ================= Pagina principale ================= */
-const filtri = { gruppi: new Set(), stati: new Set(), q: '' };
+const filtri = { gruppi: new Set(), stati: new Set(), esame: new Set(), q: '' };
 const NODI = new Map();
 
 function etichettaStato(v) {
@@ -152,6 +169,30 @@ function chipDim(v) {
   const lab = v.g === 'ex' ? 'Da dimostrare' : v.s === 'omessa' ? 'Dim. extra' : 'Con dimostrazione';
   return `<span class="dimchip${v.s === 'omessa' ? ' extra' : ''}" title="Dimostrazione ${DIFF_LAB[v.diff || 1]}">${lab} ${stelle(v.diff)}</span>`;
 }
+const ICO_ESAME = '<svg class="ico-es" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/></svg>';
+const appelliTxt = n => `${n} ${n === 1 ? 'appello' : 'appelli'}`;
+function chipEsame(v) {
+  if (!v.esami) return '';
+  if (v.esDiretta) return `<span class="eschip" title="Chiesta come domanda di teoria in ${appelliTxt(v.nAppelli)}">${ICO_ESAME}All’esame ×${v.nAppelli}</span>`;
+  return `<span class="eschip ex" title="Serve per un esercizio di teoria (quesito iii) in ${appelliTxt(v.nAppelli)}">${ICO_ESAME}Esercizio d’esame</span>`;
+}
+// "Appello del 20 gennaio 2025 · Temi A, C · quesito (i)"
+function occHTML(d) {
+  return d.appelli.map(id => {
+    const o = d.occ.filter(x => x.id === id), temi = o.map(x => x.tema).sort();
+    const qs = [...new Set(o.map(x => x.qs))].map(q => `(${q})`).join(', ');
+    const t = temi.length === 4 ? 'tutti i temi' : (temi.length === 1 ? 'Tema ' : 'Temi ') + temi.join(', ');
+    const p = PROVA.get(id) || {};
+    return `<li><b>Appello del ${fmtProva(id)}</b><span>${t} · quesito ${qs}</span><small>a.a. ${p.aa || ''}${p.fonte ? ' · ' + p.fonte : ''}</small></li>`;
+  }).join('');
+}
+const TIPO_DOM = { def: 'Definizione', teo: 'Enunciato', ex: 'Esercizio (iii)' };
+function boxEsami(v) {
+  if (!v.esami) return '';
+  return `<div class="esbox"><div class="esbox-h">${ICO_ESAME}Chiesta agli esami</div>` + v.esami.map(d =>
+    `<div class="esdom"><div class="esq"><span class="esk">${TIPO_DOM[d.tipo]}</span> ${md(d.q).replace(/^<p>|<\/p>$/g, '')}</div><ul class="esocc">${occHTML(d)}</ul></div>`).join('') + '</div>';
+}
+
 function etichettaDim(v) {
   if (v.g === 'ex') return 'Soluzione';
   if (v.s === 'omessa') return 'Dimostrazione (extra, non fatta a lezione)';
@@ -159,9 +200,9 @@ function etichettaDim(v) {
 }
 
 function costruisciVoce(v) {
-  const d = h('details', { class: 'voce', id: v.id, 'data-t': v.t === 'ex' ? 'ex' : v.t });
+  const d = h('details', { class: 'voce' + (v.esDiretta ? ' esame' : ''), id: v.id, 'data-t': v.t === 'ex' ? 'ex' : v.t });
   const s = h('summary');
-  s.innerHTML = `<span class="v-head"><span class="v-tags"><span class="tag">${TIPI[v.t].lab}</span>${chipDim(v)}</span><span class="v-tit">${titoloHTML(v)}</span></span>` +
+  s.innerHTML = `<span class="v-head"><span class="v-tags"><span class="tag">${TIPI[v.t].lab}</span>${chipDim(v)}${chipEsame(v)}</span><span class="v-tit">${titoloHTML(v)}</span></span>` +
     (VALUTABILI.has(v.g) ? `<span class="k-pill" data-k="${statoDi(v.id)}" title="${KLAB[statoDi(v.id)]}"></span>` : '<span></span>') + CHEV;
   d.appendChild(s);
   d.addEventListener('toggle', () => { if (d.open && !d.dataset.pronto) riempiVoce(v, d); });
@@ -176,6 +217,7 @@ function riempiVoce(v, d) {
   html += `<div class="testo">${md(v.testo)}</div>`;
   if (v.fig && window.FIGURE && FIGURE[v.fig]) html += `<div class="fig">${FIGURE[v.fig]}</div>`;
   if (v.dim) html += `<details class="dimbox" data-tipo="${v.g === 'ex' ? 'sol' : 'dim'}"><summary>${CHEV}${etichettaDim(v)}</summary><div class="testo">${md(v.dim)}</div></details>`;
+  html += boxEsami(v);
   if (VALUTABILI.has(v.g)) {
     html += `<div class="v-rate"><span>Come la sai?</span>` +
       K.slice(0, 3).map(x => `<button class="rate" data-k="${x.k}" aria-pressed="${statoDi(v.id) === x.k}"><i class="dot ${x.cls}"></i>${x.lab}</button>`).join('') +
@@ -272,11 +314,56 @@ function costruisciChipTipo() {
   const bd = h('button', { class: 'chip', 'aria-pressed': 'false', style: '--chip-c:var(--c-dim)' }, `Con dimostrazione<span class="n">${nd}</span>`);
   bd.addEventListener('click', () => { filtri.dim = !filtri.dim; bd.setAttribute('aria-pressed', filtri.dim); applicaFiltri(); });
   ct.appendChild(bd);
+
+  // filtro esami
+  const ce = $('#chips-esame');
+  const scelte = [
+    ['dir', 'Chieste all’esame', 'Definizioni e teoremi chiesti come domanda di teoria (quesiti i e ii)', v => v.esDiretta],
+    ['ex', 'Utili per esercizi d’esame', 'Voci che servono per un esercizio di teoria (quesito iii)', v => v.esEx],
+  ];
+  for (const [k, lab, tit, f] of scelte) {
+    const b = h('button', { class: 'chip', 'aria-pressed': 'false', style: '--chip-c:var(--c-esame)', title: tit }, `${k === 'dir' ? ICO_ESAME : ''}${lab}<span class="n">${VOCI.filter(f).length}</span>`);
+    b.addEventListener('click', () => { toggleSet(filtri.esame, k); b.setAttribute('aria-pressed', filtri.esame.has(k)); applicaFiltri(); });
+    ce.appendChild(b);
+  }
+  const bl = h('button', { class: 'chip chip-link', type: 'button' }, 'Elenco di tutte le domande →');
+  bl.addEventListener('click', () => { const p = $('#esami-panel'); p.open = true; p.scrollIntoView({ block: 'start' }); });
+  ce.appendChild(bl);
+}
+
+/* Pannello con tutte le domande d'esame, divise per tipo e ordinate per frequenza */
+function costruisciPannelloEsami() {
+  const p = $('#esami-panel');
+  if (!ES.domande.length) { p.remove(); $('#riga-esami').remove(); return; }
+  const fatte = ES.domande.filter(d => d.links.length).length;
+  const anni = [...new Set(ES.prove.map(x => x.aa))].join(' e ');
+  const gruppi = [['def', 'Definizioni (quesito i)'], ['teo', 'Teoremi da enunciare (quesito ii)'], ['ex', 'Esercizi di teoria (quesito iii)']];
+  let html = `<summary>${CHEV}<span class="ep-tit">${ICO_ESAME}Domande di teoria agli esami</span>
+    <span class="ep-sub">${ES.domande.length} domande da ${ES.prove.length} appelli (a.a. ${anni}) · ${fatte} già fatte a lezione</span></summary>
+    <div class="ep-body"><p class="ep-nota">Ogni appello ha 4 temi (A–D), ciascuno con tre quesiti di teoria: (i) una definizione, (ii) un teorema da enunciare, (iii) un esercizio. Il numero a sinistra dice in quanti appelli su ${ES.prove.length} è uscita la domanda. Le domande senza collegamento riguardano argomenti non ancora fatti a lezione.</p>`;
+  for (const [t, lab] of gruppi) {
+    const ds = ES.domande.filter(d => d.tipo === t).sort((a, b) => b.appelli.length - a.appelli.length || b.links.length - a.links.length);
+    if (!ds.length) continue;
+    html += `<h3>${lab}</h3><ol class="ep-lista">` + ds.map(d => {
+      const link = d.links.length
+        ? d.links.map(v => `<a href="#${v.id}" class="ep-voce">Lezione ${v.lez.n} · ${titoloHTML(v)}</a>`).join('')
+        : `<span class="ep-manca">${esc(d.nota || 'Non ancora fatta a lezione.')}</span>`;
+      return `<li class="${d.links.length ? '' : 'non-fatta'}"><span class="ep-n" title="Uscita in ${appelliTxt(d.appelli.length)} su ${ES.prove.length}">${d.appelli.length}</span>
+        <div class="ep-dom"><div class="esq">${md(d.q).replace(/^<p>|<\/p>$/g, '')}</div><ul class="esocc">${occHTML(d)}</ul><div class="ep-links">${link}</div></div></li>`;
+    }).join('') + '</ol>';
+  }
+  p.innerHTML = html + '</div>';
+  p.addEventListener('click', e => {
+    const a = e.target.closest('a.ep-voce'); if (!a) return;
+    // se la voce è nascosta dai filtri, la mostriamo comunque
+    if (location.hash === a.getAttribute('href')) { e.preventDefault(); vaiAHash(); }
+  });
 }
 
 function passaFiltri(v) {
   if (filtri.gruppi.size && !filtri.gruppi.has(v.g)) return false;
   if (filtri.dim && !(v.dim && v.s === 'dim' && v.g !== 'ex')) return false;
+  if (filtri.esame.size && !((filtri.esame.has('dir') && v.esDiretta) || (filtri.esame.has('ex') && v.esEx))) return false;
   if (filtri.stati.size) {
     if (!VALUTABILI.has(v.g)) return false;
     const k = String(statoDi(v.id));
@@ -299,20 +386,20 @@ function applicaFiltri() {
     $('#' + l.id).hidden = !vis;
   }
   qPrec = filtri.q;
-  const attivi = filtri.gruppi.size || filtri.stati.size || filtri.q || filtri.dim;
+  const attivi = filtri.gruppi.size || filtri.stati.size || filtri.esame.size || filtri.q || filtri.dim;
   $('#n-risultati').textContent = attivi ? `${n} ${n === 1 ? 'voce' : 'voci'}` : `${VOCI.length} voci`;
   $('#vuoto').hidden = n > 0;
 }
 
 /* ================= Ripasso ================= */
 const R = { opz: null, carte: [], i: 0, risposte: new Map(), prima: new Map(), mostrata: false };
-const OPZ_DEF = () => ({ modo: 'consigliato', lezioni: LEZ.map(l => l.data), gruppi: ['def', 'teo', 'ex'], stati: ['0', '1', '-1'], quante: 20, ordine: 'priorita', dim: true });
+const OPZ_DEF = () => ({ modo: 'consigliato', lezioni: LEZ.map(l => l.data), gruppi: ['def', 'teo', 'ex'], stati: ['0', '1', '-1'], quante: 20, ordine: 'priorita', dim: true, soloEsame: false });
 let opzSalvate = null;
 try { opzSalvate = JSON.parse(localStorage.getItem('a1-opz') || 'null'); } catch (e) {}
 
 function candidati(o) {
   const lez = new Set(o.lezioni), gr = new Set(o.gruppi), st = new Set(o.stati);
-  return VOCI.filter(v => VALUTABILI.has(v.g) && lez.has(v.lez.data) && gr.has(v.g) &&
+  return VOCI.filter(v => VALUTABILI.has(v.g) && lez.has(v.lez.data) && gr.has(v.g) && (!o.soloEsame || v.esami) &&
     (o.modo === 'consigliato' ? daRipassare(v.id) : st.has(String(statoDi(v.id)))));
 }
 function priorita(v) { const k = statoDi(v.id); return k === 0 ? 0 : k === 1 ? 1 : k === -1 ? 2 : 3; }
@@ -359,7 +446,8 @@ function mostraSetup() {
     <div class="box"><h3>Opzioni</h3>
       <div class="opt-row" style="margin-bottom:12px"><span>Quante</span>${seg('quante', [[10, '10'], [20, '20'], [40, '40'], ['tutte', 'Tutte']], o.quante)}</div>
       <div class="opt-row" style="margin-bottom:12px"><span>Ordine</span>${seg('ordine', [['priorita', 'Prima le più deboli'], ['casuale', 'Casuale'], ['cronologico', 'Cronologico']], o.ordine)}</div>
-      <div class="opt-row"><label class="toggle"><input type="checkbox" id="opt-dim" ${o.dim ? 'checked' : ''}> Apri subito anche la dimostrazione nella risposta</label></div>
+      <div class="opt-row" style="margin-bottom:8px"><label class="toggle"><input type="checkbox" id="opt-dim" ${o.dim ? 'checked' : ''}> Apri subito anche la dimostrazione nella risposta</label></div>
+      ${ES.domande.length ? `<div class="opt-row"><label class="toggle"><input type="checkbox" id="opt-esame" ${o.soloEsame ? 'checked' : ''}> Solo voci chieste agli esami (o utili per gli esercizi d’esame)</label></div>` : ''}
     </div>
     <div class="start-row"><span class="tot"><b id="n-carte">0</b> voci selezionate</span>
       <button class="btn btn-primary btn-lg" id="btn-avvia"><svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg>Inizia</button></div>
@@ -374,6 +462,7 @@ function mostraSetup() {
     o.gruppi = [...ckG.querySelectorAll('input:checked')].map(i => i.value);
     o.lezioni = [...ckL.querySelectorAll('input:checked')].map(i => i.value);
     o.dim = $('#opt-dim').checked;
+    o.soloEsame = !!($('#opt-esame') && $('#opt-esame').checked);
     ckS.hidden = o.modo !== 'scelgo';
     $('#spiega-modo').textContent = o.modo === 'consigliato'
       ? 'Le voci che non sai, che sai male o che non hai mai valutato, più quelle che sapevi ma che è ora di rivedere (dopo 1, 2, 4, 7, 15 giorni).'
@@ -421,7 +510,7 @@ function mostraCarta() {
   $('#rip-body').innerHTML = `
     <article class="carta" style="--c:${col}">
       <div class="c-meta"><span class="tag" style="--c:${col};--cb:color-mix(in srgb,${col} 14%,var(--card))">${TIPI[v.t].lab}</span>
-        ${chipDim(v)}<span>Lezione del ${fmtData(v.lez.data, true)}</span>
+        ${chipDim(v)}${chipEsame(v)}<span>Lezione del ${fmtData(v.lez.data, true)}</span>
         <span class="prima"><i class="dot ${K.find(x => x.k === k).cls}"></i> ${KLAB[k]}</span></div>
       <h2>${titoloHTML(v)}</h2>
       <div class="consegna">${consegna(v)}</div>
@@ -439,7 +528,7 @@ function rivela() {
   let html = `<div class="risposta"><div class="lab">${v.g === 'def' ? 'Definizione' : v.g === 'ex' ? 'Testo' : 'Enunciato'}</div><div class="testo">${md(v.testo)}</div>`;
   if (v.fig && FIGURE[v.fig]) html += `<div class="fig">${FIGURE[v.fig]}</div>`;
   if (v.dim) html += `<details class="dimbox" data-tipo="${v.g === 'ex' ? 'sol' : 'dim'}" ${R.opz.dim ? 'open' : ''}><summary>${CHEV}${etichettaDim(v)}</summary><div class="testo">${md(v.dim)}</div></details>`;
-  html += '</div>';
+  html += boxEsami(v) + '</div>';
   $('#risp').innerHTML = html;
   $('#azioni').innerHTML = K.slice(0, 3).map((x, i) => `<button class="voto" data-k="${x.k}">${x.lab}<kbd>${i + 1}</kbd></button>`).join('');
   $('#azioni').querySelectorAll('.voto').forEach(b => b.onclick = () => vota(+b.dataset.k));
@@ -544,6 +633,7 @@ function osservaLezioni() {
 function init() {
   costruisciPagina();
   costruisciChipTipo();
+  costruisciPannelloEsami();
   aggiornaConteggi();
   applicaFiltri();
   osservaLezioni();
