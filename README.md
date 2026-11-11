@@ -27,3 +27,8 @@ Pubblicato con GitHub Pages dalla cartella `docs/`.
 - `s`: `dim` (dimostrato a lezione), `omessa` (solo enunciato; `dim` diventa extra), `casa` (per esercizio).
 - `diff`: difficoltà della dimostrazione da 1 a 3 stelline (obbligatoria se c'è `dim`).
 - Formule tra `$...$` o `$$...$$`; liste con `- ` o `1. `; grassetto con `**...**`.
+
+## Convenzioni sui contenuti
+
+- Se il prof finisce un argomento (es. una dimostrazione) nella lezione successiva, tutto va nella **prima** delle due lezioni, in un'unica voce, indicando tra parentesi la data in cui è stata completata.
+- Quando sito e appunti differiscono valgono gli appunti; aggiunte non presenti negli appunti vanno dichiarate come tali.

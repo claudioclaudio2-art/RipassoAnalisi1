@@ -1799,11 +1799,14 @@ $$S_k = \sum_{n=1}^k\frac1{n(n+1)} = \sum_{n=1}^k\left(\frac1n-\frac1{n+1}\right
 (somma **telescopica**: i termini intermedi si cancellano a due a due), e quindi
 $$\sum_{n=1}^{+\infty}\frac1{n(n+1)} = \lim_{k\to+\infty}\left(1-\frac1{k+1}\right) = 1.$$` },
 
-{ t: "teo", s: "dim", diff: 2, titolo: R`Serie armonica generalizzata`, testo: R`
-Dato $\alpha\in(0,+\infty)$ vale
-$$\sum_{n=1}^{+\infty}\frac1{n^\alpha}\ \begin{cases}\text{converge} & \alpha>1\\ \text{diverge a }+\infty & \alpha\in(0,1].\end{cases}$$
+{ t: "teo", s: "dim", diff: 3, titolo: R`Serie armonica generalizzata`, testo: R`
+Dato $\alpha\in\mathbb R$ vale
+$$\sum_{n=1}^{+\infty}\frac1{n^\alpha}\ \begin{cases}\text{converge} & \alpha>1\\ \text{diverge a }+\infty & \alpha\le1.\end{cases}$$
+(Il prof enuncia il teorema per $\alpha\in(0,+\infty)$ e tratta $\alpha\le0$ con un'osservazione; il caso $\alpha>1$ è dimostrato nella lezione del 10/11, qui riunito.)
 Per $\alpha = 1$ è la **serie armonica** $\sum\frac1n$.`, dim: R`
 Per casi.
+
+**$\alpha\le0$.** Si ha $\frac1{n^\alpha} = n^{-\alpha}\ge1$ per ogni $n\in\mathbb N$, quindi $S_k\ge k\to+\infty$ e la serie diverge a $+\infty$ (anche per la condizione necessaria: il termine generale non tende a $0$).
 
 **$\alpha\in(0,1)$.** Allora
 $$S_k = 1+\frac1{2^\alpha}+\frac1{3^\alpha}+\dots+\frac1{k^\alpha}\ge\underbrace{\frac1{k^\alpha}+\dots+\frac1{k^\alpha}}_{k\text{ volte}} = \frac k{k^\alpha} = k^{1-\alpha}\xrightarrow[k\to+\infty]{}+\infty,$$
@@ -1817,17 +1820,7 @@ Vogliamo dimostrare che $S = +\infty$. Supponiamo per assurdo che $S\in\mathbb R
 $$S_{2k}-S_k = \sum_{n=k+1}^{2k}\frac1n = \frac1{k+1}+\frac1{k+2}+\dots+\frac1{2k}\ge\underbrace{\frac1{2k}+\dots+\frac1{2k}}_{k\text{ volte}} = k\cdot\frac1{2k} = \frac12.$$
 Quindi $S_{2k}-S_k\ge\frac12$ per ogni $k\in\mathbb N$. Passo al limite per $k\to+\infty$ (anche $S_{2k}\to S$, è un'estratta) e trovo $S-S\ge\frac12$, cioè $0\ge\frac12$, che è assurdo. Dunque deve essere $S = +\infty$.
 
-**$\alpha>1$:** dimostrato nella lezione successiva (10/11). $\blacksquare$` },
-
-]});
-
-/* ---- 2026-11-10.js ---- */
-L({ data: "2026-11-10", n: 26, titolo: "Serie armonica (α>1), condizione necessaria, confronto, convergenza assoluta", voci: [
-
-{ t: "teo", s: "dim", diff: 3, titolo: R`Serie armonica generalizzata: il caso $\alpha>1$`, testo: R`
-(Continua la dimostrazione della lezione del 9/11.) Per $\alpha>1$:
-$$\sum_{n=1}^{+\infty}\frac1{n^\alpha}\ \text{converge},\qquad\text{e anzi}\qquad\sum_{n=1}^{+\infty}\frac1{n^\alpha}\le\frac1{1-2^{1-\alpha}}.$$`, dim: R`
-Come prima, $S_k = \sum_{n=1}^k\frac1{n^\alpha}$ è crescente ($S_{k+1} = S_k+\frac1{(k+1)^\alpha}\ge S_k$ per ogni $k\in\mathbb N$). Quindi di nuovo
+**$\alpha>1$** (lezione del 10/11). Come per $\alpha = 1$, $S_k = \sum_{n=1}^k\frac1{n^\alpha}$ è crescente ($S_{k+1} = S_k+\frac1{(k+1)^\alpha}\ge S_k$ per ogni $k\in\mathbb N$). Quindi di nuovo
 $$\lim_{k\to+\infty}S_k = \sup_{k\in\mathbb N}S_k =: S\in\mathbb R\cup\lbrace+\infty\rbrace.$$
 Vogliamo dimostrare che $S\neq+\infty$, cioè $S\in\mathbb R$.
 
@@ -1841,16 +1834,16 @@ Siccome $\alpha>1$, si ha $1-\alpha<0$ e quindi $2^{1-\alpha}<1$: il fattore $1-
 $$0<S_{2k+1}\le\frac1{1-2^{1-\alpha}}\qquad\forall k\in\mathbb N.$$
 Passando al limite per $k\to+\infty$ ($S_{2k+1}$ è un'estratta di $S_k$, quindi tende a $S$):
 $$S\le\frac1{1-2^{1-\alpha}},$$
-e quindi $S\in\mathbb R$. $\blacksquare$` },
+e quindi $S\in\mathbb R$: la serie converge, e anzi $\displaystyle\sum_{n=1}^{+\infty}\frac1{n^\alpha}\le\frac1{1-2^{1-\alpha}}$. $\blacksquare$` },
 
 { t: "oss", titolo: R`Curiosità: il problema di Basilea`, testo: R`
 Per $\alpha = 2$ si può dire di più (Eulero, 1735):
 $$\sum_{n=1}^{+\infty}\frac1{n^2} = \frac{\pi^2}6.$$` },
 
-{ t: "oss", titolo: R`Serie armonica generalizzata con $\alpha\le0$`, testo: R`
-Per $\alpha\le0$ si ha $\frac1{n^\alpha} = n^{-\alpha}\ge1$ per ogni $n\in\mathbb N$, quindi $S_k\ge k$ e
-$$\sum_{n=1}^{+\infty}\frac1{n^\alpha} = +\infty.$$
-Riassumendo: $\sum\frac1{n^\alpha}$ converge $\iff\alpha>1$, altrimenti diverge a $+\infty$.` },
+]});
+
+/* ---- 2026-11-10.js ---- */
+L({ data: "2026-11-10", n: 26, titolo: "Code, condizione necessaria, confronto, convergenza assoluta", voci: [
 
 { t: "oss", titolo: R`Dalle somme parziali al termine generale`, testo: R`
 Data $(a_n)_{n\in\mathbb N}$ abbiamo costruito $(S_k)_{k\in\mathbb N}$ ponendo $S_k = \sum_{n=1}^ka_n$. Viceversa, data $(S_k)_{k\in\mathbb N}$ possiamo ricavare $(a_n)_{n\in\mathbb N}$ calcolando

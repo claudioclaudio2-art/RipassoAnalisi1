@@ -1,32 +1,4 @@
-L({ data: "2026-11-10", n: 26, titolo: "Serie armonica (α>1), condizione necessaria, confronto, convergenza assoluta", voci: [
-
-{ t: "teo", s: "dim", diff: 3, titolo: R`Serie armonica generalizzata: il caso $\alpha>1$`, testo: R`
-(Continua la dimostrazione della lezione del 9/11.) Per $\alpha>1$:
-$$\sum_{n=1}^{+\infty}\frac1{n^\alpha}\ \text{converge},\qquad\text{e anzi}\qquad\sum_{n=1}^{+\infty}\frac1{n^\alpha}\le\frac1{1-2^{1-\alpha}}.$$`, dim: R`
-Come prima, $S_k = \sum_{n=1}^k\frac1{n^\alpha}$ è crescente ($S_{k+1} = S_k+\frac1{(k+1)^\alpha}\ge S_k$ per ogni $k\in\mathbb N$). Quindi di nuovo
-$$\lim_{k\to+\infty}S_k = \sup_{k\in\mathbb N}S_k =: S\in\mathbb R\cup\lbrace+\infty\rbrace.$$
-Vogliamo dimostrare che $S\neq+\infty$, cioè $S\in\mathbb R$.
-
-Osserviamo che in $S_{2k+1}$, tolto il primo termine $1$, restano $2k$ termini, che raggruppo in $k$ coppie (un pari $2n$ e il dispari successivo $2n+1$):
-$$S_{2k+1} = 1+\sum_{n=1}^k\left(\frac1{(2n)^\alpha}+\frac1{(2n+1)^\alpha}\right)\le1+\sum_{n=1}^k\frac2{(2n)^\alpha} = 1+\frac2{2^\alpha}\sum_{n=1}^k\frac1{n^\alpha} = 1+2^{1-\alpha}S_k,$$
-dove ho usato $\frac1{(2n+1)^\alpha}\le\frac1{(2n)^\alpha}$. Per monotonia $S_k\le S_{2k+1}$, quindi
-$$S_{2k+1}\le1+2^{1-\alpha}S_{2k+1}\qquad\forall k\in\mathbb N,$$
-cioè
-$$S_{2k+1}\left(1-2^{1-\alpha}\right)\le1\qquad\forall k\in\mathbb N.$$
-Siccome $\alpha>1$, si ha $1-\alpha<0$ e quindi $2^{1-\alpha}<1$: il fattore $1-2^{1-\alpha}$ è **positivo**. Dunque
-$$0<S_{2k+1}\le\frac1{1-2^{1-\alpha}}\qquad\forall k\in\mathbb N.$$
-Passando al limite per $k\to+\infty$ ($S_{2k+1}$ è un'estratta di $S_k$, quindi tende a $S$):
-$$S\le\frac1{1-2^{1-\alpha}},$$
-e quindi $S\in\mathbb R$. $\blacksquare$` },
-
-{ t: "oss", titolo: R`Curiosità: il problema di Basilea`, testo: R`
-Per $\alpha = 2$ si può dire di più (Eulero, 1735):
-$$\sum_{n=1}^{+\infty}\frac1{n^2} = \frac{\pi^2}6.$$` },
-
-{ t: "oss", titolo: R`Serie armonica generalizzata con $\alpha\le0$`, testo: R`
-Per $\alpha\le0$ si ha $\frac1{n^\alpha} = n^{-\alpha}\ge1$ per ogni $n\in\mathbb N$, quindi $S_k\ge k$ e
-$$\sum_{n=1}^{+\infty}\frac1{n^\alpha} = +\infty.$$
-Riassumendo: $\sum\frac1{n^\alpha}$ converge $\iff\alpha>1$, altrimenti diverge a $+\infty$.` },
+L({ data: "2026-11-10", n: 26, titolo: "Code, condizione necessaria, confronto, convergenza assoluta", voci: [
 
 { t: "oss", titolo: R`Dalle somme parziali al termine generale`, testo: R`
 Data $(a_n)_{n\in\mathbb N}$ abbiamo costruito $(S_k)_{k\in\mathbb N}$ ponendo $S_k = \sum_{n=1}^ka_n$. Viceversa, data $(S_k)_{k\in\mathbb N}$ possiamo ricavare $(a_n)_{n\in\mathbb N}$ calcolando
