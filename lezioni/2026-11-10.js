@@ -83,8 +83,10 @@ $$\sum_{n=1}^{+\infty}|a_n|$$
 { t: "teo", s: "dim", diff: 2, titolo: R`Convergenza assoluta ⇒ convergenza semplice`, testo: R`
 Se $\sum_{n=1}^{+\infty}a_n$ è assolutamente convergente, allora la serie $\sum_{n=1}^{+\infty}a_n$ è convergente (o semplicemente convergente), cioè
 $$\sum_{n=1}^{+\infty}|a_n|\ \text{converge}\ \Longrightarrow\ \sum_{n=1}^{+\infty}a_n\ \text{converge}.$$
-Inoltre in tal caso
-$$\left|\sum_{n=1}^{+\infty}a_n\right|\le\sum_{n=1}^{+\infty}|a_n|.$$`, dim: R`
+Inoltre in tal caso (proposizione dimostrata il 12/11)
+$$\left|\sum_{n=1}^{+\infty}a_n\right|\le\sum_{n=1}^{+\infty}|a_n|.$$
+
+**Il viceversa NON vale** (controesempio qui sotto, del 12/11).`, dim: R`
 Prendo $b_n = a_n+|a_n|$ per ogni $n\in\mathbb N$. Osservo che:
 - $b_n\ge0$ per ogni $n$ (perché $a_n\ge-|a_n|$);
 - $b_n\le2|a_n|$ per ogni $n$ (perché $a_n\le|a_n|$),
@@ -95,6 +97,37 @@ Ma $a_n = b_n-|a_n|$, e quindi
 $$S_k = \sum_{n=1}^ka_n = \sum_{n=1}^kb_n-\sum_{n=1}^k|a_n|\xrightarrow[k\to+\infty]{}\sum_{n=1}^{+\infty}b_n-\sum_{n=1}^{+\infty}|a_n|\in\mathbb R$$
 (linearità: entrambe convergono), da cui segue che $\sum_{n=1}^{+\infty}a_n$ è convergente.
 
-Per la disuguaglianza: $\left|\sum_{n=1}^ka_n\right|\le\sum_{n=1}^k|a_n|$ (disuguaglianza triangolare) e si passa al limite per $k\to+\infty$. $\blacksquare$` },
+**Disuguaglianza** (lezione del 12/11). Siano
+$$S_k = \sum_{n=1}^ka_n,\qquad T_k = \sum_{n=1}^k|a_n|\qquad\forall k\in\mathbb N.$$
+Allora $S_k\to\sum_{n=1}^{+\infty}a_n$ per il teorema appena visto, mentre $T_k\to\sum_{n=1}^{+\infty}|a_n|$. Abbiamo inoltre che
+$$|S_k| = \left|\sum_{n=1}^ka_n\right|\le\sum_{n=1}^k|a_n| = T_k\qquad\forall k\in\mathbb N,$$
+dimostrata per induzione su $k$ (il passo usa la disuguaglianza triangolare: $|S_{k+1}| = |S_k+a_{k+1}|\le|S_k|+|a_{k+1}|\le T_k+|a_{k+1}| = T_{k+1}$). La tesi segue passando al limite per $k\to+\infty$ (anche $|S_k|\to\left|\sum a_n\right|$). $\blacksquare$` },
+
+{ t: "es", titolo: R`Controesempio: $\sum\frac{(-1)^{n+1}}n$ converge ma non assolutamente`, testo: R`
+(Lezione del 12/11.) Sia $a_n = \dfrac{(-1)^{n+1}}n$ per ogni $n\in\mathbb N$.
+
+**Non converge assolutamente:** $\sum_{n=1}^{+\infty}|a_n| = \sum_{n=1}^{+\infty}\frac1n = +\infty$ per il caso $\alpha = 1$ della serie armonica.
+
+**Converge semplicemente.** Infatti
+$$S_{2k} = 1-\frac12+\frac13-\frac14+\dots+\frac1{2k-1}-\frac1{2k} = \sum_{n=1}^k\left(\frac1{2n-1}-\frac1{2n}\right) = \sum_{n=1}^k\frac1{(2n-1)\cdot2n}$$
+(raggruppando le $k$ coppie). Osservo che
+$$\frac1{(2n-1)\cdot2n}\le\frac1{n^2}\iff n^2\le4n^2-2n\iff2n\le3n^2\iff\frac23\le n,$$
+vero per ogni $n\in\mathbb N$. Quindi per confronto $0\le\sum_{n=1}^k\frac1{(2n-1)2n}$ converge per $k\to+\infty$ (caso $\alpha = 2$), cioè
+$$\exists\lim_{k\to+\infty}S_{2k} = \sum_{n=1}^{+\infty}\frac1{(2n-1)\cdot2n} =: S\in\mathbb R.$$
+D'altra parte $S_{2k+1} = S_{2k}+\frac1{2k+1}$ e $\frac1{2k+1}\to0$, quindi anche $\exists\lim_{k\to+\infty}S_{2k+1} = S$.
+
+Ma allora (esercizio qui sotto) $(S_k)_{k\in\mathbb N}$ è convergente a $S$.
+
+**Morale:** la convergenza assoluta implica quella semplice, ma dove non c'è convergenza assoluta va comunque studiata la convergenza semplice.` },
+
+{ t: "es", s: "casa", diff: 1, titolo: R`Estratte pari e dispari con lo stesso limite`, testo: R`
+(Lezione del 12/11.) Dimostrare che se $(a_{2k})_{k\in\mathbb N}$ converge a $\ell\in\mathbb R$ e $(a_{2k+1})_{k\in\mathbb N}$ converge a $\ell$, allora $(a_n)_{n\in\mathbb N}$ converge a $\ell$.
+
+Suggerimento: fare per assurdo.`, dim: R`
+(Dimostrazione diretta, equivalente.) Fisso $\varepsilon>0$. Esistono $K_1,K_2\in\mathbb N$ tali che
+$$|a_{2k}-\ell|<\varepsilon\ \ \forall k\ge K_1,\qquad|a_{2k+1}-\ell|<\varepsilon\ \ \forall k\ge K_2.$$
+Sia $N = 2\max\lbrace K_1,K_2\rbrace$. Ogni $n\ge N$ è pari, $n = 2k$ con $k\ge K_1$, oppure dispari, $n = 2k+1$ con $k\ge K_2$; in entrambi i casi $|a_n-\ell|<\varepsilon$. Quindi $a_n\to\ell$.
+
+**Per assurdo:** se $a_n\not\to\ell$, esiste $\varepsilon>0$ tale che $|a_n-\ell|\ge\varepsilon$ per infiniti $n$; infiniti di questi sono pari o infiniti sono dispari, e allora l'estratta corrispondente non tende a $\ell$, assurdo. $\blacksquare$` },
 
 ]});
