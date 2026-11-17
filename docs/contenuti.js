@@ -2075,6 +2075,272 @@ $$\sum_{n=0}^{+\infty}\frac{x^n}{n!} = e^x\quad\forall x\in\mathbb R,\qquad\text
 
 ]});
 
+/* ---- 2026-11-16.js ---- */
+L({ data: "2026-11-16", n: 29, titolo: "Criteri della radice, condensazione di Cauchy, serie a segno alterno e Leibniz", voci: [
+
+{ t: "teo", s: "omessa", titolo: R`Criterio della radice`, testo: R`
+Sia $(a_n)_{n\in\mathbb N}$ **definitivamente $\ge0$**. Allora:
+1. $\exists r\in[0,1)$ tale che $\sqrt[n]{a_n}\le r$ definitivamente $\ \Longrightarrow\ \displaystyle\sum_{n=1}^{+\infty}a_n$ è convergente;
+2. $\exists r\in[1,+\infty)$ tale che $\sqrt[n]{a_n}\ge r$ definitivamente $\ \Longrightarrow\ \displaystyle\sum_{n=1}^{+\infty}a_n$ è divergente a $+\infty$.
+
+**Dim.** Omessa, ma vedere fogli settimanali.
+
+(**Idea:** $\sqrt[n]{a_n}\le r\ \ \forall n\ge N\iff a_n\le r^n\ \ \forall n\ge N$, e quindi si confronta con la serie geometrica.)` },
+
+{ t: "teo", s: "omessa", titolo: R`Criterio della radice asintotico`, testo: R`
+Sia $(a_n)_{n\in\mathbb N}$ definitivamente $\ge0$. Se
+$$\exists\lim_{n\to+\infty}\sqrt[n]{a_n} = \ell\in[0,+\infty)\cup\lbrace+\infty\rbrace,$$
+allora:
+1. $\ell<1\ \Longrightarrow\ \sum_{n=1}^{+\infty}a_n$ converge;
+2. $\ell>1\ \Longrightarrow\ \sum_{n=1}^{+\infty}a_n$ diverge a $+\infty$;
+3. $\ell = 1\ \Longrightarrow\ $ **NON si può dire nulla!**
+
+**Dim.** Omessa, ma l'idea è la stessa del rapporto asintotico, ovvero:
+$$\lim_{n\to+\infty}\sqrt[n]{a_n} = \ell<1\ \Longrightarrow\ \sqrt[n]{a_n}\le r\quad\forall n\ge N,\ \text{con } r\in(\ell,1)$$
+$$\Longrightarrow\ a_n\le r^n\quad\forall n\ge N\ \text{con } r\in(0,1),$$
+e quindi concludo (1) per confronto con la serie geometrica.` },
+
+{ t: "es", titolo: R`Radice asintotica: $\frac1{n^\alpha}$ e $\frac n{2^n}$`, testo: R`
+- $a_n = \dfrac1{n^\alpha}$ con $\alpha\in\mathbb R$:
+$$\lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to+\infty}\left(\frac1{\sqrt[n]n}\right)^\alpha = \lim_{n\to+\infty}1^\alpha = 1,$$
+dato che $\lim_{n\to+\infty}\sqrt[n]n = \lim_{n\to+\infty}e^{\frac{\log(n)}n} = e^0 = 1$ (gerarchie). Quindi il criterio è **inconcludente** (in particolare, per $\ell = 1$ può succedere sia che converge che diverge a $+\infty$!).
+- $a_n = \dfrac n{2^n}$ $\forall n\in\mathbb N$:
+$$\lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to+\infty}\frac{\sqrt[n]n}2 = \frac12<1\ \Longrightarrow\ \sum_{n=1}^{+\infty}\frac n{2^n}\ \text{converge}.$$
+Osservo che
+$$\lim_{n\to+\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to+\infty}\underbrace{\frac{n+1}n}_{\to1}\cdot\frac{2^n}{2^{n+1}} = \frac12<1,$$
+e quindi potevo applicare anche il rapporto asintotico.` },
+
+{ t: "att", titolo: R`Rapporto asintotico ⇒ radice asintotica, ma non viceversa`, testo: R`
+Si può dimostrare che, data $(a_n)_{n\in\mathbb N}$ definitivamente $>0$, vale
+$$\exists\lim_{n\to+\infty}\frac{a_{n+1}}{a_n} = \ell\in[0,+\infty)\cup\lbrace+\infty\rbrace\ \Longrightarrow\ \exists\lim_{n\to+\infty}\sqrt[n]{a_n} = \ell,$$
+ma **non** vale $\Longleftarrow$.
+
+Quindi: se il rapporto asintotico dà $\boxed{\ell = 1}$ e quindi è inutile, allora anche la radice asintotica sarà inutile! **Il viceversa NON è vero!**
+
+Ad esempio, sia $0<a_n = 2^{n+(-1)^n}$ $\forall n\in\mathbb N$. Abbiamo
+$$\lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to+\infty}2^{1+\frac{(-1)^n}n} = 2\lim_{n\to+\infty}2^{\frac{(-1)^n}n} = 2\cdot2^0 = 2$$
+(perché $\frac{(-1)^n}n\to0$), e pertanto $\sum_{n=1}^{+\infty}a_n = +\infty$ per la radice asintotica. Tuttavia
+$$\lim_{n\to+\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to+\infty}\frac{2^{(n+1)+(-1)^{n+1}}}{2^{n+(-1)^n}} = \lim_{n\to+\infty}2^{1+(-1)^{n+1}-(-1)^n} = 2\lim_{n\to+\infty}2^{(-1)^{n+1}-(-1)^n}\quad\text{NON esiste!}$$
+perché
+$$2^{(-1)^{n+1}-(-1)^n} = \begin{cases}2^{(-1)-(1)} = \frac14 & \text{se } n \text{ è pari}\\ 2^{(1)-(-1)} = 4 & \text{se } n \text{ è dispari.}\end{cases}$$` },
+
+{ t: "teo", s: "omessa", titolo: R`Criterio di condensazione di Cauchy`, testo: R`
+Sia $(a_n)_{n\in\mathbb N}$ tale che:
+- $a_n\ge0$ definitivamente;
+- $a_{n+1}\le a_n$ definitivamente (decrescente definitivamente).
+
+Allora le serie
+$$\sum_{n=1}^{+\infty}a_n\qquad\text{e}\qquad\sum_{n=1}^{+\infty}2^n\cdot a_{2^n}$$
+hanno lo stesso carattere e vale
+$$\frac12\sum_{n=1}^{+\infty}2^na_{2^n}\le\sum_{n=1}^{+\infty}a_n\le\sum_{n=1}^{+\infty}2^n\cdot a_{2^n}.$$
+
+**Dim.** Omessa (ma è un confronto).
+
+(Nota, non negli appunti: la stima a destra è esatta se la seconda somma parte da $n = 0$, cioè include il termine $2^0a_1 = a_1$; per il carattere delle serie non cambia nulla.)` },
+
+{ t: "es", titolo: R`Serie armonica generalizzata con la condensazione`, testo: R`
+Sia $a_n = \dfrac1{n^\alpha}$ $\forall n\in\mathbb N$ con $\alpha\in(0,+\infty)$. Osserviamo che
+- $a_n = \frac1{n^\alpha}>0$ $\forall n\in\mathbb N$;
+- $a_{n+1} = \frac1{(n+1)^\alpha}<\frac1{n^\alpha} = a_n$ $\forall n\in\mathbb N$.
+
+Quindi per condensazione trovo che
+$$\sum_{n=1}^{+\infty}\frac1{n^\alpha}\qquad\text{e}\qquad\sum_{n=1}^{+\infty}2^n\cdot\frac1{(2^n)^\alpha}$$
+hanno lo stesso carattere. Ma
+$$\sum_{n=1}^{+\infty}2^n\cdot\frac1{(2^n)^\alpha} = \sum_{n=1}^{+\infty}\left(\frac2{2^\alpha}\right)^n = \sum_{n=1}^{+\infty}\left(2^{1-\alpha}\right)^n$$
+converge se e solo se $2^{1-\alpha}<1$, cioè $\alpha>1$. Inoltre ricaviamo
+$$\frac12\sum_{n=1}^{+\infty}\left(2^{1-\alpha}\right)^n\le\sum_{n=1}^{+\infty}\frac1{n^\alpha}\le\sum_{n=1}^{+\infty}\left(2^{1-\alpha}\right)^n = \frac1{1-2^{1-\alpha}}-1.$$
+
+Notare anche che
+- $\displaystyle\lim_{n\to+\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to+\infty}\left(\frac n{n+1}\right)^\alpha = 1^\alpha = 1$: il **rapporto asintotico FALLISCE**;
+- $\displaystyle\lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to+\infty}\frac1{(\sqrt[n]n)^\alpha} = \frac1{1^\alpha} = 1$: la **radice asintotica FALLISCE**.` },
+
+{ t: "es", titolo: R`$\sum\frac{(\log n)^\beta}{n^\alpha}$`, testo: R`
+Sia $a_n = \dfrac{(\log(n))^\beta}{n^\alpha}>0$ $\forall n\ge2$, con $\alpha,\beta\in\mathbb R$. Osservo che:
+- $\displaystyle\lim_{n\to+\infty}\sqrt[n]{a_n} = \lim_{n\to+\infty}\frac{\left(\sqrt[n]{\log(n)}\right)^\beta}{(\sqrt[n]n)^\alpha} = \frac{1^\beta}{1^\alpha} = 1$, dato che
+$$\sqrt[n]{\log(n)} = e^{\log\left(\sqrt[n]{\log(n)}\right)} = e^{\frac{\log(\log(n))}n}\xrightarrow[n\to+\infty]{}e^0 = 1,$$
+dato che (cambio di variabile $\log(x) = y\to+\infty$, $x = e^y$, e gerarchie)
+$$\lim_{x\to+\infty}\frac{\log(\log(x))}x = \lim_{y\to+\infty}\frac{\log(y)}{e^y} = 0.$$
+$\Rightarrow$ la **radice asintotica fallisce**.
+- $\displaystyle\lim_{n\to+\infty}\frac{a_{n+1}}{a_n} = \lim_{n\to+\infty}\left(\frac{\log(n+1)}{\log(n)}\right)^\beta\cdot\left(\frac n{n+1}\right)^\alpha = 1^\beta\cdot1^\alpha = 1$ $\Rightarrow$ il **rapporto asintotico fallisce**.
+
+Osservo che $a_n>0$ $\forall n\ge2$ e devo dimostrare che $a_{n+1}\le a_n$ definitivamente. Per dimostrarlo rigorosamente serve lo studio di funzione di $f(x) = \dfrac{(\log(x))^\beta}{x^\alpha}$ per $\alpha,\beta\ge0$ con $x\ge2$.
+
+Osservo che:
+- $\beta = 0\Rightarrow a_n = \frac1{n^\alpha}$ ed è già nota;
+- $\alpha = 0\Rightarrow a_n = (\log(n))^\beta$, cioè $\sum_{n=2}^{+\infty}(\log(n))^\beta$. In questo caso:
+  - $\beta\ge0\Rightarrow\sum_{n=2}^{+\infty}(\log(n))^\beta\ge\sum_{n=2}^{+\infty}(\log(2))^\beta = +\infty$;
+  - $\beta<0\Rightarrow a_n = \dfrac1{(\log(n))^{-\beta}}$ con $-\beta>0$. Per gerarchia $\log(n)\le n^\varepsilon$ definitivamente $\forall\varepsilon\in(0,1)$, e quindi $\dfrac1{n^{-\beta\varepsilon}}\le\dfrac1{(\log(n))^{-\beta}}$, e quindi diverge per confronto con la serie armonica per $-\beta\varepsilon\le1$; quindi, visto che $\varepsilon\in(0,1)$ è arbitrario, $\forall\beta<0$ trovo che $\sum_{n=2}^{+\infty}(\log(n))^\beta = +\infty$.
+
+**Nel caso generale**, data la monotonia, per Cauchy $\sum_{n=2}^{+\infty}a_n$ ha la stessa natura di $\sum_{n=1}^{+\infty}2^na_{2^n}$, ma
+$$\sum_{n=1}^{+\infty}2^na_{2^n} = \sum_{n=1}^{+\infty}2^n\cdot\frac{(\log(2^n))^\beta}{(2^n)^\alpha} = \sum_{n=1}^{+\infty}(2^{1-\alpha})^n\,n^\beta(\log2)^\beta = (\log2)^\beta\,\boxed{\sum_{n=1}^{+\infty}(2^{1-\alpha})^n\cdot n^\beta}.$$
+Ma a $b_n = (2^{1-\alpha})^n\cdot n^\beta$ posso applicare la radice asintotica:
+$$\lim_{n\to+\infty}\sqrt[n]{b_n} = \lim_{n\to+\infty}2^{1-\alpha}\cdot(\sqrt[n]n)^\beta = 2^{1-\alpha}.$$
+Quindi la nuova serie converge se $\alpha>1$ $\forall\beta\in\mathbb R$ e diverge a $+\infty$ se $\alpha<1$ $\forall\beta\in\mathbb R$. Il criterio è inconcludente per $\alpha = 1$, cioè rimane da analizzare il caso
+$$\sum_{n=2}^{+\infty}\frac{(\log(n))^\beta}n\qquad\text{con }\beta\in\mathbb R.$$
+Si può applicare il criterio del confronto (seguire la traccia vista a ricevimento).` },
+
+{ t: "def", titolo: R`Serie a segno alterno (serie alternanti)`, testo: R`
+Una **serie con termini a segno alterno** (**serie alternante**) è della forma
+$$\sum_{n=1}^{+\infty}(-1)^n\cdot a_n$$
+con $(a_n)_{n\in\mathbb N}$ tale che $a_n\ge0$ definitivamente.` },
+
+{ t: "att", titolo: R`Alle serie alternanti non si applicano i criteri visti`, testo: R`
+Per le serie alternanti **NON** si possono applicare i criteri di convergenza visti finora, perché la successione $\big((-1)^na_n\big)_{n\in\mathbb N}$ cambia di segno infinite volte.
+
+Per questo caso abbiamo un criterio ad hoc!` },
+
+{ t: "teo", s: "omessa", titolo: R`Criterio di Leibniz`, testo: R`
+Sia $(a_n)_{n\in\mathbb N}$ tale che:
+- $a_n\ge0$ definitivamente;
+- $a_{n+1}\le a_n$ definitivamente (decrescente definitivamente);
+- $\displaystyle\lim_{n\to+\infty}a_n = 0$ (infinitesima).
+
+Allora la serie $\displaystyle\sum_{n=1}^{+\infty}(-1)^na_n$ è convergente.
+
+**Dim.** Omessa.
+
+Questo è l'**unico criterio** noto per le serie a termini alterni!` },
+
+{ t: "att", titolo: R`Per le serie alternanti resta la convergenza assoluta`, testo: R`
+La convergenza assoluta rimane:
+$$\sum_{n=1}^{+\infty}a_n\ \text{converge, con } a_n\ge0\ \text{definitivamente}\ \Longrightarrow\ \sum_{n=1}^{+\infty}(-1)^na_n\ \text{converge!}$$` },
+
+{ t: "es", titolo: R`$\sum\frac{(-1)^n}{n^\alpha}$ con $\alpha>0$`, testo: R`
+Sia $a_n = \dfrac{(-1)^n}{n^\alpha}$ $\forall n\in\mathbb N$, $\alpha>0$.
+- **Convergenza assoluta:** $|a_n| = \frac1{n^\alpha}\Rightarrow\sum_{n=1}^{+\infty}|a_n| = \sum_{n=1}^{+\infty}\frac1{n^\alpha}$ converge per $\alpha>1$ e diverge per $\alpha\le1$
+$$\Longrightarrow\ \sum_{n=1}^{+\infty}(-1)^n\frac1{n^\alpha}\ \text{converge per } \alpha\in(1,+\infty).$$
+- Poi rimane il caso $\alpha\in(0,1]$ (il caso $\alpha = 1$ è già fatto!), e posso applicare Leibniz: $\sum a_n = \sum(-1)^nb_n$ con $b_n = \frac1{n^\alpha}$ e
+  - $b_n\ge0$ $\forall n\in\mathbb N$;
+  - $\lim_{n\to+\infty}b_n = \lim_{n\to+\infty}\frac1{n^\alpha} = 0$;
+  - $b_{n+1}\le b_n\iff\frac1{(n+1)^\alpha}\le\frac1{n^\alpha}$ $\forall n\in\mathbb N$.
+
+  Le ipotesi del criterio sono soddisfatte e quindi converge anche per $\alpha\in(0,1]$.
+
+**Ricapitolando:**
+- $\alpha>1$: conv. assoluta $\Rightarrow$ conv. semplice;
+- $\alpha\in(0,1]$: NO conv. assoluta, ma solo conv. semplice.` },
+
+]});
+
+/* ---- 2026-11-17.js ---- */
+L({ data: "2026-11-17", n: 30, titolo: "Funzioni continue, algebra e composizione, caratterizzazione sequenziale, prolungamento per continuità", voci: [
+
+{ t: "def", titolo: R`Funzione continua`, testo: R`
+Sia $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$, $f:A\to\mathbb R$. Diciamo che $f$ è **continua in $x_0$** se:
+1. $x_0$ è un **punto isolato** di $A$; oppure
+2. $x_0$ è un **punto di accumulazione** per $A$ e vale
+$$\boxed{\ \exists\lim_{x\to x_0}f(x) = f(x_0).\ }$$
+
+Diciamo che $f$ è **continua su $A$**, e scriviamo $f\in\mathcal C^0(A)$, se $f$ è continua in **ogni** punto di $A$.
+
+Se $f$ **NON** è continua in $x_0\in A$ (e quindi $x_0\in\mathrm{acc}A$), allora $x_0$ è detto **punto di discontinuità** di $f$.
+
+**Attenzione!** (1) e (2) sono in alternativa!
+
+**Notazione:** dato $\emptyset\neq A\subseteq\mathbb R$, poniamo
+$$\mathcal C^0(A) = \lbrace f:A\to\mathbb R:\ f\text{ è continua su }A\rbrace\quad\text{(insieme delle funzioni continue su } A).$$` },
+
+{ t: "es", titolo: R`Funzioni continue elementari`, testo: R`
+- $f(x) = c\in\mathbb R$ $\forall x\in\mathbb R$ è continua su $\mathbb R$;
+- $f(x) = a_0+a_1x+a_2x^2+\dots+a_nx^n = P(x)$ $\forall x\in\mathbb R$, polinomio di grado $n\in\mathbb N_0$, è continua su $\mathbb R$;
+- $f(x) = \dfrac{P(x)}{Q(x)}$, $P$ e $Q$ polinomi, è continua su $A = \lbrace x\in\mathbb R: Q(x)\neq0\rbrace$;
+- $f(x) = a^x$ è continua su $\mathbb R$;
+- $f(x) = \log_a(x)$ è continua su $(0,+\infty)$;
+- $\sin$, $\cos$, $\tan$, ecc. sono continue sui domini.` },
+
+{ t: "es", titolo: R`Esempi "più selvaggi": punti isolati`, testo: R`
+- $f:\lbrace1\rbrace\to\mathbb R$, $f(x) = 5$ $\forall x\in\lbrace1\rbrace$: $f$ è continua perché vale (1): $1$ è punto **isolato** di $A$.
+- $f:A\to\mathbb R$, $A = [0,1]\cup\lbrace2\rbrace$, $f(x) = x$ $\forall x\in A$: è continua su $[0,1]$ (limite) e in $2$, che è punto **isolato** per $A$.` },
+
+{ t: "es", titolo: R`$\frac1x$ e la sua modifica con $g(0) = 18$`, testo: R`
+- $f(x) = \frac1x$ $\forall x\in\mathbb R\setminus\lbrace0\rbrace\Rightarrow f\in\mathcal C^0(\mathbb R\setminus\lbrace0\rbrace)$, infatti $\lim_{x\to x_0}\frac1x = \frac1{x_0}$ $\forall x_0\neq0$.
+- $g(x) = \begin{cases}1/x & x\neq0\\ 18 & x = 0\end{cases}$, $g:\mathbb R\to\mathbb R$, $\mathrm{dom}(g) = \mathbb R$.
+
+  Affermo che $g\in\mathcal C^0(\mathbb R\setminus\lbrace0\rbrace)$. Infatti per $x_0\neq0$ vale il caso di prima:
+$$\lim_{x\to x_0}g(x) = \lim_{x\to x_0}\frac1x = \frac1{x_0} = g(x_0)\qquad\forall x_0\neq0.$$
+  Se $x_0 = 0$, allora $0\in\mathrm{acc}\,\mathbb R$ e
+$$\lim_{x\to0^\pm}g(x) = \lim_{x\to0^\pm}\frac1x = \pm\infty\ \Longrightarrow\ \nexists\lim_{x\to0}g(x),$$
+  quindi $0$ è un punto di discontinuità di $g$.` },
+
+{ t: "es", titolo: R`Funzione di Dirichlet: discontinua ovunque`, testo: R`
+$f_D:\mathbb R\to\lbrace0,1\rbrace$ tale che
+$$f_D(x) = \begin{cases}1 & x\in\mathbb R\setminus\mathbb Q\\ 0 & x\in\mathbb Q\end{cases}\qquad\forall x\in\mathbb R.$$
+Affermo che $f_D$ è discontinua in **OGNI** $x_0\in\mathbb R$. Infatti:
+- $x_0\in\mathbb R\setminus\mathbb Q\Rightarrow\exists(a_n)_{n\in\mathbb N}$ tale che $a_n\to x_0$ e $a_n\in\mathbb Q$ $\forall n\in\mathbb N$ (densità di $\mathbb Q$ in $\mathbb R$)
+$$\Longrightarrow\ \lim_{n\to+\infty}f_D(a_n) = \lim_{n\to+\infty}0 = 0\neq1 = f(x_0)$$
+$\Rightarrow\nexists\lim_{x\to x_0}f_D(x) = f(x_0)$ e $x_0\in\mathbb R\setminus\mathbb Q$ è punto di discontinuità.
+- $x_0\in\mathbb Q\Rightarrow a_n = x_0+\frac{\sqrt2}n\in\mathbb R\setminus\mathbb Q$ $\forall n\in\mathbb N$ e $a_n\to x_0$, ma
+$$\lim_{n\to+\infty}f_D(a_n) = \lim_{n\to+\infty}1 = 1\neq0 = f(x_0)$$
+$\Rightarrow\nexists\lim_{x\to x_0}f_D(x) = f(x_0)$ e $x_0\in\mathbb Q$ è punto di discontinuità.
+
+(Si usa la caratterizzazione sequenziale del limite.)` },
+
+{ t: "prop", s: "dim", diff: 1, titolo: R`Caratterizzazione $\varepsilon$-$\delta$ della continuità`, testo: R`
+Sia $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$ di accumulazione per $A$ e $f:A\to\mathbb R$. Le seguenti affermazioni sono equivalenti:
+1. $f$ è continua in $x_0$;
+2. $\forall\varepsilon>0$ $\exists\delta>0$ tale che
+$$f(x)\in\big(f(x_0)-\varepsilon,\ f(x_0)+\varepsilon\big)\qquad\forall x\in(x_0-\delta,x_0+\delta)\cap A.$$
+
+(Caratterizzazione $\varepsilon$-$\delta$ del limite, di Weierstrass.)`, dim: R`
+La sappiamo già per definizione di funzione continua e del limite $\lim_{x\to x_0}f(x) = f(x_0)$. (In $x = x_0$ la condizione $|f(x)-f(x_0)|<\varepsilon$ è ovvia, quindi non serve togliere $x_0$.) $\blacksquare$` },
+
+{ t: "teo", s: "dim", diff: 1, titolo: R`Algebra delle funzioni continue`, testo: R`
+Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$, $f,g:A\to\mathbb R$. Se $f$ e $g$ sono continue in $x_0$, allora:
+- **(S)** $af+bg:A\to\mathbb R$ è continua in $x_0$ $\forall a,b\in\mathbb R$;
+- **(P)** $f\cdot g:A\to\mathbb R$ è continua in $x_0$;
+- **(Q)** $\dfrac fg:A\cap\lbrace g\neq0\rbrace\to\mathbb R$ è continua in $x_0$ se $g(x_0)\neq0$.`, dim: R`
+Se $x_0$ è punto isolato allora non c'è nulla da dimostrare. Se $x_0\in\mathrm{acc}A$, allora segue dall'algebra dei limiti (finiti) e dalla definizione di funzione continua. $\blacksquare$` },
+
+{ t: "teo", s: "dim", diff: 1, titolo: R`Locale limitatezza delle funzioni continue`, testo: R`
+Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$, $f:A\to\mathbb R$. Se $f$ è continua in $x_0$ allora è definitivamente limitata per $x\to x_0$.`, dim: R`
+Se $x_0$ è isolato, allora non ci sono punti "vicini" a $x_0$ e quindi non ho nulla da verificare! Se $x_0\in\mathrm{acc}A$, allora $\exists\lim_{x\to x_0}f(x) = f(x_0)\in\mathbb R$ e quindi segue dalla limitatezza delle funzioni che hanno limite finito (in $\mathbb R$). $\blacksquare$` },
+
+{ t: "teo", s: "dim", diff: 1, titolo: R`Permanenza del segno (funzioni continue)`, testo: R`
+Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$, $f:A\to\mathbb R$. Se $f$ è continua in $x_0$ e $f(x_0)>0$, allora $f(x)>0$ definitivamente per $x\to x_0$.`, dim: R`
+Se $x_0$ è isolato allora non c'è nulla da dimostrare. Se $x_0\in\mathrm{acc}A$, allora segue dalla permanenza del segno nei limiti. $\blacksquare$` },
+
+{ t: "teo", s: "dim", diff: 1, titolo: R`Continuità della composizione`, testo: R`
+Se $f,g$ sono due funzioni tali che
+$$g\circ f:A\to\mathbb R,\qquad\emptyset\neq A\subseteq\mathbb R,$$
+è ben definita e valgono:
+1. $f$ è continua in $x_0\in\mathrm{dom}(f)\cap A$;
+2. $g$ è continua in $f(x_0)\in\mathrm{dom}(g)$;
+
+allora $g\circ f$ è continua in $x_0\in A$.`, dim: R`
+Applicare la definizione di continuità e il teorema di cambio di variabile nei limiti (con $y = f(x)$, $y_0 = f(x_0)$; vale l'opzione (3b) perché $g$ è continua in $y_0$):
+$$\lim_{x\to x_0}(g\circ f)(x) = \lim_{x\to x_0}g(f(x))\overset{\text{CDV}}= \lim_{y\to f(x_0)}g(y) = g(f(x_0)) = (g\circ f)(x_0). \ \blacksquare$$` },
+
+{ t: "cor", s: "dim", diff: 1, titolo: R`Se $f$ è continua, anche $|f|$ lo è`, testo: R`
+Se $f:A\to\mathbb R$ è continua in $x_0\in A$, allora anche $|f|:A\to\mathbb R$ è continua in $x_0$.
+
+**Attenzione!** NON è vero il viceversa:
+$$f\text{ continua in } x_0\ \Longrightarrow\ |f|\text{ continua in }x_0,\qquad\text{ma}\ \Longleftarrow\text{ è falso.}$$
+Infatti $f(x) = \begin{cases}1 & x\ge0\\ -1 & x<0\end{cases}$ è discontinua in $x_0 = 0$, ma $|f(x)| = 1$ $\forall x\in\mathbb R$ è continua in $x_0 = 0$.`, dim: R`
+Basta prendere $g(y) = |y|$ $\forall y\in\mathbb R$, che è continua su tutto $\mathbb R$, nel teorema precedente. $\blacksquare$` },
+
+{ t: "teo", s: "dim", diff: 1, titolo: R`Caratterizzazione sequenziale della continuità`, testo: R`
+("Ponte" tra continuità e successioni.) Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in A$ e $f:A\to\mathbb R$. Le seguenti affermazioni sono equivalenti:
+1. $f$ è continua in $x_0$;
+2. per **ogni** successione $(a_n)_{n\in\mathbb N}$ (in $A$) tale che $\lim_{n\to+\infty}a_n = x_0$ vale $\lim_{n\to+\infty}f(a_n) = f(x_0)$.`, dim: R`
+Applicare la definizione di continuità e il teorema di caratterizzazione sequenziale del limite. $\blacksquare$` },
+
+{ t: "es", titolo: R`Prolungamento per continuità: due esempi`, testo: R`
+- $f(x) = \begin{cases}1 & x\neq0\\ 18 & x = 0\end{cases}$ $\forall x\in\mathbb R$ è discontinua in $x_0 = 0$ perché
+$$\lim_{x\to0}f(x) = \lim_{x\to0}1 = 1\neq18 = f(0).$$
+Ma è chiaro che la definizione "naturale" dovrebbe essere $f(0) = 1$.
+- $f(x) = \begin{cases}e^{-\frac1x} & x>0\\ 0 & x<0\end{cases}$ $\forall x\in\mathbb R\setminus\lbrace0\rbrace$. Osservo che $f\in\mathcal C^0(\mathbb R\setminus\lbrace0\rbrace)$ e il valore "naturale" da porre in $x_0 = 0$ è $f(0) = 0$ (infatti $e^{-1/x}\to0$ per $x\to0^+$).` },
+
+{ t: "def", titolo: R`Prolungamento per continuità`, testo: R`
+Siano $\emptyset\neq A\subseteq\mathbb R$, $x_0\in\mathrm{acc}A$, $f:A\to\mathbb R$. Se
+$$\exists\lim_{x\to x_0}f(x) = \ell\in\mathbb R,$$
+allora chiamiamo **prolungamento di $f$ per continuità in $x_0$** la funzione $\tilde f:A\cup\lbrace x_0\rbrace\to\mathbb R$ definita ponendo
+$$\boxed{\ \tilde f(x) = \begin{cases}f(x) & \forall x\in A\setminus\lbrace x_0\rbrace\\ \ell & x = x_0.\end{cases}\ }$$
+
+**Oss.** Per definizione, $\tilde f$ è continua in $x_0$:
+$$\lim_{x\to x_0}\tilde f(x) = \lim_{x\to x_0}f(x) = \ell = \tilde f(x_0).$$` },
+
+]});
+
 /* ---- esami/domande.js ---- */
 /* Domande di teoria chieste agli appelli (fonte: esami24-25.pdf ed esami25-26.pdf).
  *
