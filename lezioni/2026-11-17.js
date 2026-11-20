@@ -114,4 +114,19 @@ $$\boxed{\ \tilde f(x) = \begin{cases}f(x) & \forall x\in A\setminus\lbrace x_0\
 **Oss.** Per definizione, $\tilde f$ è continua in $x_0$:
 $$\lim_{x\to x_0}\tilde f(x) = \lim_{x\to x_0}f(x) = \ell = \tilde f(x_0).$$` },
 
+{ t: "oss", titolo: R`Prolungamento anche in punti fuori da $A$ e a $\pm\infty$`, testo: R`
+(Lezione del 19/11.) Nella definizione di $\tilde f$ è richiesto **soltanto** che $x_0\in\mathrm{acc}A$, quindi $x_0$ potrebbe non essere un elemento di $A$, e addirittura $x_0\in\lbrace\pm\infty\rbrace$.
+
+**PRASSI:** salvo diverso avviso, di solito estenderemo sempre in punti $x_0\in\mathbb R$.` },
+
+{ t: "es", titolo: R`Prolungamenti: $e^{-1/x}$, $\arctan$, $\frac{\sin x}x$, $\frac{\log(1+x)}x$`, testo: R`
+(Lezione del 19/11.)
+- $f(x) = \begin{cases}e^{-1/x} & x>0\\ 0 & x<0\end{cases}$ (con $\lim_{x\to0}f(x) = 0$), e quindi:
+  - $x_0 = 0\ \Rightarrow\ \tilde f(x) = \begin{cases}f(x) & x\neq0\\ 0 & x = 0;\end{cases}$
+  - $x_0 = +\infty\ \Rightarrow\ \tilde{\tilde f}(x) = \begin{cases}\tilde f(x) & x\in\mathbb R\\ 1 & x = +\infty,\end{cases}$ dato che $\lim_{x\to+\infty}\tilde f(x) = \lim_{x\to+\infty}e^{-1/x} = e^0 = 1$.
+- $f(x) = \arctan(x)$, $x\in\mathbb R$: la definizione ci permette di definire
+$$\tilde f(x) = \begin{cases}f(x) & x\in\mathbb R\\ \pm\frac\pi2 & x = \pm\infty.\end{cases}$$
+- $f(x) = \dfrac{\sin(x)}x$ $\forall x\neq0\ \Rightarrow\ \tilde f(x) = \begin{cases}f(x) & x\neq0\\ 1 & x = 0.\end{cases}$
+- $g(x) = \dfrac{\log(1+x)}x$ $\forall x\in\mathrm{dom}(g) = (-1,+\infty)\setminus\lbrace0\rbrace\ \Rightarrow\ \tilde g(x) = \begin{cases}g(x) & x\neq0\\ 1 & x = 0\end{cases}$ $\forall x\in(-1,+\infty)$.` },
+
 ]});
