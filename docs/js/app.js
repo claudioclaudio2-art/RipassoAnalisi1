@@ -153,7 +153,18 @@ let toastT;
 function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 2200); }
 
 /* ================= Pagina principale ================= */
-const filtri = { gruppi: new Set(), stati: new Set(), esame: new Set(), q: '' };
+const filtri = { gruppi: new Set(), stati: new Set(), esame: new Set(), q: '', dim: false };
+const FKEY = 'a1-filtri';
+try {
+  const f = JSON.parse(localStorage.getItem(FKEY) || 'null');
+  if (f) {
+    (f.gruppi || []).filter(g => GRUPPI.some(x => x.g === g)).forEach(g => filtri.gruppi.add(g));
+    (f.stati || []).forEach(s => filtri.stati.add(String(s)));
+    (f.esame || []).forEach(e => filtri.esame.add(e));
+    filtri.dim = !!f.dim;
+  }
+} catch (e) {}
+const salvaFiltri = () => { try { localStorage.setItem(FKEY, JSON.stringify({ gruppi: [...filtri.gruppi], stati: [...filtri.stati], esame: [...filtri.esame], dim: filtri.dim })); } catch (e) {} };
 const NODI = new Map();
 
 function etichettaStato(v) {
@@ -298,7 +309,7 @@ function aggiornaConteggi() {
   const bo = h('button', { class: 'chip', 'aria-pressed': filtri.stati.has('oggi'), style: '--chip-c:var(--focus)' }, `Da ripassare oggi<span class="n">${oggi}</span>`);
   bo.addEventListener('click', () => { toggleSet(filtri.stati, 'oggi'); applicaFiltri(); aggiornaConteggi(); });
   cs.appendChild(bo);
-  if (filtri.stati.size) applicaFiltri();
+  applicaFiltri();
 }
 const toggleSet = (s, x) => s.has(x) ? s.delete(x) : s.add(x);
 
@@ -306,12 +317,12 @@ function costruisciChipTipo() {
   const ct = $('#chips-tipo');
   for (const g of GRUPPI) {
     const n = VOCI.filter(v => v.g === g.g).length;
-    const b = h('button', { class: 'chip', 'aria-pressed': 'false', style: `--chip-c:${g.c}` }, `${g.lab}<span class="n">${n}</span>`);
+    const b = h('button', { class: 'chip', 'aria-pressed': filtri.gruppi.has(g.g), 'data-f': 'g:' + g.g, style: `--chip-c:${g.c}` }, `${g.lab}<span class="n">${n}</span>`);
     b.addEventListener('click', () => { toggleSet(filtri.gruppi, g.g); b.setAttribute('aria-pressed', filtri.gruppi.has(g.g)); applicaFiltri(); });
     ct.appendChild(b);
   }
   const nd = VOCI.filter(v => v.dim && v.s === 'dim' && v.g !== 'ex').length;
-  const bd = h('button', { class: 'chip', 'aria-pressed': 'false', style: '--chip-c:var(--c-dim)' }, `Con dimostrazione<span class="n">${nd}</span>`);
+  const bd = h('button', { class: 'chip', 'aria-pressed': filtri.dim, 'data-f': 'dim', style: '--chip-c:var(--c-dim)' }, `Con dimostrazione<span class="n">${nd}</span>`);
   bd.addEventListener('click', () => { filtri.dim = !filtri.dim; bd.setAttribute('aria-pressed', filtri.dim); applicaFiltri(); });
   ct.appendChild(bd);
 
@@ -322,12 +333,12 @@ function costruisciChipTipo() {
     ['ex', 'Utili per esercizi d’esame', 'Voci che servono per un esercizio di teoria (quesito iii)', v => v.esEx],
   ];
   for (const [k, lab, tit, f] of scelte) {
-    const b = h('button', { class: 'chip', 'aria-pressed': 'false', style: '--chip-c:var(--c-esame)', title: tit }, `${k === 'dir' ? ICO_ESAME : ''}${lab}<span class="n">${VOCI.filter(f).length}</span>`);
+    const b = h('button', { class: 'chip', 'aria-pressed': filtri.esame.has(k), 'data-f': 'e:' + k, style: '--chip-c:var(--c-esame)', title: tit }, `${k === 'dir' ? ICO_ESAME : ''}${lab}<span class="n">${VOCI.filter(f).length}</span>`);
     b.addEventListener('click', () => { toggleSet(filtri.esame, k); b.setAttribute('aria-pressed', filtri.esame.has(k)); applicaFiltri(); });
     ce.appendChild(b);
   }
   const bl = h('button', { class: 'chip chip-link', type: 'button' }, 'Elenco di tutte le domande →');
-  bl.addEventListener('click', () => { const p = $('#esami-panel'); p.open = true; p.scrollIntoView({ block: 'start' }); });
+  bl.addEventListener('click', () => { chiudiFiltri(); const p = $('#esami-panel'); p.open = true; p.scrollIntoView({ block: 'start' }); });
   ce.appendChild(bl);
 }
 
@@ -389,7 +400,54 @@ function applicaFiltri() {
   const attivi = filtri.gruppi.size || filtri.stati.size || filtri.esame.size || filtri.q || filtri.dim;
   $('#n-risultati').textContent = attivi ? `${n} ${n === 1 ? 'voce' : 'voci'}` : `${VOCI.length} voci`;
   $('#vuoto').hidden = n > 0;
+  salvaFiltri();
+  mostraFiltriAttivi();
 }
+
+/* Contatore sul pulsante in alto + riepilogo dei filtri attivi sopra l'elenco */
+function etichetteFiltri() {
+  const out = [];
+  GRUPPI.forEach(g => { if (filtri.gruppi.has(g.g)) out.push(['g:' + g.g, g.lab]); });
+  if (filtri.dim) out.push(['dim', 'Con dimostrazione']);
+  K.forEach(x => { if (filtri.stati.has(String(x.k))) out.push(['s:' + x.k, x.lab]); });
+  if (filtri.stati.has('oggi')) out.push(['s:oggi', 'Da ripassare oggi']);
+  if (filtri.esame.has('dir')) out.push(['e:dir', 'Chieste all’esame']);
+  if (filtri.esame.has('ex')) out.push(['e:ex', 'Utili per esercizi d’esame']);
+  return out;
+}
+function mostraFiltriAttivi() {
+  const et = etichetteFiltri();
+  const b = $('#n-filtri');
+  b.hidden = !et.length; b.textContent = et.length;
+  $('#btn-filtri').classList.toggle('attivo', et.length > 0);
+  const box = $('#filtri-attivi');
+  box.hidden = !et.length;
+  if (!et.length) { box.innerHTML = ''; return; }
+  box.innerHTML = '<span class="fa-lab">Filtri:</span>' +
+    et.map(([k, lab]) => `<button class="fa-chip" type="button" data-k="${k}" title="Togli questo filtro">${lab}<svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></button>`).join('') +
+    '<button class="fa-azione" type="button" data-azione="modifica">Modifica</button><button class="fa-azione" type="button" data-azione="azzera">Azzera</button>';
+}
+function togliFiltro(k) {
+  const [tipo, val] = k.split(':');
+  if (tipo === 'g') filtri.gruppi.delete(val);
+  else if (tipo === 'dim') filtri.dim = false;
+  else if (tipo === 's') filtri.stati.delete(val);
+  else if (tipo === 'e') filtri.esame.delete(val);
+}
+function azzeraFiltri() {
+  filtri.gruppi.clear(); filtri.stati.clear(); filtri.esame.clear(); filtri.dim = false;
+  sincronizzaChip();
+}
+// riallinea i chip fissi (tipo, esami); quelli di stato vengono ricostruiti da aggiornaConteggi
+function sincronizzaChip() {
+  document.querySelectorAll('#chips-tipo .chip[data-f], #chips-esame .chip[data-f]').forEach(c => {
+    const [tipo, val] = c.dataset.f.split(':');
+    c.setAttribute('aria-pressed', tipo === 'dim' ? filtri.dim : tipo === 'g' ? filtri.gruppi.has(val) : filtri.esame.has(val));
+  });
+  aggiornaConteggi();
+}
+function apriFiltri() { $('#filtri-pop').hidden = false; $('#btn-filtri').setAttribute('aria-expanded', 'true'); }
+function chiudiFiltri() { $('#filtri-pop').hidden = true; $('#btn-filtri').setAttribute('aria-expanded', 'false'); }
 
 /* ================= Ripasso ================= */
 const R = { opz: null, carte: [], i: 0, risposte: new Map(), prima: new Map(), mostrata: false };
@@ -647,6 +705,20 @@ function init() {
   $('#btn-menu').onclick = apriMenu;
   $('#btn-chiudi-menu').onclick = chiudiMenu;
   $('#scrim').onclick = chiudiMenu;
+  $('#btn-filtri').onclick = e => { e.stopPropagation(); $('#filtri-pop').hidden ? apriFiltri() : chiudiFiltri(); };
+  $('#btn-chiudi-filtri').onclick = chiudiFiltri;
+  $('#btn-azzera-filtri').onclick = azzeraFiltri;
+  document.addEventListener('click', e => {
+    // i chip di stato vengono ricostruiti al clic: un target staccato dal DOM era dentro il pannello
+    if (!$('#filtri-pop').hidden && e.target.isConnected && !e.target.closest('#filtri-pop, #btn-filtri')) chiudiFiltri();
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#filtri-pop').hidden) { chiudiFiltri(); $('#btn-filtri').focus(); } });
+  $('#filtri-attivi').addEventListener('click', e => {
+    const c = e.target.closest('.fa-chip'), a = e.target.closest('.fa-azione');
+    if (c) { togliFiltro(c.dataset.k); sincronizzaChip(); }
+    else if (a && a.dataset.azione === 'azzera') azzeraFiltri();
+    else if (a) { e.stopPropagation(); apriFiltri(); }
+  });
   $('#btn-cerca').onclick = () => { $('.topbar').classList.toggle('cerca'); if ($('.topbar').classList.contains('cerca')) $('#q').focus(); };
   $('#btn-tema').onclick = () => {
     const scuro = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;

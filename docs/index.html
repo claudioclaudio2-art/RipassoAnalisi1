@@ -34,12 +34,39 @@
   <button class="btn btn-primary" id="btn-ripasso">
     <svg viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg><span>Inizia ripasso</span>
   </button>
+  <button class="icon-btn" id="btn-filtri" aria-label="Filtri: cosa vedere" aria-expanded="false" aria-controls="filtri-pop" title="Cosa vedere">
+    <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+    <span class="badge-n" id="n-filtri" hidden></span>
+  </button>
   <button class="icon-btn" id="btn-tema" aria-label="Cambia tema">
     <svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></svg>
   </button>
   <button class="icon-btn" id="btn-impostazioni" aria-label="Backup progressi">
     <svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 20h14"/></svg>
   </button>
+
+  <section class="filtri-pop" id="filtri-pop" aria-label="Filtri" hidden>
+    <div class="fp-head">
+      <h3>Cosa vedere</h3>
+      <button class="btn btn-ghost" id="btn-azzera-filtri" type="button">Azzera</button>
+      <button class="icon-btn" id="btn-chiudi-filtri" type="button" aria-label="Chiudi filtri">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Tipo</span>
+      <div class="chips" id="chips-tipo"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Come la so</span>
+      <div class="chips" id="chips-stato"></div>
+    </div>
+    <div class="filter-row" id="riga-esami">
+      <span class="filter-label">Esami</span>
+      <div class="chips" id="chips-esame"></div>
+    </div>
+    <p class="fp-nota">Nessuna scelta = mostra tutto. Le scelte restano salvate in questo browser.</p>
+  </section>
 </header>
 
 <div class="layout">
@@ -57,19 +84,8 @@
   <main id="main">
     <section class="panel" id="riepilogo"></section>
 
-    <section class="filters" aria-label="Filtri">
-      <div class="filter-row">
-        <span class="filter-label">Tipo</span>
-        <div class="chips" id="chips-tipo"></div>
-      </div>
-      <div class="filter-row">
-        <span class="filter-label">Come la so</span>
-        <div class="chips" id="chips-stato"></div>
-      </div>
-      <div class="filter-row" id="riga-esami">
-        <span class="filter-label">Esami</span>
-        <div class="chips" id="chips-esame"></div>
-      </div>
+    <section class="filters" aria-label="Azioni">
+      <div class="filtri-attivi" id="filtri-attivi" hidden></div>
       <div class="filter-row filter-actions">
         <button class="btn btn-ghost" id="btn-apri">Apri tutto</button>
         <button class="btn btn-ghost" id="btn-chiudi">Chiudi tutto</button>
