@@ -2802,11 +2802,11 @@ domande: [
 { tipo: "def", q: R`Definizione di funzione continua in un punto`,
   chiesta: ["2025-01-20 B i", "2025-01-20 D i", "2025-06-30 B i", "2025-09-08 B i", "2025-09-08 D i",
             "2026-01-19 B i", "2026-01-19 D i", "2026-06-29 D i", "2026-09-07 A i", "2026-09-07 C i"],
-  voci: [], nota: "Non ancora fatta a lezione." },
+  voci: [["2026-11-17", "Funzione continua"]] },
 
 { tipo: "def", q: R`Definizione di funzione derivabile in un punto`,
   chiesta: ["2025-01-20 C i", "2025-06-30 C i", "2025-09-08 C i", "2026-01-19 C i", "2026-06-29 C i", "2026-09-07 B i"],
-  voci: [], nota: "Non ancora fatta a lezione." },
+  voci: [["2026-11-23", "Derivata (prima)"]] },
 
 { tipo: "def", q: R`Definizione di funzione primitiva`,
   chiesta: ["2025-02-10 A i", "2025-06-30 A i", "2026-06-29 B i", "2026-09-07 D i"],
@@ -2847,7 +2847,7 @@ domande: [
 
 { tipo: "teo", q: R`Teorema di Weierstrass`,
   chiesta: ["2025-01-20 D ii", "2025-06-30 C ii", "2025-09-08 D ii", "2026-01-19 D ii", "2026-06-29 A ii", "2026-09-07 C ii"],
-  voci: [], nota: "Non ancora fatto a lezione." },
+  voci: [["2026-11-19", "Teorema di Weierstrass"]] },
 
 { tipo: "teo", q: R`Teorema di Lagrange`,
   chiesta: ["2025-01-20 C ii", "2025-06-30 B ii", "2025-09-08 C ii", "2026-01-19 C ii", "2026-06-29 B ii"],
@@ -2859,7 +2859,7 @@ domande: [
 
 { tipo: "teo", q: R`Teorema di Bolzano`,
   chiesta: ["2026-01-19 A ii", "2026-09-07 B ii"],
-  voci: [], nota: "Non ancora fatto a lezione." },
+  voci: [["2026-11-19", "Teorema di Bolzano (degli zeri)"]] },
 
 { tipo: "teo", q: R`Teorema Fondamentale del Calcolo Integrale`,
   chiesta: ["2025-02-10 A ii"],
@@ -2891,7 +2891,7 @@ domande: [
 
 { tipo: "teo", q: R`Criterio di condensazione di Cauchy`,
   chiesta: ["2026-02-09 C ii"],
-  voci: [], nota: "Non ancora fatto a lezione." },
+  voci: [["2026-11-16", "Criterio di condensazione di Cauchy"]] },
 
 /* ---------- Quesiti (iii): esercizi teorici ---------- */
 { tipo: "ex", q: R`Determinare l'insieme dei punti di accumulazione di $A = \lbrace 2\sin x : x\in\mathbb Q\rbrace$, giustificando la risposta (negli altri temi: $3\cos x$, $4\sin x$, $5\cos x$).`,
@@ -2908,7 +2908,7 @@ domande: [
 
 { tipo: "ex", q: R`Siano $a<b$ e $f,g\in C^0([a,b])$ con $f(a)<g(a)$ e $f(b)>g(b)$. Dimostrare che esiste $c\in(a,b)$ tale che $f(c)^4 = f(c)^2g(c)^2$ (varianti negli altri temi).`,
   chiesta: ["2025-01-20 A iii", "2025-01-20 B iii", "2025-01-20 C iii", "2025-01-20 D iii"],
-  voci: [], nota: "Serve il teorema di Bolzano: non ancora fatto a lezione." },
+  voci: [["2026-11-19", "Teorema di Bolzano (degli zeri)"]], nota: "Si applica Bolzano a una funzione costruita con $f$ e $g$." },
 
 { tipo: "ex", q: R`Sia $f\in C^0([0,1])$ derivabile in $(0,1)$ e $a\in\mathbb R$. Dimostrare che $f'(x) = a$ per ogni $x\in(0,1)$ se e solo se $f(x) = ax-a+f(1)$ per ogni $x\in[0,1]$ (varianti negli altri temi).`,
   chiesta: ["2025-02-10 A iii", "2025-02-10 B iii", "2025-02-10 C iii", "2025-02-10 D iii"],
@@ -2916,14 +2916,14 @@ domande: [
 
 { tipo: "ex", q: R`Sia $f:\mathbb R\to\mathbb R$ derivabile con $f(0) = 2$ e $f(1) = 0$. Dimostrare che esiste $a\in\mathbb R$ tale che $f(a)^2 = a^3$ (varianti negli altri temi).`,
   chiesta: ["2025-06-30 A iii", "2025-06-30 B iii", "2025-06-30 C iii", "2025-06-30 D iii"],
-  voci: [], nota: "Serve il teorema di Bolzano: non ancora fatto a lezione." },
+  voci: [["2026-11-24", "Derivabile ⇒ continua"], ["2026-11-19", "Teorema di Bolzano (degli zeri)"]], nota: "Derivabile ⇒ continua, poi Bolzano." },
 
 { tipo: "ex", q: R`Sia $f:\mathbb R\to\mathbb R$ derivabile con $\lim_{x\to-\infty}f(x) = -1$, $\lim_{x\to+\infty}f(x) = 1$ e $f'(x)>0$ per ogni $x$. Dimostrare che esiste un unico $a\in\mathbb R$ tale che $f(a) = 0$ (varianti negli altri temi).`,
   chiesta: ["2025-09-08 A iii", "2025-09-08 B iii", "2025-09-08 C iii", "2025-09-08 D iii"],
-  voci: [], nota: "Servono il teorema di Bolzano e il legame derivata–monotonia: non ancora fatti a lezione." },
+  voci: [["2026-11-24", "Derivabile ⇒ continua"], ["2026-11-19", "Teorema di Bolzano (degli zeri)"]], nota: "Bolzano è stato fatto; manca ancora il legame derivata–monotonia." },
 
 { tipo: "ex", q: R`Determinare quanti elementi ha l'insieme $A = \lbrace x\in[0,1] : (3e^x-12x)^3 = 0\rbrace$, giustificando la risposta (varianti negli altri temi).`,
   chiesta: ["2026-06-29 A iii", "2026-06-29 B iii", "2026-06-29 C iii", "2026-06-29 D iii"],
-  voci: [], nota: "Servono il teorema di Bolzano e lo studio della monotonia: non ancora fatti a lezione." },
+  voci: [["2026-11-19", "Teorema di Bolzano (degli zeri)"]], nota: "Bolzano è stato fatto; manca ancora lo studio della monotonia con la derivata." },
 
 ]};

@@ -358,6 +358,7 @@ function costruisciPannelloEsami() {
     html += `<h3>${lab}</h3><ol class="ep-lista">` + ds.map(d => {
       const link = d.links.length
         ? d.links.map(v => `<a href="#${v.id}" class="ep-voce">Lezione ${v.lez.n} · ${titoloHTML(v)}</a>`).join('')
+          + (d.nota ? `<span class="ep-manca">${md(d.nota).replace(/^<p>|<\/p>$/g, '')}</span>` : '')
         : `<span class="ep-manca">${esc(d.nota || 'Non ancora fatta a lezione.')}</span>`;
       return `<li class="${d.links.length ? '' : 'non-fatta'}"><span class="ep-n" title="Uscita in ${appelliTxt(d.appelli.length)} su ${ES.prove.length}">${d.appelli.length}</span>
         <div class="ep-dom"><div class="esq">${md(d.q).replace(/^<p>|<\/p>$/g, '')}</div><ul class="esocc">${occHTML(d)}</ul><div class="ep-links">${link}</div></div></li>`;
