@@ -142,4 +142,14 @@ $$y = \underbrace{f(0)}_{=0}+\underbrace{f'(0)}_{=0}(x-0) = 0\qquad(\text{asse }
 Notare che invece $g(x) = \begin{cases}x\sin\left(\frac1x\right) & \forall x\neq0\\ 0 & x = 0\end{cases}$ **NON** è derivabile in $x_0 = 0$:
 $$\lim_{x\to0}\frac{g(x)-g(0)}{x-0} = \lim_{x\to0}\frac{x\sin\left(\frac1x\right)}x = \lim_{x\to0}\sin\left(\frac1x\right)\quad\nexists.$$` },
 
+{ t: "es", titolo: R`$|x|$ non è derivabile in $0$`, testo: R`
+(Esempi, continua: lezione del 24/11.) Sia $h(x) = |x|$ $\forall x\in\mathbb R$. Sappiamo che $h\in\mathcal C^0(\mathbb R)$. In $x_0 = 0$ ho che
+$$\lim_{x\to0^+}\frac{h(x)-h(0)}{x-0} = \lim_{x\to0^+}\frac{|x|}x = \lim_{x\to0^+}\frac xx = 1,$$
+$$\lim_{x\to0^-}\frac{h(x)-h(0)}{x-0} = \lim_{x\to0^-}\frac{|x|}x = \lim_{x\to0^-}\frac{-x}x = -1,$$
+quindi $\nexists\lim_{x\to0}\frac{h(x)-h(0)}{x-0}$. Pertanto $h(x) = |x|$ **NON** è derivabile in $x_0 = 0$.
+
+Dall'esempio deduciamo che
+$$\boxed{\ \text{CONTINUA}\ \not\Longrightarrow\ \text{DERIVABILE}\ }$$
+ad esempio $f(x) = |x|$ $\forall x\in\mathbb R$ è continua in $x_0 = 0$ ma **NON** è derivabile in $x_0 = 0$. Cosa possiamo dire del viceversa? (Vedi il teorema "derivabile ⇒ continua" del 24/11.)` },
+
 ]});
