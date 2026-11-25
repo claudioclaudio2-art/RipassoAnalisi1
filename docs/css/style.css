@@ -248,8 +248,13 @@ mark{background:color-mix(in srgb,#ffd84d 55%,transparent);color:inherit;border-
 .voto:hover{background:color-mix(in srgb,var(--kc) 22%,var(--card))}
 .voto kbd{font:500 .72rem/1 var(--sans);color:var(--ink3)}
 .voto[data-k="0"]{--kc:var(--k-non)} .voto[data-k="1"]{--kc:var(--k-male)} .voto[data-k="2"]{--kc:var(--k-ok)}
-.mostra{width:100%;max-width:420px;justify-content:center}
-.salta-riga{flex:0 0 100%;display:flex;justify-content:center;margin-top:2px}
+.mostra{flex:1 1 0;min-width:0;max-width:420px;justify-content:center}
+.salta-riga{flex:0 0 100%;display:flex;justify-content:center;gap:6px;margin-top:2px}
+.indietro{display:inline-flex;align-items:center;gap:4px;padding-left:.9em}
+.indietro svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.indietro:disabled{opacity:.35;cursor:default}
+.voto.scelto{outline:2px solid var(--ink);outline-offset:2px}
+.carta .gia{font-weight:600;color:var(--ink2)}
 .salta{border:0;background:none;color:var(--ink3);font-size:.82rem;padding:4px 12px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
 .salta:hover{color:var(--ink);background:var(--bg2)}
 .salta kbd{font:500 .7rem/1 var(--sans);opacity:.7}
@@ -354,6 +359,7 @@ dialog::backdrop{background:rgba(10,10,15,.45)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 @media (hover:none){.voto kbd,.mostra kbd,.salta kbd{display:none}}
+@media (max-width:420px){.indietro{width:52px;height:52px;padding:0;justify-content:center;font-size:0;gap:0;flex:none}.indietro svg{width:22px;height:22px}}
 
 #txt-import{width:100%;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--ink);padding:8px 10px;font:.82rem/1.4 ui-monospace,monospace;resize:vertical}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--bg)}

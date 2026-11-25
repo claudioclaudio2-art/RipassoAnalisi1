@@ -569,14 +569,13 @@ function mostraCarta() {
     <article class="carta" style="--c:${col}">
       <div class="c-meta"><span class="tag" style="--c:${col};--cb:color-mix(in srgb,${col} 14%,var(--card))">${TIPI[v.t].lab}</span>
         ${chipDim(v)}${chipEsame(v)}<span>Lezione del ${fmtData(v.lez.data, true)}</span>
-        <span class="prima"><i class="dot ${K.find(x => x.k === k).cls}"></i> ${KLAB[k]}</span></div>
+        <span class="prima"><i class="dot ${K.find(x => x.k === k).cls}"></i> ${KLAB[k]}</span>${R.risposte.has(v.id) ? `<span class="gia">Ora: ${KLAB[R.risposte.get(v.id)]}</span>` : ''}</div>
       <h2>${titoloHTML(v)}</h2>
       <div class="consegna">${consegna(v)}</div>
       <div id="risp"></div>
     </article>
-    <div class="azioni" id="azioni"><button class="btn btn-primary btn-lg mostra" id="btn-mostra">Mostra risposta <kbd style="opacity:.6;font-size:.75em;margin-left:6px">Spazio</kbd></button>${SALTA}</div>`;
-  $('#btn-mostra').onclick = rivela;
-  $('#btn-salta').onclick = salta;
+    <div class="azioni" id="azioni"></div>`;
+  azioniDomanda();
   $('#rip-body').scrollIntoView({ block: 'start' });
   $('#ripasso').scrollTop = 0;
 }
@@ -589,12 +588,36 @@ function rivela() {
   if (v.dim) html += `<details class="dimbox" data-tipo="${v.g === 'ex' ? 'sol' : 'dim'}" ${R.opz.dim ? 'open' : ''}><summary>${CHEV}${etichettaDim(v)}</summary><div class="testo">${md(v.dim)}</div></details>`;
   html += boxEsami(v) + '</div>';
   $('#risp').innerHTML = html;
-  $('#azioni').innerHTML = K.slice(0, 3).map((x, i) => `<button class="voto" data-k="${x.k}">${x.lab}<kbd>${i + 1}</kbd></button>`).join('') + SALTA;
+  const gia = R.risposte.get(v.id);
+  $('#azioni').innerHTML = K.slice(0, 3).map((x, i) => `<button class="voto${gia === x.k ? ' scelto' : ''}" data-k="${x.k}">${x.lab}<kbd>${i + 1}</kbd></button>`).join('') +
+    `<div class="salta-riga"><button class="salta" id="btn-chiudi-risp" type="button" title="Nascondi la risposta e torna alla domanda">Chiudi risposta<kbd>Spazio</kbd></button>${BTN_SALTA}</div>`;
   $('#azioni').querySelectorAll('.voto').forEach(b => b.onclick = () => vota(+b.dataset.k));
+  $('#btn-chiudi-risp').onclick = chiudiRisposta;
   $('#btn-salta').onclick = salta;
 }
+// Pulsanti della carta prima di vedere la risposta: Torna indietro · Mostra risposta · Salta
+function azioniDomanda() {
+  $('#azioni').innerHTML = `<button class="btn btn-lg indietro" id="btn-indietro" type="button" ${R.i ? '' : 'disabled'} title="Torna alla carta precedente"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>Indietro</button>` +
+    `<button class="btn btn-primary btn-lg mostra" id="btn-mostra">Mostra risposta <kbd style="opacity:.6;font-size:.75em;margin-left:6px">Spazio</kbd></button>${SALTA}`;
+  $('#btn-indietro').onclick = indietro;
+  $('#btn-mostra').onclick = rivela;
+  $('#btn-salta').onclick = salta;
+}
+function chiudiRisposta() {
+  if (!R.mostrata) return;
+  R.mostrata = false;
+  $('#risp').innerHTML = '';
+  azioniDomanda();
+}
+// Torna alla carta precedente; un eventuale voto già dato resta finché non la rivaluti
+function indietro() {
+  if (R.i <= 0 || !R.carte[R.i]) return;
+  R.i--;
+  mostraCarta();
+}
 // Salta: nessuna valutazione registrata, come se la domanda non fosse mai stata fatta
-const SALTA = `<div class="salta-riga"><button class="salta" id="btn-salta" type="button" title="Passa alla prossima senza segnare niente">Salta<kbd>S</kbd></button></div>`;
+const BTN_SALTA = `<button class="salta" id="btn-salta" type="button" title="Passa alla prossima senza segnare niente">Salta<kbd>S</kbd></button>`;
+const SALTA = `<div class="salta-riga">${BTN_SALTA}</div>`;
 function salta() {
   if (!R.carte[R.i]) return;
   R.i++;
@@ -675,7 +698,9 @@ async function esci() {
 
 document.addEventListener('keydown', e => {
   if ($('#ripasso').hidden || !R.carte.length || e.target.closest('input,textarea')) return;
-  if (e.key === ' ' || e.key === 'Enter') { if (!R.mostrata) { e.preventDefault(); rivela(); } }
+  if (!R.carte[R.i]) { if (e.key === 'Escape' && !$('#dlg-conferma').open) esci(); return; }
+  if (e.key === ' ' || e.key === 'Enter') { if (e.key === ' ' || !R.mostrata) { e.preventDefault(); R.mostrata ? chiudiRisposta() : rivela(); } }
+  else if (e.key === 'ArrowLeft' || e.key === 'Backspace') { if (!R.mostrata) { e.preventDefault(); indietro(); } }
   else if (['1', '2', '3'].includes(e.key)) vota(+e.key - 1);
   else if (e.key === 's' || e.key === 'S') salta();
   else if (e.key === 'Escape' && !$('#dlg-conferma').open) esci();
