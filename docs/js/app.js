@@ -574,8 +574,9 @@ function mostraCarta() {
       <div class="consegna">${consegna(v)}</div>
       <div id="risp"></div>
     </article>
-    <div class="azioni" id="azioni"><button class="btn btn-primary btn-lg mostra" id="btn-mostra">Mostra risposta <kbd style="opacity:.6;font-size:.75em;margin-left:6px">Spazio</kbd></button></div>`;
+    <div class="azioni" id="azioni"><button class="btn btn-primary btn-lg mostra" id="btn-mostra">Mostra risposta <kbd style="opacity:.6;font-size:.75em;margin-left:6px">Spazio</kbd></button>${SALTA}</div>`;
   $('#btn-mostra').onclick = rivela;
+  $('#btn-salta').onclick = salta;
   $('#rip-body').scrollIntoView({ block: 'start' });
   $('#ripasso').scrollTop = 0;
 }
@@ -588,8 +589,16 @@ function rivela() {
   if (v.dim) html += `<details class="dimbox" data-tipo="${v.g === 'ex' ? 'sol' : 'dim'}" ${R.opz.dim ? 'open' : ''}><summary>${CHEV}${etichettaDim(v)}</summary><div class="testo">${md(v.dim)}</div></details>`;
   html += boxEsami(v) + '</div>';
   $('#risp').innerHTML = html;
-  $('#azioni').innerHTML = K.slice(0, 3).map((x, i) => `<button class="voto" data-k="${x.k}">${x.lab}<kbd>${i + 1}</kbd></button>`).join('');
+  $('#azioni').innerHTML = K.slice(0, 3).map((x, i) => `<button class="voto" data-k="${x.k}">${x.lab}<kbd>${i + 1}</kbd></button>`).join('') + SALTA;
   $('#azioni').querySelectorAll('.voto').forEach(b => b.onclick = () => vota(+b.dataset.k));
+  $('#btn-salta').onclick = salta;
+}
+// Salta: nessuna valutazione registrata, come se la domanda non fosse mai stata fatta
+const SALTA = `<div class="salta-riga"><button class="salta" id="btn-salta" type="button" title="Passa alla prossima senza segnare niente">Salta<kbd>S</kbd></button></div>`;
+function salta() {
+  if (!R.carte[R.i]) return;
+  R.i++;
+  mostraCarta();
 }
 function vota(k) {
   if (!R.mostrata) return;
@@ -608,8 +617,9 @@ function fine() {
   $('#rip-bar').style.width = '100%';
   $('#rip-count').textContent = `${R.carte.length} / ${R.carte.length}`;
   const c = { 0: 0, 1: 0, 2: 0 }; R.risposte.forEach(k => c[k]++);
+  const valutate = R.carte.filter(v => R.risposte.has(v.id)), nSaltate = R.carte.length - valutate.length;
   const freccia = (a, b) => a === -1 ? '<span>nuova</span>' : b > a ? '<span class="su">▲ migliorata</span>' : b < a ? '<span class="giu">▼ peggiorata</span>' : '<span>= uguale</span>';
-  const righe = R.carte.map(v => {
+  const righe = valutate.map(v => {
     const a = R.prima.get(v.id), b = R.risposte.get(v.id);
     return `<li><i class="dot ${K.find(x => x.k === b).cls}"></i><span class="ct">${titoloHTML(v)}</span><span class="fr">${freccia(a, b)}</span></li>`;
   }).join('');
@@ -617,13 +627,13 @@ function fine() {
   const prossima = Math.min(...VOCI.filter(v => VALUTABILI.has(v.g) && P[v.id]).map(v => P[v.id].due).filter(d => d > Date.now()), Infinity);
   $('#rip-body').innerHTML = `<div class="fine">
     <h1>Ripasso finito</h1>
-    <p>Progressi aggiornati: ${R.carte.length} voci valutate. ${c[2] === R.carte.length ? 'Tutto perfetto, ottimo lavoro.' : 'Le voci che non sapevi ti torneranno davanti per prime al prossimo ripasso.'}</p>
+    <p>Progressi aggiornati: ${valutate.length} ${valutate.length === 1 ? 'voce valutata' : 'voci valutate'}${nSaltate ? ` (${nSaltate} ${nSaltate === 1 ? 'saltata' : 'saltate'}, non segnate)` : ''}. ${!valutate.length ? '' : c[2] === valutate.length ? 'Tutto perfetto, ottimo lavoro.' : 'Le voci che non sapevi ti torneranno davanti per prime al prossimo ripasso.'}</p>
     <div class="stat3">
       <div style="--kc:var(--k-ok)"><b>${c[2]}</b><span>Perfettamente</span></div>
       <div style="--kc:var(--k-male)"><b>${c[1]}</b><span>Male</span></div>
       <div style="--kc:var(--k-non)"><b>${c[0]}</b><span>Non la so</span></div>
     </div>
-    <div class="box"><h3>Rispetto a prima</h3><ul class="cambi">${righe}</ul></div>
+    ${valutate.length ? `<div class="box"><h3>Rispetto a prima</h3><ul class="cambi">${righe}</ul></div>` : ''}
     ${isFinite(prossima) ? `<p style="font-size:.88rem">Le voci che sai perfettamente torneranno da ripassare a partire da ${new Date(prossima).toLocaleDateString('it-IT', { weekday: 'long', day: 'numeric', month: 'long' })}.</p>` : ''}
     <div class="fine-actions">
       ${sbagliate.length ? `<button class="btn btn-primary" id="f-rifai">Ripeti le ${sbagliate.length} da migliorare</button>` : ''}
@@ -667,6 +677,7 @@ document.addEventListener('keydown', e => {
   if ($('#ripasso').hidden || !R.carte.length || e.target.closest('input,textarea')) return;
   if (e.key === ' ' || e.key === 'Enter') { if (!R.mostrata) { e.preventDefault(); rivela(); } }
   else if (['1', '2', '3'].includes(e.key)) vota(+e.key - 1);
+  else if (e.key === 's' || e.key === 'S') salta();
   else if (e.key === 'Escape' && !$('#dlg-conferma').open) esci();
 });
 
