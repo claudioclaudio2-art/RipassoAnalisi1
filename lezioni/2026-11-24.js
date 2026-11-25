@@ -35,7 +35,9 @@ Sia $f(x) = x^\alpha$ con $\alpha\in\mathbb R$, $x_0\in\mathbb R$, $x_0>0$. Si p
 $$\boxed{\ \frac d{dx}x^\alpha\,\Big|_{x=x_0} = \alpha\,x_0^{\alpha-1}.\ }$$`, dim: R`
 (Soluzione aggiunta, non negli appunti.) Per $h\to0$, raccogliendo $x_0^\alpha$:
 $$\frac{(x_0+h)^\alpha-x_0^\alpha}h = x_0^\alpha\cdot\frac{\left(1+\frac h{x_0}\right)^\alpha-1}h = x_0^{\alpha-1}\cdot\frac{\left(1+t\right)^\alpha-1}t\qquad\text{con } t = \frac h{x_0}\to0.$$
-Per il limite notevole $\lim_{t\to0}\frac{(1+t)^\alpha-1}t = \alpha$ (lezione del 29/10) si ottiene $f'(x_0) = \alpha\,x_0^{\alpha-1}$. $\blacksquare$` },
+Per $\alpha\neq0$ (per $\alpha = 0$ la funzione è costante):
+$$\frac{(1+t)^\alpha-1}t = \frac{e^{\alpha\log(1+t)}-1}{\alpha\log(1+t)}\cdot\alpha\,\frac{\log(1+t)}t\xrightarrow[t\to0]{}1\cdot\alpha\cdot1 = \alpha,$$
+usando i limiti notevoli di $e^y$ (con $y = \alpha\log(1+t)\to0$) e di $\log(1+t)$. Quindi $f'(x_0) = \alpha\,x_0^{\alpha-1}$. $\blacksquare$` },
 
 { t: "prop", s: "dim", diff: 1, titolo: R`Derivata di $e^x$ e di $a^x$`, testo: R`
 4. $\displaystyle\frac d{dx}e^x\,\Big|_{x=x_0} = e^{x_0}\qquad\forall x_0\in\mathbb R$;
